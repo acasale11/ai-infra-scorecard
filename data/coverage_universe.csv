@@ -18,24 +18,24 @@ COHR,Coherent,networking,optical_components,compute_pricing,public,no,2026-10-30
 LITE,Lumentum,networking,optical_components,compute_pricing,public,no,2026-10-30,Transceiver supply and pricing
 CRWV,CoreWeave,neocloud,gpu_cloud,compute_pricing;buyer_concentration;credit,public,no,2026-10-30,Core credit case study; GPU-backed debt and backlog concentration
 NBIS,Nebius Group,neocloud,gpu_cloud,compute_pricing;buyer_concentration;credit,public,no,2026-10-30,Discloses ARR and contracted capacity
-IREN,IREN Limited,neocloud,gpu_cloud_converted_miner,compute_pricing;buyer_concentration;credit,public,unknown,2026-10-30,Bitcoin miner converting to AI hosting
-APLD,Applied Digital,neocloud,datacenter_hosting,compute_pricing;buyer_concentration;credit,public,unknown,2026-10-30,Lease structures and financing terms
-CIFR,Cipher Mining,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,unknown,2026-10-30,Converted capacity with hyperscaler offtake
-WULF,TeraWulf,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,unknown,2026-10-30,Convertible issuance and offtake agreements
-PRIVATE_LAMBDA,Lambda Labs,neocloud,gpu_cloud,compute_pricing;credit,private,unknown,2026-10-30,Public rate card is a usable price series
-PRIVATE_CRUSOE,Crusoe Energy,neocloud,gpu_cloud,compute_pricing;credit,private,unknown,2026-10-30,Debt raises reported in press; no filings
+IREN,IREN Limited,neocloud,gpu_cloud_converted_miner,compute_pricing;buyer_concentration;credit,public,no,2026-10-30,Bitcoin miner converting to AI hosting
+APLD,Applied Digital,neocloud,datacenter_hosting,compute_pricing;buyer_concentration;credit,public,no,2026-10-30,Lease structures and financing terms
+CIFR,Cipher Mining,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,no,2026-10-30,Converted capacity with hyperscaler offtake
+WULF,TeraWulf,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,no,2026-10-30,Convertible issuance and offtake agreements
+PRIVATE_LAMBDA,Lambda Labs,neocloud,gpu_cloud,compute_pricing;credit,private,no,2026-10-30,Public rate card is a usable price series
+PRIVATE_CRUSOE,Crusoe Energy,neocloud,gpu_cloud,compute_pricing;credit,private,no,2026-10-30,Debt raises reported in press; no filings
 MSFT,Microsoft,hyperscaler,cloud_and_model_partner,buyer_concentration;compute_pricing,public,no,2026-10-30,Capex disclosure and OpenAI relationship; named in B016
 GOOGL,Alphabet,hyperscaler,cloud_and_frontier_lab,buyer_concentration;compute_pricing;elasticity,public,no,2026-10-30,TPU economics and Gemini token pricing; named in B015
 AMZN,Amazon,hyperscaler,cloud_and_custom_silicon,buyer_concentration;compute_pricing;elasticity,public,no,2026-10-30,Trainium economics and Anthropic relationship; named in B016
 META,Meta Platforms,hyperscaler,captive_compute_open_models,open_source_share;compute_pricing,public,yes,2026-10-30,Largest open-weight publisher among hyperscalers; named in B015
 ORCL,Oracle,hyperscaler,cloud_infrastructure,buyer_concentration;credit;compute_pricing,public,no,2026-10-30,RPO concentration and debt-funded buildout; source for B008
 VRT,Vertiv Holdings,power_and_facilities,thermal_power_management,compute_pricing,public,no,2026-10-30,Orders and backlog as a buildout proxy
-ETN,Eaton,power_and_facilities,electrical_equipment,compute_pricing,public,unknown,2026-10-30,Datacenter electrical content
-GEV,GE Vernova,power_and_facilities,generation_equipment,compute_pricing,public,unknown,2026-10-30,Turbine lead times gate new capacity
-CEG,Constellation Energy,power_and_facilities,power_purchase,compute_pricing;credit,public,unknown,2026-10-30,PPA pricing with datacenter counterparties
-DLR,Digital Realty Trust,power_and_facilities,datacenter_reit,credit;buyer_concentration,public,unknown,2026-10-30,Leasing economics and tenant credit
+ETN,Eaton,power_and_facilities,electrical_equipment,compute_pricing,public,no,2026-10-30,Datacenter electrical content
+GEV,GE Vernova,power_and_facilities,generation_equipment,compute_pricing,public,no,2026-10-30,Turbine lead times gate new capacity
+CEG,Constellation Energy,power_and_facilities,power_purchase,compute_pricing;credit,public,no,2026-10-30,PPA pricing with datacenter counterparties
+DLR,Digital Realty Trust,power_and_facilities,datacenter_reit,credit;buyer_concentration,public,no,2026-10-30,Leasing economics and tenant credit
 PRIVATE_OPENAI,OpenAI,model_layer,frontier_lab,elasticity;buyer_concentration,private,no,2026-10-30,Published API prices are the main elasticity input
 verify,Anthropic,model_layer,frontier_lab,elasticity;buyer_concentration,verify,no,2026-10-30,S-1 referenced on the Q3 call; listing status to verify
 verify,SpaceX (xAI),model_layer,frontier_lab_compute_buyer,buyer_concentration;compute_pricing,verify,yes,2026-10-30,From original coverage file; listing status to verify
-PRIVATE_MISTRAL,Mistral AI,model_layer,open_weight_lab,elasticity;open_source_share,private,unknown,2026-10-30,Open-weight release cadence
+PRIVATE_MISTRAL,Mistral AI,model_layer,open_weight_lab,elasticity;open_source_share,private,no,2026-10-30,Open-weight release cadence
 FIG,Figma,application,software_app_layer,elasticity,public,yes,2026-10-30,Lab disruption test case from original coverage file

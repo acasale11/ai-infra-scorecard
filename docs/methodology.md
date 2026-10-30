@@ -114,11 +114,24 @@ Columns: `ticker`, `company`, `layer`, `sub_segment`, `pillars`, `listed`,
 `listed` is `public`, `private`, or `verify` where listing status still needs
 checking. A `verify` ticker means the same.
 
-`in_atreides_top10_q3` carries over from the original coverage file and marks
-the names reported as Atreides top 10 positions as of Q3 2026. It takes three
-values. `yes` and `no` are both as recorded in that file. `unknown` means the
-company was not in that file at all, so its absence from the top 10 is likely
-but was never actually checked. Do not read `unknown` as `no`.
+`in_atreides_top10_q3` marks the names reported as Atreides top 10 positions
+as of Q3 2026. It takes two values, `yes` and `no`.
+
+The owner confirmed on 2026-10-30 that the top 10 list is complete, so every
+company not flagged `yes` is flagged `no`. An earlier version of this file
+used a third value, `unknown`, for the eleven companies that were absent from
+the original coverage file. That distinction is gone because the completeness
+of the list settles it.
+
+One caveat sits on top of this. The list holds ten positions and only nine are
+identified here. The tenth is recorded in the source as "United" and has not
+been matched to a company. It is not any of the eleven rows reclassified from
+`unknown` to `no`, none of which is named United, which is what makes that
+reclassification safe. Until "United" is identified, two things follow. The
+`yes` rows are nine, not ten, so any count taken off this column understates
+the top 10 by one. And if "United" turns out to be a company already in the
+coverage universe, its row is currently flagged `no` and will need correcting
+with a new commit.
 
 ## Claims ledger
 
