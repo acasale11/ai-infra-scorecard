@@ -127,6 +127,71 @@ Cost: this is a criterion rewritten after the claim was logged. It was legitimat
 here because nothing had resolved, but the same move made after a horizon
 passes would be indefensible, and the precedent needs watching.
 
+### The CSVs are canonical and the database is disposable
+
+`data/scorecard/*.csv` and the two files in `data/` are the record. SQLite at
+`data/research.db` is built from them by `scripts/build_db.py`, is gitignored,
+and is dropped and rebuilt on every run. Nothing is written back to the CSVs.
+No fact exists in the database that the CSVs do not already hold.
+
+The alternative, making SQLite primary and exporting CSVs, is the normal way
+to build this and would be better at everything except the one thing that
+matters here. A binary file does not diff. The whole claim of this repo is
+that a reader can see what changed and when, and a commit that says "database
+updated" cannot be audited by anyone, including its author a year later.
+
+Cost: every collector has to handle append-only text safely, duplicate
+protection is the collector's job rather than a unique index, and large
+series will eventually make the CSVs unwieldy. `elasticity.csv` took on 860
+rows from one run, so that day is not far off.
+
+### Scorecard files gained entity and entity_class
+
+CLAUDE.md names seven columns. The scorecard files now have nine, with
+`entity` and `entity_class` added, and all five share the header.
+
+The pillars are mostly per-entity series. A token price is the price of a
+particular model, a spread is a spread on a particular issuer. With seven
+columns the entity has to be encoded into the metric name, which makes the
+series unqueryable and breaks the rule that a metric name keeps one
+definition forever. The generic pair was chosen over a model-specific one so
+that all five files stay stackable into a single table.
+
+Cost: a documented deviation from CLAUDE.md, which should be reconciled.
+Two columns will sit empty on any market-wide metric.
+
+### Raw API responses are committed
+
+Each collector writes the unmodified response to
+`data/raw/<source>/<date>.json` before parsing, and those files are in git.
+The first one is 1.2 MB.
+
+Parsing is a judgment and can be wrong. A price on a specific past date
+cannot be re-collected, only re-derived, and only if the original response
+was kept.
+
+Cost: repo size grows by roughly 1.2 MB a month from this collector alone,
+which is fine for years and not forever.
+
+### Open or closed weights is decided by a rule, not by knowledge
+
+`entity_class` comes from two tests in order: a non-empty `hugging_face_id`
+means `open_weights`, then a short list of six closed-weight organisations
+means `closed_weights`, then everything else is `unclassified`. On the first
+run that left 80 of 430 models unclassified, about a fifth.
+
+Some of those 80 could be classified from memory. Cohere and ByteDance Seed
+are in the group. They were left alone on purpose. A tag applied from what
+the author happens to know is not reproducible by a reader, will not be
+applied consistently in twelve months, and quietly turns a measured series
+into an opinion. The rule is auditable and its failures are visible in the
+`unclassified` count.
+
+Cost: `open_weights` is a floor rather than a count, since a model published
+somewhere other than Hugging Face reads as unclassified. Any open-share
+figure taken off this column understates the real one, and the note needs to
+say so rather than quoting it as measured.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -138,3 +203,8 @@ edit here.
 - Whether OpenRouter data alone is a defensible basis for the
   `open_source_share` pillar given it misses direct API traffic, or whether a
   second source is needed before the first note.
+- Which of the 80 unclassified organisations can be moved onto the
+  closed-weight list with a checkable source rather than from memory.
+- Whether `elasticity.csv` should keep taking 860 rows a month, or whether
+  per-model prices belong in their own file with only aggregates on the
+  pillar series.

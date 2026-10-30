@@ -16,6 +16,8 @@ data/coverage_universe.csv  companies tracked across the stack
 data/scorecard/             one CSV per pillar, appended monthly
 docs/methodology.md         sources, definitions, scoring rules
 docs/decisions.md           dated log of judgment calls and what they cost
+data/raw/                   unmodified API responses, by source and date
+scripts/                    collectors and the SQLite build
 notes/                      monthly notes
 experiments/routing/        open model plus router vs frontier model alone
 ```
@@ -36,5 +38,8 @@ been collected earlier. Public sources only.
 Scaffolded 2026-10-30, then merged with the original ai-infra-scorecard
 history. The ledger holds the 16 claims from the Atreides Q3 2026 update call
 of 2026-10-29, all `pending`, each with a resolution criterion written before
-the outcome was known. Scorecard files are empty and waiting on the first
-collection run.
+the outcome was known.
+
+First collection run 2026-10-30: 860 price rows on `elasticity` from the
+OpenRouter models API, covering 430 models. The other four pillars are still
+empty.
