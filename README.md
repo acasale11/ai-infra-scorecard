@@ -15,6 +15,7 @@ data/claims_ledger.csv      dated, testable claims with status
 data/coverage_universe.csv  companies tracked across the stack
 data/scorecard/             one CSV per pillar, appended monthly
 docs/methodology.md         sources, definitions, scoring rules
+docs/decisions.md           dated log of judgment calls and what they cost
 notes/                      monthly notes
 experiments/routing/        open model plus router vs frontier model alone
 ```
