@@ -1,0 +1,30 @@
+company,ticker,layer,in_atreides_top10_q3,notes
+NVIDIA,NVDA,GPU / accelerator,yes,
+AMD,AMD,GPU / accelerator,no,
+Broadcom,AVGO,Custom silicon / networking,no,
+Marvell,MRVL,Custom silicon / networking,no,
+Cerebras,verify,Inference accelerator,yes,verify listing status
+ARM,ARM,CPU IP,no,
+Astera Labs,ALAB,Connectivity,yes,
+Credo,CRDO,Connectivity,no,
+Arista,ANET,Networking,no,
+Ciena,CIEN,Optical networking,yes,
+Coherent,COHR,Optical components,no,
+Lumentum,LITE,Optical components,no,
+SK Hynix,000660.KS,Memory (HBM),yes,
+Micron,MU,Memory (HBM),yes,
+Samsung Electronics,005930.KS,Memory (HBM),no,
+TSMC,TSM,Foundry / packaging,no,
+ASML,ASML,Semicap,no,
+Vertiv,VRT,Power / cooling,no,
+CoreWeave,CRWV,Neocloud,no,credit pillar focus
+Nebius,NBIS,Neocloud,no,credit pillar focus
+Oracle,ORCL,Cloud,no,
+Amazon,AMZN,Hyperscaler,no,
+Microsoft,MSFT,Hyperscaler,no,
+Alphabet,GOOGL,Hyperscaler / frontier lab,no,
+Meta,META,Frontier lab / open source,yes,
+SpaceX (xAI),verify,Frontier lab / compute buyer,yes,verify listing status
+Figma,FIG,Application layer,yes,lab disruption test case
+Anthropic,verify,Frontier lab,no,S-1 referenced on Q3 call
+OpenAI,private,Frontier lab,no,
