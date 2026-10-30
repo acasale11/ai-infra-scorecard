@@ -1,9 +1,9 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="980" height="772" viewBox="0 0 980 772" role="img" aria-label="Capability against output token price by weight class with price-performance frontiers, 2026-10-30">
-<rect width="980" height="772" fill="#fcfcfb"/>
+<svg xmlns="http://www.w3.org/2000/svg" width="980" height="846" viewBox="0 0 980 846" role="img" aria-label="Capability against blended token price at author list prices, 2026-10-30">
+<rect width="980" height="846" fill="#fcfcfb"/>
 <g font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif">
-<text x="78" y="42" font-size="21.5" font-weight="600" fill="#0b0b0b">Open weights win on price only below the mid tier</text>
-<text x="78" y="67" font-size="13.5" fill="#52514e">Each point is a model: measured capability against published output price. The lines trace the cheapest model of each kind</text>
-<text x="78" y="86" font-size="13.5" fill="#52514e">that clears a given capability floor. OpenRouter catalogue and Artificial Analysis index, 2026-10-30.</text>
+<text x="78" y="42" font-size="21.5" font-weight="600" fill="#0b0b0b">At list prices, the open discount is small and ends at the mid tier</text>
+<text x="78" y="67" font-size="13.5" fill="#52514e">Blended price per million tokens at 5 input tokens per output token, charged by each model&#8217;s own maker. Lines trace the</text>
+<text x="78" y="86" font-size="13.5" fill="#52514e">cheapest model of each kind clearing a capability floor. OpenRouter endpoints and Artificial Analysis index, 2026-10-30.</text>
 <circle cx="83" cy="104" r="5" fill="#2a78d6"/>
 <text x="94" y="108" font-size="12.5" fill="#52514e">Open weights</text>
 <circle cx="199" cy="104" r="5" fill="#eb6834"/>
@@ -11,135 +11,161 @@
 <circle cx="330" cy="104" r="5" fill="#1baf7a"/>
 <text x="341" y="108" font-size="12.5" fill="#52514e">Unclassified</text>
 <line x1="443" y1="104" x2="467" y2="104" stroke="#898781" stroke-width="2.5"/>
-<text x="474" y="108" font-size="12.5" fill="#52514e">Cheapest at or above a capability floor</text>
-<rect x="78.0" y="132" width="359.2" height="340" fill="#f1f0ea"/>
+<text x="474" y="108" font-size="12.5" fill="#52514e">Cheapest clearing a capability floor</text>
+<rect x="78.0" y="132" width="359.2" height="330" fill="#f1f0ea"/>
 <text x="257.6" y="122" font-size="11.5" font-weight="500" fill="#898781" text-anchor="middle">entry</text>
 <text x="580.8" y="122" font-size="11.5" font-weight="500" fill="#898781" text-anchor="middle">mid</text>
-<line x1="437.2" y1="132" x2="437.2" y2="472" stroke="#c3c2b7" stroke-width="1" stroke-dasharray="4 3"/>
-<rect x="724.5" y="132" width="215.5" height="340" fill="#f1f0ea"/>
+<line x1="437.2" y1="132" x2="437.2" y2="462" stroke="#c3c2b7" stroke-width="1" stroke-dasharray="4 3"/>
+<rect x="724.5" y="132" width="215.5" height="330" fill="#f1f0ea"/>
 <text x="832.2" y="122" font-size="11.5" font-weight="500" fill="#898781" text-anchor="middle">frontier</text>
-<line x1="724.5" y1="132" x2="724.5" y2="472" stroke="#c3c2b7" stroke-width="1" stroke-dasharray="4 3"/>
-<line x1="78" y1="472.0" x2="940" y2="472.0" stroke="#e1e0d9"/>
-<text x="68" y="476.0" font-size="11.5" fill="#898781" text-anchor="end">$0.10</text>
-<line x1="78" y1="437.9" x2="940" y2="437.9" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="417.9" x2="940" y2="417.9" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="403.8" x2="940" y2="403.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="392.8" x2="940" y2="392.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="383.8" x2="940" y2="383.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="376.2" x2="940" y2="376.2" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="369.6" x2="940" y2="369.6" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="363.9" x2="940" y2="363.9" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="358.7" x2="940" y2="358.7" stroke="#e1e0d9"/>
-<text x="68" y="362.7" font-size="11.5" fill="#898781" text-anchor="end">$1</text>
-<line x1="78" y1="324.5" x2="940" y2="324.5" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="304.6" x2="940" y2="304.6" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="290.4" x2="940" y2="290.4" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="279.5" x2="940" y2="279.5" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="270.5" x2="940" y2="270.5" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="262.9" x2="940" y2="262.9" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="256.3" x2="940" y2="256.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="250.5" x2="940" y2="250.5" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="245.3" x2="940" y2="245.3" stroke="#e1e0d9"/>
-<text x="68" y="249.3" font-size="11.5" fill="#898781" text-anchor="end">$10</text>
-<line x1="78" y1="211.2" x2="940" y2="211.2" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="191.3" x2="940" y2="191.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="177.1" x2="940" y2="177.1" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="166.1" x2="940" y2="166.1" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="157.1" x2="940" y2="157.1" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="149.6" x2="940" y2="149.6" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="143.0" x2="940" y2="143.0" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
-<line x1="78" y1="137.2" x2="940" y2="137.2" stroke="#e1e0d9" stroke-width="0.5" opacity="0.55"/>
+<line x1="724.5" y1="132" x2="724.5" y2="462" stroke="#c3c2b7" stroke-width="1" stroke-dasharray="4 3"/>
+<line x1="78" y1="462.0" x2="940" y2="462.0" stroke="#e1e0d9"/>
+<text x="68" y="466.0" font-size="11.5" fill="#898781" text-anchor="end">$0.01</text>
+<line x1="78" y1="437.2" x2="940" y2="437.2" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="422.6" x2="940" y2="422.6" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="412.3" x2="940" y2="412.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="404.3" x2="940" y2="404.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="397.8" x2="940" y2="397.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="392.3" x2="940" y2="392.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="387.5" x2="940" y2="387.5" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="383.3" x2="940" y2="383.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="379.5" x2="940" y2="379.5" stroke="#e1e0d9"/>
+<text x="68" y="383.5" font-size="11.5" fill="#898781" text-anchor="end">$0.10</text>
+<line x1="78" y1="354.7" x2="940" y2="354.7" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="340.1" x2="940" y2="340.1" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="329.8" x2="940" y2="329.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="321.8" x2="940" y2="321.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="315.3" x2="940" y2="315.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="309.8" x2="940" y2="309.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="305.0" x2="940" y2="305.0" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="300.8" x2="940" y2="300.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="297.0" x2="940" y2="297.0" stroke="#e1e0d9"/>
+<text x="68" y="301.0" font-size="11.5" fill="#898781" text-anchor="end">$1</text>
+<line x1="78" y1="272.2" x2="940" y2="272.2" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="257.6" x2="940" y2="257.6" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="247.3" x2="940" y2="247.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="239.3" x2="940" y2="239.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="232.8" x2="940" y2="232.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="227.3" x2="940" y2="227.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="222.5" x2="940" y2="222.5" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="218.3" x2="940" y2="218.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="214.5" x2="940" y2="214.5" stroke="#e1e0d9"/>
+<text x="68" y="218.5" font-size="11.5" fill="#898781" text-anchor="end">$10</text>
+<line x1="78" y1="189.7" x2="940" y2="189.7" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="175.1" x2="940" y2="175.1" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="164.8" x2="940" y2="164.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="156.8" x2="940" y2="156.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="150.3" x2="940" y2="150.3" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="144.8" x2="940" y2="144.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="140.0" x2="940" y2="140.0" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
+<line x1="78" y1="135.8" x2="940" y2="135.8" stroke="#e1e0d9" stroke-width="0.5" opacity="0.5"/>
 <line x1="78" y1="132.0" x2="940" y2="132.0" stroke="#e1e0d9"/>
 <text x="68" y="136.0" font-size="11.5" fill="#898781" text-anchor="end">$100</text>
-<text x="68" y="104" font-size="11.5" fill="#898781">USD per million output tokens, log scale</text>
-<line x1="78" y1="472" x2="940" y2="472" stroke="#c3c2b7" stroke-width="1.5"/>
-<line x1="78.0" y1="472" x2="78.0" y2="477" stroke="#c3c2b7"/>
-<text x="78.0" y="491" font-size="11.5" fill="#898781" text-anchor="middle">0</text>
-<line x1="221.7" y1="472" x2="221.7" y2="477" stroke="#c3c2b7"/>
-<text x="221.7" y="491" font-size="11.5" fill="#898781" text-anchor="middle">10</text>
-<line x1="365.3" y1="472" x2="365.3" y2="477" stroke="#c3c2b7"/>
-<text x="365.3" y="491" font-size="11.5" fill="#898781" text-anchor="middle">20</text>
-<line x1="509.0" y1="472" x2="509.0" y2="477" stroke="#c3c2b7"/>
-<text x="509.0" y="491" font-size="11.5" fill="#898781" text-anchor="middle">30</text>
-<line x1="652.7" y1="472" x2="652.7" y2="477" stroke="#c3c2b7"/>
-<text x="652.7" y="491" font-size="11.5" fill="#898781" text-anchor="middle">40</text>
-<line x1="796.3" y1="472" x2="796.3" y2="477" stroke="#c3c2b7"/>
-<text x="796.3" y="491" font-size="11.5" fill="#898781" text-anchor="middle">50</text>
-<line x1="940.0" y1="472" x2="940.0" y2="477" stroke="#c3c2b7"/>
-<text x="940.0" y="491" font-size="11.5" fill="#898781" text-anchor="middle">60</text>
-<text x="509.0" y="512" font-size="12.5" fill="#52514e" text-anchor="middle">Artificial Analysis intelligence index</text>
-<path d="M139.8 455.4 L157.0 455.4 L157.0 455.4 L167.1 455.4 L167.1 455.4 L168.5 455.4 L168.5 455.4 L246.1 455.4 L246.1 455.4 L247.5 455.4 L247.5 455.4 L257.6 455.4 L257.6 455.4 L263.3 455.4 L263.3 455.4 L273.4 455.4 L273.4 455.4 L328.0 455.4 L328.0 455.4 L346.7 455.4 L346.7 455.4 L366.8 455.4 L366.8 455.4 L409.9 455.4 L409.9 455.4 L451.5 455.4 L451.5 455.4 L461.6 455.4 L461.6 455.4 L477.4 455.4 L477.4 455.4 L483.1 455.4 L483.1 417.9 L487.4 417.9 L487.4 417.9 L493.2 417.9 L493.2 417.9 L507.6 417.9 L507.6 365.5 L516.2 365.5 L516.2 295.6 L533.4 295.6 L533.4 295.6" fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" opacity="0.85"/>
-<circle cx="533.4" cy="295.6" r="3.5" fill="#2a78d6"/>
-<text x="541.4" y="299.6" font-size="11.5" font-weight="600" fill="#2a78d6">no open model beyond 31.7</text>
-<path d="M139.8 392.8 L157.0 392.8 L157.0 392.8 L167.1 392.8 L167.1 392.8 L168.5 392.8 L168.5 392.8 L246.1 392.8 L246.1 392.8 L247.5 392.8 L247.5 392.8 L257.6 392.8 L257.6 392.8 L263.3 392.8 L263.3 392.8 L273.4 392.8 L273.4 392.8 L328.0 392.8 L328.0 392.8 L346.7 392.8 L346.7 392.8 L366.8 392.8 L366.8 392.8 L409.9 392.8 L409.9 392.8 L451.5 392.8 L451.5 392.8 L461.6 392.8 L461.6 392.8 L477.4 392.8 L477.4 392.8 L483.1 392.8 L483.1 392.8 L487.4 392.8 L487.4 392.8 L493.2 392.8 L493.2 392.8 L507.6 392.8 L507.6 392.8 L516.2 392.8 L516.2 392.8 L533.4 392.8 L533.4 392.8 L560.7 392.8 L560.7 392.8 L580.8 392.8 L580.8 392.8 L598.1 392.8 L598.1 392.8 L600.9 392.8 L600.9 287.4 L738.9 287.4 L738.9 279.5 L792.0 279.5 L792.0 279.5 L802.1 279.5 L802.1 279.5 L810.7 279.5 L810.7 279.5 L856.7 279.5 L856.7 245.3 L861.0 245.3 L861.0 245.3 L895.5 245.3 L895.5 211.2 L917.0 211.2 L917.0 211.2" fill="none" stroke="#eb6834" stroke-width="2.5" stroke-linejoin="round" opacity="0.85"/>
-<circle cx="917.0" cy="211.2" r="3.5" fill="#eb6834"/>
-<circle cx="792.0" cy="166.1" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="895.5" cy="166.1" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="917.0" cy="211.2" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="328.0" cy="225.4" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="856.7" cy="245.3" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="802.1" cy="245.3" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="738.9" cy="245.3" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="861.0" cy="245.3" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="560.7" cy="270.5" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="580.8" cy="270.5" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="810.7" cy="279.5" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="600.9" cy="287.4" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="516.2" cy="288.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="257.6" cy="289.8" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="533.4" cy="295.6" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="487.4" cy="309.8" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="246.1" cy="313.6" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="247.5" cy="315.6" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="451.5" cy="322.1" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="409.9" cy="325.0" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="366.8" cy="327.7" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="167.1" cy="338.7" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="168.5" cy="349.7" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="346.7" cy="349.7" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="263.3" cy="349.7" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="507.6" cy="365.5" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="139.8" cy="383.8" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="483.1" cy="383.8" r="5.5" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="598.1" cy="392.8" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="273.4" cy="392.8" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="477.4" cy="392.8" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="493.2" cy="417.9" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="461.6" cy="421.3" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="157.0" cy="437.9" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<circle cx="477.4" cy="455.4" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
-<text x="608.1" y="378.8" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="start">claude-haiku-5.5</text>
-<text x="608.1" y="391.8" font-size="11" fill="#898781" text-anchor="start">cheapest closed, and cheaper than</text>
-<text x="608.1" y="403.8" font-size="11" fill="#898781" text-anchor="start">every open model above index 29</text>
-<text x="338.0" y="212.4" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="start">kimi-k3</text>
-<text x="338.0" y="225.4" font-size="11" fill="#898781" text-anchor="start">index likely stale</text>
-<text x="820.7" y="266.5" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="start">gpt-6.1-terra</text>
-<text x="820.7" y="279.5" font-size="11" fill="#898781" text-anchor="start">cheapest above the frontier floor</text>
-<text x="523.4" y="282.6" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="end">glm-5.3</text>
-<text x="523.4" y="295.6" font-size="11" fill="#898781" text-anchor="end">best open model</text>
-<text x="467.4" y="441.4" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="end">glm-5.3-flash</text>
-<text x="467.4" y="454.4" font-size="11" fill="#898781" text-anchor="end">cheapest above the mid floor</text>
-<text x="78" y="526" font-size="13" font-weight="600" fill="#0b0b0b">Cheapest model clearing each capability floor</text>
-<text x="78" y="548" font-size="11.5" fill="#898781">Capability floor</text>
-<text x="228" y="548" font-size="11.5" fill="#898781">Cheapest open weights</text>
-<text x="498" y="548" font-size="11.5" fill="#898781">Cheapest closed weights</text>
-<text x="778" y="548" font-size="11.5" fill="#898781">Closed / open</text>
-<line x1="78" y1="555" x2="940" y2="555" stroke="#e1e0d9"/>
-<text x="78" y="575" font-size="12" fill="#52514e">index 25  (mid floor)</text>
-<text x="228" y="575" font-size="12" fill="#52514e">glm-5.3-flash   $0.14</text>
-<text x="498" y="575" font-size="12" fill="#52514e">claude-haiku-5.5   $0.50</text>
-<text x="778" y="575" font-size="12" font-weight="600" fill="#52514e">3.6x dearer</text>
-<text x="78" y="596" font-size="12" fill="#52514e">index 30</text>
-<text x="228" y="596" font-size="12" fill="#52514e">glm-5.3   $3.60</text>
-<text x="498" y="596" font-size="12" fill="#52514e">claude-haiku-5.5   $0.50</text>
-<text x="778" y="596" font-size="12" font-weight="600" fill="#52514e">7.2x cheaper</text>
-<text x="78" y="617" font-size="12" fill="#52514e">index 45  (frontier floor)</text>
-<text x="228" y="617" font-size="12" fill="#898781">none</text>
-<text x="498" y="617" font-size="12" fill="#52514e">gpt-6.1-terra   $5.00</text>
-<text x="778" y="617" font-size="12" font-weight="600" fill="#52514e">no open model</text>
-<text x="78" y="708" font-size="11.5" fill="#898781">35 scored base SKUs; batch and free variants excluded. Models without an index cannot be placed and are not shown.</text>
-<text x="78" y="724" font-size="11.5" fill="#898781">Capability is a third-party index that may lag recent releases. Price is output only; open weights hold a wider advantage on input price.</text>
-<line x1="78" y1="738" x2="940" y2="738" stroke="#e1e0d9"/>
-<text x="78" y="757" font-size="12" fill="#52514e">Tony C.  @TonyC_research  tonycresearch.substack.com</text>
-<text x="940" y="757" font-size="12" fill="#898781" text-anchor="end">Sources: OpenRouter models API, Artificial Analysis</text>
+<text x="68" y="104" font-size="11.5" fill="#898781">USD per million tokens, blended 5:1, log scale</text>
+<line x1="78" y1="462" x2="940" y2="462" stroke="#c3c2b7" stroke-width="1.5"/>
+<line x1="78.0" y1="462" x2="78.0" y2="467" stroke="#c3c2b7"/>
+<text x="78.0" y="481" font-size="11.5" fill="#898781" text-anchor="middle">0</text>
+<line x1="221.7" y1="462" x2="221.7" y2="467" stroke="#c3c2b7"/>
+<text x="221.7" y="481" font-size="11.5" fill="#898781" text-anchor="middle">10</text>
+<line x1="365.3" y1="462" x2="365.3" y2="467" stroke="#c3c2b7"/>
+<text x="365.3" y="481" font-size="11.5" fill="#898781" text-anchor="middle">20</text>
+<line x1="509.0" y1="462" x2="509.0" y2="467" stroke="#c3c2b7"/>
+<text x="509.0" y="481" font-size="11.5" fill="#898781" text-anchor="middle">30</text>
+<line x1="652.7" y1="462" x2="652.7" y2="467" stroke="#c3c2b7"/>
+<text x="652.7" y="481" font-size="11.5" fill="#898781" text-anchor="middle">40</text>
+<line x1="796.3" y1="462" x2="796.3" y2="467" stroke="#c3c2b7"/>
+<text x="796.3" y="481" font-size="11.5" fill="#898781" text-anchor="middle">50</text>
+<line x1="940.0" y1="462" x2="940.0" y2="467" stroke="#c3c2b7"/>
+<text x="940.0" y="481" font-size="11.5" fill="#898781" text-anchor="middle">60</text>
+<text x="509.0" y="502" font-size="12.5" fill="#52514e" text-anchor="middle">Artificial Analysis intelligence index</text>
+<path d="M139.8 375.3 L167.1 375.3 L167.1 375.3 L246.1 375.3 L246.1 375.3 L328.0 375.3 L328.0 375.3 L346.7 375.3 L346.7 375.3 L366.8 375.3 L366.8 375.3 L409.9 375.3 L409.9 375.3 L451.5 375.3 L451.5 375.3 L461.6 375.3 L461.6 375.3 L477.4 375.3 L477.4 375.3 L483.1 375.3 L483.1 375.3 L487.4 375.3 L487.4 375.3 L493.2 375.3 L493.2 375.3 L507.6 375.3 L507.6 321.3 L516.2 321.3 L516.2 274.0 L533.4 274.0 L533.4 274.0" fill="none" stroke="#2a78d6" stroke-width="2.5" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="533.4" cy="274.0" r="3.5" fill="#2a78d6"/>
+<text x="541.4" y="278.0" font-size="11.5" font-weight="600" fill="#2a78d6">no open model beyond 31.7</text>
+<path d="M139.8 361.2 L167.1 361.2 L167.1 361.2 L246.1 361.2 L246.1 361.2 L328.0 361.2 L328.0 361.2 L346.7 361.2 L346.7 361.2 L366.8 361.2 L366.8 361.2 L409.9 361.2 L409.9 361.2 L451.5 361.2 L451.5 361.2 L461.6 361.2 L461.6 361.2 L477.4 361.2 L477.4 361.2 L483.1 361.2 L483.1 361.2 L487.4 361.2 L487.4 361.2 L493.2 361.2 L493.2 361.2 L507.6 361.2 L507.6 361.2 L516.2 361.2 L516.2 361.2 L533.4 361.2 L533.4 361.2 L560.7 361.2 L560.7 361.2 L580.8 361.2 L580.8 361.2 L598.1 361.2 L598.1 361.2 L600.9 361.2 L600.9 278.7 L738.9 278.7 L738.9 278.7 L792.0 278.7 L792.0 278.7 L802.1 278.7 L802.1 278.7 L810.7 278.7 L810.7 278.7 L856.7 278.7 L856.7 253.9 L861.0 253.9 L861.0 253.9 L895.5 253.9 L895.5 229.0 L917.0 229.0 L917.0 229.0" fill="none" stroke="#eb6834" stroke-width="2.5" stroke-linejoin="round" opacity="0.85"/>
+<circle cx="917.0" cy="229.0" r="3.5" fill="#eb6834"/>
+<line x1="507.6" y1="132" x2="507.6" y2="462" stroke="#52514e" stroke-width="1.5" stroke-dasharray="5 4"/>
+<text x="514.6" y="146" font-size="11.5" font-weight="600" fill="#52514e">closed becomes cheaper from index 29.9</text>
+<circle cx="792.0" cy="196.2" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="895.5" cy="196.2" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="917.0" cy="229.0" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="328.0" cy="239.3" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="856.7" cy="253.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="802.1" cy="253.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="738.9" cy="253.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="861.0" cy="253.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="560.7" cy="261.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="580.8" cy="261.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="533.4" cy="274.0" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="600.9" cy="276.9" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="810.7" cy="278.7" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="487.4" cy="288.1" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="516.2" cy="289.0" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="451.5" cy="299.5" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="409.9" cy="301.6" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="366.8" cy="305.9" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="246.1" cy="311.5" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="507.6" cy="321.3" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="167.1" cy="321.8" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="346.7" cy="325.6" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="139.8" cy="350.4" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="483.1" cy="350.4" r="5.5" fill="#1baf7a" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="477.4" cy="353.2" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="598.1" cy="361.2" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="477.4" cy="361.2" r="5.5" fill="#eb6834" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="461.6" cy="361.9" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<circle cx="493.2" cy="375.3" r="5.5" fill="#2a78d6" stroke="#fcfcfb" stroke-width="2"/>
+<text x="608.1" y="347.2" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="start">claude-haiku-5.5</text>
+<text x="608.1" y="360.2" font-size="11" fill="#898781" text-anchor="start">cheaper than every open model</text>
+<text x="608.1" y="372.2" font-size="11" fill="#898781" text-anchor="start">that scores above it</text>
+<text x="483.2" y="361.3" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="end">minimax-m3.1-flash</text>
+<text x="483.2" y="374.3" font-size="11" fill="#898781" text-anchor="end">cheapest open above the mid floor</text>
+<text x="820.7" y="265.7" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="start">gpt-6.1-terra</text>
+<text x="820.7" y="278.7" font-size="11" fill="#898781" text-anchor="start">cheapest above the frontier floor</text>
+<text x="523.4" y="261.0" font-size="11.5" font-weight="600" fill="#0b0b0b" text-anchor="end">glm-5.3</text>
+<text x="523.4" y="274.0" font-size="11" fill="#898781" text-anchor="end">best open model</text>
+<text x="78" y="516" font-size="13" font-weight="600" fill="#0b0b0b">Cheapest model clearing each capability floor, at author list prices, blended 5:1</text>
+<text x="78" y="538" font-size="11.5" fill="#898781">Capability floor</text>
+<text x="228" y="538" font-size="11.5" fill="#898781">Cheapest open weights</text>
+<text x="498" y="538" font-size="11.5" fill="#898781">Cheapest closed weights</text>
+<text x="778" y="538" font-size="11.5" fill="#898781">Closed vs open</text>
+<line x1="78" y1="545" x2="940" y2="545" stroke="#e1e0d9"/>
+<text x="78" y="565" font-size="12" fill="#52514e">index 25  (mid floor)</text>
+<text x="228" y="565" font-size="12" fill="#52514e">minimax-m3.1-flash   $0.113</text>
+<text x="498" y="565" font-size="12" fill="#52514e">claude-haiku-5.5   $0.167</text>
+<text x="778" y="565" font-size="12" font-weight="600" fill="#52514e">1.48x dearer</text>
+<text x="78" y="586" font-size="12" fill="#52514e">index 30</text>
+<text x="228" y="586" font-size="12" fill="#52514e">glm-5.3   $1.900</text>
+<text x="498" y="586" font-size="12" fill="#52514e">claude-haiku-5.5   $0.167</text>
+<text x="778" y="586" font-size="12" font-weight="600" fill="#52514e">11.4x cheaper</text>
+<text x="78" y="607" font-size="12" fill="#52514e">index 45  (frontier floor)</text>
+<text x="228" y="607" font-size="12" fill="#898781">none</text>
+<text x="498" y="607" font-size="12" fill="#52514e">gpt-6.1-terra   $1.667</text>
+<text x="778" y="607" font-size="12" font-weight="600" fill="#52514e">no open model</text>
+<text x="78" y="646" font-size="13" font-weight="600" fill="#0b0b0b">Sensitivity to the token mix</text>
+<text x="78" y="668" font-size="11.5" fill="#898781">Input : output ratio</text>
+<text x="298" y="668" font-size="11.5" fill="#898781">Open advantage at the mid floor</text>
+<text x="548" y="668" font-size="11.5" fill="#898781">Crossover index</text>
+<text x="778" y="668" font-size="11.5" fill="#898781">Open model above it</text>
+<line x1="78" y1="675" x2="940" y2="675" stroke="#e1e0d9"/>
+<text x="78" y="695" font-size="12" font-weight="400" fill="#52514e">output only</text>
+<text x="298" y="695" font-size="12" font-weight="400" fill="#52514e">1.79x cheaper</text>
+<text x="548" y="695" font-size="12" font-weight="400" fill="#52514e">29.9</text>
+<text x="778" y="695" font-size="12" font-weight="400" fill="#52514e">none</text>
+<text x="78" y="715" font-size="12" font-weight="400" fill="#52514e">1:1</text>
+<text x="298" y="715" font-size="12" font-weight="400" fill="#52514e">1.60x cheaper</text>
+<text x="548" y="715" font-size="12" font-weight="400" fill="#52514e">29.9</text>
+<text x="778" y="715" font-size="12" font-weight="400" fill="#52514e">none</text>
+<text x="78" y="735" font-size="12" font-weight="600" fill="#52514e">5:1 (base)</text>
+<text x="298" y="735" font-size="12" font-weight="600" fill="#52514e">1.48x cheaper</text>
+<text x="548" y="735" font-size="12" font-weight="600" fill="#52514e">29.9</text>
+<text x="778" y="735" font-size="12" font-weight="600" fill="#52514e">none</text>
+<text x="78" y="755" font-size="12" font-weight="400" fill="#52514e">20:1</text>
+<text x="298" y="755" font-size="12" font-weight="400" fill="#52514e">1.39x cheaper</text>
+<text x="548" y="755" font-size="12" font-weight="400" fill="#52514e">29.9</text>
+<text x="778" y="755" font-size="12" font-weight="400" fill="#52514e">none</text>
+<text x="78" y="782" font-size="11.5" fill="#898781">29 scored base SKUs priced at the author's own standard tier. 6 excluded because their author does not serve them; all were open weights and all scored below 25.</text>
+<text x="78" y="798" font-size="11.5" fill="#898781">The crossover is set by open models running out of capability, not by the token mix, which is why it does not move with the ratio. Capability index may lag recent releases.</text>
+<line x1="78" y1="812" x2="940" y2="812" stroke="#e1e0d9"/>
+<text x="78" y="831" font-size="12" fill="#52514e">Tony C.  @TonyC_research  tonycresearch.substack.com</text>
+<text x="940" y="831" font-size="12" fill="#898781" text-anchor="end">Sources: OpenRouter endpoints API, provider pricing pages, Artificial Analysis</text>
 </g></svg>

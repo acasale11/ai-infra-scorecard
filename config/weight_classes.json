@@ -1,6 +1,5 @@
 {
   "_comment": "Inputs to scripts/classify_weights.py. Every entry here is checkable by opening a URL. Nothing is classified from memory.",
-
   "hf_namespaces": {
     "_comment": "OpenRouter organisation prefix -> Hugging Face namespace. Verify any entry at https://huggingface.co/<namespace>. The classifier confirms each namespace actually publishes weight repos before it trusts a negative result from it, so a wrong entry here degrades to unclassified rather than to a false closed.",
     "qwen": "Qwen",
@@ -31,22 +30,53 @@
     "google": "google",
     "openai": "openai"
   },
-
   "closed_weight_orgs": {
     "_comment": "Organisations that serve their models without publishing weights at all. A model from one of these is closed unless OpenRouter itself gives it a hugging_face_id, which is what keeps openai/gpt-oss and google/gemma on the open side. Checkable by the absence of a weights repo under the organisation's own namespace.",
-    "orgs": ["anthropic", "openai", "google", "x-ai", "amazon", "perplexity"]
+    "orgs": [
+      "anthropic",
+      "openai",
+      "google",
+      "x-ai",
+      "amazon",
+      "perplexity"
+    ]
   },
-
-  "weight_file_extensions": [".safetensors", ".bin", ".gguf", ".pt", ".pth", ".h5", ".msgpack"],
-
+  "weight_file_extensions": [
+    ".safetensors",
+    ".bin",
+    ".gguf",
+    ".pt",
+    ".pth",
+    ".h5",
+    ".msgpack"
+  ],
   "tiers": {
     "_comment": "Capability tiers from benchmarks.artificial_analysis.intelligence_index in the OpenRouter payload. Bands are absolute and fixed, NOT percentiles of the current snapshot, so a model's tier does not change because other models were added or removed. Chosen on 2026-10-30 at the two widest gaps in that day's distribution (nothing scored 40.0-44.9, and the 20-24 band held two models). They are frozen: re-tuning bands after seeing a result is how a comparison gets talked into saying what you wanted.",
     "bands": [
-      {"name": "frontier", "min": 45.0},
-      {"name": "mid", "min": 25.0},
-      {"name": "entry", "min": 0.0}
+      {
+        "name": "frontier",
+        "min": 45.0
+      },
+      {
+        "name": "mid",
+        "min": 25.0
+      },
+      {
+        "name": "entry",
+        "min": 0.0
+      }
     ],
     "frozen_on": "2026-10-30",
     "source": "Artificial Analysis intelligence index, as carried in the OpenRouter models API payload"
-  }
+  },
+  "blend": {
+    "_comment": "Input-to-output token ratio for the blended price. blended = (R * input_price + output_price) / (R + 1), a price per million tokens of mixed traffic at R input tokens per output token. There is no public token mix for the OpenRouter catalogue, so R is an assumption, not a measurement. The base of 5:1 is a mid estimate for chat and agentic traffic, where prompts and retrieved context outweigh generated text. The sensitivity ratios bracket it: 1:1 for generation-heavy work such as translation or drafting, 20:1 for retrieval and long-context agentic work. Every published figure must name the ratio it used.",
+    "base_ratio": 5,
+    "sensitivity_ratios": [
+      1,
+      20
+    ],
+    "set_on": "2026-10-30"
+  },
+  "_file_note": "Inputs for the analysis scripts: weight classification, capability tiers and the price blend. The file name predates the last two sections."
 }

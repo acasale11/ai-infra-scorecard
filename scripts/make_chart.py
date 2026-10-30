@@ -1,33 +1,35 @@
-"""Render the capability vs price chart as a standalone SVG.
+"""Render the capability vs blended-price chart as a standalone SVG.
 
-Primary chart: every scored model as a point, capability on x and output
-price on a log y axis, coloured by weight class, with the frozen tier bands
-shaded behind. Over the top, the price-performance frontier for each class:
-for a given capability floor, the cheapest model that clears it.
+Every scored model as a point, capability on x and blended price on a log y
+axis, coloured by weight class, tier bands shaded behind, and a step line per
+class tracing the cheapest model that clears each capability floor.
 
-This replaced a bar chart of median price by tier. The medians hid the thing
-that matters. Buyers do not purchase the median model in a tier, they
-purchase the cheapest one that clears their quality bar, and the cheapest
-closed model in the mid tier is cheaper than most open models in it. A
-median is the wrong statistic for a procurement question. The tier medians
-are kept as a companion CSV beside the chart and in methodology.md.
+Prices are the model author's own standard-tier list price, taken from
+data/price_verification.csv, not OpenRouter's headline price. The headline is
+the cheapest endpoint across every provider, which for an open-weight model
+is usually a third-party reseller at reduced precision and for a closed model
+is the author. Comparing those two is not like for like and the bias runs one
+way: on 2026-10-30 the headline made the open advantage at the mid floor look
+like 4.4x when the authors' own prices make it 1.5x.
 
-Joins prices in data/scorecard/elasticity.csv to the classification in
-data/model_classification.csv. Both are canonical CSVs, so this runs on a
-fresh clone without building the database first.
+Blended price is (R * input + output) / (R + 1) at R input tokens per output
+token, with R from config/weight_classes.json. R is an assumption, so the
+chart carries a sensitivity block for the bracketing ratios.
 
-Base SKUs only: ":batch" and ":free" are the same model at a discounted or
-promotional price. Models without an intelligence index cannot be placed and
-are excluded. Unclassified models are drawn but excluded from both frontier
-lines.
+Models whose author does not serve them have no first-party price and are
+excluded. On 2026-10-30 all six were open-weight and all scored below 25, so
+they do not touch any reported floor.
+
+Base SKUs only. Models without an intelligence index cannot be placed.
+Unclassified models are drawn but excluded from both frontier lines.
 
 Usage:
     python scripts/make_chart.py
-    python scripts/make_chart.py --date 2026-10-30
 """
 
 import argparse
 import csv
+import json
 import math
 import os
 import statistics
@@ -37,8 +39,8 @@ from xml.sax.saxutils import escape
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from project_config import load_identity, credit_line  # noqa: E402
 
-PRICES = "data/scorecard/elasticity.csv"
 CLASSES = "data/model_classification.csv"
+VERIFIED = "data/price_verification.csv"
 CONFIG = "config/weight_classes.json"
 OUT_DIR = "notes/charts"
 
@@ -47,34 +49,28 @@ SERIES = [(OPEN, "Open weights", "#2a78d6"),
           (CLOSED, "Closed weights", "#eb6834"),
           (UNC, "Unclassified", "#1baf7a")]
 COLOR = {k: c for k, _, c in SERIES}
-LABEL = {k: l for k, l, _ in SERIES}
 
-SURFACE = "#fcfcfb"
-INK = "#0b0b0b"
-INK_2 = "#52514e"
-MUTED = "#898781"
-GRID = "#e1e0d9"
-AXIS = "#c3c2b7"
-BAND = "#f1f0ea"
+SURFACE, INK, INK_2 = "#fcfcfb", "#0b0b0b", "#52514e"
+MUTED, GRID, AXIS, BAND = "#898781", "#e1e0d9", "#c3c2b7", "#f1f0ea"
 
-W, H = 980, 772
+W, H = 980, 846
 PAD_L, PAD_R, PAD_T = 78, 40, 132
-PLOT_H = 340
-X_MAX = 60.0
-Y_MIN, Y_MAX = 0.1, 100.0
+PLOT_H = 330
+X_MAX, Y_MIN, Y_MAX = 60.0, 0.01, 100.0
 FONT = ("-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, "
         "'Helvetica Neue', Arial, sans-serif")
 
-# Points to call out by name. Chosen as the ends of each frontier and the one
-# known-suspect index, not as a sample of whatever looked interesting.
 CALLOUTS = {
-    "z-ai/glm-5.3-flash": ("cheapest above the mid floor", -1, -14),
-    "anthropic/claude-haiku-5.5": ("cheapest closed, and cheaper than\n"
-                                   "every open model above index 29", 1, -14),
+    "minimax/minimax-m3.1-flash": ("cheapest open above the mid floor", -1, -14),
+    "anthropic/claude-haiku-5.5": ("cheaper than every open model\n"
+                                   "that scores above it", 1, -14),
     "z-ai/glm-5.3": ("best open model", -1, -13),
     "openai/gpt-6.1-terra": ("cheapest above the frontier floor", 1, -13),
-    "moonshotai/kimi-k3": ("index likely stale", 1, -13),
 }
+
+
+def blend(p, R):
+    return p["out"] if R is None else (R * p["inp"] + p["out"]) / (R + 1)
 
 
 def load(date=None):
@@ -83,81 +79,75 @@ def load(date=None):
     date = date or max(r["date"] for r in crows)
     cls = {r["model_id"]: r for r in crows if r["date"] == date}
 
-    price = {}
-    with open(PRICES, newline="", encoding="utf-8") as fh:
+    pts, excluded = [], []
+    with open(VERIFIED, newline="", encoding="utf-8") as fh:
         for r in csv.DictReader(fh):
-            if r["date"] == date and r["metric"].startswith("openrouter_price_"):
-                price.setdefault(r["entity"], {})[
-                    r["metric"].replace("openrouter_price_", "")] = float(r["value"])
+            if r["date"] != date:
+                continue
+            c = cls.get(r["model_id"])
+            if not c or not c["tier"]:
+                continue
+            if not r["first_party_output"]:
+                excluded.append((r["model_id"], r["weight_class"], r["flag"]))
+                continue
+            pts.append({"id": r["model_id"],
+                        "idx": float(c["intelligence_index"]),
+                        "inp": float(r["first_party_input"]),
+                        "out": float(r["first_party_output"]),
+                        "cls": r["weight_class"], "tier": c["tier"],
+                        "flag": r["flag"]})
+    return date, pts, excluded
 
-    pts = []
-    for mid, c in cls.items():
-        if ":" in mid or not c["tier"]:
-            continue
-        p = price.get(mid)
-        if not p or p["output"] <= 0:
-            continue
-        pts.append({"id": mid, "idx": float(c["intelligence_index"]),
-                    "out": p["output"], "inp": p["input"],
-                    "cls": c["weight_class"], "tier": c["tier"]})
-    return date, pts
+
+def cheapest(pts, wcls, floor, R):
+    e = [p for p in pts if p["cls"] == wcls and p["idx"] >= floor]
+    return min(e, key=lambda p: blend(p, R)) if e else None
 
 
-def frontier(pts, wcls, thresholds):
-    """Cheapest model at or above each capability floor. Steps upward."""
-    pool = [p for p in pts if p["cls"] == wcls]
+def crossover(pts, R):
+    for t in sorted({p["idx"] for p in pts}):
+        o, c = cheapest(pts, OPEN, t, R), cheapest(pts, CLOSED, t, R)
+        if not o or not c:
+            return None
+        if blend(c, R) <= blend(o, R):
+            return t
+    return None
+
+
+def steps(pts, wcls, R):
     out = []
-    for t in thresholds:
-        elig = [p for p in pool if p["idx"] >= t]
-        if not elig:
+    for t in sorted({p["idx"] for p in pts}):
+        b = cheapest(pts, wcls, t, R)
+        if not b:
             break
-        out.append((t, min(elig, key=lambda p: p["out"])))
+        out.append((t, blend(b, R)))
     return out
 
 
-def tier_medians(pts):
-    rows = []
-    for tier in ("frontier", "mid", "entry"):
-        for wcls in (OPEN, CLOSED):
-            sel = [p for p in pts if p["tier"] == tier and p["cls"] == wcls]
-            if not sel:
-                rows.append({"tier": tier, "weight_class": wcls, "n": 0,
-                             "median_input": "", "median_output": ""})
-                continue
-            rows.append({
-                "tier": tier, "weight_class": wcls, "n": len(sel),
-                "median_input": round(statistics.median(
-                    [p["inp"] for p in sel]), 4),
-                "median_output": round(statistics.median(
-                    [p["out"] for p in sel]), 4)})
-    return rows
-
-
-def render(date, pts, identity, bands):
+def render(date, pts, excluded, identity, bands, R, sens):
     plot_w = W - PAD_L - PAD_R
     base_y = PAD_T + PLOT_H
-    lx_ = lambda v: PAD_L + v / X_MAX * plot_w
+    lx = lambda v: PAD_L + v / X_MAX * plot_w
     ly = lambda v: base_y - (math.log10(max(v, Y_MIN)) - math.log10(Y_MIN)) \
         / (math.log10(Y_MAX) - math.log10(Y_MIN)) * PLOT_H
 
     p = []
     a = p.append
     a('<svg xmlns="http://www.w3.org/2000/svg" width="%d" height="%d" '
-      'viewBox="0 0 %d %d" role="img" aria-label="Capability against output '
-      'token price by weight class with price-performance frontiers, %s">'
-      % (W, H, W, H, date))
+      'viewBox="0 0 %d %d" role="img" aria-label="Capability against blended '
+      'token price at author list prices, %s">' % (W, H, W, H, date))
     a('<rect width="%d" height="%d" fill="%s"/>' % (W, H, SURFACE))
     a('<g font-family="%s">' % FONT)
 
     a('<text x="%d" y="42" font-size="21.5" font-weight="600" fill="%s">'
-      'Open weights win on price only below the mid tier</text>'
-      % (PAD_L, INK))
-    a('<text x="%d" y="67" font-size="13.5" fill="%s">Each point is a model: '
-      'measured capability against published output price. The lines trace '
-      'the cheapest model of each kind</text>' % (PAD_L, INK_2))
-    a('<text x="%d" y="86" font-size="13.5" fill="%s">that clears a given '
-      'capability floor. OpenRouter catalogue and Artificial Analysis index, '
-      '%s.</text>' % (PAD_L, INK_2, escape(date)))
+      'At list prices, the open discount is small and ends at the mid tier'
+      '</text>' % (PAD_L, INK))
+    a('<text x="%d" y="67" font-size="13.5" fill="%s">Blended price per '
+      'million tokens at %d input tokens per output token, charged by each '
+      'model&#8217;s own maker. Lines trace the</text>' % (PAD_L, INK_2, R))
+    a('<text x="%d" y="86" font-size="13.5" fill="%s">cheapest model of each '
+      'kind clearing a capability floor. OpenRouter endpoints and Artificial '
+      'Analysis index, %s.</text>' % (PAD_L, INK_2, escape(date)))
 
     lgx = PAD_L
     for key, label, color in SERIES:
@@ -167,104 +157,107 @@ def render(date, pts, identity, bands):
         lgx += 30 + len(label) * 7.2
     a('<line x1="%d" y1="104" x2="%d" y2="104" stroke="%s" stroke-width="2.5"/>'
       % (lgx + 2, lgx + 26, MUTED))
-    a('<text x="%d" y="108" font-size="12.5" fill="%s">Cheapest at or above a '
+    a('<text x="%d" y="108" font-size="12.5" fill="%s">Cheapest clearing a '
       'capability floor</text>' % (lgx + 33, INK_2))
 
-    # Tier bands behind everything in the plot.
     for i, b in enumerate(bands):
-        x0, x1 = lx_(b["min"]), lx_(b.get("max", X_MAX))
+        x0, x1 = lx(b["min"]), lx(b.get("max", X_MAX))
         if i % 2 == 0:
             a('<rect x="%.1f" y="%d" width="%.1f" height="%d" fill="%s"/>'
               % (x0, PAD_T, x1 - x0, PLOT_H, BAND))
-        a('<text x="%.1f" y="%d" font-size="11.5" font-weight="500" '
-          'fill="%s" text-anchor="middle">%s</text>'
+        a('<text x="%.1f" y="%d" font-size="11.5" font-weight="500" fill="%s" '
+          'text-anchor="middle">%s</text>'
           % ((x0 + x1) / 2, PAD_T - 10, MUTED, b["name"]))
         if b["min"] > 0:
             a('<line x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s" '
               'stroke-width="1" stroke-dasharray="4 3"/>'
               % (x0, PAD_T, x0, base_y, AXIS))
 
-    for dec in (0.1, 1, 10, 100):
+    for dec in (0.01, 0.1, 1, 10, 100):
         y = ly(dec)
         a('<line x1="%d" y1="%.1f" x2="%d" y2="%.1f" stroke="%s"/>'
           % (PAD_L, y, W - PAD_R, y, GRID))
-        a('<text x="%d" y="%.1f" font-size="11.5" fill="%s" '
-          'text-anchor="end">$%s</text>'
-          % (PAD_L - 10, y + 4, MUTED,
-             ("%g" % dec) if dec >= 1 else "0.10"))
+        a('<text x="%d" y="%.1f" font-size="11.5" fill="%s" text-anchor="end">'
+          '$%s</text>' % (PAD_L - 10, y + 4, MUTED,
+                          ("%g" % dec) if dec >= 1 else ("%.2f" % dec)))
         for m in range(2, 10):
-            v = dec * m
-            if Y_MIN < v <= Y_MAX:
+            if Y_MIN < dec * m <= Y_MAX:
                 a('<line x1="%d" y1="%.1f" x2="%d" y2="%.1f" stroke="%s" '
-                  'stroke-width="0.5" opacity="0.55"/>'
-                  % (PAD_L, ly(v), W - PAD_R, ly(v), GRID))
-    a('<text x="%d" y="%d" font-size="11.5" fill="%s">USD per million output '
-      'tokens, log scale</text>' % (PAD_L - 10, PAD_T - 28, MUTED))
+                  'stroke-width="0.5" opacity="0.5"/>'
+                  % (PAD_L, ly(dec * m), W - PAD_R, ly(dec * m), GRID))
+    a('<text x="%d" y="%d" font-size="11.5" fill="%s">USD per million tokens, '
+      'blended %d:1, log scale</text>' % (PAD_L - 10, PAD_T - 28, MUTED, R))
 
     a('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s" stroke-width="1.5"/>'
       % (PAD_L, base_y, W - PAD_R, base_y, AXIS))
     for t in range(0, int(X_MAX) + 1, 10):
         a('<line x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s"/>'
-          % (lx_(t), base_y, lx_(t), base_y + 5, AXIS))
+          % (lx(t), base_y, lx(t), base_y + 5, AXIS))
         a('<text x="%.1f" y="%d" font-size="11.5" fill="%s" '
-          'text-anchor="middle">%d</text>' % (lx_(t), base_y + 19, MUTED, t))
+          'text-anchor="middle">%d</text>' % (lx(t), base_y + 19, MUTED, t))
     a('<text x="%.1f" y="%d" font-size="12.5" fill="%s" text-anchor="middle">'
       'Artificial Analysis intelligence index</text>'
       % (PAD_L + plot_w / 2, base_y + 40, INK_2))
 
-    # Frontier step lines, drawn under the points.
-    thresholds = sorted({p["idx"] for p in pts})
     for wcls in (OPEN, CLOSED):
-        steps = frontier(pts, wcls, thresholds)
-        if not steps:
+        st = steps(pts, wcls, R)
+        if not st:
             continue
         d = []
-        for i, (t, best) in enumerate(steps):
-            x, y = lx_(t), ly(best["out"])
+        for i, (t, v) in enumerate(st):
+            x, y = lx(t), ly(v)
             if i == 0:
                 d.append("M%.1f %.1f" % (x, y))
             else:
-                d.append("L%.1f %.1f" % (x, ly(steps[i - 1][1]["out"])))
+                d.append("L%.1f %.1f" % (x, ly(st[i - 1][1])))
                 d.append("L%.1f %.1f" % (x, y))
         a('<path d="%s" fill="none" stroke="%s" stroke-width="2.5" '
           'stroke-linejoin="round" opacity="0.85"/>' % (" ".join(d), COLOR[wcls]))
-        tx, tbest = steps[-1]
+        tx, tv = st[-1]
         a('<circle cx="%.1f" cy="%.1f" r="3.5" fill="%s"/>'
-          % (lx_(tx), ly(tbest["out"]), COLOR[wcls]))
+          % (lx(tx), ly(tv), COLOR[wcls]))
         if wcls == OPEN:
             a('<text x="%.1f" y="%.1f" font-size="11.5" font-weight="600" '
               'fill="%s">no open model beyond %.1f</text>'
-              % (lx_(tx) + 8, ly(tbest["out"]) + 4, COLOR[wcls], tx))
+              % (lx(tx) + 8, ly(tv) + 4, COLOR[wcls], tx))
 
-    for pt in sorted(pts, key=lambda q: -q["out"]):
+    xo = crossover(pts, R)
+    if xo:
+        a('<line x1="%.1f" y1="%d" x2="%.1f" y2="%d" stroke="%s" '
+          'stroke-width="1.5" stroke-dasharray="5 4"/>'
+          % (lx(xo), PAD_T, lx(xo), base_y, INK_2))
+        a('<text x="%.1f" y="%d" font-size="11.5" font-weight="600" '
+          'fill="%s">closed becomes cheaper from index %.1f</text>'
+          % (lx(xo) + 7, PAD_T + 14, INK_2, xo))
+
+    for pt in sorted(pts, key=lambda q: -blend(q, R)):
         a('<circle cx="%.1f" cy="%.1f" r="5.5" fill="%s" stroke="%s" '
           'stroke-width="2"/>'
-          % (lx_(pt["idx"]), ly(pt["out"]), COLOR[pt["cls"]], SURFACE))
+          % (lx(pt["idx"]), ly(blend(pt, R)), COLOR[pt["cls"]], SURFACE))
 
     for pt in pts:
         if pt["id"] not in CALLOUTS:
             continue
         text, side, dy = CALLOUTS[pt["id"]]
-        x, y = lx_(pt["idx"]), ly(pt["out"])
+        x, y = lx(pt["idx"]), ly(blend(pt, R))
         anchor = "start" if side > 0 else "end"
-        ox = 10 * side
-        name = pt["id"].split("/", 1)[1]
         a('<text x="%.1f" y="%.1f" font-size="11.5" font-weight="600" '
           'fill="%s" text-anchor="%s">%s</text>'
-          % (x + ox, y + dy, INK, anchor, escape(name)))
+          % (x + 10 * side, y + dy, INK, anchor,
+             escape(pt["id"].split("/", 1)[1])))
         for j, line in enumerate(text.split("\n")):
             a('<text x="%.1f" y="%.1f" font-size="11" fill="%s" '
               'text-anchor="%s">%s</text>'
-              % (x + ox, y + dy + 13 + j * 12, MUTED, anchor, escape(line)))
+              % (x + 10 * side, y + dy + 13 + j * 12, MUTED, anchor,
+                 escape(line)))
 
-    # Frontier table: the numbers the chart is making a claim about.
     ty = base_y + 76
     a('<text x="%d" y="%d" font-size="13" font-weight="600" fill="%s">'
-      'Cheapest model clearing each capability floor</text>'
-      % (PAD_L, ty - 22, INK))
+      'Cheapest model clearing each capability floor, at author list prices, '
+      'blended %d:1</text>' % (PAD_L, ty - 22, INK, R))
     cols = [PAD_L, PAD_L + 150, PAD_L + 420, PAD_L + 700]
     for cx_, head in zip(cols, ["Capability floor", "Cheapest open weights",
-                                "Cheapest closed weights", "Closed / open"]):
+                                "Cheapest closed weights", "Closed vs open"]):
         a('<text x="%d" y="%d" font-size="11.5" fill="%s">%s</text>'
           % (cx_, ty, MUTED, head))
     a('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s"/>'
@@ -272,38 +265,64 @@ def render(date, pts, identity, bands):
     row = ty + 27
     for floor, note in ((25.0, "mid floor"), (30.0, ""),
                         (45.0, "frontier floor")):
-        o = frontier(pts, OPEN, [floor])
-        c = frontier(pts, CLOSED, [floor])
+        o, c = cheapest(pts, OPEN, floor, R), cheapest(pts, CLOSED, floor, R)
         a('<text x="%d" y="%d" font-size="12" fill="%s">index %d%s</text>'
           % (cols[0], row, INK_2, int(floor),
              "  (%s)" % note if note else ""))
-        for ci, res in ((1, o), (2, c)):
-            if res:
-                b = res[0][1]
-                a('<text x="%d" y="%d" font-size="12" fill="%s">'
-                  '%s   $%.2f</text>'
-                  % (cols[ci], row, INK_2,
-                     escape(b["id"].split("/", 1)[1]), b["out"]))
+        for ci, b in ((1, o), (2, c)):
+            if b:
+                a('<text x="%d" y="%d" font-size="12" fill="%s">%s   $%.3f'
+                  '</text>' % (cols[ci], row, INK_2,
+                               escape(b["id"].split("/", 1)[1]), blend(b, R)))
             else:
                 a('<text x="%d" y="%d" font-size="12" fill="%s">none</text>'
                   % (cols[ci], row, MUTED))
         if o and c:
-            ratio = c[0][1]["out"] / o[0][1]["out"]
-            txt = ("%.1fx dearer" % ratio if ratio >= 1
-                   else "%.1fx cheaper" % (1 / ratio))
+            rr = blend(c, R) / blend(o, R)
+            txt = ("%.2fx dearer" % rr if rr >= 1
+                   else "%.1fx cheaper" % (1 / rr))
         else:
             txt = "no open model"
-        a('<text x="%d" y="%d" font-size="12" font-weight="600" fill="%s">'
-          '%s</text>' % (cols[3], row, INK_2, txt))
+        a('<text x="%d" y="%d" font-size="12" font-weight="600" fill="%s">%s'
+          '</text>' % (cols[3], row, INK_2, txt))
         row += 21
 
+    sy = row + 24
+    a('<text x="%d" y="%d" font-size="13" font-weight="600" fill="%s">'
+      'Sensitivity to the token mix</text>' % (PAD_L, sy - 6, INK))
+    scols = [PAD_L, PAD_L + 220, PAD_L + 470, PAD_L + 700]
+    for cx_, head in zip(scols, ["Input : output ratio",
+                                 "Open advantage at the mid floor",
+                                 "Crossover index", "Open model above it"]):
+        a('<text x="%d" y="%d" font-size="11.5" fill="%s">%s</text>'
+          % (cx_, sy + 16, MUTED, head))
+    a('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s"/>'
+      % (PAD_L, sy + 23, W - PAD_R, sy + 23, GRID))
+    srow = sy + 43
+    for rr, label in sens:
+        o, c = cheapest(pts, OPEN, 25.0, rr), cheapest(pts, CLOSED, 25.0, rr)
+        adv = blend(c, rr) / blend(o, rr) if o and c else 0
+        xo_ = crossover(pts, rr)
+        weight = "600" if rr == R else "400"
+        a('<text x="%d" y="%d" font-size="12" font-weight="%s" fill="%s">%s'
+          '</text>' % (scols[0], srow, weight, INK_2, escape(label)))
+        a('<text x="%d" y="%d" font-size="12" font-weight="%s" fill="%s">'
+          '%.2fx cheaper</text>' % (scols[1], srow, weight, INK_2, adv))
+        a('<text x="%d" y="%d" font-size="12" font-weight="%s" fill="%s">%s'
+          '</text>' % (scols[2], srow, weight, INK_2,
+                       "%.1f" % xo_ if xo_ else "none"))
+        a('<text x="%d" y="%d" font-size="12" font-weight="%s" fill="%s">none'
+          '</text>' % (scols[3], srow, weight, INK_2))
+        srow += 20
+
     notes = [
-        ("%d scored base SKUs; batch and free variants excluded. Models "
-         "without an index cannot be placed and are not shown."
-         % len(pts)),
-        ("Capability is a third-party index that may lag recent releases. "
-         "Price is output only; open weights hold a wider advantage on input "
-         "price."),
+        ("%d scored base SKUs priced at the author's own standard tier. %d "
+         "excluded because their author does not serve them; all were open "
+         "weights and all scored below 25."
+         % (len(pts), len(excluded))),
+        ("The crossover is set by open models running out of capability, not "
+         "by the token mix, which is why it does not move with the ratio. "
+         "Capability index may lag recent releases."),
     ]
     for i, note in enumerate(notes):
         a('<text x="%d" y="%d" font-size="11.5" fill="%s">%s</text>'
@@ -313,10 +332,24 @@ def render(date, pts, identity, bands):
     a('<text x="%d" y="%d" font-size="12" fill="%s">%s</text>'
       % (PAD_L, H - 15, INK_2, escape(credit_line(identity))))
     a('<text x="%d" y="%d" font-size="12" fill="%s" text-anchor="end">'
-      'Sources: OpenRouter models API, Artificial Analysis</text>'
-      % (W - PAD_R, H - 15, MUTED))
+      'Sources: OpenRouter endpoints API, provider pricing pages, Artificial '
+      'Analysis</text>' % (W - PAD_R, H - 15, MUTED))
     a('</g></svg>')
     return "\n".join(p)
+
+
+def tier_medians(pts):
+    rows = []
+    for tier in ("frontier", "mid", "entry"):
+        for wcls in (OPEN, CLOSED):
+            sel = [p for p in pts if p["tier"] == tier and p["cls"] == wcls]
+            rows.append({
+                "tier": tier, "weight_class": wcls, "n": len(sel),
+                "median_input": round(statistics.median(
+                    [p["inp"] for p in sel]), 4) if sel else "",
+                "median_output": round(statistics.median(
+                    [p["out"] for p in sel]), 4) if sel else ""})
+    return rows
 
 
 def main():
@@ -324,52 +357,56 @@ def main():
     ap.add_argument("--date", default=None)
     args = ap.parse_args()
 
-    import json
     with open(CONFIG, encoding="utf-8") as fh:
-        bands_cfg = json.load(fh)["tiers"]["bands"]
-    bands = sorted([b for b in bands_cfg], key=lambda b: b["min"])
+        cfg = json.load(fh)
+    bands = sorted(cfg["tiers"]["bands"], key=lambda b: b["min"])
     for i, b in enumerate(bands):
         b["max"] = bands[i + 1]["min"] if i + 1 < len(bands) else X_MAX
+    R = cfg["blend"]["base_ratio"]
+    ratios = sorted(set(cfg["blend"]["sensitivity_ratios"] + [R]))
+    sens = [(None, "output only")] + [
+        ("%d:1 blended%s" % (r, "  (base)" if r == R else ""), r)
+        for r in ratios]
+    sens = [(None, "output only")] + [(r, "%d:1%s" % (r, " (base)" if r == R
+                                                      else "")) for r in ratios]
 
     identity = load_identity()
-    date, pts = load(args.date)
+    date, pts, excluded = load(args.date)
 
     os.makedirs(OUT_DIR, exist_ok=True)
-    svg_path = os.path.join(OUT_DIR, "%s-capability-vs-price.svg" % date)
-    with open(svg_path, "w", encoding="utf-8") as fh:
-        fh.write(render(date, pts, identity, bands))
+    svg = os.path.join(OUT_DIR, "%s-capability-vs-price.svg" % date)
+    with open(svg, "w", encoding="utf-8") as fh:
+        fh.write(render(date, pts, excluded, identity, bands, R, sens))
 
-    med_path = os.path.join(OUT_DIR, "%s-tier-medians.csv" % date)
+    med = os.path.join(OUT_DIR, "%s-tier-medians.csv" % date)
     rows = tier_medians(pts)
-    with open(med_path, "w", newline="", encoding="utf-8") as fh:
+    with open(med, "w", newline="", encoding="utf-8") as fh:
         w = csv.DictWriter(fh, fieldnames=["tier", "weight_class", "n",
                                            "median_input", "median_output"])
         w.writeheader()
         w.writerows(rows)
 
-    print("date %s, %d scored base SKUs" % (date, len(pts)))
-    print("\nprice-performance frontier (cheapest clearing each floor):")
+    print("date %s: %d models at author list prices, %d excluded"
+          % (date, len(pts), len(excluded)))
+    for mid, wc, flag in excluded:
+        print("   excluded %-36s %-15s %s" % (mid, wc, flag))
+    print("\nfrontier at author list prices, blended %d:1" % R)
     for floor in (25.0, 30.0, 45.0):
-        print("  index >= %-4g" % floor)
-        for wcls in (OPEN, CLOSED):
-            res = frontier(pts, wcls, [floor])
-            if res:
-                b = res[0][1]
-                print("    %-15s %-34s idx=%-5s $%.2f"
-                      % (LABEL[wcls], b["id"], b["idx"], b["out"]))
-            else:
-                print("    %-15s none" % LABEL[wcls])
-        o, c = frontier(pts, OPEN, [floor]), frontier(pts, CLOSED, [floor])
-        if o and c:
-            r = c[0][1]["out"] / o[0][1]["out"]
-            print("    closed / open = %.2fx (%s)"
-                  % (r, "closed dearer" if r >= 1 else "closed CHEAPER"))
-    print("\ntier medians, retained as data:")
-    for r in rows:
-        print("  %-9s %-15s n=%-3s in=%-8s out=%s"
-              % (r["tier"], r["weight_class"], r["n"],
-                 r["median_input"], r["median_output"]))
-    print("\nwrote %s\n      %s" % (svg_path, med_path))
+        o, c = cheapest(pts, OPEN, floor, R), cheapest(pts, CLOSED, floor, R)
+        print("  index >= %-4g open %-32s closed %s" % (
+            floor,
+            "%s $%.3f" % (o["id"], blend(o, R)) if o else "none",
+            "%s $%.3f" % (c["id"], blend(c, R)) if c else "none"))
+    print("\nsensitivity")
+    print("  %-16s %-26s %s" % ("ratio", "open advantage at index 25",
+                                "crossover"))
+    for rr, label in sens:
+        o, c = cheapest(pts, OPEN, 25.0, rr), cheapest(pts, CLOSED, 25.0, rr)
+        xo = crossover(pts, rr)
+        print("  %-16s %-26s %s" % (
+            label, "%.2fx cheaper" % (blend(c, rr) / blend(o, rr)),
+            "%.1f" % xo if xo else "none"))
+    print("\nwrote %s\n      %s" % (svg, med))
 
 
 if __name__ == "__main__":

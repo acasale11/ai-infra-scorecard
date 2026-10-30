@@ -1,0 +1,77 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "instruct_type": null,
+      "modality": "text+image+audio->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1785443117,
+    "description": "Inkling Small is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 12B active parameters out of 276B total. It is positioned as the smaller, more efficient member of...",
+    "endpoints": [
+      {
+        "context_length": 524288,
+        "latency_last_30m": null,
+        "max_completion_tokens": 262144,
+        "max_prompt_tokens": null,
+        "model_id": "thinkingmachines/inkling-small",
+        "model_name": "Thinking Machines: Inkling Small",
+        "name": "DeepInfra | thinkingmachines/inkling-small-20260730",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000012",
+          "discount": 0,
+          "input_cache_read": "0.0000001",
+          "prompt": "0.00000045"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "tools",
+          "tool_choice",
+          "logit_bias",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "thinkingmachines/inkling-small",
+    "name": "Thinking Machines: Inkling Small"
+  }
+}

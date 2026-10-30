@@ -17,6 +17,7 @@ data/scorecard/             one CSV per pillar, appended monthly
 docs/methodology.md         sources, definitions, scoring rules
 docs/decisions.md           dated log of judgment calls and what they cost
 data/model_classification.csv  weights class and capability tier, per model, dated
+data/price_verification.csv    author list price vs headline price, per model, dated
 data/raw/                   unmodified API responses, by source and date
 config/                     public identity and classification inputs
 scripts/                    collectors and the SQLite build
@@ -45,6 +46,7 @@ the outcome was known.
 First collection run 2026-10-30: 860 price rows on `elasticity` from the
 OpenRouter models API, covering 430 models, classified open or closed weights
 against Hugging Face and tiered by the Artificial Analysis intelligence
-index. No open-weight model reaches the frontier tier, and the
-price-performance frontiers for open and closed weights cross at about index
-29. The other four pillars are still empty.
+index, and priced at each model author's own list price rather than
+OpenRouter's cheapest reseller endpoint. No open-weight model reaches the
+frontier tier, and the price-performance frontiers cross at index 29.9 under
+every token mix tested. The other four pillars are still empty.

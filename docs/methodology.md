@@ -265,45 +265,119 @@ monthly note. A gap that persists or widens weakens B015 directly.
 
 Neither claim changes status. Both stay pending until their horizons.
 
+### Price basis: the model author's own list price
+
+Every price in the frontier is the standard-tier list price charged by the
+organisation that made the model. Produced by `scripts/verify_prices.py` into
+`data/price_verification.csv`, which keeps both prices and the gap.
+
+This is not what OpenRouter's models list reports. That field is the cheapest
+endpoint across every provider serving the model. For a closed model there is
+one provider, so it is the author's price. For an open-weight model there are
+often forty, and the cheapest is a third-party reseller, usually at reduced
+precision. `z-ai/glm-5.3-flash` has 40 endpoints spanning 0.14 to 0.75 per
+million output tokens; the headline took the lowest, an fp4 build from a
+reseller, while Z.ai itself charges 0.50.
+
+Using the headline for both sides sets a discount reseller's quantized price
+against a frontier lab's list price and reports the difference as an
+open-weight discount. The bias runs one way, and it is large. At the mid
+floor it made the open advantage look like 4.4x when the authors' own prices
+make it 1.48x.
+
+Selection rule, applied per model:
+
+1. Take all endpoints from `/models/<slug>/endpoints`.
+2. Keep those whose provider is the model's own organisation.
+3. Keep those with a null `service_tier`. A set tier means `flex`,
+   `priority` or `ultrafast`, which are discounted or accelerated variants.
+   Batch is a separate model SKU and is already excluded.
+4. Of what remains, take the cheapest. Several authors serve only a
+   quantized build of their own model, so a quantization suffix in the tag is
+   not a reason to drop an endpoint; it is often the only endpoint they run.
+5. If the author does not serve the model at all, exclude it and flag it.
+
+Verified against provider pricing pages on 2026-10-30. All five checks match
+the first-party endpoint exactly:
+
+| model | provider page | first-party endpoint |
+| --- | --- | --- |
+| `z-ai/glm-5.3-flash` | 0.15 / 0.50 | 0.15 / 0.50 |
+| `z-ai/glm-5.3` | 1.40 / 4.40 | 1.40 / 4.40 |
+| `anthropic/claude-haiku-5.5` | 0.10 / 0.50 | 0.10 / 0.50 |
+| `anthropic/claude-sonnet-5.5` | 2.00 / 10.00 | 2.00 / 10.00 |
+| `anthropic/claude-opus-5.5` | 4.00 / 20.00 | 4.00 / 20.00 |
+
+Sources: `docs.z.ai/guides/overview/pricing` and `claude.com/pricing`. The
+OpenAI page returned 403 to an automated fetch, so its models rest on the
+endpoint data alone and are marked as such in the verification table.
+
+Four models carry a `headline_below_first_party` flag, all open weights:
+`glm-5.3-flash` at 3.57x, `qwen3.8-27b` at 1.36x, `glm-5.3` at 1.22x, and
+`kimi-k3`, whose headline input price of 0.192 sits 15.6x below the 3.00 its
+author charges. No closed model is flagged, which is the asymmetry stated
+plainly.
+
+Six models are excluded for having no first-party endpoint. All six are open
+weights and all score below 25, so no reported floor is affected, but the
+exclusion is one-sided and worth repeating whenever these numbers are quoted.
+
+### Blended price
+
+A single output price understates what a buyer pays, because most traffic is
+input. The blended price is
+
+    blended = (R * input + output) / (R + 1)
+
+a price per million tokens of mixed traffic at R input tokens per output
+token. R lives in `config/weight_classes.json`.
+
+There is no public token mix for this catalogue, so R is an assumption rather
+than a measurement. The base is 5:1, a mid estimate for chat and agentic
+traffic where prompts and retrieved context outweigh generated text. The
+sensitivity ratios bracket it: 1:1 for generation-heavy work such as
+translation or drafting, 20:1 for retrieval and long-context agentic work.
+Any figure published from this must name the ratio it used.
+
 ### Price-performance frontier
 
-The primary cut, and the chart that fronts the pillar.
+The primary cut. For a capability floor, the cheapest model of each weight
+class that clears it. Plotted against the floor it is a step function that
+only rises, since raising the bar can only remove candidates.
 
-For a given capability floor, the frontier is the cheapest model of each
-weight class that clears it. Formally, for threshold t, the model minimising
-output price among those with an intelligence index of t or above. Plotted
-against t it is a step function that only rises, since raising the bar can
-only remove candidates.
+It replaced median price by tier because a buyer does not purchase the median
+model in a tier, they purchase the cheapest one that clears their bar. The
+minimum matches the decision; the median does not.
 
-This replaced median price by tier as the headline. The reason is in the
-numbers rather than in taste. A buyer does not purchase the median model in
-a tier. They purchase the cheapest model that clears their quality bar, so
-the minimum is the statistic that matches the decision and the median is not.
-
-On 2026-10-30 the two disagree, and in a direction that matters:
+At author list prices, blended 5:1:
 
 | capability floor | cheapest open | cheapest closed | closed vs open |
 | --- | --- | --- | --- |
-| index 25 (mid floor) | glm-5.3-flash, 0.14 | claude-haiku-5.5, 0.50 | 3.6x dearer |
-| index 30 | glm-5.3, 3.60 | claude-haiku-5.5, 0.50 | 7.2x cheaper |
-| index 45 (frontier floor) | none | gpt-6.1-terra, 5.00 | no open model |
+| index 25 (mid floor) | minimax-m3.1-flash, 0.113 | claude-haiku-5.5, 0.167 | 1.48x dearer |
+| index 30 | glm-5.3, 1.900 | claude-haiku-5.5, 0.167 | 11x cheaper |
+| index 45 (frontier floor) | none | gpt-6.1-terra, 1.667 | no open model |
 
-The frontiers cross at roughly index 29. Below that, open weights are the
-cheapest way to buy a given level of capability, by a wide margin. Above it,
-`claude-haiku-5.5` at 0.50 per million output tokens is cheaper than every
-open model in the catalogue that scores higher than 29, and the open frontier
-stops entirely at 31.7.
+### Sensitivity to the token mix
 
-The tier medians pointed the other way. They showed closed weights 4.8 times
-dearer in the mid tier, because the closed mid tier contains a handful of
-expensive models that drag the median up while Haiku sits at the bottom of
-it. Both statistics are correct. Only one of them answers a buying question.
+| ratio | open advantage at the mid floor | crossover index |
+| --- | --- | --- |
+| output only | 1.79x | 29.9 |
+| 1:1 | 1.60x | 29.9 |
+| 5:1 (base) | 1.48x | 29.9 |
+| 20:1 | 1.39x | 29.9 |
 
-This sharpens the reading against B003 rather than reversing it. Routing
-open-first still pays, but the band where it pays is narrower than the tier
-medians implied: roughly below index 29 on output price, not across the
-whole mid tier. The input-price advantage is wider and is not shown on the
-chart, so the note should say which price it is talking about.
+The crossover does not move. That is not a coincidence or a robustness
+result about pricing: it is set by open models running out of capability at
+31.7, not by the token mix. Above index 29.9 the only open candidates are
+`mimo-v2.6-pro` and `glm-5.3`, and `claude-haiku-5.5` beats both at every
+ratio tested. The conclusion is insensitive to R because R is not what drives
+it.
+
+The size of the open advantage below the crossover does move, and in the
+direction that works against open weights: the more input-heavy the
+workload, the smaller the advantage, from 1.79x on output alone to 1.39x at
+20:1. Open weights are relatively cheaper on output than on input among
+these models.
 
 ### Tier medians, retained but not the headline
 
@@ -361,6 +435,54 @@ entry is the likelier explanation than a genuine mispricing.
 Do not correct a suspect index by hand. Flag it here, leave the data as the
 source reported it, and if the problem recurs, the answer is a second
 capability source rather than an adjustment.
+
+## Limitations of the open versus closed comparison
+
+What this comparison is, stated so that no note overclaims from it.
+
+It compares **off-the-shelf models at published API prices on a general
+capability index**. Every one of those three things is a narrowing.
+
+**Off-the-shelf.** The models are taken as their makers ship them. B003 is
+about a *post-trained* open model behind a router. Post-training is the step
+that closes most of the gap on a narrow task, and nothing here measures it. A
+7B model fine-tuned on one workflow can beat a general model many times its
+size on that workflow, and would appear in this data, if at all, near the
+bottom of the capability axis.
+
+**API prices.** Every price is what a provider charges per token. The case
+for open weights is substantially a case for self-hosting: you rent the GPU
+rather than the token, the marginal cost falls towards the cost of compute,
+and the economics turn on utilisation rather than list price. A model you
+serve yourself does not appear in this comparison at all. This also means the
+comparison cannot see the thing that makes open weights strategically
+interesting, which is the option to leave.
+
+**A general capability index.** The Artificial Analysis intelligence index is
+a broad average. Routing is a bet that capability is task-specific: that a
+cheaper model is adequate for most queries even if it is weaker on average. A
+general index cannot test that, because it collapses exactly the variation
+the bet relies on. Two models with the same index can be far apart on a
+specific workload.
+
+So this tests the simplest form of B003: can you buy frontier-grade
+capability off the shelf, from an open-weight model, at a lower token price?
+The answer on 2026-10-30 is no, and below the frontier the discount is
+narrower than the headline prices suggest. That is a real finding about one
+corner of the claim.
+
+It is **not** a test of the full claim. B003 asserts that a post-trained open
+model plus a frontier router delivers frontier performance at 25 to 30
+percent of the cost. Testing that needs the routing experiment in
+`experiments/routing`, with a fixed task set, a grading rule and cost
+accounting committed before the first run. Nothing in this pillar substitutes
+for it, and B003 should not be scored off this data.
+
+Three further limits already covered above, repeated here because they bear
+on the same conclusion: the capability index may lag recent releases and
+covers only 54 of 430 priced models; six open-weight models are excluded for
+having no first-party price, a one-sided exclusion; and the blend ratio is an
+assumption, not a measurement.
 
 ## Sources
 

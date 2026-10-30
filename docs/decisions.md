@@ -442,6 +442,70 @@ Cost: the scatter is a denser chart that asks more of a reader than a bar
 chart does, and it leans on an index with known coverage and lag problems,
 now in two places rather than one.
 
+### Prices are the model author's own, not OpenRouter's cheapest endpoint
+
+The frontier now prices every model at its maker's standard list price, from
+`data/price_verification.csv`. This started as a verification task and turned
+into a correction.
+
+OpenRouter's headline price is the cheapest endpoint across all providers.
+For a closed model that is the author. For an open-weight model it is one of
+forty resellers, typically at fp4. `glm-5.3-flash` spans 0.14 to 0.75 across
+its endpoints; the headline took 0.14 while Z.ai charges 0.50. Comparing
+those two sides put a quantized reseller price against a frontier lab's list
+price and called the gap an open-weight discount.
+
+The effect is large and one-directional. At the mid floor the open advantage
+was 4.4x on headline prices and is 1.48x on author prices. Four models are
+flagged where the headline sits below the author's own price, all four open
+weights, none closed.
+
+Five spot checks against provider pricing pages all matched the first-party
+endpoint exactly, which is what gives confidence in the endpoint data as a
+proxy for the published page. The OpenAI page returned 403 to an automated
+fetch, so those models rest on endpoint data alone and say so.
+
+Cost: six open-weight models whose authors do not serve them are now
+excluded, which is a one-sided exclusion. All six score below 25 so no
+reported floor moves, but it has to be restated whenever the numbers are
+quoted. The comparison also now depends on a second OpenRouter endpoint and
+on provider pages that change without notice.
+
+### The blended price changes the size of the gap, not the conclusion
+
+Blended price is (R * input + output) / (R + 1), base 5:1, with 1:1 and 20:1
+as sensitivity, all in `config/weight_classes.json`. R is an assumption:
+there is no public token mix for this catalogue.
+
+The crossover sits at index 29.9 under every ratio tested, including output
+only. That is not robustness in the pricing: it is that the crossover is set
+by open models running out of capability at 31.7 rather than by the token
+mix. Worth stating that way, because "insensitive to assumptions" sounds like
+a stronger result than it is.
+
+What does move is the size of the open advantage below the crossover, and it
+moves against open weights as input share rises: 1.79x on output alone, 1.48x
+at 5:1, 1.39x at 20:1. Open weights are relatively cheaper on output than on
+input among these models, so an input-heavy workload erodes their edge.
+
+### What this comparison cannot test, written down before publishing
+
+A limitations section now sits in methodology. The short version: this
+compares off-the-shelf models at published API prices on a general capability
+index. B003 is about post-trained open models, behind a router, where
+self-hosting is a live option and capability is task-specific. Each of those
+is outside what this measures.
+
+So the pillar tests the simplest form of B003, and the answer to that narrow
+question on 2026-10-30 is no: you cannot buy frontier capability off the
+shelf from an open-weight model at any price, and below the frontier the
+discount is smaller than the headline suggested. B003 itself is not scorable
+from this data and must wait on `experiments/routing`.
+
+Logged because the temptation at publication time will be to let a clean
+chart stand in for the claim it is adjacent to. The chart is about token
+list prices. The claim is about a system.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an

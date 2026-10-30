@@ -24,6 +24,7 @@ TABLES = {
     "claims": "data/claims_ledger.csv",
     "coverage": "data/coverage_universe.csv",
     "model_classification": "data/model_classification.csv",
+    "price_verification": "data/price_verification.csv",
 }
 DEFAULT_DB = "data/research.db"
 
