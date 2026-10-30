@@ -26,15 +26,28 @@ Use these exact names in file names, the `pillar` column, and commit messages.
 
 ## Scorecard files
 
-One CSV per pillar in `data/scorecard/`, appended monthly. Columns:
+One CSV per pillar in `data/scorecard/`, appended monthly. All five files
+share one header, so they can be stacked into a single table. Columns:
 
 - `date` the date the observation refers to, ISO format `YYYY-MM-DD`
+- `entity` what the number is about: a model id, a ticker, a bond, a GPU
+  type. Empty where a metric is about the market as a whole.
+- `entity_class` how the entity is tagged for grouping, for example
+  `open_weights`, `closed_weights`, `neocloud`, `hyperscaler`. Empty where
+  `entity` is empty.
 - `metric` a stable short name, snake_case, reused month to month
 - `value` numeric only, no units, no thousands separators
 - `unit` for example `usd_per_mtok`, `usd_per_gpu_hour`, `pct`, `bps`, `usd_mm`
 - `source` the publisher, for example `OpenRouter`, `SEC 10-Q`, `Company IR deck`
 - `source_url` a direct link, archived if the page is likely to change
 - `notes` anything a reader needs in order to reproduce the number
+
+`entity` and `entity_class` are an addition to the seven columns named in
+CLAUDE.md. They exist because the pillars are mostly per-entity series. A
+price is a price *of a model*, a spread is a spread *on an issuer*. Without
+them the entity has to be smuggled into the metric name, which makes the
+series unqueryable and breaks the rule that a metric name keeps one
+definition forever.
 
 Two rules that matter more than the rest:
 
@@ -81,6 +94,82 @@ are adopted.
 - `gpu_backed_loan_coupon_pct`
 - `assumed_gpu_depreciation_life_years` per company
 - `datacenter_abs_spread_bps`
+
+## Data layer
+
+The CSVs are the canonical record. `data/research.db` is a SQLite database
+built from them by `scripts/build_db.py`, and it is gitignored. It is dropped
+and rebuilt from scratch on every run, nothing is ever written back to the
+CSVs, and no fact lives in the database that the CSVs do not already hold. If
+the two ever disagree, the CSVs are right and the database is stale.
+
+Tables: `claims`, `coverage`, and `scorecard`, the last being all five pillar
+files stacked with a `pillar` column. The build refuses to run if the five
+files disagree on their header.
+
+## Raw responses
+
+Every collector writes the unmodified API response to
+`data/raw/<source>/<collection-date>.json` before it parses anything, and
+those files are committed. The parsing in a collector is a judgment that can
+turn out to be wrong. The raw response is the thing that lets a number be
+re-derived later rather than merely re-collected, which for a price on a
+specific past date is impossible.
+
+## Collectors
+
+### OpenRouter models API
+
+`scripts/collect_openrouter.py`, feeding `elasticity`. Free, no key required.
+
+Appends two rows per model, `openrouter_price_input` and
+`openrouter_price_output`, in `usd_per_mtok`. The API quotes USD per token;
+the collector multiplies by one million and records nothing else derived.
+
+Three groups are excluded from the rows, each counted in the run output:
+
+- Alias entries, which carry an `alias_target` pointing at another model in
+  the same response. Keeping them would count a model twice.
+- Models priced `-1`, meaning the price varies per request. These are the
+  router and auto endpoints. There is no price to record.
+- Nothing else. Zero-priced `:free` endpoints are kept, with a note on the
+  row saying to exclude them from price averages, because dropping a real
+  published price of zero is a bigger distortion than keeping it.
+
+The collector refuses to run twice for the same date. Existing rows are never
+rewritten.
+
+### Open weights or closed weights
+
+`entity_class` on every OpenRouter row comes from this rule, applied in
+order, and nothing else:
+
+1. If the model record has a non-empty `hugging_face_id`, the weights are
+   published. Tag `open_weights`.
+2. Otherwise, if the organisation prefix of the model id is on the
+   closed-weight list in the collector, tag `closed_weights`. That list is
+   `anthropic`, `openai`, `google`, `x-ai`, `amazon`, `perplexity`.
+3. Otherwise tag `unclassified`.
+
+Order matters. It is what puts `openai/gpt-oss` and `google/gemma` in
+`open_weights` while leaving the rest of those organisations closed.
+
+The closed-weight list is deliberately short, and step 3 is deliberately
+common. On the 2026-10-30 run, 176 models came back `open_weights`, 174
+`closed_weights` and 80 `unclassified`, roughly a fifth of the universe. The
+unclassified group includes names whose weights the owner may well know the
+status of, Cohere and ByteDance Seed among them. They stay unclassified
+because a tag applied from memory is not reproducible, and a rule that
+needs a person to adjudicate is not a rule.
+
+Every run prints the unclassified model ids. To classify one, add its
+organisation to the list in the collector with a commit that says what was
+checked. Do not tag individual rows by hand.
+
+Two known limits. A model absent from Hugging Face but published elsewhere
+reads as unclassified rather than open, so `open_weights` is a floor and not
+a count. And the tag describes the weights, not the serving: an open-weight
+model served only by its author is tagged `open_weights` regardless.
 
 ## Sources
 
