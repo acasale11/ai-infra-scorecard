@@ -1,0 +1,7 @@
+{
+  "display_name": "Tony C.",
+  "x_handle": "@TonyC_research",
+  "substack_url": "https://tonycresearch.substack.com",
+
+  "_comment": "Single source of truth for public identity. Anything that appears on a public output reads these three values rather than hardcoding them. The project is semi-anonymous: no full name, employer or school belongs in this file or on anything generated from it."
+}

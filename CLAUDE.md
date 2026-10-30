@@ -33,6 +33,36 @@ Use these exact pillar names in data files and tags.
 - `notes/` monthly scorecard notes, mirrored on Substack
 - `experiments/routing/` test of an open model plus frontier router vs a frontier model alone
 
+## Public outputs
+
+The project is semi-anonymous. No full name, employer, or school appears on
+anything public. That covers the Substack, X, charts, the repo README, and
+the repo itself if it is ever made public.
+
+Public identity, and the only place these values are edited:
+`config/identity.json`.
+
+| field | value |
+| --- | --- |
+| display name | Tony C. |
+| X handle | @TonyC_research |
+| Substack | https://tonycresearch.substack.com |
+
+Anything that renders a byline or footer reads that file through
+`scripts/project_config.py`. Never hardcode the handle in a script, a chart,
+or a note.
+
+Off limits on public outputs: the owner's legal name, the university he
+attends, and any current or former employer. They are deliberately not listed
+here, because this file is itself a public output. The separate rule that no
+employer material enters the repo at all stands on top of this and is
+stricter.
+
+Semi-anonymous means pseudonymous, not untraceable. The aim is that a casual
+reader or a search for the owner's real name does not land here. It is not a
+defence against anyone determined, and nothing in this repo should be written
+on the assumption that the pseudonym holds.
+
 ## Integrity rules (never break these)
 
 - Never delete or overwrite historical data or claims. Corrections are new rows or new commits with an explanation.
