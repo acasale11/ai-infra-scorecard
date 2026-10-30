@@ -718,6 +718,104 @@ because it is free, keyless, daily, has decades of history and no blockers;
 then the EDGAR access problem; then the filings extractor; then TRACE. Nothing
 is built yet and nothing should be until the owner approves this shape.
 
+Approved 2026-10-30. The FRED collector is built and has run; see below. The
+claim that it has decades of history turned out to be wrong for eight of the
+nine series, which is documented in the next section. The remaining three
+steps are unchanged and unstarted.
+
+### The FRED benchmark collector
+
+Built and first run 2026-10-30. `scripts/collect_fred.py`, configured by
+`config/credit_series.json`. Nine series, no API key, no account.
+
+| metric | FRED series | unit stored | published as |
+| --- | --- | --- | --- |
+| `ig_oas` | BAMLC0A0CM | bps | percent |
+| `bbb_oas` | BAMLC0A4CBBB | bps | percent |
+| `hy_oas` | BAMLH0A0HYM2 | bps | percent |
+| `hy_bb_oas` | BAMLH0A1HYBB | bps | percent |
+| `hy_b_oas` | BAMLH0A2HYB | bps | percent |
+| `hy_ccc_oas` | BAMLH0A3HYC | bps | percent |
+| `ig_effective_yield` | BAMLC0A0CMEY | pct | percent |
+| `hy_effective_yield` | BAMLH0A0HYM2EY | pct | percent |
+| `ust_10y` | DGS10 | pct | percent |
+
+The option-adjusted spread series are published in percent and stored in
+basis points, multiplied by 100, because a spread is read in basis points.
+The scale factor sits in the config next to each series rather than in the
+code. Yields are stored as published.
+
+Rows are written with `entity` set to the FRED series id and `entity_class`
+set to `index`. The series id rather than a friendly name because it is the
+thing that can be checked: open `https://fred.stlouisfed.org/series/<id>`.
+
+**The date column holds the observation date, not the collection date.**
+This differs from every other collector in the repo and is deliberate. A
+market level has a date of its own and that date is the meaning; stamping
+three years of history with the day it was pulled would make the series
+useless. The collection date is on every row in `notes`. See
+docs/decisions.md.
+
+**Only three years of spread history exist.** The eight ICE BofA series
+return a rolling three-year window and ignore the `cosd` and `coed` date
+parameters, tested on 2026-10-30. The earliest obtainable observation is
+2023-10-31. DGS10 has no cap and returned 1962 onward, so the Treasury series
+is deeper than the spread series and any chart combining them has to say so.
+The window rolls, so observations drop off the back permanently. For anything
+older than three years this repo will eventually hold the only copy, which is
+why the collector never rewrites a row.
+
+**Revisions are reported, not applied.** Each run re-reads the overlap
+between what FRED now serves and what is stored, and prints any value that
+has changed. Nothing is overwritten. A revision is a new fact and gets a new
+dated commit.
+
+**Append only.** The collector finds the newest stored observation per series
+and appends only what follows it. A second run on the same day writes
+nothing. Confirmed on the first run: 7,742 rows written, then zero.
+
+Raw responses go to `data/raw/fred/<collection date>/<series id>.csv`, full
+history as returned rather than the trimmed window.
+
+### What the first credit run shows
+
+Baseline only. Nothing issuer-specific, and nothing here scores a claim.
+
+| metric | latest, 2026-10-29 | 3y low | 3y high | 3y median | percentile |
+| --- | --- | --- | --- | --- | --- |
+| `ig_oas` | 89 bps | 73 | 133 | 84 | 62% |
+| `bbb_oas` | 110 bps | 92 | 163 | 106 | 60% |
+| `hy_oas` | 326 bps | 259 | 461 | 302 | 78% |
+| `hy_bb_oas` | 194 bps | 150 | 306 | 182 | 73% |
+| `hy_b_oas` | 332 bps | 254 | 486 | 304 | 78% |
+| `hy_ccc_oas` | 1,325 bps | 690 | 1,356 | 908 | 99% |
+| `ig_effective_yield` | 5.79% | 4.67 | 6.37 | 5.20 | 94% |
+| `hy_effective_yield` | 7.99% | 6.39 | 9.38 | 7.07 | 91% |
+| `ust_10y` | 5.05% | 0.93 | 5.31 | 4.05 | 99% |
+
+Two patterns, stated as observations and not as explanations.
+
+Credit quality is bifurcated rather than broadly stressed. CCC sits at the
+99th percentile of its three-year range, close to its high of 1,356. BB sits
+at the 73rd and investment grade at the 62nd. The CCC-minus-BB gap is 1,131
+bps against a three-year median of 719. The market is discriminating sharply
+inside high yield rather than repricing credit as a whole.
+
+All-in yields are high for a reason that is mostly not credit. Investment
+grade yields at the 94th percentile while investment grade spreads sit at the
+62nd, with the 10-year Treasury at the 99th. Borrowing costs are elevated
+because the risk-free rate is elevated. Reading a high coupon on a 2026
+issue as evidence of credit stress would be a mistake, and the comparison the
+pillar needs is spread over the matching index, not the coupon.
+
+Three cautions on all of the above. The percentiles cover three mid-cycle
+years with no quiet period and no prior stress episode, so a 99th percentile
+here is a weaker statement than it would be over twenty years. The CCC index
+is the whole CCC universe and has no known AI infrastructure weighting, so
+nothing in it can be attributed to this sector without issuer-level data.
+And none of these series is issuer-specific, which is the gap TRACE fills and
+the reason the pillar is not finished.
+
 ## Sources
 
 | source | pillars | access | reliability notes |
@@ -726,7 +824,8 @@ is built yet and nothing should be until the owner approves this shape.
 | Model provider pricing pages | `elasticity` | free, scrapeable | Prices change without notice. Snapshot and archive on every collection. |
 | SEC filings via EDGAR full-text search | `buyer_concentration`, `credit` | free, API | Authoritative. Lags the quarter. |
 | Company IR decks and earnings call transcripts | all | mostly free | Management framing. Record the claim, not the spin. |
-| FINRA TRACE | `credit` | free, delayed | Bond prints for public issuers. |
+| FRED | `credit` | free, no key | Index-level credit benchmarks, collected since 2026-10-30. The ICE BofA series serve a rolling three-year window only. |
+| FINRA TRACE | `credit` | free, delayed | Bond prints for public issuers. Needs a free account; not yet registered. |
 | GPU rental price aggregators and provider rate cards | `compute_pricing` | free | Advertised rates, not transacted rates. Note which is which. |
 | Trade press on private financings | `credit`, `compute_pricing` | free | Unverifiable terms. Mark the row as `reported` in notes. |
 

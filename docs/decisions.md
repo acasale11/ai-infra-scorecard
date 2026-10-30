@@ -610,6 +610,70 @@ would be exactly the kind of error this repo is built to avoid.
 Build order proposed: FRED benchmarks first because they have no blockers at
 all, then SEC access, then the filings extractor, then TRACE.
 
+### The date column holds the observation date for FRED rows
+
+Every other collector stamps a row with the day it was pulled. The FRED
+collector stamps it with the day the market data refers to, and records the
+pull date in `notes` instead.
+
+A model's listed price has no date of its own, so the collection date is the
+only honest stamp available. A published index level does have a date of its
+own, and it is the one that carries the meaning: high yield at 326 bps on
+2026-10-29 belongs on 2026-10-29 whether it was fetched that evening or three
+years later. Stamping all 7,742 observations with 2026-10-30 would have
+stacked three years of market history onto a single day and left the series
+unusable for the thing it exists to do, which is show movement over time.
+
+This is not the backfilling the integrity rules forbid. Nothing claims to
+have been collected earlier than it was, the collection date is on every row,
+and no measurement is reconstructed after the fact. FRED is publishing a
+dated historical record and the dates are part of what is published.
+
+Cost: the `date` column no longer means the same thing in every pillar file,
+so anything reading across pillars has to know which collector wrote the row.
+The `source` column tells it.
+
+### FRED serves only three years of spread history, and the window moves
+
+Tested on 2026-10-30. The eight ICE BofA series return exactly three years
+and ignore the `cosd` and `coed` date parameters, so 2023-10-31 is the
+earliest observation obtainable, not the earliest that exists. DGS10 is a
+Federal Reserve series with no such cap and returned 1962 onward.
+
+Two consequences, and the second is the one that matters.
+
+The intended pre-cycle baseline is not available. The window opens a year
+after ChatGPT and well after the 2022 rates drawdown, so there is no quiet
+period and no prior stress episode to measure a future widening against.
+Every percentile quoted off these series is a percentile of three mid-cycle
+years, which is a much weaker statement than it sounds.
+
+And the window rolls. Observations drop off the back as time passes and
+cannot be fetched again. `data/scorecard/credit.csv` is therefore not a
+convenience copy of a source that will always be there; for anything older
+than three years it will eventually be the only copy. That turns the
+append-only rule from good hygiene into the thing holding the series
+together, and it is an argument for collecting on a schedule rather than
+when convenient.
+
+Cost: the spread series and the Treasury series cover different spans, so any
+chart combining them has to say so.
+
+### FRED revisions are reported, never rewritten
+
+On each run the collector re-reads the overlap between what FRED now serves
+and what is already stored, and prints any value that has changed. It does
+not update the stored row.
+
+FRED does revise, rarely. Silently overwriting would mean the file quietly
+stopped matching the commit that created it, and the record would lose the
+one property it is built for. A revision is a new fact: it belongs in a new
+dated commit with an explanation.
+
+Cost: a revised value sits in the file as a known-stale number until someone
+acts on the warning. The warning prints on every run, so it does not get lost,
+but nothing enforces acting on it.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -640,3 +704,10 @@ edit here.
 - Whether `elasticity.csv` should keep taking 860 rows a month, or whether
   per-model prices belong in their own file with only aggregates on the
   pillar series.
+- Whether credit collection needs a schedule rather than running when
+  convenient, given the ICE BofA three-year window rolls and lost
+  observations cannot be re-fetched.
+- Whether the CCC bucket sitting at the 99th percentile of its three-year
+  range, while BB sits at the 73rd and investment grade at the 62nd, has
+  anything to do with AI infrastructure credit. The index-level data cannot
+  say. It needs issuer-level spreads, which needs TRACE.

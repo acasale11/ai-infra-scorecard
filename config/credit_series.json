@@ -1,0 +1,71 @@
+{
+  "_comment": "Inputs to scripts/collect_fred.py. Every series id here is checkable by opening https://fred.stlouisfed.org/series/<id>. The FRED graph CSV endpoint needs no API key. 'scale' converts the published unit into the unit this repo stores: the ICE BofA option-adjusted spread series are published in percent, and a spread is read in basis points, so they are multiplied by 100. Yield series are stored as published.",
+  "history_start": "2021-01-01",
+  "_history_start_note": "The requested floor, not what arrives. A spread level means nothing on its own; what matters is where it sits against its own history, so the intent was a pre-cycle baseline covering the 2022 rates drawdown as a stress reference.",
+  "_rolling_window_note": "Eight of the nine series do not honour it. Tested 2026-10-30: the ICE BofA series return exactly three years and ignore the cosd and coed date parameters, so the earliest observation available is a rolling three years back. DGS10 is a Federal Reserve series with no such cap and returns 1962 onward. Two consequences. The spread series and the Treasury series cover different spans, so any chart putting them together has to say so. And the window moves: observations drop off the back as time passes and cannot be re-fetched later, which makes data/scorecard/credit.csv the only surviving record of them. That is an argument for collecting on a schedule and never rewriting a row.",
+  "series": [
+    {
+      "id": "BAMLC0A0CM",
+      "metric": "ig_oas",
+      "unit": "bps",
+      "scale": 100,
+      "title": "ICE BofA US Corporate Index option-adjusted spread"
+    },
+    {
+      "id": "BAMLC0A4CBBB",
+      "metric": "bbb_oas",
+      "unit": "bps",
+      "scale": 100,
+      "title": "ICE BofA BBB US Corporate Index option-adjusted spread"
+    },
+    {
+      "id": "BAMLH0A0HYM2",
+      "metric": "hy_oas",
+      "unit": "bps",
+      "scale": 100,
+      "title": "ICE BofA US High Yield Index option-adjusted spread"
+    },
+    {
+      "id": "BAMLH0A1HYBB",
+      "metric": "hy_bb_oas",
+      "unit": "bps",
+      "scale": 100,
+      "title": "ICE BofA BB US High Yield Index option-adjusted spread"
+    },
+    {
+      "id": "BAMLH0A2HYB",
+      "metric": "hy_b_oas",
+      "unit": "bps",
+      "scale": 100,
+      "title": "ICE BofA Single-B US High Yield Index option-adjusted spread"
+    },
+    {
+      "id": "BAMLH0A3HYC",
+      "metric": "hy_ccc_oas",
+      "unit": "bps",
+      "scale": 100,
+      "title": "ICE BofA CCC and lower US High Yield Index option-adjusted spread"
+    },
+    {
+      "id": "BAMLC0A0CMEY",
+      "metric": "ig_effective_yield",
+      "unit": "pct",
+      "scale": 1,
+      "title": "ICE BofA US Corporate Index effective yield"
+    },
+    {
+      "id": "BAMLH0A0HYM2EY",
+      "metric": "hy_effective_yield",
+      "unit": "pct",
+      "scale": 1,
+      "title": "ICE BofA US High Yield Index effective yield"
+    },
+    {
+      "id": "DGS10",
+      "metric": "ust_10y",
+      "unit": "pct",
+      "scale": 1,
+      "title": "10-year Treasury constant maturity yield"
+    }
+  ]
+}
