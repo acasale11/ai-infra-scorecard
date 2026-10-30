@@ -192,6 +192,63 @@ somewhere other than Hugging Face reads as unclassified. Any open-share
 figure taken off this column understates the real one, and the note needs to
 say so rather than quoting it as measured.
 
+### Public identity is pseudonymous and lives in one file
+
+The project publishes as Tony C., `@TonyC_research`,
+`tonycresearch.substack.com`. No full name, employer or school goes on a
+public output.
+
+All three values sit in `config/identity.json` and are read through
+`scripts/project_config.py`. Nothing hardcodes a handle. Changing the handle
+later is one edit, and more to the point, there is exactly one place to audit
+when checking that nothing has leaked.
+
+A config file is worth it here for a reason beyond convenience. Semi-anonymity
+fails through a single forgotten string in a footer. Centralising the identity
+turns "did I remember everywhere?" into a question with a checkable answer.
+
+Cost: one more indirection between a script and the text it prints.
+
+### Semi-anonymous means pseudonymous, not untraceable
+
+Worth stating plainly so nothing is written on a false assumption. The aim is
+that a casual reader, or someone searching the owner's real name, does not
+land here. It does not survive anyone determined. Nothing in this repo should
+be written as though the pseudonym protects it, and the rule that no employer
+material enters the repo at all remains the real protection.
+
+### Git commit authorship contradicts the pseudonym, and is unresolved
+
+Every commit so far, including this one, is authored with the owner's legal
+name and his university email address. Not reproduced here, for the same
+reason they should not be there: eleven commits carry both, in a repo intended
+to become public. It is the exact thing the rule above forbids, and no chart
+footer matters next to it.
+
+Not changed unilaterally, because the options differ in ways only the owner
+can weigh. Setting a pseudonymous `user.name` and a GitHub noreply address
+fixes future commits and leaves the existing eleven. Rewriting history fixes
+all of them but changes every hash, needs a force push, and sits badly with
+the decision to preserve the original upload commit. Leaving it is defensible
+only while the repo stays private.
+
+A second leak of the same kind, found in the same pass. CLAUDE.md and
+`docs/methodology.md` both named the owner's employers in the course of
+writing the rule that forbids mentioning them, and a first draft of the
+public outputs section added the university too. The draft was fixed before
+committing. The employer names were inherited from the original CLAUDE.md
+and are still there, inside the integrity rules, where they read as the thing
+being prohibited rather than as a disclosure. They are still two real
+employer names in a file meant to go public, and they need the owner's call
+alongside the authorship question.
+
+The general lesson, logged because it will recur: a rule that forbids naming
+something cannot be written by naming it.
+
+The repo is private today, so nothing has leaked yet. This stays an open
+question until the owner picks one, and it must be settled before the repo is
+made public or the first chart is posted.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -205,6 +262,11 @@ edit here.
   second source is needed before the first note.
 - Which of the 80 unclassified organisations can be moved onto the
   closed-weight list with a checkable source rather than from memory.
+- How git commit authorship gets reconciled with the pseudonym, before the
+  repo goes public. See the entry above.
+- Whether the two employer names inherited from the original CLAUDE.md should
+  stay in CLAUDE.md and methodology.md, given both files go public with the
+  repo.
 - Whether `elasticity.csv` should keep taking 860 rows a month, or whether
   per-model prices belong in their own file with only aggregates on the
   pillar series.
