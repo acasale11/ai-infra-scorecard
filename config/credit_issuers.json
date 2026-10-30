@@ -1,0 +1,54 @@
+{
+  "_comment": "Inputs to scripts/extract_filings.py. Every CIK is checkable at https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&CIK=<cik>. entity_class matches the layer column in data/coverage_universe.csv. forms lists the filings to consider, best first: the extractor takes the most recent one that exists and carries an XBRL instance document.",
+  "issuers": [
+    {
+      "ticker": "CRWV",
+      "cik": "0001769628",
+      "entity_class": "neocloud",
+      "forms": ["10-Q", "10-K"]
+    },
+    {
+      "ticker": "APLD",
+      "cik": "0001144879",
+      "entity_class": "neocloud",
+      "forms": ["10-Q", "10-K"]
+    },
+    {
+      "ticker": "WULF",
+      "cik": "0001083301",
+      "entity_class": "neocloud",
+      "forms": ["10-Q", "10-K"]
+    },
+    {
+      "ticker": "CIFR",
+      "cik": "0001819989",
+      "entity_class": "neocloud",
+      "forms": ["10-Q", "10-K"]
+    },
+    {
+      "ticker": "IREN",
+      "cik": "0001878848",
+      "entity_class": "neocloud",
+      "forms": ["10-K", "20-F"]
+    },
+    {
+      "ticker": "NBIS",
+      "cik": "0001513845",
+      "entity_class": "neocloud",
+      "forms": ["20-F"],
+      "note": "Foreign private issuer. 6-K filings carry no FilingSummary and usually no XBRL instance, so the 20-F is the only structured source."
+    },
+    {
+      "ticker": "ORCL",
+      "cik": "0001341439",
+      "entity_class": "hyperscaler",
+      "forms": ["10-K", "10-Q"],
+      "note": "The 10-Q carries no debt rendering page. Confirmed 2026-10-30."
+    }
+  ],
+  "_tag_map_note": "The tag map lives in scripts/extract_filings.py rather than here, because each entry needs a comment explaining what the tag means and what it excludes, and JSON has nowhere to put that. The mapping is documented in docs/methodology.md.",
+  "gpu_backed_members": {
+    "_comment": "Substrings that mark an XBRL member as a GPU-backed or delayed-draw facility. Matched case-insensitively against the member name. This is the one judgement in the extractor: a facility is counted as GPU-backed because its name says so, not because anyone decided it was. Anything not matched is still extracted, with its member name preserved, and simply is not aggregated into the GPU-backed totals.",
+    "patterns": ["ddtl", "delayeddraw", "gpu"]
+  }
+}

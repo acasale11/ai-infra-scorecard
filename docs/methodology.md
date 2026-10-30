@@ -584,6 +584,15 @@ GPUs as collateral, which is the question the pillar exists to answer.
 Confirm the sequence and the drawdown dates against the narrative footnote
 before treating it as a series.
 
+> **Corrected 2026-10-30, after the XBRL check.** The paragraph above is
+> wrong and is kept as written because this record does not quietly rewrite
+> its own mistakes. The sequence mixes stated and effective rates. On a
+> consistent effective basis the ladder is 15%, 11%, 9%, 9%, 7% and 9%, the
+> 7% facility is the only non-recourse one in the set, and the newest
+> facility is back at 9%. There is no two thirds decline. See "Reconciling
+> the source map against the XBRL" below for the full table and for what
+> does survive.
+
 The recourse versus non-recourse split is the second thing to track. The
 disclosure separates them, which most issuers do not.
 
@@ -879,6 +888,155 @@ is the whole CCC universe and has no known AI infrastructure weighting, so
 nothing in it can be attributed to this sector without issuer-level data.
 And none of these series is issuer-specific, which is the gap TRACE fills and
 the reason the pillar is not finished.
+
+### The filings extractor
+
+Built and first run 2026-10-30. `scripts/extract_filings.py`, configured by
+`config/credit_issuers.json`. Seven issuers, 1,118 metric rows.
+
+**It reads the XBRL instance document, not the R##.htm rendering pages.**
+That distinction is the point of the script. The rendering pages are HTML
+tables generated from the XBRL for people to read, and flattening one to
+text loses the column alignment, which is how the first pass at the source
+map produced figures that had to be flagged. The instance document carries
+the same facts with an explicit context on each one naming its period and
+its dimensional members, so a 9.00% belonging to DDTL 2.1 cannot be read as
+belonging to DDTL 3.0.
+
+The XBRL `companyfacts` and `frames` APIs were tested first and are not
+sufficient. They return consolidated facts only: `LongTermDebt` for the
+whole company is there, the rate on an individual facility is not.
+Instrument-level detail is the pillar's subject, so the instance document is
+the only usable source.
+
+| issuer | filing read | metric rows | instruments |
+| --- | --- | --- | --- |
+| CRWV | 10-Q 2026-08-12 | 132 | 20 |
+| APLD | 10-Q 2026-10-07 | 108 | 21 |
+| WULF | 10-Q 2026-08-05 | 81 | 18 |
+| CIFR | 10-Q 2026-08-04 | 122 | 7 |
+| IREN | 10-K 2026-08-27 | 99 | 26 |
+| NBIS | 20-F 2026-04-30 | 66 | 18 |
+| ORCL | 10-K 2026-06-22 | 510 | 75 |
+
+Form preference beats recency. `forms` in the config is ordered best first
+and the extractor takes the newest filing of the best form that exists.
+Oracle is why: its 10-Q is more recent than its 10-K and carries no debt
+disclosure, so taking the newest filing returned four facts instead of 510.
+
+**Two rate metrics, never mixed.** Filers tag
+`DebtInstrumentInterestRateStatedPercentage` for the coupon or stated rate
+and `DebtInstrumentInterestRateEffectivePercentage` for the rate including
+discount and issuance cost amortisation. These are stored as
+`instrument_rate_stated` and `instrument_rate_effective` and neither is
+derived from the other. Any comparison across instruments has to pick one
+basis and stay on it. The cost of getting this wrong is set out under the
+reconciliation below.
+
+**Member names are preserved verbatim**, as `TICKER:MemberName` in the
+entity column, with the full member chain in notes. No attempt is made to
+turn `DDTL2.1FacilityMember` into a friendly name, because the translation
+would be a guess a later reader could not check.
+
+**One classification is applied.** A facility counts as GPU-backed when its
+member name contains one of the substrings in `config/credit_issuers.json`,
+currently `ddtl`, `delayeddraw` and `gpu`. It is recorded in notes, not used
+to filter anything out. A facility is counted because its name says so, not
+because anyone decided it was.
+
+**Dates are carried as ISO strings in the value column**, with unit `date`,
+for `instrument_maturity_date` and `instrument_issuance_date`. A value
+column holding both numbers and dates is not elegant. The alternative was a
+separate file with its own schema, which would break the rule that all five
+pillar files share one header, and maturity is too central a credit term to
+leave out. Readers filter on the unit column.
+
+**Durations are ISO 8601.** A five year useful life arrives as `P5Y` and has
+to be parsed, not cast. This was missed on the first run and silently sent
+52 facts to the gap file, including every GPU depreciation life. Months and
+days convert on 12 and 365, which is close enough for a depreciation life
+and wrong enough to record here.
+
+**Unmapped facts are written down, not dropped.** 419 debt-adjacent facts
+whose tags are not in the extractor's map went to `data/credit_unmapped.csv`
+with the tag, the members, the value and the reason. The gap list is the
+honest part of the output, and it is what the next pass works from.
+
+Two exclusions keep that file usable. Tags ending in `TextBlock` hold an
+entire rendered footnote including its HTML, one of them 130 KB on its own,
+and are skipped: they are disclosure prose rather than facts, and listing
+them made the gap file 2.3 MB of markup that broke the CSV reader in
+`build_db.py`. Any other value is truncated to 200 characters. The gap file
+exists to say what was missed, not to hold a second copy of the filing.
+
+Append only, and it refuses to run twice for the same collection date. The
+`date` column holds the period end of the fact, following the convention set
+by the FRED collector; the filing date, accession number and collection date
+are in notes.
+
+### Reconciling the source map against the XBRL
+
+The source map was gathered by hand from flattened rendering pages and every
+figure in it was flagged as needing confirmation. This is that confirmation.
+Two findings were checked. One holds and one does not.
+
+**The CoreWeave DDTL rate ladder does not hold as it was written.** The
+source map reported successive facility generations at 15%, 11%, 9%, 9%,
+SOFR plus 2.25% and 4.50%, and read that as the cost of GPU-backed credit
+falling by roughly two thirds across six deals. That sequence mixes two
+different rate bases. On the effective basis, consistently:
+
+| facility | stated | effective | carrying, usd mm | recourse |
+| --- | --- | --- | --- | --- |
+| DDTL 1.0 | not tagged | 15.00% | 1,300 | recourse |
+| DDTL 2.0 | not tagged | 11.00% | 3,190 | recourse |
+| DDTL 2.1 | not tagged | 9.00% | 3,000 | recourse |
+| DDTL 3.0 | not tagged | 9.00% | 2,215 | recourse |
+| DDTL 4.0 | 2.25% over SOFR | 7.00% | 2,837 | non-recourse |
+| DDTL 5.0 | 4.50% | 9.00% | 1,101 | recourse |
+
+The 4.50% that ended the sequence is DDTL 5.0's stated rate. Its effective
+rate is 9.00%. The 7.00% on DDTL 4.0 is lower than the rest, and DDTL 4.0 is
+the one non-recourse facility in the ladder, so it is not comparable to the
+others either.
+
+What survives is narrower and still interesting. Among recourse facilities
+the effective rate fell from 15% to 11% to 9% across the first three
+generations and has been flat at 9% for the three generations since,
+including DDTL 5.0, the newest. So GPU-backed credit at this issuer got
+materially cheaper once and then stopped. That is a different claim from a
+two thirds decline, and it is the one the filing supports.
+
+The open question of whether the ladder is a like-for-like sequence is
+therefore answered, and the answer is no. Two of the six differ in rate
+basis or in recourse.
+
+**The recourse split holds exactly.** Recourse 25,170 non-current plus 6,235
+current is 31,405 million; non-recourse 2,385 plus 1,278 is 3,663 million.
+Both match the source map to the million.
+
+**The Cipher comparison holds, on a like-for-like basis.** Cipher's
+project-level secured notes are tagged at stated rates of 6.00%, 6.125% and
+7.125%. CoreWeave's parent-level senior notes are tagged at stated rates of
+9.00%, 9.625% and 9.75%. Both are stated rates, so the comparison in the
+source map was made on one basis and stands: ring-fenced project debt at the
+smaller issuer prices inside corporate debt at the larger one. Worth noting
+that CoreWeave's effective rate on those notes is 10.00% while Cipher tags
+no effective rate on the project notes, so the gap cannot be restated on the
+effective basis from this data.
+
+A third observation falls out of the same table. Cipher's 2031 convertible
+has a stated rate of 0.00% and an effective rate of 6.89%, which is a clean
+illustration of why the two bases are kept apart.
+
+**GPU depreciation lives are now readable**, which is the underwriting
+assumption that decides whether the collateral outlives the loan. IREN tags
+`GPUHardwareMember` and `HPCHardwareMember` at 5.0 years and mining hardware
+at 4.0. Nebius tags computer equipment at 4 to 5 years. Applied Digital
+tags a 3 to 5 year range without naming GPUs, alongside 39 year buildings.
+CoreWeave tags no useful life at all in its 10-Q, so its depreciation
+assumption is not available from this source and has to come from the 10-K
+or the narrative.
 
 ## Sources
 

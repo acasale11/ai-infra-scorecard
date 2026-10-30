@@ -721,6 +721,106 @@ Cost: the default is a domain rather than an address, which is slightly less
 than SEC asks for. Setting the variable closes that gap and nothing in the
 repo records what it was set to.
 
+### The two thirds decline in GPU-backed credit was not real
+
+The source map reported CoreWeave's six DDTL generations at 15%, 11%, 9%,
+9%, SOFR plus 2.25% and 4.50%, and called it the cost of GPU-backed credit
+falling by roughly two thirds. The XBRL check the same day shows the
+sequence mixes two rate bases.
+
+Four of the six figures are effective rates. The 4.50% that closed the
+sequence is DDTL 5.0's stated rate, and its effective rate is 9.00%. On one
+basis the ladder reads 15, 11, 9, 9, 7, 9. The 7% is DDTL 4.0, the only
+non-recourse facility in the set, so it is not comparable to the five around
+it either.
+
+What survives: among recourse facilities the effective rate fell from 15% to
+9% across three generations and has been flat at 9% for the three
+generations since, the newest included. GPU-backed credit at this issuer got
+cheaper once and then stopped. That is worth knowing and it is not the claim
+that was made.
+
+The open question asking whether the ladder was like-for-like is answered.
+It was not.
+
+Cost: the most quotable finding in the pillar is gone, and it was the one
+most likely to have been published first.
+
+### Three times now, in the same direction
+
+This is the third time an interpretation here has run ahead of the data, and
+all three ran the same way, toward a cleaner story than the evidence
+supported. The frontier gap read as evidence against B003 when it was
+consistent with it. The author list price was adopted as the honest basis
+when it understated the thing the thesis is about. And a rate ladder was
+read as a trend when two of its six points were measured differently from
+the rest.
+
+The common shape is a number that looked like a series. Each time the fix
+came from someone asking what the numbers were actually measuring, and each
+time the answer was that they were not all measuring the same thing.
+
+So a rule, applied from here: before any sequence of numbers is described as
+a trend, state the basis of every point in it and confirm the bases match.
+If a point's basis cannot be established, the sequence is not a trend yet.
+This is why `instrument_rate_stated` and `instrument_rate_effective` are
+separate metrics that the extractor never converts between, and why the
+reconciliation table in methodology prints both columns with blanks rather
+than filling the blanks in.
+
+Cost: more columns, more blanks, and findings that read as weaker. They were
+always this weak.
+
+### Instance documents, not rendering pages
+
+The extractor reads each filing's XBRL instance document rather than the
+R##.htm pages the source map was gathered from.
+
+The rendering pages are HTML tables generated for people to read. Flattening
+one to text loses which column a number sits in, which is how the DDTL
+figures above got mixed. The instance document carries each fact with an
+explicit context naming its period and its dimensional members, so the
+member is attached to the number and cannot drift.
+
+The `companyfacts` and `frames` APIs were tried first and rejected: they
+return consolidated facts only, so total debt is available and the rate on
+an individual facility is not. Instrument-level detail is the whole subject
+of this pillar.
+
+Cost: the instance documents are large, around 1.7 MB each, and parsing them
+means handling XBRL contexts and ISO 8601 durations rather than reading a
+table. The 52 GPU depreciation lives were lost on the first run precisely
+because a duration arrives as `P5Y` and was being cast as a number.
+
+### Dates live in the value column
+
+`instrument_maturity_date` and `instrument_issuance_date` put an ISO date
+string in a column that otherwise holds numbers, flagged by `date` in the
+unit column.
+
+The alternative was a separate file with its own schema, which would break
+the rule that all five pillar files share one nine-column header and that
+`build_db.py` enforces. Maturity is too central a credit term to leave out
+to preserve a column's type purity.
+
+Cost: anything averaging the value column has to filter on unit first, which
+it should be doing anyway.
+
+### Unmapped facts are written down rather than dropped
+
+419 debt-adjacent facts whose tags are not in the extractor's map went to
+`data/credit_unmapped.csv` with the tag, the members, the value and a
+reason. Tags ending in `TextBlock` are excluded and long values truncated,
+after a first version produced a 2.3 MB file of HTML footnotes that broke
+`build_db.py`.
+
+A silent drop would make the extractor look more complete than it is. The
+gap file is what the next pass works from, and its size is the honest
+measure of how much of each filing is actually being read.
+
+Cost: a file that will keep growing and that nobody has to act on, which
+risks becoming wallpaper.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -729,9 +829,9 @@ edit here.
 - Which holding is "United" in the Atreides Q3 2026 top 10.
 - How to reach SEC EDGAR programmatically from this environment, given 403s
   on direct requests.
-- Whether the CoreWeave DDTL rate ladder is a true like-for-like sequence or
-  whether the facilities differ in collateral and seniority in ways that make
-  the comparison invalid.
+- RESOLVED 2026-10-30: the CoreWeave DDTL ladder is not a like-for-like
+  sequence. Two of its six points differ in rate basis or recourse. See the
+  entry above and the reconciliation in methodology.
 - Whether Cerebras, Anthropic and SpaceX (xAI) are listed, currently `verify`
   in the coverage universe.
 - Whether OpenRouter data alone is a defensible basis for the
@@ -758,3 +858,20 @@ edit here.
   range, while BB sits at the 73rd and investment grade at the 62nd, has
   anything to do with AI infrastructure credit. The index-level data cannot
   say. It needs issuer-level spreads, which needs TRACE.
+- Whether CoreWeave's GPU depreciation life can be found at all, given it
+  tags no useful life in the 10-Q while IREN tags GPU hardware at 5 years
+  and Nebius tags computer equipment at 4 to 5.
+- Which of the 419 unmapped facts are worth adding to the extractor's tag
+  map, and whether the gap file needs a review cadence or will just grow.
+- Whether the Cipher project-level versus CoreWeave parent-level pricing gap
+  should become an owner claim in the ledger. It now survives a like-for-like
+  check on stated rates, so it is testable. That is the owner's call to make
+  and write, not this file's.
+- Whether the raw XBRL instance documents should keep being committed. They
+  are 19 MB per run across seven issuers, so quarterly collection adds
+  roughly 76 MB a year, against 400 KB a year for the OpenRouter responses.
+  The provenance argument is also weaker here than elsewhere: SEC filings
+  are permanent public records at stable URLs, which is not true of the
+  OpenRouter prices or the FRED spread window. Committed for now because the
+  rule says raw responses are committed, but the rule was written for
+  kilobyte payloads.

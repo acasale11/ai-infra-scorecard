@@ -52,6 +52,12 @@ key or account, and appends only what it has not already stored. Run twice on
 project needs. Run `python scripts/sec_client.py --check` to re-test all six
 at any time; all six passed on 2026-10-30.
 
+**The filings extractor.** Pulls debt terms for all seven borrowers straight
+from the structured data attached to each filing, rather than from the
+human-readable summary pages the first pass used. 1,118 figures on the first
+run. Anything it cannot interpret goes to a gap file instead of being
+dropped, currently 419 items.
+
 ## What the first model-price run found
 
 Two things, and the second matters more than the first.
@@ -123,16 +129,32 @@ only copy of anything past that window, which makes collecting regularly more
 important than it looked and makes the never-rewrite rule load-bearing rather
 than tidy.
 
-**What the filings show.** Four borrowers were read in detail. CoreWeave
-carries about $35.6bn of debt, split between $31.4bn that the parent is on
-the hook for and $3.7bn that it is not. The most interesting thing in the
-whole pillar is sitting in that filing: CoreWeave has raised six successive
-GPU-backed loan facilities, and the interest rate on them has gone 15%, 11%,
-9%, 9%, SOFR plus 2.25%, and 4.5%. If that sequence means what it looks like,
-the cost of borrowing against GPUs has fallen by roughly two thirds in the
-space of six deals. That is close to a direct measurement of whether lenders
-are getting more comfortable with GPUs as collateral, which is the question
-this pillar exists to answer.
+**What the filings show.** All seven borrowers have now been read by script
+straight from the structured data in their filings, which is a better source
+than the summary pages the first pass used. CoreWeave carries about $35.6bn
+of debt, split between $31.4bn that the parent is on the hook for and $3.7bn
+that it is not. That split was checked and is exactly right.
+
+**A correction, and it matters.** The first pass reported that CoreWeave's
+six successive GPU-backed loan facilities priced at 15%, 11%, 9%, 9%, SOFR
+plus 2.25% and 4.5%, and read that as the cost of borrowing against GPUs
+falling by about two thirds. That was wrong, and it was the most quotable
+thing in this pillar.
+
+The problem is that those six numbers are not all the same kind of number.
+A loan has a headline rate and an all-in rate, and the all-in rate includes
+fees and discounts amortised over the life of the loan. The sequence mixed
+the two. Put every facility on the all-in basis and it reads 15%, 11%, 9%,
+9%, 7% and 9%. The 4.5% that made the story was a headline rate whose all-in
+equivalent is 9%. The 7% is the one facility in the set the parent is not
+liable for, so it is cheaper for a reason that has nothing to do with time.
+
+What is actually true is narrower. Among the facilities that are comparable,
+the rate fell from 15% to 9% across three deals and has sat at 9% for the
+three deals since, including the newest. Borrowing against GPUs got cheaper
+once, then stopped getting cheaper. That is still worth knowing. It is not a
+two thirds decline, and the question of whether these six facilities were
+ever comparable is now answered: they were not.
 
 Applied Digital has about $6.7bn, mostly senior secured notes at 6.75% to
 9.25%. TeraWulf has $3.2bn of 7.75% secured notes. Cipher has about $6.0bn
@@ -140,11 +162,24 @@ and does something different from the others: its secured notes are issued by
 named project companies rather than by the parent, and they price at 6.00% to
 7.125%, inside CoreWeave's parent-level notes at 9.00% to 9.75%. Lenders
 appear to pay up for a ring-fenced data center with a contract attached,
-relative to corporate risk at a larger borrower. That is a testable claim and
-a good candidate for the ledger.
+relative to corporate risk at a larger borrower.
 
-Oracle, Nebius and IREN have not been read yet. Oracle's quarterly filing has
-no debt section, so that one needs the annual report.
+That one was checked too, and unlike the loan ladder it holds up: both sets
+of rates are headline rates, so they are being compared on the same footing.
+It is a testable claim and a good candidate for the ledger, which is the
+owner's call to write.
+
+Oracle, Nebius and IREN have now been read. Oracle's quarterly filing does
+have no debt section, as suspected, so the annual report was used instead
+and it is the largest single source in the set at 510 figures.
+
+**The GPU depreciation question now has real numbers**, which is the
+underwriting angle this pillar was built for: how long a lender assumes the
+collateral lasts. IREN says its GPU hardware lasts 5 years and its older
+mining hardware 4. Nebius says computer equipment is 4 to 5 years. Applied
+Digital gives a 3 to 5 year range without naming GPUs, next to buildings at
+39 years. CoreWeave does not state a figure in its quarterly filing at all,
+which is itself worth chasing.
 
 **What can be tracked for free, and what cannot.** Spread benchmarks from
 FRED work today: daily history, no API key, decades of data for investment
@@ -186,14 +221,14 @@ pulled. They have not been yet; that is the next piece of work.
 benchmarks from FRED, issuer structure from filings (total debt, how much is
 recourse, GPU facility size and drawdown, the rate on the newest facility,
 and the GPU depreciation assumption), and bond pricing from FINRA once
-available. The first group is done. The second is now unblocked and is the
-next piece of work. The third still waits on a FINRA account.
+available. The first two groups are done. The third still waits on a FINRA
+account.
 
 ## What is not built yet
 
 - Two of five pillars are empty: `compute_pricing` and `buyer_concentration`.
-  `credit` has benchmark data but nothing issuer-specific, which is the half
-  that matters.
+  `credit` now has both benchmark and issuer-level data; what it lacks is
+  secondary bond pricing, which needs FINRA.
 - The routing experiment in `experiments/routing` has a design brief and no
   code.
 - Collection is manual. Nothing is scheduled.
@@ -210,11 +245,10 @@ traffic.
 
 ## Next
 
-The FRED collector is built and has run, and SEC access is fixed. Next in the
-credit pillar is the filings extractor: pull the debt footnotes for the seven
-issuers, confirm the figures that were read off summary tables, and write the
-issuer metrics. After that, registering for FINRA so bond prices become
-reachable.
+The credit pillar now has benchmarks, issuer debt terms and a reconciliation
+that caught one bad finding. What is left in it is registering for FINRA so
+secondary bond prices become reachable, and working through the 419 unmapped
+facts to see which are worth extracting.
 
 Separately, the routing experiment, because it is the only thing that can
 actually test Baker's routing claim and the token price work cannot.
