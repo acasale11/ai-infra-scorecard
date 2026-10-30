@@ -402,6 +402,46 @@ priced above Sonnet and scoring in the entry band is not plausible, and a
 stale index entry is the likelier explanation. See the index lag caveat in
 methodology.
 
+### The median-by-tier chart is retired in favour of a price-performance frontier
+
+The primary chart is now a scatter of capability against output price on a
+log scale, with the frozen tier bands shaded behind it and a step line per
+weight class showing the cheapest model that clears each capability floor.
+
+The median chart was retired because it answered the wrong question, not
+merely because its samples were thin. A buyer does not purchase the median
+model in a tier. They purchase the cheapest model that clears their bar, so
+the minimum is the statistic that matches the decision.
+
+The two disagree on this data, which is what forced the change. The tier
+medians showed closed weights 4.8 times dearer than open in the mid tier.
+The frontier shows `anthropic/claude-haiku-5.5` at 0.50 per million output
+tokens, cheaper than the open mid-tier median of 0.87 and cheaper than every
+open model in the catalogue scoring above index 29. The closed mid tier holds
+a few expensive models that pull its median up while Haiku sits at the
+bottom of it. Both numbers are arithmetically right. A note led by the median
+would have told readers open weights were several times cheaper at mid-tier
+capability, which is not true of anything they could actually buy.
+
+The frontiers cross at about index 29, and the open frontier ends at 31.7.
+That crossover is invisible in any median, and it is the most decision-
+relevant fact in the dataset.
+
+What this does to B003: it sharpens the reading rather than reversing it.
+Routing open-first still pays, but the band where it pays on output price is
+roughly below index 29, narrower than the tier medians implied. Open weights
+keep a wider advantage on input price, which the chart does not show and the
+note will have to state.
+
+The tier medians are kept. Each run writes them to
+`notes/charts/<date>-tier-medians.csv` and the table stays in methodology.
+They are the right summary of a tier's shape and the wrong answer to a
+buying question, so they stay in the data and out of the headline.
+
+Cost: the scatter is a denser chart that asks more of a reader than a bar
+chart does, and it leans on an index with known coverage and lag problems,
+now in two places rather than one.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an

@@ -45,5 +45,6 @@ the outcome was known.
 First collection run 2026-10-30: 860 price rows on `elasticity` from the
 OpenRouter models API, covering 430 models, classified open or closed weights
 against Hugging Face and tiered by the Artificial Analysis intelligence
-index. No open-weight model reaches the frontier tier. The other four pillars
-are still empty.
+index. No open-weight model reaches the frontier tier, and the
+price-performance frontiers for open and closed weights cross at about index
+29. The other four pillars are still empty.

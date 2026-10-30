@@ -265,6 +265,54 @@ monthly note. A gap that persists or widens weakens B015 directly.
 
 Neither claim changes status. Both stay pending until their horizons.
 
+### Price-performance frontier
+
+The primary cut, and the chart that fronts the pillar.
+
+For a given capability floor, the frontier is the cheapest model of each
+weight class that clears it. Formally, for threshold t, the model minimising
+output price among those with an intelligence index of t or above. Plotted
+against t it is a step function that only rises, since raising the bar can
+only remove candidates.
+
+This replaced median price by tier as the headline. The reason is in the
+numbers rather than in taste. A buyer does not purchase the median model in
+a tier. They purchase the cheapest model that clears their quality bar, so
+the minimum is the statistic that matches the decision and the median is not.
+
+On 2026-10-30 the two disagree, and in a direction that matters:
+
+| capability floor | cheapest open | cheapest closed | closed vs open |
+| --- | --- | --- | --- |
+| index 25 (mid floor) | glm-5.3-flash, 0.14 | claude-haiku-5.5, 0.50 | 3.6x dearer |
+| index 30 | glm-5.3, 3.60 | claude-haiku-5.5, 0.50 | 7.2x cheaper |
+| index 45 (frontier floor) | none | gpt-6.1-terra, 5.00 | no open model |
+
+The frontiers cross at roughly index 29. Below that, open weights are the
+cheapest way to buy a given level of capability, by a wide margin. Above it,
+`claude-haiku-5.5` at 0.50 per million output tokens is cheaper than every
+open model in the catalogue that scores higher than 29, and the open frontier
+stops entirely at 31.7.
+
+The tier medians pointed the other way. They showed closed weights 4.8 times
+dearer in the mid tier, because the closed mid tier contains a handful of
+expensive models that drag the median up while Haiku sits at the bottom of
+it. Both statistics are correct. Only one of them answers a buying question.
+
+This sharpens the reading against B003 rather than reversing it. Routing
+open-first still pays, but the band where it pays is narrower than the tier
+medians implied: roughly below index 29 on output price, not across the
+whole mid tier. The input-price advantage is wider and is not shown on the
+chart, so the note should say which price it is talking about.
+
+### Tier medians, retained but not the headline
+
+Still computed, still recorded, no longer the chart. Each run writes
+`notes/charts/<date>-tier-medians.csv` beside the chart, and the table in the
+tier section above is kept. They remain the right summary for a question
+about the shape of a tier, and the wrong one for a question about what a
+buyer would pay.
+
 ### Cautions on the tier medians
 
 Two limits that matter before any of this is quoted.
