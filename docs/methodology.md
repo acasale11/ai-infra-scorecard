@@ -638,15 +638,22 @@ bigger name. Whether that holds is a testable claim.
 
 ### Not yet read
 
-IREN, Nebius and Oracle. For Oracle the quarterly filing carries no debt page,
-so the 10-K and the 8-Ks around each issue are the path. For Nebius, the 20-F
-and the 6-K announcements. For IREN, the 2026-08-27 10-K.
+IREN, Nebius and Oracle. All three are now reachable, as of the access fix
+on 2026-10-30, and the right filing for each has been identified: the
+2026-08-27 10-K for IREN with 8 debt pages, the 2026-06-22 10-K for Oracle
+with 6 under "Notes Payable and Other Borrowings", and the 2026-04-30 20-F
+for Nebius with 7 under "Convertible Debt". Oracle's quarterly filing does
+carry no debt page, as suspected, and Nebius 6-K filings have no
+FilingSummary.xml at all.
+
+Reachable, not read. Extracting the figures is the filings extractor step
+and has not been done.
 
 ### Sources for tracking over time
 
 | source | gives | does not give | access |
 | --- | --- | --- | --- |
-| SEC EDGAR filings | Instrument terms, size, coupon, collateral, covenants, recourse split, drawdowns, maturity schedules. The primary source for everything structural. | Prices. Anything between filing dates. | Free. See the access problem below. |
+| SEC EDGAR filings | Instrument terms, size, coupon, collateral, covenants, recourse split, drawdowns, maturity schedules. The primary source for everything structural. | Prices. Anything between filing dates. | Free. Reachable programmatically since the access fix of 2026-10-30; see below. |
 | SEC EDGAR full-text search | New facilities and amendments as they are filed. Searching phrases such as "delayed draw term loan" across 8-K and 10-Q is a working monitor for new GPU-backed debt across the whole market, not only the coverage universe. | Prices. | Free, at efts.sec.gov. Confirmed working. |
 | FRED | Daily index-level credit benchmarks: investment grade OAS, high yield OAS, the BB, B and CCC buckets, effective yields and the Treasury curve. The denominator for every issuer spread. | Anything issuer-specific. | Free, no API key. A fredgraph.csv request returns the full daily history as CSV. Confirmed working 2026-10-30. |
 | FINRA TRACE via the FINRA API | Transaction-level corporate bond prices, the only free route to an issuer-specific bond price. | Nothing without credentials. | The fixedIncomeMarket group returns 401 unauthenticated. The otcMarket group is open, but that is equity data and not useful here. A free FINRA API account is required. Credentials go in .env. |
@@ -658,22 +665,78 @@ OAS, BAMLC0A4CBBB BBB OAS, BAMLH0A0HYM2 high yield OAS, BAMLH0A1HYBB BB OAS,
 BAMLH0A2HYB B OAS, BAMLH0A3HYC CCC OAS, BAMLC0A0CMEY and BAMLH0A0HYM2EY
 effective yields, DGS10 the 10-year Treasury.
 
-### The EDGAR access problem, unresolved
+### The EDGAR access problem, resolved 2026-10-30
 
-Direct programmatic requests to sec.gov and data.sec.gov returned 403 from
-this environment on 2026-10-30, with several User-Agent strings tried. The
-same URLs fetched successfully through a browser-style fetch, and everything
-in this source map was gathered that way.
+The 403 is fixed. `scripts/sec_client.py` reaches every EDGAR endpoint the
+pillar needs, and `python scripts/sec_client.py --check` re-tests all six
+endpoint types on demand.
 
-This has to be solved before a collector is written, because a collector that
-cannot reach EDGAR is not a collector. Three options to test, in order of
-preference: a declared User-Agent in SEC's requested format with a real
-contact address, which may simply fix it; running collection from a different
-network; or driving the fetch through the same path that worked here. Until
-one is confirmed, treat EDGAR collection as manual.
+There were two causes, not one, which is why the earlier attempts looked
+inconsistent.
 
-FINRA registration is the second prerequisite. Both are blockers rather than
-inconveniences, and neither is solved.
+**Both SEC hosts reject the default `Python-urllib/3.x` User-Agent.** A
+declared User-Agent in SEC's requested format returns 200. This is SEC's
+published fair access policy and the fix is to comply with it. The first of
+the three options listed when this was recorded as a blocker was the right
+one.
+
+**`www.sec.gov` additionally requires an `Accept` header, and answers 403
+without it rather than 406.** `data.sec.gov` does not. This is the part that
+made the problem confusing: the JSON APIs worked while the filing documents
+did not, with the same User-Agent, so the User-Agent looked like it had been
+ruled out when it had not.
+
+Isolated by elimination on 2026-10-30:
+
+| headers sent | www.sec.gov FilingSummary.xml |
+| --- | --- |
+| default urllib User-Agent | 403 |
+| User-Agent + Accept-Encoding | 403, three times, half a second apart |
+| User-Agent + Accept-Encoding + Host | 403 |
+| User-Agent + Accept-Encoding + Accept | 200 |
+| User-Agent + Accept | 200 |
+
+Neither cause was rate limiting. Worth recording, because the instinctive
+reading of a 403 is that you are being throttled, and the instinctive fix of
+waiting longer would never have worked.
+
+The client paces at five requests a second against SEC's published limit of
+ten, retries on 429 and 5xx, and does not retry a 403, since a 403 now means
+the headers are wrong rather than that the server is busy.
+
+The User-Agent defaults to the project name and its public domain, which is a
+real contact route and keeps a personal address out of a repo intended to go
+public. `SEC_USER_AGENT` in `.env` overrides it with a real email address,
+which is what SEC would prefer. `.env` is gitignored.
+
+**Verified against every issuer in the pillar**, 2026-10-30. Each row below
+means the filing index, the FilingSummary and the debt rendering pages were
+all fetched successfully. Reachable is not the same as read: extracting the
+figures is the next step and has not been done.
+
+| issuer | filing reached | debt pages |
+| --- | --- | --- |
+| CoreWeave | 10-Q, 2026-08-12 | 17 |
+| Applied Digital | 10-Q, 2026-10-07 | 6 |
+| TeraWulf | 10-Q, 2026-08-05 | 8 |
+| Cipher Mining | 10-Q, 2026-08-04 | 6 |
+| IREN | 10-K, 2026-08-27 | 8 |
+| Oracle | 10-K, 2026-06-22 | 6 |
+| Nebius | 20-F, 2026-04-30 | 7 |
+
+Two notes on the last three, which were unread when the source map was
+written. Oracle's 10-Q does carry no debt page, as suspected; the 10-K
+carries six, under "Notes Payable and Other Borrowings". Nebius 6-K filings
+have no FilingSummary.xml at all, which returns 404; that is a property of
+how foreign private issuers file rather than an access failure, and the 20-F
+carries seven pages under "Convertible Debt".
+
+The narrative debt footnote pages are now reachable, not only the flattened
+detail tables. That matters because every figure in the issuer tables above
+was read off a flattened XBRL page and flagged as needing confirmation
+against the narrative. The means to do that confirmation now exists.
+
+FINRA registration remains the one outstanding blocker in this pillar.
 
 ### Proposed first credit metrics
 
@@ -718,10 +781,11 @@ because it is free, keyless, daily, has decades of history and no blockers;
 then the EDGAR access problem; then the filings extractor; then TRACE. Nothing
 is built yet and nothing should be until the owner approves this shape.
 
-Approved 2026-10-30. The FRED collector is built and has run; see below. The
-claim that it has decades of history turned out to be wrong for eight of the
-nine series, which is documented in the next section. The remaining three
-steps are unchanged and unstarted.
+Approved 2026-10-30, and the first two steps are done. The FRED collector is
+built and has run; see below. The claim that it has decades of history turned
+out to be wrong for eight of the nine series, which is documented in the next
+section. EDGAR access is fixed; see above. The filings extractor and TRACE
+are unchanged and unstarted, and TRACE still waits on FINRA registration.
 
 ### The FRED benchmark collector
 
@@ -822,7 +886,7 @@ the reason the pillar is not finished.
 | --- | --- | --- | --- |
 | OpenRouter public rankings | `open_source_share`, `elasticity` | free, scrapeable | Covers routed traffic only, not direct API traffic. Treat as a directional sample, not the market. |
 | Model provider pricing pages | `elasticity` | free, scrapeable | Prices change without notice. Snapshot and archive on every collection. |
-| SEC filings via EDGAR full-text search | `buyer_concentration`, `credit` | free, API | Authoritative. Lags the quarter. |
+| SEC filings via EDGAR full-text search | `buyer_concentration`, `credit` | free, API | Authoritative. Lags the quarter. Needs the headers documented in the credit source map; see `scripts/sec_client.py`. |
 | Company IR decks and earnings call transcripts | all | mostly free | Management framing. Record the claim, not the spin. |
 | FRED | `credit` | free, no key | Index-level credit benchmarks, collected since 2026-10-30. The ICE BofA series serve a rolling three-year window only. |
 | FINRA TRACE | `credit` | free, delayed | Bond prints for public issuers. Needs a free account; not yet registered. |

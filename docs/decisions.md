@@ -674,6 +674,53 @@ Cost: a revised value sits in the file as a known-stale number until someone
 acts on the warning. The warning prints on every run, so it does not get lost,
 but nothing enforces acting on it.
 
+### The EDGAR 403 was two problems wearing one error code
+
+Recorded as a blocker earlier the same day with the note that several
+User-Agent strings had been tried and all returned 403. That note was
+accurate and it pointed in the wrong direction.
+
+There were two independent causes. Both SEC hosts reject the default
+`Python-urllib/3.x` User-Agent, which is SEC's published fair access policy
+working as intended. And `www.sec.gov` separately requires an `Accept`
+header, returning 403 without it rather than 406, while `data.sec.gov` does
+not care.
+
+Either one alone produces a 403. Together they produce a 403 that survives
+fixing only one of them, which is what happened: a declared User-Agent made
+the JSON APIs work and left the filing documents failing, so the User-Agent
+looked ruled out when it was half the answer.
+
+The lesson is about method rather than about SEC. Several things were changed
+between attempts and only the outcome was recorded, so a partial fix read as
+no fix. The isolation that worked held every other header constant and
+changed one at a time, and took four requests.
+
+What it cost to get wrong: a day of treating EDGAR as manual, and a source
+map gathered by hand that could have been fetched.
+
+Also worth recording because it is counterintuitive: neither cause was rate
+limiting. A 403 on a bulk data source invites the assumption that you are
+being throttled, and the natural response of slowing down would never have
+worked. The client paces at five requests a second anyway, against SEC's
+published limit of ten, but it does not retry a 403, because a 403 now means
+the request is malformed rather than unwelcome.
+
+### The SEC contact address lives in .env, not in the client
+
+SEC asks that the User-Agent identify the requester, ideally by email. The
+repo is meant to go public and the owner's addresses are deliberately not in
+it.
+
+So `scripts/sec_client.py` defaults to the project name and its public
+domain, which is a real contact route, and reads `SEC_USER_AGENT` from `.env`
+when it is set. A fresh clone works with no configuration; the owner can
+supply a real email privately.
+
+Cost: the default is a domain rather than an address, which is slightly less
+than SEC asks for. Setting the variable closes that gap and nothing in the
+repo records what it was set to.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an

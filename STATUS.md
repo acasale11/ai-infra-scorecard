@@ -48,6 +48,10 @@ model.
 key or account, and appends only what it has not already stored. Run twice on
 2026-10-30: the first run wrote 7,742 rows, the second wrote nothing.
 
+**SEC access.** `scripts/sec_client.py` reaches every kind of EDGAR page the
+project needs. Run `python scripts/sec_client.py --check` to re-test all six
+at any time; all six passed on 2026-10-30.
+
 ## What the first model-price run found
 
 Two things, and the second matters more than the first.
@@ -151,17 +155,39 @@ Individual bond prices are harder. FINRA has the trade data but the fixed
 income part of its API refused the request without credentials, so that needs
 a free account before it can be used.
 
-**Two things are blocking collection.** Automated requests to the SEC website
-were refused from this machine, with several attempts, while the same pages
-loaded fine through a browser. Until that is sorted, reading filings is a
-manual job. And FINRA needs registering for. Neither is hard, but neither is
-done, and a collector that cannot reach its source is not worth writing yet.
+**The SEC blocker is fixed. One blocker is left.** Automated requests to the
+SEC website were being refused, which meant reading filings by hand. That is
+solved as of 2026-10-30 and every company in this pillar is now reachable by
+script, including the three that had not been read at all: IREN, Oracle and
+Nebius.
+
+It turned out to be two separate problems sharing one error message, which is
+why the first attempts at it failed. The SEC asks that automated requests say
+who is making them, and the standard Python library does not, so it gets
+turned away. Separately, the part of the SEC site holding the actual filing
+documents refuses any request that does not state what file types it will
+accept, which almost every browser does automatically and a bare script does
+not. Fixing only the first made the data feeds work while the filings kept
+failing, which made it look like the first fix had done nothing.
+
+Neither problem was rate limiting, which is the usual reason to be turned
+away from a bulk data source, and slowing down would never have helped. The
+script paces itself anyway, at half the rate the SEC permits.
+
+What this unlocks is the narrative debt footnotes, not just the summary
+tables. Every figure in the issuer tables above came off a machine-generated
+summary page where the columns can be ambiguous, and all of them were flagged
+as needing checking against the written footnote. Those footnotes can now be
+pulled. They have not been yet; that is the next piece of work.
+
+**FINRA is the remaining blocker**, and it needs an account rather than a fix.
 
 **Proposed metrics** are listed in methodology, in three groups: market
 benchmarks from FRED, issuer structure from filings (total debt, how much is
 recourse, GPU facility size and drawdown, the rate on the newest facility,
 and the GPU depreciation assumption), and bond pricing from FINRA once
-available. The first group is done. The other two wait on the two blockers.
+available. The first group is done. The second is now unblocked and is the
+next piece of work. The third still waits on a FINRA account.
 
 ## What is not built yet
 
@@ -184,10 +210,11 @@ traffic.
 
 ## Next
 
-The FRED collector is built and has run. Next in the credit pillar is the SEC
-access problem, because the issuer-level half of this pillar is blocked
-behind it, then the filings extractor, then registering for FINRA so bond
-prices become reachable.
+The FRED collector is built and has run, and SEC access is fixed. Next in the
+credit pillar is the filings extractor: pull the debt footnotes for the seven
+issuers, confirm the figures that were read off summary tables, and write the
+issuer metrics. After that, registering for FINRA so bond prices become
+reachable.
 
 Separately, the routing experiment, because it is the only thing that can
 actually test Baker's routing claim and the token price work cannot.
