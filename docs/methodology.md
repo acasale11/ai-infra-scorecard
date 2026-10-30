@@ -99,20 +99,77 @@ row it produced, and listed here.
 
 Currently paid or manual: none.
 
+## Coverage universe
+
+`data/coverage_universe.csv` lists the companies tracked across the stack.
+
+Columns: `ticker`, `company`, `layer`, `sub_segment`, `pillars`, `listed`,
+`in_atreides_top10_q3`, `added_date`, `notes`.
+
+`layer` is one of `silicon`, `networking`, `neocloud`, `hyperscaler`,
+`power_and_facilities`, `model_layer`, `application`.
+
+`pillars` is a semicolon-separated list using the five pillar names.
+
+`listed` is `public`, `private`, or `verify` where listing status still needs
+checking. A `verify` ticker means the same.
+
+`in_atreides_top10_q3` carries over from the original coverage file and marks
+the names reported as Atreides top 10 positions as of Q3 2026. It takes three
+values. `yes` and `no` are both as recorded in that file. `unknown` means the
+company was not in that file at all, so its absence from the top 10 is likely
+but was never actually checked. Do not read `unknown` as `no`.
+
 ## Claims ledger
 
 `data/claims_ledger.csv` holds dated, testable claims, whether they come from
 Gavin Baker, from other commentators, or from the owner.
 
-Columns: `claim_id`, `date_made`, `source_type`, `source_name`, `source_url`,
-`claim_text`, `pillar`, `testable_metric`, `horizon_date`, `status`,
-`status_updated`, `evidence_url`, `notes`.
+Columns:
+
+| column | meaning |
+| --- | --- |
+| `claim_id` | Stable id. Baker claims from the original ledger keep their `Bnnn` ids. |
+| `date_said` | When the claim was made publicly. |
+| `date_entered` | When the claim was entered into this ledger. These differ, and both matter. |
+| `speaker` | Who made the claim. |
+| `source_type` | For example `call`, `letter`, `podcast`, `post`, `owner`. |
+| `source_name` | The specific source, for example `Atreides Q3 2026 update call`. |
+| `source_url` | Direct link where one exists. Empty where the source is not public. |
+| `claim_text` | The claim as stated, paraphrased only for length, never for meaning. |
+| `pillar` | One of the five pillar names. |
+| `claim_type` | `data_point`, `prediction`, or `framework`. See below. |
+| `verification_source` | Where the evidence would come from. Carried over from the original `how_to_verify` field. |
+| `resolution_criterion` | The falsifiable test, written before the outcome is known. |
+| `horizon_label` | The horizon as originally stated, for example `ongoing`, `multi-year`, `30 days`. |
+| `horizon_date` | The date the claim gets scored, ISO format. |
+| `status` | See the status table below. |
+| `status_updated` | When status last changed. |
+| `evidence_url` | Required before any status other than `pending`. |
+| `notes` | Anything a reader needs in order to score the claim the same way. |
 
 A claim only belongs in the ledger if it is falsifiable. "Inference demand is
 strong" is not a claim. "Open-weight models exceed 30 percent of served tokens
 by the end of 2027" is.
 
-`claim_id` format: `YYYY-MM-NN`, by the month the claim was made.
+`claim_id` format for new claims: `YYYY-MM-NN`, by the month the claim was
+made. The original Baker claims keep their `Bnnn` ids so that references to
+them in earlier work still resolve.
+
+### Claim types
+
+Carried over from the original methodology.
+
+| type | meaning | how it gets scored |
+| --- | --- | --- |
+| `data_point` | A factual figure that can be checked against a source. | Confirmed or contradicted by the cited source. |
+| `prediction` | A forward call with a horizon. | Scored at the horizon date against the criterion. |
+| `framework` | A causal claim tested over time against the scorecard. | Scored at a review date against the direction and magnitude the framework implies. |
+
+A `framework` claim is the easiest to fudge, because there is always another
+year in which it might still come good. Two guards. Each framework claim gets
+a real `horizon_date` like any other, and each gets a criterion that says what
+observation would count against it, not only what would support it.
 
 ### Status values
 
@@ -128,14 +185,32 @@ by the end of 2027" is.
 
 1. Score at the horizon date, not before. A claim that looks wrong in month
    three of a two-year horizon stays `pending`.
-2. Write down the resolution criterion in `testable_metric` at the time the
-   claim is entered, before the outcome is known. If the criterion was not
+2. Write down the resolution criterion in `resolution_criterion` at the time
+   the claim is entered, before the outcome is known. If the criterion was not
    written in advance, the claim is `unverifiable`.
 3. Resolution needs a link in `evidence_url`.
 4. `unverifiable` is a real answer and should get used. Reaching for a verdict
    with weak data is worse than recording that the data was not there.
 5. Changing a status is a new commit with the reason in the message, and a new
    `status_updated` date. The old status stays visible in git history.
+
+### Horizon dates for the original 16 claims
+
+The original ledger recorded horizons as labels rather than dates. The labels
+are kept in `horizon_label`. `horizon_date` was derived from them on
+2026-10-30 using these rules, applied uniformly and written down here so the
+dates cannot be quietly moved later:
+
+- `Q3 2026` and `point in time`: 2026-12-31, by which date Q3 reporting and
+  the referenced filings are public.
+- `Oct 2026`: 2026-10-31, the end of the month the claim describes.
+- `30 days`: 30 days after the call date.
+- `12 months`: 12 months after the call date.
+- `ongoing`: 2027-10-31, a one-year review. These are framework claims with no
+  natural end, so they get an explicit annual review date instead of running
+  forever unscored.
+- `multi-year`: 2028-10-31, a two-year review, matching the intended length of
+  the track record.
 
 ## Integrity rules
 

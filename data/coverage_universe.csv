@@ -1,32 +1,41 @@
-ticker,company,layer,sub_segment,pillars,listed,added_date,notes
-NVDA,NVIDIA,silicon,accelerators,compute_pricing;buyer_concentration,public,2026-10-30,Primary read on accelerator supply and pricing power
-AMD,Advanced Micro Devices,silicon,accelerators,compute_pricing;buyer_concentration,public,2026-10-30,Second-source accelerator; watch MI series rental economics
-AVGO,Broadcom,silicon,custom_asic_networking,compute_pricing;buyer_concentration,public,2026-10-30,Custom ASIC programs for hyperscalers plus Tomahawk switching
-MRVL,Marvell Technology,silicon,custom_asic_optics,compute_pricing;buyer_concentration,public,2026-10-30,Custom silicon and electro-optics
-TSM,TSMC,silicon,foundry,compute_pricing,public,2026-10-30,CoWoS capacity is the binding constraint on accelerator supply
-MU,Micron Technology,silicon,hbm_dram,compute_pricing,public,2026-10-30,HBM pricing and supply agreements
-ASML,ASML Holding,silicon,litho_equipment,compute_pricing,public,2026-10-30,Longest-cycle read on capacity additions
-ANET,Arista Networks,networking,ethernet_switching,compute_pricing;buyer_concentration,public,2026-10-30,Discloses large customer concentration
-CRDO,Credo Technology,networking,connectivity,compute_pricing;buyer_concentration,public,2026-10-30,High single-customer concentration
-ALAB,Astera Labs,networking,connectivity,compute_pricing,public,2026-10-30,Rack-scale fabric attach rates
-CRWV,CoreWeave,neocloud,gpu_cloud,compute_pricing;buyer_concentration;credit,public,2026-10-30,Core credit case study; GPU-backed debt and backlog concentration
-NBIS,Nebius Group,neocloud,gpu_cloud,compute_pricing;buyer_concentration;credit,public,2026-10-30,Discloses ARR and contracted capacity
-IREN,IREN Limited,neocloud,gpu_cloud_converted_miner,compute_pricing;buyer_concentration;credit,public,2026-10-30,Bitcoin miner converting to AI hosting
-APLD,Applied Digital,neocloud,datacenter_hosting,compute_pricing;buyer_concentration;credit,public,2026-10-30,Lease structures and financing terms
-CIFR,Cipher Mining,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,2026-10-30,Converted capacity with hyperscaler offtake
-WULF,TeraWulf,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,2026-10-30,Convertible issuance and offtake agreements
-PRIVATE_LAMBDA,Lambda Labs,neocloud,gpu_cloud,compute_pricing;credit,private,2026-10-30,Public rate card is a usable price series
-PRIVATE_CRUSOE,Crusoe Energy,neocloud,gpu_cloud,compute_pricing;credit,private,2026-10-30,Debt raises reported in press; no filings
-MSFT,Microsoft,hyperscaler,cloud_and_model_partner,buyer_concentration;compute_pricing,public,2026-10-30,Capex disclosure and OpenAI relationship
-GOOGL,Alphabet,hyperscaler,cloud_and_custom_silicon,buyer_concentration;compute_pricing;elasticity,public,2026-10-30,TPU economics and Gemini token pricing
-AMZN,Amazon,hyperscaler,cloud_and_custom_silicon,buyer_concentration;compute_pricing;elasticity,public,2026-10-30,Trainium economics and Anthropic relationship
-META,Meta Platforms,hyperscaler,captive_compute_open_models,open_source_share;compute_pricing,public,2026-10-30,Largest open-weight model publisher among hyperscalers
-ORCL,Oracle,hyperscaler,cloud_infrastructure,buyer_concentration;credit,public,2026-10-30,RPO concentration and debt-funded buildout
-VRT,Vertiv Holdings,power_and_facilities,thermal_power_management,compute_pricing,public,2026-10-30,Orders and backlog as a buildout proxy
-ETN,Eaton,power_and_facilities,electrical_equipment,compute_pricing,public,2026-10-30,Datacenter electrical content
-GEV,GE Vernova,power_and_facilities,generation_equipment,compute_pricing,public,2026-10-30,Turbine lead times gate new capacity
-CEG,Constellation Energy,power_and_facilities,power_purchase,compute_pricing;credit,public,2026-10-30,PPA pricing with datacenter counterparties
-DLR,Digital Realty Trust,power_and_facilities,datacenter_reit,credit;buyer_concentration,public,2026-10-30,Leasing economics and tenant credit
-PRIVATE_OPENAI,OpenAI,model_layer,frontier_lab,elasticity;buyer_concentration,private,2026-10-30,Published API prices are the main elasticity input
-PRIVATE_ANTHROPIC,Anthropic,model_layer,frontier_lab,elasticity;buyer_concentration,private,2026-10-30,Published API prices are the main elasticity input
-PRIVATE_MISTRAL,Mistral AI,model_layer,open_weight_lab,elasticity;open_source_share,private,2026-10-30,Open-weight release cadence
+ticker,company,layer,sub_segment,pillars,listed,in_atreides_top10_q3,added_date,notes
+NVDA,NVIDIA,silicon,accelerators,compute_pricing;buyer_concentration,public,yes,2026-10-30,Primary read on accelerator supply and pricing power
+AMD,Advanced Micro Devices,silicon,accelerators,compute_pricing;buyer_concentration,public,no,2026-10-30,Second-source accelerator; watch MI series rental economics
+verify,Cerebras Systems,silicon,inference_accelerator,compute_pricing;elasticity,verify,yes,2026-10-30,From original coverage file; listing status to verify
+AVGO,Broadcom,silicon,custom_asic_networking,compute_pricing;buyer_concentration,public,no,2026-10-30,Custom ASIC programs for hyperscalers plus Tomahawk switching
+MRVL,Marvell Technology,silicon,custom_asic_optics,compute_pricing;buyer_concentration,public,no,2026-10-30,Custom silicon and electro-optics
+ARM,Arm Holdings,silicon,cpu_ip,compute_pricing;buyer_concentration,public,no,2026-10-30,Named in B016 as exposed to buyer concentration
+TSM,TSMC,silicon,foundry_packaging,compute_pricing,public,no,2026-10-30,CoWoS capacity is the binding constraint on accelerator supply
+ASML,ASML Holding,silicon,litho_equipment,compute_pricing,public,no,2026-10-30,Longest-cycle read on capacity additions
+MU,Micron Technology,silicon,hbm_dram,compute_pricing,public,yes,2026-10-30,HBM pricing and supply agreements
+000660.KS,SK Hynix,silicon,hbm_dram,compute_pricing,public,yes,2026-10-30,Largest HBM supplier; KRX listed
+005930.KS,Samsung Electronics,silicon,hbm_dram,compute_pricing,public,no,2026-10-30,Third HBM source; KRX listed
+ANET,Arista Networks,networking,ethernet_switching,compute_pricing;buyer_concentration,public,no,2026-10-30,Discloses large customer concentration
+ALAB,Astera Labs,networking,connectivity,compute_pricing,public,yes,2026-10-30,Rack-scale fabric attach rates
+CRDO,Credo Technology,networking,connectivity,compute_pricing;buyer_concentration,public,no,2026-10-30,High single-customer concentration
+CIEN,Ciena,networking,optical_networking,compute_pricing,public,yes,2026-10-30,Datacenter interconnect demand
+COHR,Coherent,networking,optical_components,compute_pricing,public,no,2026-10-30,Transceiver supply and pricing
+LITE,Lumentum,networking,optical_components,compute_pricing,public,no,2026-10-30,Transceiver supply and pricing
+CRWV,CoreWeave,neocloud,gpu_cloud,compute_pricing;buyer_concentration;credit,public,no,2026-10-30,Core credit case study; GPU-backed debt and backlog concentration
+NBIS,Nebius Group,neocloud,gpu_cloud,compute_pricing;buyer_concentration;credit,public,no,2026-10-30,Discloses ARR and contracted capacity
+IREN,IREN Limited,neocloud,gpu_cloud_converted_miner,compute_pricing;buyer_concentration;credit,public,unknown,2026-10-30,Bitcoin miner converting to AI hosting
+APLD,Applied Digital,neocloud,datacenter_hosting,compute_pricing;buyer_concentration;credit,public,unknown,2026-10-30,Lease structures and financing terms
+CIFR,Cipher Mining,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,unknown,2026-10-30,Converted capacity with hyperscaler offtake
+WULF,TeraWulf,neocloud,gpu_cloud_converted_miner,buyer_concentration;credit,public,unknown,2026-10-30,Convertible issuance and offtake agreements
+PRIVATE_LAMBDA,Lambda Labs,neocloud,gpu_cloud,compute_pricing;credit,private,unknown,2026-10-30,Public rate card is a usable price series
+PRIVATE_CRUSOE,Crusoe Energy,neocloud,gpu_cloud,compute_pricing;credit,private,unknown,2026-10-30,Debt raises reported in press; no filings
+MSFT,Microsoft,hyperscaler,cloud_and_model_partner,buyer_concentration;compute_pricing,public,no,2026-10-30,Capex disclosure and OpenAI relationship; named in B016
+GOOGL,Alphabet,hyperscaler,cloud_and_frontier_lab,buyer_concentration;compute_pricing;elasticity,public,no,2026-10-30,TPU economics and Gemini token pricing; named in B015
+AMZN,Amazon,hyperscaler,cloud_and_custom_silicon,buyer_concentration;compute_pricing;elasticity,public,no,2026-10-30,Trainium economics and Anthropic relationship; named in B016
+META,Meta Platforms,hyperscaler,captive_compute_open_models,open_source_share;compute_pricing,public,yes,2026-10-30,Largest open-weight publisher among hyperscalers; named in B015
+ORCL,Oracle,hyperscaler,cloud_infrastructure,buyer_concentration;credit;compute_pricing,public,no,2026-10-30,RPO concentration and debt-funded buildout; source for B008
+VRT,Vertiv Holdings,power_and_facilities,thermal_power_management,compute_pricing,public,no,2026-10-30,Orders and backlog as a buildout proxy
+ETN,Eaton,power_and_facilities,electrical_equipment,compute_pricing,public,unknown,2026-10-30,Datacenter electrical content
+GEV,GE Vernova,power_and_facilities,generation_equipment,compute_pricing,public,unknown,2026-10-30,Turbine lead times gate new capacity
+CEG,Constellation Energy,power_and_facilities,power_purchase,compute_pricing;credit,public,unknown,2026-10-30,PPA pricing with datacenter counterparties
+DLR,Digital Realty Trust,power_and_facilities,datacenter_reit,credit;buyer_concentration,public,unknown,2026-10-30,Leasing economics and tenant credit
+PRIVATE_OPENAI,OpenAI,model_layer,frontier_lab,elasticity;buyer_concentration,private,no,2026-10-30,Published API prices are the main elasticity input
+verify,Anthropic,model_layer,frontier_lab,elasticity;buyer_concentration,verify,no,2026-10-30,S-1 referenced on the Q3 call; listing status to verify
+verify,SpaceX (xAI),model_layer,frontier_lab_compute_buyer,buyer_concentration;compute_pricing,verify,yes,2026-10-30,From original coverage file; listing status to verify
+PRIVATE_MISTRAL,Mistral AI,model_layer,open_weight_lab,elasticity;open_source_share,private,unknown,2026-10-30,Open-weight release cadence
+FIG,Figma,application,software_app_layer,elasticity,public,yes,2026-10-30,Lab disruption test case from original coverage file
