@@ -32,5 +32,8 @@ been collected earlier. Public sources only.
 
 ## Status
 
-Scaffolded 2026-10-30. Scorecard files are empty and waiting on the first
+Scaffolded 2026-10-30, then merged with the original ai-infra-scorecard
+history. The ledger holds the 16 claims from the Atreides Q3 2026 update call
+of 2026-10-29, all `pending`, each with a resolution criterion written before
+the outcome was known. Scorecard files are empty and waiting on the first
 collection run.

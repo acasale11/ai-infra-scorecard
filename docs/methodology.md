@@ -196,10 +196,13 @@ observation would count against it, not only what would support it.
 
 ### Horizon dates for the original 16 claims
 
-The original ledger recorded horizons as labels rather than dates. The labels
-are kept in `horizon_label`. `horizon_date` was derived from them on
-2026-10-30 using these rules, applied uniformly and written down here so the
-dates cannot be quietly moved later:
+The original ledger recorded horizons as labels rather than dates, and
+recorded `date_said` as `2026-10` with no day. The call date is 2026-10-29,
+confirmed by the owner on 2026-10-30, and all 16 claims carry it.
+
+The labels are kept in `horizon_label`. `horizon_date` was derived from them
+on 2026-10-30 using these rules, applied uniformly and written down here so
+the dates cannot be quietly moved later:
 
 - `Q3 2026` and `point in time`: 2026-12-31, by which date Q3 reporting and
   the referenced filings are public.
@@ -211,6 +214,10 @@ dates cannot be quietly moved later:
   forever unscored.
 - `multi-year`: 2028-10-31, a two-year review, matching the intended length of
   the track record.
+
+The transform itself is in `scripts/migrate_claims.py`, including every
+resolution criterion, so the mapping can be re-read rather than taken on
+trust.
 
 ## Integrity rules
 
