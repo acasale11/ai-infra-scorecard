@@ -1,0 +1,70 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": "chatml",
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Llama3"
+    },
+    "created": 1723939200,
+    "description": "Hermes 3 is a generalist language model with many improvements over [Hermes 2](/models/nousresearch/nous-hermes-2-mistral-7b-dpo), including advanced agentic capabilities, much better roleplaying, reasoning, multi-turn conversation, long context coherence, and improvements across the...",
+    "endpoints": [
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16384,
+        "max_prompt_tokens": null,
+        "model_id": "nousresearch/hermes-3-llama-3.1-70b",
+        "model_name": "Nous: Hermes 3 70B Instruct",
+        "name": "DeepInfra | nousresearch/hermes-3-llama-3.1-70b",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000007",
+          "discount": 0,
+          "prompt": "0.0000007"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "nousresearch/hermes-3-llama-3.1-70b",
+    "name": "Nous: Hermes 3 70B Instruct"
+  }
+}

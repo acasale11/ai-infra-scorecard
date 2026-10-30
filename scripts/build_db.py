@@ -25,6 +25,7 @@ TABLES = {
     "coverage": "data/coverage_universe.csv",
     "model_classification": "data/model_classification.csv",
     "price_verification": "data/price_verification.csv",
+    "price_bases": "data/price_bases.csv",
 }
 DEFAULT_DB = "data/research.db"
 

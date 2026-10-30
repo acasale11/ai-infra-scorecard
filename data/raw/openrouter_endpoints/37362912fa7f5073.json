@@ -1,0 +1,74 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "instruct_type": null,
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen"
+    },
+    "created": 1738410311,
+    "description": "Qwen2.5-VL is proficient in recognizing common objects such as flowers, birds, fish, and insects. It is also highly capable of analyzing texts, charts, icons, graphics, and layouts within images.",
+    "endpoints": [
+      {
+        "context_length": 128000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 115200,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen2.5-vl-72b-instruct",
+        "model_name": "Qwen: Qwen2.5 VL 72B Instruct",
+        "name": "Parasail | qwen/qwen2.5-vl-72b-instruct",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000001",
+          "discount": 0,
+          "input_cache_read": "0.0000004",
+          "prompt": "0.0000008"
+        },
+        "provider_name": "Parasail",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "top_k",
+          "logit_bias",
+          "structured_outputs",
+          "response_format",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "parasail/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "qwen/qwen2.5-vl-72b-instruct",
+    "name": "Qwen: Qwen2.5 VL 72B Instruct"
+  }
+}

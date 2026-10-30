@@ -1,0 +1,161 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1776874273,
+    "description": "MiMo-V2.5-Pro is Xiaomi\u2019s flagship model, delivering strong performance in general agentic capabilities, complex software engineering, and long-horizon tasks, with top rankings on benchmarks such as ClawEval, GDPVal, and SWE-bench Pro....",
+    "endpoints": [
+      {
+        "context_length": 1050000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 945000,
+        "max_prompt_tokens": null,
+        "model_id": "xiaomi/mimo-v2.5-pro",
+        "model_name": "Xiaomi: MiMo-V2.5-Pro",
+        "name": "GMICloud | xiaomi/mimo-v2.5-pro-20260422",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000000609",
+          "discount": 0.3,
+          "input_cache_read": "0.0000000028",
+          "prompt": "0.0000003045"
+        },
+        "provider_name": "GMICloud",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": -5,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": false,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "gmicloud/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 0,
+        "uptime_last_30m": 0,
+        "uptime_last_5m": 0
+      },
+      {
+        "context_length": 1024000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": null,
+        "model_id": "xiaomi/mimo-v2.5-pro",
+        "model_name": "Xiaomi: MiMo-V2.5-Pro",
+        "name": "AtlasCloud | xiaomi/mimo-v2.5-pro-20260422",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000087",
+          "discount": 0,
+          "input_cache_read": "0.0000000036",
+          "prompt": "0.000000435"
+        },
+        "provider_name": "AtlasCloud",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "response_format",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": false,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "atlas-cloud/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 87.91348600508906,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      },
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "xiaomi/mimo-v2.5-pro",
+        "model_name": "Xiaomi: MiMo-V2.5-Pro",
+        "name": "DigitalOcean | xiaomi/mimo-v2.5-pro-20260422",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000018",
+          "discount": 0,
+          "input_cache_read": "0.000000096",
+          "prompt": "0.00000048"
+        },
+        "provider_name": "DigitalOcean",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "temperature",
+          "top_p",
+          "max_tokens",
+          "response_format",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "digitalocean",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 97.36111111111111,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "xiaomi/mimo-v2.5-pro",
+    "name": "Xiaomi: MiMo-V2.5-Pro"
+  }
+}

@@ -1,0 +1,64 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1787148797,
+    "description": "Hy-MT2-7B is a 7B-parameter translation model from Tencent. It supports 33 language pairs and five Chinese dialect and minority-language pairs, with workflows for structured, delimiter-based, contextual, glossary-based, and style-guided translation.",
+    "endpoints": [
+      {
+        "context_length": 8192,
+        "latency_last_30m": null,
+        "max_completion_tokens": 4096,
+        "max_prompt_tokens": null,
+        "model_id": "tencent/hy-mt2-7b",
+        "model_name": "Tencent: Hy-MT2-7B",
+        "name": "Tencent | tencent/hy-mt2-7b-20260521",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000000295",
+          "discount": 0,
+          "prompt": "0.000000074"
+        },
+        "provider_name": "Tencent",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "temperature",
+          "stop",
+          "max_completion_tokens",
+          "max_tokens",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "tencent/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.78260869565217,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "tencent/hy-mt2-7b",
+    "name": "Tencent: Hy-MT2-7B"
+  }
+}

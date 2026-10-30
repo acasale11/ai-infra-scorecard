@@ -1,0 +1,74 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": "chatml",
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen"
+    },
+    "created": 1729555200,
+    "description": "This is a series of models designed to replicate the prose quality of the Claude 3 models, specifically Sonnet(https://openrouter.ai/anthropic/claude-3.5-sonnet) and Opus(https://openrouter.ai/anthropic/claude-3-opus).\n\nThe model is fine-tuned on top of [Qwen2.5 72B](https://openrouter.ai/qwen/qwen-2.5-72b-instruct).",
+    "endpoints": [
+      {
+        "context_length": 32768,
+        "latency_last_30m": null,
+        "max_completion_tokens": 4096,
+        "max_prompt_tokens": null,
+        "model_id": "anthracite-org/magnum-v4-72b",
+        "model_name": "Magnum v4 72B",
+        "name": "Mancer 2 | anthracite-org/magnum-v4-72b",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000005",
+          "discount": 0,
+          "prompt": "0.0000025"
+        },
+        "provider_name": "Mancer 2",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "response_format",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "logit_bias",
+          "top_k",
+          "min_p",
+          "seed",
+          "top_a",
+          "logprobs",
+          "top_logprobs",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "mancer/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.71428571428571,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "anthracite-org/magnum-v4-72b",
+    "name": "Magnum v4 72B"
+  }
+}

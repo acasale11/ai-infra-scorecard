@@ -506,6 +506,78 @@ Logged because the temptation at publication time will be to let a clean
 chart stand in for the claim it is adjacent to. The chart is about token
 list prices. The claim is about a system.
 
+### Three price bases, because there is no single right price
+
+Correcting the previous entry, on the owner's reading. Pricing every model at
+its author's list price was the wrong fix.
+
+Multi-provider competition on open weights is a real, purchasable advantage
+and is a large part of what the thesis is about: anyone can serve published
+weights, so the price falls toward the cost of compute. `glm-5.3-flash` has
+40 providers and that is the point of it being open. Collapsing that to the
+author's list price deletes the mechanism being measured.
+
+The actual confound was precision, not resellers. The cheapest endpoint for
+an open model is often a 4-bit build set against a closed model served at
+full precision.
+
+So three bases are carried and the spread between them is reported:
+cheapest at any precision as a lower bound, cheapest at fp8 or better as the
+base case, and the author's list price as an upper bound. The base case keeps
+the competition and drops the precision mismatch.
+
+The open discount at the mid floor is 6.4x, 4.3x or 1.5x across those three.
+That range is the honest answer, and no single number should be published
+without its basis.
+
+Undeclared precision counts as qualifying for the base case. Of 94 closed
+endpoints, 92 declared nothing, so excluding undeclared endpoints would empty
+the closed side. The cost is that an undeclared endpoint could be a
+lower-precision build, which would understate the base case.
+
+Cost: three numbers to explain instead of one, and the base case drops
+`kimi-k3.1-pro`, served only at mxfp4, while the author basis drops six
+open-weight models. Coverage now differs between bases, which has to be
+stated whenever they are compared.
+
+### Provider price spread is now a metric, not a footnote
+
+Four metrics per open-weight model under `open_source_share`:
+`provider_competition_count`, `provider_price_spread_ratio`,
+`provider_price_min` and `provider_price_max`. 656 rows on the first run.
+
+How much competition published weights actually attract is a direct measure
+of what open weights are worth, and it belongs in the pillar rather than
+buried in a chart footnote.
+
+It already says something. Across 165 open models the median has 2 providers
+and a 1.01x spread; the most contested has 14.5x. Competition is
+concentrated in the models people use, not spread across the open catalogue.
+A claim that open weights commoditise inference is really a claim about a
+dozen models.
+
+### The limitations section no longer answers B003
+
+Revised. It had said the simplest form of B003 was answered no. That
+overstated the data twice over.
+
+First, the affordability half depends on the price basis, which moves the
+answer by a factor of four. Second, "can you buy frontier capability off the
+shelf at a lower token price" was never B003's claim. B003 is about a
+post-trained open model behind a router, which is a system, not a catalogue
+entry. A price table cannot answer it in either direction.
+
+What the pillar can say: within the scored subset, open weights are
+meaningfully cheaper at mid-tier capability, by somewhere between 1.5x and
+6.4x depending on basis, and no open model clears the frontier floor at any
+price. Both hold across every token mix tested. That is a statement about
+token prices and capability coverage, not a verdict on a claim.
+
+Logged because this is the second time the interpretation ran ahead of the
+data in the same direction, toward a cleaner story than the evidence
+supports. The pattern to watch is reaching for a verdict on a framework claim
+from whatever data happens to be in hand.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an

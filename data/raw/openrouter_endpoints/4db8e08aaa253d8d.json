@@ -1,0 +1,223 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen3"
+    },
+    "created": 1753119555,
+    "description": "Qwen3-235B-A22B-Instruct-2507 is a multilingual, instruction-tuned mixture-of-experts language model based on the Qwen3-235B architecture, with 22B active parameters per forward pass. It is optimized for general-purpose text generation, including instruction following,...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-235b-a22b-2507",
+        "model_name": "Qwen: Qwen3 235B A22B Instruct 2507",
+        "name": "GMICloud | qwen/qwen3-235b-a22b-07-25",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000035",
+          "discount": 0.75,
+          "input_cache_read": "0.0000000175",
+          "prompt": "0.0000000875"
+        },
+        "provider_name": "GMICloud",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": -5,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "response_format",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "gmicloud/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 0,
+        "uptime_last_30m": 0,
+        "uptime_last_5m": 0
+      },
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16384,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-235b-a22b-2507",
+        "model_name": "Qwen: Qwen3 235B A22B Instruct 2507",
+        "name": "DeepInfra | qwen/qwen3-235b-a22b-07-25",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000055",
+          "discount": 0,
+          "prompt": "0.00000009"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "tools",
+          "tool_choice",
+          "logit_bias",
+          "structured_outputs",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 95.41666666666667,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 117964,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-235b-a22b-2507",
+        "model_name": "Qwen: Qwen3 235B A22B Instruct 2507",
+        "name": "Parasail | qwen/qwen3-235b-a22b-07-25",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000008",
+          "discount": 0,
+          "input_cache_read": "0.00000005",
+          "prompt": "0.00000014"
+        },
+        "provider_name": "Parasail",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "top_k",
+          "logit_bias",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "parasail/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 128000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16384,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-235b-a22b-2507",
+        "model_name": "Qwen: Qwen3 235B A22B Instruct 2507",
+        "name": "Venice | qwen/qwen3-235b-a22b-07-25",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000075",
+          "discount": 0,
+          "prompt": "0.00000015"
+        },
+        "provider_name": "Venice",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "top_k",
+          "response_format",
+          "structured_outputs",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "venice/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.44444444444444,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "qwen/qwen3-235b-a22b-2507",
+    "name": "Qwen: Qwen3 235B A22B Instruct 2507"
+  }
+}

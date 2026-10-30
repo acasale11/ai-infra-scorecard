@@ -1,0 +1,65 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1784652683,
+    "description": "Laguna S 2.1 is the latest coding agent model from [Poolside](<https://poolside.ai/>). Laguna S 2.1 is a 118B total parameter model with 8B active parameters, scoring 70.2% on Terminal-Bench 2.1 and...",
+    "endpoints": [
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": null,
+        "model_id": "poolside/laguna-s-2.1",
+        "model_name": "Poolside: Laguna S 2.1",
+        "name": "Poolside | poolside/laguna-s-2.1-20260720",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000018",
+          "discount": 0.1,
+          "input_cache_read": "0.000000009",
+          "prompt": "0.00000009"
+        },
+        "provider_name": "Poolside",
+        "quantization": "fp4",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "tools",
+          "tool_choice",
+          "temperature",
+          "max_tokens"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "poolside/fp4",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "poolside/laguna-s-2.1",
+    "name": "Poolside: Laguna S 2.1"
+  }
+}
