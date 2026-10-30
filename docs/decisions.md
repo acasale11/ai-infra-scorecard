@@ -305,6 +305,8 @@ external source, so a Hugging Face outage degrades a run.
 
 ### Tier bands are frozen, and the result argues against the thesis
 
+*Superseded in part on 2026-10-30 by "The frontier gap reads differently against B003 and B015" below. The reading of B003 here is wrong. The entry is left as written.*
+
 Tiers come from the Artificial Analysis intelligence index in the OpenRouter
 payload, in absolute bands rather than percentiles, frozen in
 `config/weight_classes.json` on 2026-10-30. Price is never an input, since
@@ -331,6 +333,75 @@ Cost: the comparison covers the 54 models carrying an index, not the 430
 priced ones, so it is a statement about scored models and has to be worded
 that way.
 
+### The frontier gap reads differently against B003 and B015
+
+Correcting the entry above, on the owner's reading. The tier result is not
+evidence against B003.
+
+B003 is the hybrid routing claim: a post-trained open model handles routine
+work and a frontier model handles the hard queries, at roughly 25 to 30
+percent of frontier cost. That design assumes a frontier capability gap. It
+is the reason the router exists. So a snapshot showing no open model at the
+frontier, combined with a large mid-tier price gap, is what the claim
+predicts, not a contradiction of it. The mid tier is where routine traffic
+is served, and open weights there are roughly five times cheaper on output.
+Recorded as consistent with B003.
+
+B015 is different. It claims the industry is heading toward strong open
+source alongside several competitive frontier labs. A frontier band with no
+open entrant does not refute that today, since the claim has a multi-year
+horizon and describes a direction. But if that gap persists or widens, it
+weakens the claim directly. Recorded as a watch item for B015: track whether
+the highest open-weight intelligence index closes on the frontier floor, and
+report the gap in each monthly note.
+
+Neither status changes. Both stay pending, both horizons are years out, and
+scoring early is what the rules forbid. The error here was mine and it was an
+error of interpretation, not of data: I read a capability gap as damaging to
+a claim that is built on the existence of a capability gap. Logged because
+the failure mode generalises. A framework claim is easy to score against by
+testing something adjacent to what it actually says.
+
+### The open entry tier looks dearer than the open mid tier, and it is not an outlier
+
+Median output price for open weights came out at 1.35 in the entry tier
+against 0.87 in the mid tier, which reads backwards. Investigated rather than
+left in the chart unexplained.
+
+It is not an outlier effect. Dropping the obvious outlier, `moonshotai/kimi-k3`
+at 15.00 per million output tokens, moves the entry median only from 1.35 to
+1.20, still above the mid tier. Dropping the top two leaves it at 1.20.
+
+The instability is in the mid tier, not the entry tier. Open mid holds seven
+models in two clusters, three cheap speed variants at 0.14, 0.28 and 0.30,
+and three dear models at 2.10, 2.70 and 3.60. The median is the single model
+in the gap between them, `xiaomi/mimo-v2.6-pro` at 0.87. Swap that one model
+out and the mid median moves to 0.30 or to 2.10. A median resting on one
+observation in a bimodal sample of seven is not a number to publish a
+conclusion on.
+
+The deeper reason is that price and capability are close to unrelated inside
+the open-weight set. Pearson correlation between the intelligence index and
+log output price across the nineteen scored open models is -0.001. Price
+tracks serving cost, meaning parameter count, architecture and whether the
+SKU is speed-optimised. It does not track capability. The cheap mid-tier
+models are all flash variants; the dear entry-tier ones are large models such
+as `nvidia/nemotron-3-ultra-550b-a55b` and specialty models such as
+`thinkingmachines/inkling`.
+
+What this costs the tier comparison: the cross-tier ordering of open-weight
+medians carries no signal at these sample sizes, and the note should not
+claim one. The open-versus-closed comparison within the mid tier is the
+usable result, and even that rests on seven models against six.
+
+`moonshotai/kimi-k3` is also a likely bad data point rather than a cheap
+model priced oddly. It is the fourth most expensive model in the catalogue at
+15.00, above `anthropic/claude-sonnet-5.5` at 10.00, while scoring 17.4. Its
+own successor `kimi-k3.1-pro` scores 46 at a lower price of 10.00. A model
+priced above Sonnet and scoring in the entry band is not plausible, and a
+stale index entry is the likelier explanation. See the index lag caveat in
+methodology.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -347,7 +418,12 @@ edit here.
   variants of open bases deserve a class of their own rather than sitting in
   unclassified.
 - Whether a second capability source is needed, given only 54 of 430 priced
-  models carry an Artificial Analysis index.
+  models carry an Artificial Analysis index, and given at least one index
+  value (`moonshotai/kimi-k3`) looks stale.
+- Whether tier medians should be reported at all below some minimum sample
+  size, or replaced with the full distribution.
+- B015 watch item: whether the gap between the highest open-weight
+  intelligence index and the frontier floor closes, holds or widens.
 - Whether `elasticity.csv` should keep taking 860 rows a month, or whether
   per-model prices belong in their own file with only aggregates on the
   pillar series.

@@ -243,8 +243,76 @@ scoring open model is GLM-5.3 at 31.7 against a frontier floor of 45. The
 headline open discount from the uncontrolled comparison was therefore partly
 a mix effect, and the honest statement is narrower: open weights are much
 cheaper within the mid tier, roughly matched at entry level on input price,
-and absent from the top. This bears directly on claims B003 and B015 in the
-ledger, and it bears against them.
+and absent from the top.
+
+### Reading the tier result against the ledger
+
+This is consistent with B003 and is a watch item for B015. It is not evidence
+against either.
+
+B003 is the hybrid routing claim: an open model serves routine work while a
+frontier model takes the hard queries. That design assumes a frontier
+capability gap, so a frontier band with no open entrant is the condition the
+claim operates under, not a refutation of it. Combined with open weights
+costing roughly a fifth of closed in the mid tier, where routine traffic is
+served, the snapshot is what B003 predicts.
+
+B015 claims the industry is heading toward strong open source alongside
+several competitive frontier labs. A multi-year direction is not refuted by
+one snapshot. But the gap is the thing to watch: track the distance between
+the highest open-weight intelligence index and the frontier floor in each
+monthly note. A gap that persists or widens weakens B015 directly.
+
+Neither claim changes status. Both stay pending until their horizons.
+
+### Cautions on the tier medians
+
+Two limits that matter before any of this is quoted.
+
+Sample sizes are small and some medians are unstable. Open mid holds seven
+models in two clusters, three speed variants at 0.14 to 0.30 and three dear
+models at 2.10 to 3.60, with a single model at 0.87 between them. The median
+is that one model. Swapping it moves the median to 0.30 or 2.10. Entry-tier
+closed is one model. Report counts beside any median taken from this cut, and
+do not read a cross-tier ordering of open-weight medians as signal: on the
+2026-10-30 data the open entry median (1.35) sits above the open mid median
+(0.87), which is a small-sample artifact rather than an outlier effect.
+Dropping the largest entry-tier value moves that median only to 1.20.
+
+Price and capability are close to unrelated within the open-weight set. The
+Pearson correlation between the intelligence index and log output price
+across the nineteen scored open models is -0.001. Price tracks serving cost,
+meaning parameter count, architecture and whether the SKU is speed-optimised.
+It does not track capability. This is why tiering by price would have been
+circular and useless, and it is also why the usable comparison is open
+against closed within a tier, never one open tier against another.
+
+### The capability index may lag recent releases
+
+The Artificial Analysis intelligence index is a third-party evaluation
+carried in the OpenRouter payload. It is not published at the same moment a
+model is, so a recently released or recently updated model can appear with a
+stale score, a score for an earlier checkpoint, or no score at all. Only 54
+of 430 priced models carry one, and that coverage is itself biased toward
+models that have been out long enough to be evaluated.
+
+A tier is therefore a statement about a model's measured capability at the
+time of the most recent evaluation, not necessarily its capability now. The
+practical effects: recent strong releases can sit a tier below where they
+belong, new models can be missing from the comparison entirely, and a tier
+assignment can change on a later run with no change to the model.
+
+The 2026-10-30 snapshot carries at least one likely instance.
+`moonshotai/kimi-k3` is the fourth most expensive model in the catalogue at
+15.00 per million output tokens, above `anthropic/claude-sonnet-5.5` at
+10.00, while scoring 17.4 and landing in the entry tier. Its own successor
+`kimi-k3.1-pro` scores 46 at a lower price. A model priced above Sonnet and
+scoring in the entry band is not plausible on its face, and a stale index
+entry is the likelier explanation than a genuine mispricing.
+
+Do not correct a suspect index by hand. Flag it here, leave the data as the
+source reported it, and if the problem recurs, the answer is a second
+capability source rather than an adjustment.
 
 ## Sources
 

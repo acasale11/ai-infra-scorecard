@@ -234,12 +234,18 @@ def render(date, stats, skipped, identity):
             row += 19
         row += 5
 
-    note = ("Base SKUs only; batch and free variants excluded. %d classified "
-            "models carry an index. A further %d are unclassified and are in "
-            "neither bar." % (sum(s["n"] for s in stats.values()),
-                              skipped["unclassified"]))
-    a('<text x="%d" y="%d" font-size="11.5" fill="%s">%s</text>'
-      % (PAD_L, H - 46, MUTED, escape(note)))
+    notes = [
+        ("Base SKUs only; batch and free variants excluded. %d classified "
+         "models carry an index. A further %d are unclassified and are in "
+         "neither bar." % (sum(s["n"] for s in stats.values()),
+                           skipped["unclassified"])),
+        ("Samples are small, so read the counts. Compare open against closed "
+         "within a tier, not one tier against another: price tracks serving "
+         "cost, not capability."),
+    ]
+    for i, note in enumerate(notes):
+        a('<text x="%d" y="%d" font-size="11.5" fill="%s">%s</text>'
+          % (PAD_L, H - 64 + i * 16, MUTED, escape(note)))
     a('<line x1="%d" y1="%d" x2="%d" y2="%d" stroke="%s"/>'
       % (PAD_L, H - 34, W - PAD_R, H - 34, GRID))
     a('<text x="%d" y="%d" font-size="12" fill="%s">%s</text>'
