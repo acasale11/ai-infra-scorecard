@@ -280,6 +280,57 @@ trade. The thing it buys is that the work does not surface under the owner's
 legal name, and that employer material never enters the repo at all, which is
 the rule that was always doing the real protective work.
 
+### Weight classification moved to its own dated table, with evidence per row
+
+`data/model_classification.csv` now holds the class, and `elasticity.csv`
+keeps whatever class was in force when each price row was collected. Existing
+rows are not rewritten, so the join is the price series to the current
+classification.
+
+Classification is evidence-backed rather than remembered. A model is open
+because OpenRouter gave it a `hugging_face_id` or because a weights repo was
+found under the organisation's namespace, and the row carries the repo URL.
+It is closed because the organisation is on the closed list, or because its
+namespace demonstrably publishes weights and holds nothing for this model.
+That last step is the only inference, and it is gated on proving the
+namespace publishes before a miss counts.
+
+Unclassified fell from 80 to 42. The remainder is 25 models whose
+organisation has no mapped namespace and 17 hosted variants of open bases,
+each with a reason on the row.
+
+Cost: a join instead of a column, and a classification that can move between
+runs. The second is the point. It also depends on Hugging Face as a second
+external source, so a Hugging Face outage degrades a run.
+
+### Tier bands are frozen, and the result argues against the thesis
+
+Tiers come from the Artificial Analysis intelligence index in the OpenRouter
+payload, in absolute bands rather than percentiles, frozen in
+`config/weight_classes.json` on 2026-10-30. Price is never an input, since
+the output is a price comparison.
+
+The bands were set before the comparison was run, and they are not revisited
+to accommodate what the comparison showed. That rule exists because of what
+it showed: no open-weight model reaches the frontier band. The highest
+scoring open model is GLM-5.3 at 31.7 against a floor of 45. Lowering the
+floor to 30 would manufacture an open frontier entrant and a much friendlier
+chart, which is exactly why the bands are frozen.
+
+The tier cut also shrinks the headline. The uncontrolled comparison made open
+weights look six times cheaper on input; controlled for tier, open is much
+cheaper in the mid tier, roughly level on input price at entry level, and
+absent at the top. Part of the original gap was a mix effect.
+
+This is evidence against claims B003 and B015 rather than for them. Neither
+moves off `pending`, because both carry horizons that have not arrived and
+scoring early is exactly what the rules forbid. It is recorded here so the
+first note does not quietly lead with the friendlier uncontrolled number.
+
+Cost: the comparison covers the 54 models carrying an index, not the 430
+priced ones, so it is a statement about scored models and has to be worded
+that way.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -291,8 +342,12 @@ edit here.
 - Whether OpenRouter data alone is a defensible basis for the
   `open_source_share` pillar given it misses direct API traffic, or whether a
   second source is needed before the first note.
-- Which of the 80 unclassified organisations can be moved onto the
-  closed-weight list with a checkable source rather than from memory.
+- Which of the 25 organisations still lacking a Hugging Face namespace can
+  be mapped in `config/weight_classes.json`, and whether the 17 hosted
+  variants of open bases deserve a class of their own rather than sitting in
+  unclassified.
+- Whether a second capability source is needed, given only 54 of 430 priced
+  models carry an Artificial Analysis index.
 - Whether `elasticity.csv` should keep taking 860 rows a month, or whether
   per-model prices belong in their own file with only aggregates on the
   pillar series.

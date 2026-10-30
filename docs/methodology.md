@@ -141,35 +141,110 @@ rewritten.
 
 ### Open weights or closed weights
 
-`entity_class` on every OpenRouter row comes from this rule, applied in
-order, and nothing else:
+Produced by `scripts/classify_weights.py` into `data/model_classification.csv`,
+one row per model per run date, every row carrying the basis and the evidence
+that produced it.
 
-1. If the model record has a non-empty `hugging_face_id`, the weights are
-   published. Tag `open_weights`.
-2. Otherwise, if the organisation prefix of the model id is on the
-   closed-weight list in the collector, tag `closed_weights`. That list is
-   `anthropic`, `openai`, `google`, `x-ai`, `amazon`, `perplexity`.
-3. Otherwise tag `unclassified`.
+Why a separate table rather than a column on the price rows: the
+`entity_class` already written into `elasticity.csv` records what was known
+when those rows were collected, and existing rows are never modified. A
+better classification is a new dated table, not a rewrite. Charts and queries
+join prices to the latest classification by model id.
 
-Order matters. It is what puts `openai/gpt-oss` and `google/gemma` in
-`open_weights` while leaving the rest of those organisations closed.
+The rule, applied in order:
 
-The closed-weight list is deliberately short, and step 3 is deliberately
-common. On the 2026-10-30 run, 176 models came back `open_weights`, 174
-`closed_weights` and 80 `unclassified`, roughly a fifth of the universe. The
-unclassified group includes names whose weights the owner may well know the
-status of, Cohere and ByteDance Seed among them. They stay unclassified
-because a tag applied from memory is not reproducible, and a rule that
-needs a person to adjudicate is not a rule.
+| step | test | result |
+| --- | --- | --- |
+| 1 | OpenRouter gives the model a `hugging_face_id` | `open_weights` |
+| 2 | Organisation is on the closed-weight list | `closed_weights` |
+| 3 | A weights repo for the model exists in the organisation's Hugging Face namespace | `open_weights` |
+| 4 | That namespace is confirmed to publish weights, but holds no repo for this model | `closed_weights` |
+| 5 | Anything else | `unclassified`, with the reason recorded |
 
-Every run prints the unclassified model ids. To classify one, add its
-organisation to the list in the collector with a commit that says what was
-checked. Do not tag individual rows by hand.
+Step 4 is the only inference in the chain, and it is conditional. The
+namespace has to be proven in the same run to publish real weight files
+before a miss from it counts as evidence of anything. A namespace that is
+unknown, misspelled or empty therefore produces `unclassified`, never a false
+`closed_weights`.
 
-Two known limits. A model absent from Hugging Face but published elsewhere
-reads as unclassified rather than open, so `open_weights` is a floor and not
-a count. And the tag describes the weights, not the serving: an open-weight
-model served only by its author is tagged `open_weights` regardless.
+Matching in step 3 compares delimited token sets, not substrings. Substring
+matching failed in both directions when tried: it missed
+`mistral-large-2512` against `Mistral-Large-3-675B-Instruct-2512`, where a
+size string sits in the middle of the published name, and it falsely matched
+`seed-1.6` against `Seed-Coder-8B-Reasoning-bf16`, where the digits 1 and 6
+turn up inside `bf16`. A repo also has to contain an actual weight file,
+which is what stops `upstage/solar-pro4` matching a tokenizer-only repo.
+
+One extra outcome exists for a case that is genuinely ambiguous. Where the
+published repo matches the model name minus its last part, as with
+`glm-5.3-prime` against `GLM-5.3`, the model is a hosted variant of an open
+base. The base weights are public but that SKU is not separately released and
+the served variant may differ from them. These are recorded as
+`unclassified` with basis `hosted_variant_of_open_base` and a link to the
+base repo. Calling them open would overstate the open side; calling them
+closed would understate it.
+
+On the 2026-10-30 run the rule produced 185 `open_weights`, 203
+`closed_weights` and 42 `unclassified`, the last being 25 models whose
+organisation has no mapped Hugging Face namespace and 17 hosted variants.
+That is down from 80 unclassified under the previous rule.
+
+Inputs live in `config/weight_classes.json`: the organisation to namespace
+map, the closed-weight organisation list, and the file extensions that count
+as weights. Every entry is checkable by opening a URL. To classify one of the
+remaining 25, add its namespace there and rerun; do not tag a row by hand.
+
+Known limits. The classification describes the weights, not the serving: an
+open-weight model served only by its author is still `open_weights`. And a
+model published somewhere other than Hugging Face reads as unclassified, so
+`open_weights` remains a floor rather than a count.
+
+### Capability tiers
+
+So that open and closed are compared like for like. Comparing the median of
+every open model against the median of every closed model mixes a tier
+effect into what looks like a weights effect, because the two populations sit
+at different points on the capability range.
+
+Tiers come from `benchmarks.artificial_analysis.intelligence_index`, carried
+in the OpenRouter payload. Price is never an input, which matters because the
+output of the exercise is a price comparison.
+
+| tier | index |
+| --- | --- |
+| `frontier` | 45.0 and above |
+| `mid` | 25.0 to 44.9 |
+| `entry` | below 25.0 |
+
+The bands are absolute, not percentiles of the current snapshot, so a model's
+tier does not move because other models were added or removed. They were set
+on 2026-10-30 at the two widest gaps in that day's distribution, nothing
+scored between 40.0 and 44.9, and they are frozen in
+`config/weight_classes.json`. Re-tuning bands after seeing a result is how a
+comparison gets talked into saying what you wanted, so the bands do not get
+revisited to accommodate a finding.
+
+Only 54 of 430 priced models carry an index. The tier comparison is therefore
+a comparison of the scored subset, not of the catalogue, and the chart says
+so. Base SKUs only: `:batch` and `:free` are the same model at a discounted
+or promotional price and would double count. Unclassified models are excluded
+from both sides rather than folded into either.
+
+What the 2026-10-30 run showed, and the reason this cut matters:
+
+| tier | open | closed | median output, open | median output, closed |
+| --- | --- | --- | --- | --- |
+| frontier | 0 | 8 | n/a | 10.00 |
+| mid | 7 | 6 | 0.87 | 4.19 |
+| entry | 12 | 1 | 1.35 | 2.50 |
+
+No open-weight model in the catalogue reaches the frontier band. The highest
+scoring open model is GLM-5.3 at 31.7 against a frontier floor of 45. The
+headline open discount from the uncontrolled comparison was therefore partly
+a mix effect, and the honest statement is narrower: open weights are much
+cheaper within the mid tier, roughly matched at entry level on input price,
+and absent from the top. This bears directly on claims B003 and B015 in the
+ledger, and it bears against them.
 
 ## Sources
 

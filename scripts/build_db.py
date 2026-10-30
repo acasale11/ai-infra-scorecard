@@ -23,6 +23,7 @@ SCORECARD_GLOB = "data/scorecard/*.csv"
 TABLES = {
     "claims": "data/claims_ledger.csv",
     "coverage": "data/coverage_universe.csv",
+    "model_classification": "data/model_classification.csv",
 }
 DEFAULT_DB = "data/research.db"
 

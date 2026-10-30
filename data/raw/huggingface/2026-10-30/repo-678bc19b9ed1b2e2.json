@@ -1,0 +1,126 @@
+{
+  "_id": "6822ac6166175107816cecb1",
+  "author": "ByteDance-Seed",
+  "cardData": {
+    "base_model": [
+      "ByteDance-Seed/Seed-Coder-8B-Base-bf16"
+    ],
+    "library_name": "transformers",
+    "license": "mit",
+    "pipeline_tag": "text-generation"
+  },
+  "config": {
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "model_type": "llama",
+    "tokenizer_config": {
+      "bos_token": "<[begin\u2581of\u2581sentence]>",
+      "chat_template": "{% if messages[0]['role'] == 'system' %}{{ raise_exception('System role not supported') }}{% endif %}{% for message in messages %}{% if (message['role'] == 'user') != (loop.index0 % 2 == 0) %}{{ raise_exception('Conversation roles must alternate user/assistant/user/assistant/...') }}{% endif %}{% set role = message['role'] %}{{ bos_token + role + '\n' + message['content'] | trim + eos_token }}{% endfor %}{% if add_generation_prompt %}{{ bos_token + 'assistant\n'}}{% endif %}",
+      "eos_token": "<[end\u2581of\u2581sentence]>",
+      "pad_token": "<[PAD\u2581TOKEN]>",
+      "sep_token": "<[SEP\u2581TOKEN]>"
+    }
+  },
+  "createdAt": "2025-05-13T02:20:17.000Z",
+  "disabled": false,
+  "downloads": 765,
+  "gated": false,
+  "id": "ByteDance-Seed/Seed-Coder-8B-Reasoning-bf16",
+  "lastModified": "2025-06-06T02:20:00.000Z",
+  "library_name": "transformers",
+  "likes": 23,
+  "model-index": null,
+  "modelId": "ByteDance-Seed/Seed-Coder-8B-Reasoning-bf16",
+  "pipeline_tag": "text-generation",
+  "private": false,
+  "safetensors": {
+    "parameters": {
+      "BF16": 8250462208
+    },
+    "total": 8250462208
+  },
+  "sha": "aa14634327ec15c9b9130243104cb2df400f1a60",
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "config.json"
+    },
+    {
+      "rfilename": "generation_config.json"
+    },
+    {
+      "rfilename": "imgs/reasoning-codeforces.jpg"
+    },
+    {
+      "rfilename": "imgs/reasoning-ioi.jpg"
+    },
+    {
+      "rfilename": "imgs/seed-coder_intro_performance.png"
+    },
+    {
+      "rfilename": "model-00001-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model-00002-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model-00003-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model-00004-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model.safetensors.index.json"
+    },
+    {
+      "rfilename": "special_tokens_map.json"
+    },
+    {
+      "rfilename": "tokenizer.json"
+    },
+    {
+      "rfilename": "tokenizer_config.json"
+    }
+  ],
+  "spaces": [
+    "HPAI-BSC/TuRTLe-Leaderboard"
+  ],
+  "tags": [
+    "transformers",
+    "safetensors",
+    "llama",
+    "text-generation",
+    "conversational",
+    "arxiv:2506.03524",
+    "license:mit",
+    "text-generation-inference",
+    "endpoints_compatible",
+    "region:us"
+  ],
+  "transformersInfo": {
+    "auto_model": "AutoModelForCausalLM",
+    "pipeline_tag": "text-generation",
+    "processor": "AutoTokenizer"
+  },
+  "usedStorage": 16527060167,
+  "widgetData": [
+    {
+      "text": "Hi, what can you help me with?"
+    },
+    {
+      "text": "What is 84 * 3 / 2?"
+    },
+    {
+      "text": "Tell me an interesting fact about the universe!"
+    },
+    {
+      "text": "Explain quantum computing in simple terms."
+    }
+  ]
+}

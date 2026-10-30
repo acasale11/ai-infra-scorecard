@@ -1,0 +1,132 @@
+{
+  "_id": "657874e50c22bb8984c717f7",
+  "author": "upstage",
+  "cardData": {
+    "license": "apache-2.0"
+  },
+  "config": {
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "model_type": "llama",
+    "tokenizer_config": {
+      "bos_token": "<s>",
+      "eos_token": "</s>",
+      "pad_token": null,
+      "unk_token": "<unk>",
+      "use_default_system_prompt": true
+    }
+  },
+  "createdAt": "2023-12-12T14:57:41.000Z",
+  "disabled": false,
+  "downloads": 14185,
+  "gated": false,
+  "id": "upstage/SOLAR-10.7B-v1.0",
+  "inference": "warm",
+  "lastModified": "2024-09-10T21:45:21.000Z",
+  "library_name": "transformers",
+  "likes": 324,
+  "model-index": null,
+  "modelId": "upstage/SOLAR-10.7B-v1.0",
+  "pipeline_tag": "text-generation",
+  "private": false,
+  "safetensors": {
+    "parameters": {
+      "F16": 10731524096
+    },
+    "total": 10731524096
+  },
+  "sha": "5a06298f374dae1fb918d73fba72c7722ce71d36",
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "config.json"
+    },
+    {
+      "rfilename": "generation_config.json"
+    },
+    {
+      "rfilename": "model-00001-of-00005.safetensors"
+    },
+    {
+      "rfilename": "model-00002-of-00005.safetensors"
+    },
+    {
+      "rfilename": "model-00003-of-00005.safetensors"
+    },
+    {
+      "rfilename": "model-00004-of-00005.safetensors"
+    },
+    {
+      "rfilename": "model-00005-of-00005.safetensors"
+    },
+    {
+      "rfilename": "model.safetensors.index.json"
+    },
+    {
+      "rfilename": "solar_logo.png"
+    },
+    {
+      "rfilename": "special_tokens_map.json"
+    },
+    {
+      "rfilename": "tokenizer.json"
+    },
+    {
+      "rfilename": "tokenizer.model"
+    },
+    {
+      "rfilename": "tokenizer_config.json"
+    }
+  ],
+  "spaces": [
+    "logikon/open_cot_leaderboard",
+    "mayafree/Model-Genome-Korea",
+    "Yeyito/llm_contamination_detector",
+    "prometheus-eval/BiGGen-Bench-Leaderboard",
+    "cot-leaderboard/open-cot-dashboard",
+    "yhavinga/dutch-tokenizer-arena",
+    "CATIE-AQ/Guide_Evaluation_LLM",
+    "officialhimanshu595/llama-factory",
+    "AhmedMagdy7/upstage-SOLAR-10.7B-v1.0",
+    "meg/backend",
+    "fastgpu/fine-tuning-cost-calculator"
+  ],
+  "tags": [
+    "transformers",
+    "safetensors",
+    "llama",
+    "text-generation",
+    "arxiv:2312.15166",
+    "license:apache-2.0",
+    "text-generation-inference",
+    "endpoints_compatible",
+    "deploy:azure",
+    "region:us"
+  ],
+  "transformersInfo": {
+    "auto_model": "AutoModelForCausalLM",
+    "pipeline_tag": "text-generation",
+    "processor": "AutoTokenizer"
+  },
+  "usedStorage": 21463591819,
+  "widgetData": [
+    {
+      "text": "Hi, what can you help me with?"
+    },
+    {
+      "text": "What is 84 * 3 / 2?"
+    },
+    {
+      "text": "Tell me an interesting fact about the universe!"
+    },
+    {
+      "text": "Explain quantum computing in simple terms."
+    }
+  ]
+}

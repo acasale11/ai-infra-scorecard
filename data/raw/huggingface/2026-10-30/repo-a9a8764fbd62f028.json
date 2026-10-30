@@ -1,0 +1,116 @@
+{
+  "_id": "680daa428cf9b86bd86e8f3e",
+  "author": "ByteDance-Seed",
+  "cardData": {
+    "library_name": "transformers",
+    "license": "mit",
+    "pipeline_tag": "text-generation"
+  },
+  "config": {
+    "architectures": [
+      "LlamaForCausalLM"
+    ],
+    "model_type": "llama",
+    "tokenizer_config": {
+      "bos_token": "<[begin\u2581of\u2581sentence]>",
+      "eos_token": "<[end\u2581of\u2581sentence]>",
+      "pad_token": "<[PAD\u2581TOKEN]>",
+      "sep_token": "<[SEP\u2581TOKEN]>"
+    }
+  },
+  "createdAt": "2025-04-27T03:53:38.000Z",
+  "disabled": false,
+  "downloads": 1287,
+  "gated": false,
+  "id": "ByteDance-Seed/Seed-Coder-8B-Base",
+  "lastModified": "2025-06-06T02:18:09.000Z",
+  "library_name": "transformers",
+  "likes": 74,
+  "model-index": null,
+  "modelId": "ByteDance-Seed/Seed-Coder-8B-Base",
+  "pipeline_tag": "text-generation",
+  "private": false,
+  "safetensors": {
+    "parameters": {
+      "BF16": 8250462208
+    },
+    "total": 8250462208
+  },
+  "sha": "049f843238b40ea67671836204f3d8585a679327",
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "config.json"
+    },
+    {
+      "rfilename": "generation_config.json"
+    },
+    {
+      "rfilename": "imgs/seed-coder_intro_performance.png"
+    },
+    {
+      "rfilename": "model-00001-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model-00002-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model-00003-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model-00004-of-00004.safetensors"
+    },
+    {
+      "rfilename": "model.safetensors.index.json"
+    },
+    {
+      "rfilename": "special_tokens_map.json"
+    },
+    {
+      "rfilename": "tokenizer.json"
+    },
+    {
+      "rfilename": "tokenizer_config.json"
+    }
+  ],
+  "spaces": [
+    "usermma/Zeta-2.1-GGUF",
+    "kazutab/mindmap-studio"
+  ],
+  "tags": [
+    "transformers",
+    "safetensors",
+    "llama",
+    "text-generation",
+    "arxiv:2506.03524",
+    "license:mit",
+    "text-generation-inference",
+    "endpoints_compatible",
+    "region:us"
+  ],
+  "transformersInfo": {
+    "auto_model": "AutoModelForCausalLM",
+    "pipeline_tag": "text-generation",
+    "processor": "AutoTokenizer"
+  },
+  "usedStorage": 16532324175,
+  "widgetData": [
+    {
+      "text": "Hi, what can you help me with?"
+    },
+    {
+      "text": "What is 84 * 3 / 2?"
+    },
+    {
+      "text": "Tell me an interesting fact about the universe!"
+    },
+    {
+      "text": "Explain quantum computing in simple terms."
+    }
+  ]
+}

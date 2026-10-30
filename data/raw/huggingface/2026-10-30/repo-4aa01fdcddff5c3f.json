@@ -1,0 +1,60 @@
+{
+  "_id": "668f99d5d7741cade0e801aa",
+  "author": "SakanaAI",
+  "cardData": {
+    "language": [
+      "ja"
+    ],
+    "library_name": "diffusers",
+    "license": "apache-2.0",
+    "pipeline_tag": "text-to-image",
+    "tags": [
+      "stable-diffusion"
+    ]
+  },
+  "config": {},
+  "createdAt": "2024-07-11T08:37:41.000Z",
+  "disabled": false,
+  "downloads": 38,
+  "gated": false,
+  "id": "SakanaAI/Evo-Ukiyoe-v1",
+  "lastModified": "2024-07-19T04:51:55.000Z",
+  "library_name": "diffusers",
+  "likes": 35,
+  "model-index": null,
+  "modelId": "SakanaAI/Evo-Ukiyoe-v1",
+  "pipeline_tag": "text-to-image",
+  "private": false,
+  "sha": "331334304c404ed2bc09f4cf249cd86d4133b5e3",
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "evo_ukiyoe_v1.py"
+    },
+    {
+      "rfilename": "pytorch_lora_weights.safetensors"
+    },
+    {
+      "rfilename": "requirements.txt"
+    }
+  ],
+  "spaces": [
+    "SakanaAI/Evo-Ukiyoe",
+    "SakanaAI/Evo-Nishikie",
+    "cbensimon/Evo-Ukiyoe"
+  ],
+  "tags": [
+    "diffusers",
+    "stable-diffusion",
+    "text-to-image",
+    "ja",
+    "license:apache-2.0",
+    "region:us"
+  ],
+  "usedStorage": 59519264
+}
