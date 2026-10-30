@@ -89,6 +89,26 @@ pseudonym hides anything from someone who looks.
 3. Earnings and filings agent: after each earnings season, tags data points from the coverage universe against the five pillars with source links; for neoclouds, pulls debt terms, customer concentration, and depreciation assumptions.
 4. Monthly brief generator: combines scorecard and tagged data into a dashboard and an outline of what changed. The owner writes the note.
 
+## How a session ends
+
+Do not propose new builds at the end of a session. No "next I could build
+X", no list of candidate next steps, no card or offer to start the
+follow-on work.
+
+End with the plain-English summary of what was done, what it means, and
+anything that is uncertain or unverified, and then stop. The owner decides
+what happens next.
+
+This is not a style preference. The project's value is the owner's
+judgement about what is worth measuring, and a session that ends by
+proposing the next build quietly moves that judgement to whoever is
+proposing. Recording an option in `docs/decisions.md` under open questions
+is the right place for it; the end of a session is not.
+
+Blockers and unfinished work are different and must still be stated
+plainly, because those are facts about the work rather than suggestions
+about what to do next.
+
 ## Conventions
 
 - Python, with small readable scripts over frameworks.

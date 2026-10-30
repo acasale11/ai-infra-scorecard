@@ -821,6 +821,123 @@ measure of how much of each filing is actually being read.
 Cost: a file that will keep growing and that nobody has to act on, which
 risks becoming wallpaper.
 
+### Collection runs weekly and unattended
+
+A GitHub Actions workflow runs every collector each Monday, appends what is
+new, regenerates the chart, writes a summary to `notes/weekly/` and commits.
+
+The reason is the FRED rolling window. Eight of the nine benchmark series
+drop observations permanently after three years, so anything not collected
+is eventually unrecoverable. Collection that depends on someone remembering
+is collection that will have gaps, and a two-year track record with gaps in
+it is not a track record.
+
+A collector that fails does not stop the others, and each run reports its
+own exit codes. One dead source should not cost a week of the others' data.
+
+Cost: automated commits carry the `github-actions[bot]` identity rather
+than the owner's, so the commit history will be mixed. That is the right
+trade, because a commit that claims a person ran something they did not run
+is worse than an obviously automated one.
+
+### Two bugs that only mattered once collection was automated
+
+Both were harmless while everything ran by hand once, and both would have
+produced wrong data quietly on the second run. Recording them because the
+pattern is the point: automating a script tests it in a way that running it
+once does not.
+
+**The endpoint price cache was not scoped by date.** `price_bases.py`
+cached each model's endpoint prices under a hash of the model slug alone.
+Run it again next week and it would read last week's prices off disk and
+report them as this week's, with no error and no sign in the output. The
+cache is now scoped by collection date.
+
+**The filings extractor deduplicated on the collection date.** Filings are
+quarterly and the workflow is weekly, so the guard would have allowed the
+same 10-Q to be re-extracted every week: 1,118 identical rows and 19 MB of
+identical XBRL, every Monday, for a quarter at a time. It now deduplicates
+on the filing's accession number, which is the thing that actually
+identifies a filing. Most weeks it reads seven submission indexes and
+writes nothing.
+
+Cost: the endpoint cache files written before 2026-10-30 sit at the top of
+the cache directory and are no longer read by anything. They are left there
+rather than deleted.
+
+### An alert says a week is worth a look, and nothing more
+
+Three checks run after each collection: a benchmark moved more than its
+threshold, a series stopped updating, or a collector ran cleanly and wrote
+nothing. Any of them opens a GitHub issue.
+
+The third is the one worth having. A collector that errors is obvious. A
+collector that runs, succeeds and writes zero rows because an API changed
+shape is invisible, and would stay invisible for weeks.
+
+Thresholds are set wide enough that ordinary weeks stay quiet. An alert
+that fires every week is not an alert.
+
+What the checks deliberately do not do is interpret. No alert says a
+spread widening is bad, supports a claim, or means anything. The project
+exists to show the owner's judgement and an automated threshold has none.
+
+Cost: thresholds are guesses until there is enough history to calibrate
+them, and a wide threshold misses real moves. Both are preferable to an
+alert nobody reads.
+
+### The weekly summary is a digest, not a note
+
+Each run writes `notes/weekly/<date>.md`: what was collected, current
+benchmark levels and their weekly moves, the cheapest open and closed model
+at the mid-tier floor, and any flags.
+
+`notes/` holds the owner's monthly notes, and the rule that Claude does not
+write published notes still stands without exception. These files are a
+record of what the machine did and what the numbers are. They state no
+conclusion, score no claim and say what nothing means.
+
+The weekly file reports the open versus closed multiple on output tokens
+only, and says so, because the repo's headline comparison uses a blended
+input and output price and produces a different number for the same week.
+Two multiples that disagree are two measurements, not a mistake, and the
+file says that too rather than leaving a reader to spot it.
+
+Cost: a directory of machine-written files sitting next to the owner's own
+notes, which could be mistaken for his if the distinction is not kept
+visible.
+
+### No API keys are needed, and the secrets are wired anyway
+
+Nothing collected so far requires a key: the OpenRouter models API, the
+FRED CSV endpoint and SEC EDGAR are all public. The workflow passes
+`SEC_USER_AGENT`, `OPENROUTER_API_KEY` and `FRED_API_KEY` from repository
+secrets regardless. An unset secret arrives as an empty string and every
+script falls back to its documented default, so setting one later is the
+only step required if a source starts asking.
+
+`SEC_USER_AGENT` is the one worth setting. SEC asks that automated requests
+identify the requester by email. The default is the project's public
+domain, which is a real contact route but less than SEC asks for, and
+setting the secret keeps a personal address out of a repo meant to go
+public.
+
+### Sessions end with a summary, not a proposal
+
+Added to CLAUDE.md: do not end a session by proposing the next build.
+
+The project's value is the owner's judgement about what is worth measuring.
+A session that ends with a recommended next step moves that judgement,
+quietly and by default, to whoever is drafting the recommendation. Over two
+years of sessions that compounds into a research agenda nobody chose.
+
+Open questions still get recorded here, which is the right place for an
+idea that may be worth doing later. Blockers and unfinished work are still
+stated plainly, because those are facts rather than suggestions.
+
+Cost: the owner has to decide what is next without a prompt, every time.
+That is the intent.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -875,3 +992,10 @@ edit here.
   OpenRouter prices or the FRED spread window. Committed for now because the
   rule says raw responses are committed, but the rule was written for
   kilobyte payloads.
+- Whether the alert thresholds in `config/alert_thresholds.json` are set at
+  sensible levels. They were chosen from three years of history on
+  2026-10-30 with no live experience of how often they fire, so the first
+  few months of weekly runs are the calibration.
+- Whether weekly is the right cadence for the OpenRouter collectors. It
+  adds roughly 860 elasticity rows and 200 endpoint cache files a week,
+  against 45 rows a week from FRED and nothing in most weeks from filings.

@@ -60,7 +60,14 @@ RETRY_STATUS = {429, 500, 502, 503, 504}
 
 
 def _user_agent():
-    """SEC_USER_AGENT from .env if set, else the project default."""
+    """SEC_USER_AGENT from the environment, then .env, then the default.
+
+    The environment comes first so GitHub Actions can supply it as a
+    repository secret without writing a .env file into the runner.
+    """
+    from_env = (os.environ.get(ENV_KEY) or "").strip()
+    if from_env and "your@email" not in from_env:
+        return from_env
     if not os.path.exists(ENV_FILE):
         return DEFAULT_UA
     with open(ENV_FILE, encoding="utf-8") as fh:

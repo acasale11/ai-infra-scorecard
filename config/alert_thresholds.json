@@ -1,0 +1,28 @@
+{
+  "_comment": "Inputs to scripts/check_alerts.py, which the weekly workflow runs after collection. Crossing a threshold opens a GitHub issue. It does not mean something is wrong; it means the week is worth looking at, which is the only thing an automated check can honestly claim.",
+  "lookback_days": 10,
+  "_lookback_note": "The comparison is against the most recent observation at least 7 days older than the latest one, searching back this far to find it. Index series skip holidays, so a fixed 7-day offset frequently lands on a day with no observation.",
+  "staleness_days": 10,
+  "_staleness_note": "If the newest observation in a series is older than this, the source has probably stopped updating or the collector has silently stopped working. That is worth an issue on its own.",
+  "fred_move": {
+    "_comment": "Absolute week-over-week move that triggers an issue. Spread series in basis points, yields in percentage points. Set wide enough that ordinary weeks stay quiet: the point of an alert that fires every week is nothing.",
+    "ig_oas": 25,
+    "bbb_oas": 30,
+    "hy_oas": 75,
+    "hy_bb_oas": 50,
+    "hy_b_oas": 75,
+    "hy_ccc_oas": 150,
+    "ig_effective_yield": 0.4,
+    "hy_effective_yield": 0.5,
+    "ust_10y": 0.35
+  },
+  "price_gap_move_pct": {
+    "_comment": "Relative change in the open versus closed weights price advantage at the mid-tier capability floor, on the fp8 base case, as a percentage of last week's ratio. This is the number the elasticity pillar exists to track, so a large move in it is the most important thing the weekly run can surface.",
+    "threshold": 25
+  },
+  "expected_rows": {
+    "_comment": "Minimum rows a collector should add on a run that is supposed to collect. Zero rows from a collector that ran without error is the failure mode that would otherwise go unnoticed for weeks. The filings extractor is deliberately absent: it adds nothing in most weeks by design, because filings are quarterly.",
+    "elasticity": 100,
+    "credit": 20
+  }
+}

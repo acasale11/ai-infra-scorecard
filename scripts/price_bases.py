@@ -81,8 +81,17 @@ def norm(s):
     return re.sub(r"[^a-z0-9]", "", (s or "").lower())
 
 
-def fetch(slug):
-    path = os.path.join(CACHE, "%s.json"
+def fetch(slug, cache_dir):
+    """Endpoints for one model, cached under the collection date.
+
+    The cache is scoped by date. It was not originally, which was harmless
+    while this ran by hand once, and would have been a silent correctness
+    bug the moment it ran weekly: every run after the first would have
+    re-read the previous run's prices from disk and reported them as
+    current. Files written before 2026-10-30 sit at the top of the cache
+    directory and are no longer read by anything.
+    """
+    path = os.path.join(cache_dir, "%s.json"
                         % hashlib.sha1(slug.encode("utf-8")).hexdigest()[:16])
     if os.path.exists(path):
         with open(path, encoding="utf-8") as fh:
@@ -98,7 +107,7 @@ def fetch(slug):
             if attempt == 2:
                 return None
             time.sleep(2 * (attempt + 1))
-    os.makedirs(CACHE, exist_ok=True)
+    os.makedirs(cache_dir, exist_ok=True)
     with open(path, "w", encoding="utf-8") as fh:
         json.dump(data, fh, indent=2, sort_keys=True)
     return data
@@ -143,11 +152,12 @@ def main():
                      and (c["tier"] or c["weight_class"] == "open_weights"))
     print("fetching endpoints for %d models" % len(targets))
 
+    cache_dir = os.path.join(CACHE, date)
     rows, pillar_rows, failed = [], [], []
     for i, mid in enumerate(targets, 1):
         if i % 25 == 0:
             print("  %d/%d" % (i, len(targets)))
-        data = fetch(mid)
+        data = fetch(mid, cache_dir)
         eps = endpoints_of(data)
         if not eps:
             failed.append(mid)

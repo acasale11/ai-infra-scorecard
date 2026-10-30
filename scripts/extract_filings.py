@@ -208,6 +208,31 @@ def find_instance(sec, cik, accession):
     return None
 
 
+ACCESSION = re.compile(r"\b(\d{10}-\d{2}-\d{6})\b")
+
+
+def extracted_accessions(path):
+    """{(ticker, accession)} already in the scorecard.
+
+    Deduplication is by accession, not by collection date. Filings are
+    quarterly and this runs weekly, so a date guard would let the same
+    10-Q be re-extracted every week: 1,118 identical rows and 19 MB of
+    identical XBRL each time. An accession has been extracted once or it
+    has not, whatever day it was fetched.
+    """
+    out = set()
+    if not os.path.exists(path):
+        return out
+    with open(path, newline="", encoding="utf-8") as fh:
+        for r in csv.DictReader(fh):
+            if r.get("source") != SOURCE_NAME:
+                continue
+            m = ACCESSION.search(r.get("notes", ""))
+            if m:
+                out.add((r["entity"].split(":")[0], m.group(1)))
+    return out
+
+
 def latest_filing(sec, cik, forms):
     """(form, accession, filing date): newest filing of the best form.
 
@@ -266,13 +291,16 @@ def convert(raw, unit_kind, measure):
     return value
 
 
-def extract(sec, issuer, collected, raw_dir, dry_run):
+def extract(sec, issuer, collected, raw_dir, dry_run, done=()):
     """(metric rows, unmapped rows, a one-line report)."""
     ticker, cik = issuer["ticker"], issuer["cik"]
     found = latest_filing(sec, cik, issuer["forms"])
     if not found:
         return [], [], "%-6s no filing matched %s" % (ticker, issuer["forms"])
     form, accession, filed = found
+    if (ticker, accession) in done:
+        return [], [], ("%-6s %-5s %s  already extracted, skipped"
+                        % (ticker, form, filed))
 
     url = find_instance(sec, cik, accession)
     if not url:
@@ -369,16 +397,7 @@ def main():
     if not issuers:
         sys.exit("no issuer matched")
 
-    if os.path.exists(DEST):
-        with open(DEST, newline="", encoding="utf-8") as fh:
-            clash = {r["entity"].split(":")[0] for r in csv.DictReader(fh)
-                     if r["source"] == SOURCE_NAME
-                     and ("collected %s" % collected) in r["notes"]}
-        clash &= {i["ticker"] for i in issuers}
-        if clash and not args.dry_run:
-            sys.exit("%s already has rows collected %s for %s. Existing rows "
-                     "are never modified." % (DEST, collected, sorted(clash)))
-
+    done = extracted_accessions(DEST)
     sec = SecClient()
     raw_dir = RAW_DIR % collected
     all_rows, all_unmapped = [], []
@@ -386,7 +405,7 @@ def main():
     for issuer in issuers:
         try:
             rows, unmapped, report = extract(sec, issuer, collected,
-                                             raw_dir, args.dry_run)
+                                             raw_dir, args.dry_run, done)
         except Exception as exc:
             print("%-6s FAILED %s" % (issuer["ticker"], exc))
             continue
