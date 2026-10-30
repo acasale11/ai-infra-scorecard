@@ -578,12 +578,49 @@ data in the same direction, toward a cleaner story than the evidence
 supports. The pattern to watch is reaching for a verdict on a framework claim
 from whatever data happens to be in hand.
 
+### Credit pillar mapped before anything was collected
+
+Source map written, no collector built, waiting on approval. Recorded here
+because the mapping turned up two findings and two blockers that shape what
+gets built.
+
+Findings. CoreWeave discloses six successive GPU-backed facility generations
+at 15%, 11%, 9%, 9%, SOFR plus 2.25% and 4.50%. That ladder is close to a
+direct measurement of lender appetite for GPUs as collateral over time, which
+is the pillar question, and no other issuer read so far discloses anything
+like it. Separately, Cipher issues secured notes at named project entities
+rather than the parent, priced 6.00% to 7.125%, inside CoreWeave parent-level
+notes at 9.00% to 9.75%. A ring-fenced contracted asset appears to fund
+cheaper than corporate risk at a larger borrower. That is a testable claim
+and belongs in the ledger once confirmed.
+
+Blockers. Programmatic requests to sec.gov returned 403 from this
+environment across several User-Agent strings, while the same URLs fetched
+through a browser path worked. And the FINRA fixed income API returns 401
+without credentials. Neither is hard to fix but both have to be fixed before
+a collector is worth writing, so they are recorded as blockers rather than
+noted in passing.
+
+Everything in the issuer tables came from XBRL rendering pages, where
+flattening makes column alignment ambiguous. The numbers are an inventory to
+confirm against narrative footnotes, not a verified credit book, and the
+section says so at the top. Publishing a coupon read off a flattened table
+would be exactly the kind of error this repo is built to avoid.
+
+Build order proposed: FRED benchmarks first because they have no blockers at
+all, then SEC access, then the filings extractor, then TRACE.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
 edit here.
 
 - Which holding is "United" in the Atreides Q3 2026 top 10.
+- How to reach SEC EDGAR programmatically from this environment, given 403s
+  on direct requests.
+- Whether the CoreWeave DDTL rate ladder is a true like-for-like sequence or
+  whether the facilities differ in collateral and seniority in ways that make
+  the comparison invalid.
 - Whether Cerebras, Anthropic and SpaceX (xAI) are listed, currently `verify`
   in the coverage universe.
 - Whether OpenRouter data alone is a defensible basis for the

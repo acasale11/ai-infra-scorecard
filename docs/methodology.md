@@ -521,6 +521,203 @@ of 430 priced models; the author basis excludes six open-weight models whose
 makers do not serve them, a one-sided exclusion; and the blend ratio is an
 assumption rather than a measurement.
 
+## Credit pillar source map
+
+Mapped 2026-10-30. Nothing collected yet and no collector built. This section
+records where the data is, what each source can and cannot give, and what has
+actually been read as opposed to assumed.
+
+Read the issuer tables below as a starting inventory, not a verified credit
+book. Figures came from the XBRL rendering pages of each filing, where column
+alignment is sometimes ambiguous once the table is flattened. Every number
+here needs confirming against the narrative debt footnote before it is
+published or used to score anything.
+
+### Issuers in scope
+
+From the coverage universe, the borrowers whose debt is the pillar's subject.
+
+| issuer | CIK | files | debt detail available |
+| --- | --- | --- | --- |
+| CoreWeave (CRWV) | 0001769628 | 10-Q, 10-K, 8-K | Extensive. 17 instrument-level XBRL pages. |
+| Applied Digital (APLD) | 0001144879 | 10-Q, 10-K, 8-K | Good. Schedule of long-term debt plus narrative. |
+| TeraWulf (WULF) | 0001083301 | 10-Q, 10-K, 8-K | Good. Debt schedule, notes and facility narratives. |
+| Cipher Mining (CIFR) | 0001819989 | 10-Q, 10-K, 8-K | Good. Instrument-level schedule, SPV notes separated. |
+| IREN | 0001878848 | 10-K, 8-K | Annual only on this path. No 10-Q in the recent list. |
+| Nebius (NBIS) | 0001513845 | 6-K, 20-F | Thin. Foreign private issuer, no quarterly XBRL debt pages. |
+| Oracle (ORCL) | 0001341439 | 10-Q, 10-K, 8-K | Thin quarterly. The 10-Q index carries no debt page; use the 10-K and 8-Ks. |
+| Lambda Labs | none | none | Private. Press reports only. |
+| Crusoe Energy | none | none | Private. Press reports only. |
+
+### CoreWeave, as of 2026-06-30
+
+The anchor case. Gross long-term debt 35,551 million USD, split 31,405
+million recourse and 3,663 million non-recourse, both net of discount and
+issuance costs.
+
+| instrument | amount, USD mm | rate | notes |
+| --- | --- | --- | --- |
+| DDTL 1.0 | 1,300 | 15.00% effective | recourse, down from 1,553 at 2025-12-31 |
+| DDTL 2.0 | 3,190 | 11.00% | recourse, down from 5,037 |
+| DDTL 2.1 | 3,000 | 9.00% | recourse |
+| DDTL 3.0 | 2,215 | 9.00% | recourse, up from 340 |
+| DDTL 4.0 | 8,500 capacity, 2,837 drawn | SOFR + 2.25%, 7.00% effective on the drawn line | non-recourse. 0.50% commitment fee. Assets pledged 3,300 non-current plus 155 current. |
+| DDTL 5.0 | 3,100 capacity, 1,101 drawn | 4.50% stated, 9.00% effective on the drawn line | recourse. 0.50% commitment fee. |
+| Revolving credit facility | 0 drawn | 7.00% | recourse, was 1,000 drawn at 2025-12-31 |
+| Magnetar Loan | 189 | 12.00% | recourse, down from 273 |
+| OEM and software license financing | 4,220 recourse, 882 non-recourse | 11.00% and 9.00% | vendor financing |
+| 2030 Senior Notes | 2,000 | 10.00% effective | |
+| 2031 Senior Notes | 1,750 | 9.00% coupon, 10.00% effective | |
+| 2031 Senior Notes | 2,750 | 9.75% coupon, 10.00% effective | 2,800 face, 27 unamortized discount |
+| 2032 Senior Notes | 1,250 | 9.625% coupon, 10.00% effective | 1,300 face, 20 unamortized discount |
+| 2032 EUR Senior Notes | EUR 2,000 face, 2,279 carrying | 8.50% coupon, 9.00% effective | cross-currency swap designated as a fair value hedge |
+| 2032 Convertible Senior Notes | 4,000 | 1.75% | capped call transactions disclosed separately |
+| 2031 Convertible Senior Notes | 2,588 | 2.00% effective | |
+| Convertible promissory notes | 0 | 7.00% | fully repaid, was 168 |
+
+The DDTL ladder is the single most useful series in this pillar. Successive
+facility generations carry 15%, 11%, 9%, 9%, SOFR + 2.25% and 4.50%. If that
+sequence is what it appears to be, the cost of GPU-backed credit at one
+issuer has fallen by roughly two thirds across six facility generations. That
+is a direct read on whether lenders are getting more or less comfortable with
+GPUs as collateral, which is the question the pillar exists to answer.
+Confirm the sequence and the drawdown dates against the narrative footnote
+before treating it as a series.
+
+The recourse versus non-recourse split is the second thing to track. The
+disclosure separates them, which most issuers do not.
+
+### Applied Digital, period ending 2026-08-31
+
+Fiscal year ends in May, so the quarters do not line up with the others.
+
+| instrument | amount, USD 000s | rate |
+| --- | --- | --- |
+| 9.25% Senior Secured Notes due 2030 | 2,350,000 | 9.25% |
+| 6.75% Senior Secured Notes due 2031 | 2,150,000 | 6.75% |
+| 7.00% Senior Secured Notes due 2031 | 1,590,000 | 7.00%, new this period |
+| Convertible Notes, senior unsecured | 450,000 face, 276,600 carrying | 2.75% |
+| Bridge Facility | 0, was 300,000 | SOFR + 2.75% |
+| Revolving Credit Facility | 82,390 | SOFR + 2.25%, 0.25% unused fee |
+| Texas Capital promissory note | 58,500 | 2.75% |
+| Other and secured term loans | 118,415 | not stated |
+
+Total other long-term debt 6,721,605, less 345,013 deferred financing costs,
+less 112,645 current, giving 6,263,947 net.
+
+### TeraWulf, as of 2026-06-30
+
+7.750% Senior Secured Notes due 2030, 3,200.0 million face as of 2025-10-22,
+8.70% effective rate, 105.4 million issuance costs. Carrying amount 3,110,053
+thousand, current portion 90,718 thousand. Collateral and covenants are not on
+the XBRL page and need the narrative footnote.
+
+### Cipher Mining, as of 2026-06-30
+
+The most interesting structure of the four, because the secured notes sit at
+named project entities rather than at the parent.
+
+| instrument | principal, USD 000s | rate |
+| --- | --- | --- |
+| 2030 Convertible Notes | 172,500 | 1.75% |
+| 2031 Convertible Notes | 1,300,000 | 0.00% |
+| Cipher Compute 2030 Senior Secured Notes | 1,733,000 | 7.125% |
+| Black Pearl Compute 2031 Senior Secured Notes | 2,000,000 | 6.125% |
+| Stingray Compute 2031 Senior Secured Notes | 810,000 | 6.00% |
+
+Outstanding principal 6,015,500, net borrowings 5,446,866. Principal grew from
+3,205,500 at 2025-12-31, roughly doubling in six months, with Black Pearl and
+Stingray both new in the period.
+
+Two things to follow. A zero-coupon convertible carrying 398,544 of unamortized
+discount on 1,300,000 principal is a large equity-linked component dressed as
+debt. And project-level secured notes priced at 6.00% to 7.125%, inside
+CoreWeave's parent-level senior notes at 9.00% to 9.75%, suggest lenders will
+pay up for a ring-fenced contracted asset relative to corporate risk at a
+bigger name. Whether that holds is a testable claim.
+
+### Not yet read
+
+IREN, Nebius and Oracle. For Oracle the quarterly filing carries no debt page,
+so the 10-K and the 8-Ks around each issue are the path. For Nebius, the 20-F
+and the 6-K announcements. For IREN, the 2026-08-27 10-K.
+
+### Sources for tracking over time
+
+| source | gives | does not give | access |
+| --- | --- | --- | --- |
+| SEC EDGAR filings | Instrument terms, size, coupon, collateral, covenants, recourse split, drawdowns, maturity schedules. The primary source for everything structural. | Prices. Anything between filing dates. | Free. See the access problem below. |
+| SEC EDGAR full-text search | New facilities and amendments as they are filed. Searching phrases such as "delayed draw term loan" across 8-K and 10-Q is a working monitor for new GPU-backed debt across the whole market, not only the coverage universe. | Prices. | Free, at efts.sec.gov. Confirmed working. |
+| FRED | Daily index-level credit benchmarks: investment grade OAS, high yield OAS, the BB, B and CCC buckets, effective yields and the Treasury curve. The denominator for every issuer spread. | Anything issuer-specific. | Free, no API key. A fredgraph.csv request returns the full daily history as CSV. Confirmed working 2026-10-30. |
+| FINRA TRACE via the FINRA API | Transaction-level corporate bond prices, the only free route to an issuer-specific bond price. | Nothing without credentials. | The fixedIncomeMarket group returns 401 unauthenticated. The otcMarket group is open, but that is equity data and not useful here. A free FINRA API account is required. Credentials go in .env. |
+| Company fair-value-of-debt disclosures | A quarterly mark on each instrument, where the filer gives one. | Not universal. CoreWeave's fair value note covers marketable securities and a cross-currency swap but not the debt itself. | Free, but issuer by issuer. Check each filer before relying on it. |
+| Trade press on private financings | The only visibility into Lambda, Crusoe and private GPU-backed lending. | Verifiable terms. Reports are partial and sometimes wrong. | Free. Mark every such row reported in notes. |
+
+FRED series confirmed reachable without a key: BAMLC0A0CM investment grade
+OAS, BAMLC0A4CBBB BBB OAS, BAMLH0A0HYM2 high yield OAS, BAMLH0A1HYBB BB OAS,
+BAMLH0A2HYB B OAS, BAMLH0A3HYC CCC OAS, BAMLC0A0CMEY and BAMLH0A0HYM2EY
+effective yields, DGS10 the 10-year Treasury.
+
+### The EDGAR access problem, unresolved
+
+Direct programmatic requests to sec.gov and data.sec.gov returned 403 from
+this environment on 2026-10-30, with several User-Agent strings tried. The
+same URLs fetched successfully through a browser-style fetch, and everything
+in this source map was gathered that way.
+
+This has to be solved before a collector is written, because a collector that
+cannot reach EDGAR is not a collector. Three options to test, in order of
+preference: a declared User-Agent in SEC's requested format with a real
+contact address, which may simply fix it; running collection from a different
+network; or driving the fetch through the same path that worked here. Until
+one is confirmed, treat EDGAR collection as manual.
+
+FINRA registration is the second prerequisite. Both are blockers rather than
+inconveniences, and neither is solved.
+
+### Proposed first credit metrics
+
+Not collected. Proposed for approval, using the standard scorecard columns
+with entity as the issuer or instrument and entity_class as the borrower type.
+
+Benchmarks, from FRED, daily, automatable today:
+
+| metric | unit | why |
+| --- | --- | --- |
+| `ig_oas` | bps | The denominator. A spread move means nothing without it. |
+| `hy_oas` | bps | |
+| `hy_bb_oas`, `hy_b_oas`, `hy_ccc_oas` | bps | Neocloud paper sits in this range, and which bucket it sits in is the point. |
+| `ust_10y` | pct | |
+
+Issuer structure, from filings, quarterly, manual until EDGAR access is fixed:
+
+| metric | unit | why |
+| --- | --- | --- |
+| `total_debt` | usd_mm | |
+| `recourse_debt_share` | pct | How much risk sits outside the parent is the first thing a lender asks. |
+| `gpu_backed_facility_capacity` | usd_mm | Committed capacity against GPUs. |
+| `gpu_backed_facility_drawn` | usd_mm | Drawn against that capacity. The gap is the dry powder. |
+| `newest_facility_rate` | pct | The marginal cost of GPU-backed credit at this issuer. |
+| `facility_rate_by_vintage` | pct | Per facility, dated. The CoreWeave DDTL ladder is the model: it shows the direction of lender appetite over time. |
+| `commitment_fee` | pct | What lenders charge for the option. |
+| `collateral_pledged` | usd_mm | |
+| `weighted_average_coupon` | pct | |
+| `gpu_depreciation_life_years` | years | Not a debt term, but the assumption that decides whether the collateral outlives the loan. The owner's underwriting angle. |
+
+Secondary pricing, from TRACE once registered:
+
+| metric | unit | why |
+| --- | --- | --- |
+| `bond_price` | pct_of_par | Per CUSIP. |
+| `bond_yield_to_worst` | pct | |
+| `bond_spread_to_ust` | bps | |
+| `spread_over_hy_index` | bps | The issuer spread minus the matching FRED bucket. This is what the pillar is really about: whether the market charges AI infrastructure borrowers more or less than comparable credits, and which way that is moving. |
+
+Suggested build order, for approval: the FRED benchmark collector first,
+because it is free, keyless, daily, has decades of history and no blockers;
+then the EDGAR access problem; then the filings extractor; then TRACE. Nothing
+is built yet and nothing should be until the owner approves this shape.
+
 ## Sources
 
 | source | pillars | access | reliability notes |

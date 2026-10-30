@@ -79,11 +79,60 @@ the routing experiment, which is specified but not built.
 The capability score exists for only 54 of the 430 priced models, and it can
 lag recent releases. One score in this snapshot looks stale.
 
+## The credit pillar
+
+Mapped on 2026-10-30. No data collected, no collector built, waiting on
+approval before anything gets written.
+
+**What the filings show.** Four borrowers were read in detail. CoreWeave
+carries about $35.6bn of debt, split between $31.4bn that the parent is on
+the hook for and $3.7bn that it is not. The most interesting thing in the
+whole pillar is sitting in that filing: CoreWeave has raised six successive
+GPU-backed loan facilities, and the interest rate on them has gone 15%, 11%,
+9%, 9%, SOFR plus 2.25%, and 4.5%. If that sequence means what it looks like,
+the cost of borrowing against GPUs has fallen by roughly two thirds in the
+space of six deals. That is close to a direct measurement of whether lenders
+are getting more comfortable with GPUs as collateral, which is the question
+this pillar exists to answer.
+
+Applied Digital has about $6.7bn, mostly senior secured notes at 6.75% to
+9.25%. TeraWulf has $3.2bn of 7.75% secured notes. Cipher has about $6.0bn
+and does something different from the others: its secured notes are issued by
+named project companies rather than by the parent, and they price at 6.00% to
+7.125%, inside CoreWeave's parent-level notes at 9.00% to 9.75%. Lenders
+appear to pay up for a ring-fenced data center with a contract attached,
+relative to corporate risk at a larger borrower. That is a testable claim and
+a good candidate for the ledger.
+
+Oracle, Nebius and IREN have not been read yet. Oracle's quarterly filing has
+no debt section, so that one needs the annual report.
+
+**What can be tracked for free, and what cannot.** Spread benchmarks from
+FRED work today: daily history, no API key, decades of data for investment
+grade, high yield, and the BB, B and CCC buckets. Those are the yardstick
+every issuer spread gets measured against.
+
+Individual bond prices are harder. FINRA has the trade data but the fixed
+income part of its API refused the request without credentials, so that needs
+a free account before it can be used.
+
+**Two things are blocking collection.** Automated requests to the SEC website
+were refused from this machine, with several attempts, while the same pages
+loaded fine through a browser. Until that is sorted, reading filings is a
+manual job. And FINRA needs registering for. Neither is hard, but neither is
+done, and a collector that cannot reach its source is not worth writing yet.
+
+**Proposed metrics** are listed in methodology, in three groups: market
+benchmarks from FRED, issuer structure from filings (total debt, how much is
+recourse, GPU facility size and drawdown, the rate on the newest facility,
+and the GPU depreciation assumption), and bond pricing from FINRA once
+available. The suggested order is FRED first, because it has no blockers at
+all, then fix SEC access, then the filings, then bond prices.
+
 ## What is not built yet
 
-- Four of five pillars are empty: `compute_pricing`, `buyer_concentration`,
-  `credit` and most of `open_source_share`. `credit` is the owner's
-  differentiated angle and has nothing in it.
+- Three of five pillars are empty: `compute_pricing`, `buyer_concentration`
+  and `credit`. `credit` now has a source map but no data.
 - The routing experiment in `experiments/routing` has a design brief and no
   code.
 - Collection is manual. Nothing is scheduled.
@@ -100,6 +149,9 @@ traffic.
 
 ## Next
 
-Build the routing experiment, because it is the only thing that tests B003,
-and start on `credit`, because it is the angle nobody else is covering and
-it is currently empty.
+Waiting on approval of the credit source map before building any collector.
+Once approved, the FRED benchmark collector is the obvious first build: free,
+no key, daily, decades of history, nothing blocking it.
+
+After that, the routing experiment, because it is the only thing that can
+actually test Baker's routing claim and the token price work cannot.
