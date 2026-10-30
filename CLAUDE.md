@@ -52,23 +52,34 @@ Anything that renders a byline or footer reads that file through
 `scripts/project_config.py`. Never hardcode the handle in a script, a chart,
 or a note.
 
-Off limits on public outputs: the owner's legal name, the university he
-attends, and any current or former employer. They are deliberately not listed
-here, because this file is itself a public output. The separate rule that no
-employer material enters the repo at all stands on top of this and is
-stricter.
+### What the rule covers
 
-Semi-anonymous means pseudonymous, not untraceable. The aim is that a casual
-reader or a search for the owner's real name does not land here. It is not a
-defence against anyone determined, and nothing in this repo should be written
-on the assumption that the pseudonym holds.
+The rule applies to the content of public outputs: charts, the dashboard,
+notes, posts, and the prose in this repo. None of them carry the owner's
+legal name, his university, or the owner's current and future employers.
+Those are deliberately not listed anywhere in the repo, including in this
+rule, because these files are public outputs themselves.
+
+### What the rule does not cover
+
+Git metadata. The repo lives on the owner's personal GitHub account and
+commits carry his real name and email. That is a deliberate, accepted
+choice: the account and the commit history are traceable to him and are
+meant to be. Do not flag it, and do not propose rewriting history or
+switching to a pseudonymous committer.
+
+So the pseudonym is a presentation layer, not concealment. It keeps the
+owner's legal name off the face of the work, which is what the byline and
+the search result show. Anyone who opens the repo can see who wrote it, and
+that is fine. Nothing here should be written on the assumption that the
+pseudonym hides anything from someone who looks.
 
 ## Integrity rules (never break these)
 
 - Never delete or overwrite historical data or claims. Corrections are new rows or new commits with an explanation.
 - Never backfill data as if it were collected earlier. Record the actual collection date.
 - Claim status values: pending, correct, partly correct, wrong, unverifiable. Score predictions at their horizon, not before.
-- Public information only. Nothing related to the owner's employers (Raptor Group, Audax) goes in this repo.
+- Public information only. Nothing related to the owner's current and future employers goes in this repo.
 - Never commit API keys or secrets. Keep them in `.env`, which is gitignored.
 
 ## Agent infrastructure (planned, build in this order)

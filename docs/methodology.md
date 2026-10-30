@@ -326,8 +326,8 @@ trust.
 - Never delete or overwrite a historical row. Corrections are new rows.
 - Never backfill as if data had been collected earlier. The collection date is
   the real one.
-- Public information only. Nothing touching Raptor Group or Audax enters this
-  repo.
+- Public information only. Nothing touching the owner's current and future
+  employers enters this repo.
 - No API keys or secrets in version control. They live in `.env`.
 
 ## What this record cannot tell you

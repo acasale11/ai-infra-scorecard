@@ -249,6 +249,37 @@ The repo is private today, so nothing has leaked yet. This stays an open
 question until the owner picks one, and it must be settled before the repo is
 made public or the first chart is posted.
 
+### Git metadata is out of scope for the pseudonym (resolves the two entries above)
+
+The owner's call, and it supersedes the two open items logged earlier today.
+
+The repo stays on his personal GitHub account with commit authorship
+unchanged. The account and every commit are traceable to him, and that is
+accepted rather than tolerated. No history rewrite, no pseudonymous
+committer, no noreply address.
+
+The semi-anonymous rule applies to the content of public outputs: charts,
+the dashboard, notes, posts, and the prose in this repo. It does not apply to
+git metadata. The pseudonym is a presentation layer that keeps the owner's
+legal name off the byline and out of a search result. It was never
+concealment, and treating it as concealment is what produced the earlier
+flag.
+
+The employer names are removed from CLAUDE.md and methodology.md and replaced
+with "the owner's current and future employers", which states the rule
+without being the disclosure. The phrasing is future-proof, so a job change
+does not need an edit. A scan of the whole working tree returns no mention of
+the employers, the legal name, or the university.
+
+CLAUDE.md now says explicitly that git metadata is out of scope and that this
+should not be raised again, so the next agent to read it does not relitigate
+a settled decision.
+
+Cost: anyone who opens the repo sees who wrote it. That is the intended
+trade. The thing it buys is that the work does not surface under the owner's
+legal name, and that employer material never enters the repo at all, which is
+the rule that was always doing the real protective work.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -262,11 +293,6 @@ edit here.
   second source is needed before the first note.
 - Which of the 80 unclassified organisations can be moved onto the
   closed-weight list with a checkable source rather than from memory.
-- How git commit authorship gets reconciled with the pseudonym, before the
-  repo goes public. See the entry above.
-- Whether the two employer names inherited from the original CLAUDE.md should
-  stay in CLAUDE.md and methodology.md, given both files go public with the
-  repo.
 - Whether `elasticity.csv` should keep taking 860 rows a month, or whether
   per-model prices belong in their own file with only aggregates on the
   pillar series.
