@@ -1,0 +1,68 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1776878150,
+    "description": "Hy3 preview is a high-efficiency Mixture-of-Experts model from Tencent designed for agentic workflows and production use. It supports configurable reasoning levels across disabled, low, and high modes, allowing it to...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "tencent/hy3-preview",
+        "model_name": "Tencent: Hy3 preview",
+        "name": "GMICloud | tencent/hy3-preview-20260421",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000006",
+          "discount": 0,
+          "input_cache_read": "0.00000006",
+          "prompt": "0.00000018"
+        },
+        "provider_name": "GMICloud",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "tool_choice",
+          "tools",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "gmicloud/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.51388888888889,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "tencent/hy3-preview",
+    "name": "Tencent: Hy3 preview"
+  }
+}

@@ -1,0 +1,166 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1745975193,
+    "description": "Llama Guard 4 is a Llama 4 Scout-derived multimodal pretrained model, fine-tuned for content safety classification. Similar to previous versions, it can be used to classify content in both LLM...",
+    "endpoints": [
+      {
+        "context_length": 163840,
+        "latency_last_30m": null,
+        "max_completion_tokens": 147456,
+        "max_prompt_tokens": null,
+        "model_id": "meta-llama/llama-guard-4-12b",
+        "model_name": "Meta: Llama Guard 4 12B",
+        "name": "DeepInfra | meta-llama/llama-guard-4-12b",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000000144",
+          "discount": 0,
+          "prompt": "0.000000144"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": "flex",
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16/flex",
+        "throughput_last_30m": null,
+        "uptime_last_1d": null,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      },
+      {
+        "context_length": 163840,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16384,
+        "max_prompt_tokens": null,
+        "model_id": "meta-llama/llama-guard-4-12b",
+        "model_name": "Meta: Llama Guard 4 12B",
+        "name": "DeepInfra | meta-llama/llama-guard-4-12b",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000018",
+          "discount": 0,
+          "prompt": "0.00000018"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 98.73417721518987,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 163840,
+        "latency_last_30m": null,
+        "max_completion_tokens": 147456,
+        "max_prompt_tokens": null,
+        "model_id": "meta-llama/llama-guard-4-12b",
+        "model_name": "Meta: Llama Guard 4 12B",
+        "name": "DeepInfra | meta-llama/llama-guard-4-12b",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000027",
+          "discount": 0,
+          "prompt": "0.00000027"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": "priority",
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16/priority",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 97.90794979079497,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "meta-llama/llama-guard-4-12b",
+    "name": "Meta: Llama Guard 4 12B"
+  }
+}

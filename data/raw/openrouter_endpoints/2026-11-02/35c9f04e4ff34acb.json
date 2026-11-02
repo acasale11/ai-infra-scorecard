@@ -1,0 +1,312 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1773836697,
+    "description": "MiniMax-M2.7 is a next-generation large language model designed for autonomous, real-world productivity and continuous improvement. Built to actively participate in its own evolution, M2.7 integrates advanced agentic capabilities through multi-agent...",
+    "endpoints": [
+      {
+        "context_length": 196608,
+        "latency_last_30m": null,
+        "max_completion_tokens": 176947,
+        "max_prompt_tokens": null,
+        "model_id": "minimax/minimax-m2.7",
+        "model_name": "MiniMax: MiniMax M2.7",
+        "name": "GMICloud | minimax/minimax-m2.7-20260318",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000084",
+          "discount": 0.3,
+          "input_cache_read": "0.000000042",
+          "prompt": "0.00000021"
+        },
+        "provider_name": "GMICloud",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "response_format",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "gmicloud/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 97.36147757255937,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": null
+      },
+      {
+        "context_length": 204800,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": null,
+        "model_id": "minimax/minimax-m2.7",
+        "model_name": "MiniMax: MiniMax M2.7",
+        "name": "Novita | minimax/minimax-m2.7-20260318",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000108",
+          "discount": 0.1,
+          "input_cache_read": "0.000000054",
+          "prompt": "0.00000027"
+        },
+        "provider_name": "Novita",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "seed",
+          "top_k",
+          "repetition_penalty",
+          "tools",
+          "tool_choice",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "novita/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 196608,
+        "latency_last_30m": null,
+        "max_completion_tokens": 176947,
+        "max_prompt_tokens": null,
+        "model_id": "minimax/minimax-m2.7",
+        "model_name": "MiniMax: MiniMax M2.7",
+        "name": "AtlasCloud | minimax/minimax-m2.7-20260318",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000012",
+          "discount": 0,
+          "input_cache_read": "0.00000006",
+          "prompt": "0.0000003"
+        },
+        "provider_name": "AtlasCloud",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "top_k",
+          "stop",
+          "min_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "logit_bias",
+          "response_format",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "atlas-cloud/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.87163029525033,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 204800,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": null,
+        "model_id": "minimax/minimax-m2.7",
+        "model_name": "MiniMax: MiniMax M2.7",
+        "name": "Minimax | minimax/minimax-m2.7-20260318",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000012",
+          "discount": 0,
+          "input_cache_read": "0.00000006",
+          "prompt": "0.0000003"
+        },
+        "provider_name": "Minimax",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "response_format",
+          "tool_choice",
+          "tools"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "minimax",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 196608,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": null,
+        "model_id": "minimax/minimax-m2.7",
+        "model_name": "MiniMax: MiniMax M2.7",
+        "name": "Groq | minimax/minimax-m2.7-20260318",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000018",
+          "discount": 0,
+          "prompt": "0.0000006"
+        },
+        "provider_name": "Groq",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "seed",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "groq",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 98.81796690307328,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 204800,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": null,
+        "model_id": "minimax/minimax-m2.7",
+        "model_name": "MiniMax: MiniMax M2.7",
+        "name": "Minimax | minimax/minimax-m2.7-20260318",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000024",
+          "discount": 0,
+          "input_cache_read": "0.00000006",
+          "prompt": "0.0000006"
+        },
+        "provider_name": "Minimax",
+        "quantization": "unknown",
+        "service_tier": "priority",
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "response_format",
+          "tool_choice",
+          "tools"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "minimax/highspeed",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 78.57142857142857,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "minimax/minimax-m2.7",
+    "name": "MiniMax: MiniMax M2.7"
+  }
+}

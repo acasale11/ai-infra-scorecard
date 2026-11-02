@@ -1,0 +1,76 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image",
+        "audio"
+      ],
+      "instruct_type": null,
+      "modality": "text+image+audio->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1784325956,
+    "description": "Inkling is an open-weight multimodal mixture-of-experts model from Thinking Machines Lab, with 41B active parameters out of 975B total. It is designed for general-purpose reasoning, coding, agentic and tool-use systems,...",
+    "endpoints": [
+      {
+        "context_length": 524288,
+        "latency_last_30m": null,
+        "max_completion_tokens": 471859,
+        "max_prompt_tokens": null,
+        "model_id": "thinkingmachines/inkling",
+        "model_name": "Thinking Machines: Inkling",
+        "name": "Together | thinkingmachines/inkling-20260715",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000405",
+          "discount": 0,
+          "input_cache_read": "0.00000017",
+          "prompt": "0.000001"
+        },
+        "provider_name": "Together",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "top_k",
+          "repetition_penalty",
+          "logit_bias",
+          "min_p",
+          "tools",
+          "tool_choice",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "together",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 98.59747545582047,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "thinkingmachines/inkling",
+    "name": "Thinking Machines: Inkling"
+  }
+}

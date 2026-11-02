@@ -1,0 +1,76 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "image",
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen3"
+    },
+    "created": 1760463308,
+    "description": "Qwen3-VL-8B-Instruct is a multimodal vision-language model from the Qwen3-VL series, built for high-fidelity understanding and reasoning across text, images, and video. It features improved multimodal fusion with Interleaved-MRoPE for long-horizon...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-vl-8b-instruct",
+        "model_name": "Qwen: Qwen3 VL 8B Instruct",
+        "name": "Parasail | qwen/qwen3-vl-8b-instruct",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000075",
+          "discount": 0,
+          "input_cache_read": "0.00000012",
+          "prompt": "0.00000025"
+        },
+        "provider_name": "Parasail",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "top_k",
+          "logit_bias",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": false,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "parasail/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": null,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "qwen/qwen3-vl-8b-instruct",
+    "name": "Qwen: Qwen3 VL 8B Instruct"
+  }
+}

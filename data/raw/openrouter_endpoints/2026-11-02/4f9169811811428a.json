@@ -1,0 +1,434 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image",
+        "video",
+        "file",
+        "audio"
+      ],
+      "instruct_type": null,
+      "modality": "text+image+file+audio+video->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Gemini"
+    },
+    "created": 1788362056,
+    "description": "Gemini 3.8 Flash is Google's most intelligent Flash model with significant gains from 3.7 Flash across software engineering, agentic tasks, and multi-step reasoning.",
+    "endpoints": [
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemini-3.8-flash",
+        "model_name": "Google: Gemini 3.8 Flash",
+        "name": "Google AI Studio | google/gemini-3.8-flash-20260902",
+        "native_tools": {
+          "openrouter:web_search": {
+            "type": "google_search"
+          }
+        },
+        "pricing": {
+          "audio": "0.000000375",
+          "completion": "0.000001875",
+          "discount": 0.5,
+          "image": "0.000000375",
+          "input_audio_cache": "0.0000000375",
+          "input_cache_read": "0.0000000375",
+          "input_cache_write": "0.0000000208333333333333",
+          "internal_reasoning": "0.000001875",
+          "prompt": "0.000000375",
+          "web_search": "0.014"
+        },
+        "provider_name": "Google AI Studio",
+        "quantization": "unknown",
+        "service_tier": "flex",
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "response_format",
+          "structured_outputs",
+          "tool_choice",
+          "tools",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "google-ai-studio/flex",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemini-3.8-flash",
+        "model_name": "Google: Gemini 3.8 Flash",
+        "name": "Google | google/gemini-3.8-flash-20260902",
+        "native_tools": {
+          "openrouter:web_search": {
+            "type": "google_search"
+          }
+        },
+        "pricing": {
+          "audio": "0.000000375",
+          "completion": "0.000001875",
+          "discount": 0.5,
+          "image": "0.000000375",
+          "input_audio_cache": "0.0000000375",
+          "input_cache_read": "0.0000000375",
+          "input_cache_write": "0.0000000208333333333333",
+          "internal_reasoning": "0.000001875",
+          "prompt": "0.000000375",
+          "web_search": "0.014"
+        },
+        "provider_name": "Google",
+        "quantization": "unknown",
+        "service_tier": "flex",
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "seed",
+          "response_format",
+          "stop",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "google-vertex/global/flex",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 76.70175438596492,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemini-3.8-flash",
+        "model_name": "Google: Gemini 3.8 Flash",
+        "name": "Google AI Studio | google/gemini-3.8-flash-20260902",
+        "native_tools": {
+          "openrouter:web_search": {
+            "type": "google_search"
+          }
+        },
+        "pricing": {
+          "audio": "0.00000075",
+          "completion": "0.00000375",
+          "discount": 0.5,
+          "image": "0.00000075",
+          "input_audio_cache": "0.000000075",
+          "input_cache_read": "0.000000075",
+          "input_cache_write": "0.0000000416666666666667",
+          "internal_reasoning": "0.00000375",
+          "prompt": "0.00000075",
+          "web_search": "0.014"
+        },
+        "provider_name": "Google AI Studio",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "response_format",
+          "structured_outputs",
+          "tool_choice",
+          "tools",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "google-ai-studio",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemini-3.8-flash",
+        "model_name": "Google: Gemini 3.8 Flash",
+        "name": "Google | google/gemini-3.8-flash-20260902",
+        "native_tools": {
+          "openrouter:web_search": {
+            "type": "google_search"
+          }
+        },
+        "pricing": {
+          "audio": "0.00000075",
+          "completion": "0.00000375",
+          "discount": 0.5,
+          "image": "0.00000075",
+          "input_audio_cache": "0.000000075",
+          "input_cache_read": "0.000000075",
+          "input_cache_write": "0.0000000416666666666667",
+          "internal_reasoning": "0.00000375",
+          "prompt": "0.00000075",
+          "web_search": "0.014"
+        },
+        "provider_name": "Google",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "seed",
+          "response_format",
+          "stop",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "google-vertex/global",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemini-3.8-flash",
+        "model_name": "Google: Gemini 3.8 Flash",
+        "name": "Google | google/gemini-3.8-flash-20260902",
+        "native_tools": {
+          "openrouter:web_search": {
+            "type": "google_search"
+          }
+        },
+        "pricing": {
+          "audio": "0.000000825",
+          "completion": "0.000004125",
+          "discount": 0.5,
+          "image": "0.000000825",
+          "input_audio_cache": "0.0000000825",
+          "input_cache_read": "0.0000000825",
+          "input_cache_write": "0.0000000416666666666667",
+          "internal_reasoning": "0.000004125",
+          "prompt": "0.000000825",
+          "web_search": "0.014"
+        },
+        "provider_name": "Google",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "seed",
+          "response_format",
+          "stop",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "google-vertex/us",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.64387464387464,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemini-3.8-flash",
+        "model_name": "Google: Gemini 3.8 Flash",
+        "name": "Google AI Studio | google/gemini-3.8-flash-20260902",
+        "native_tools": {
+          "openrouter:web_search": {
+            "type": "google_search"
+          }
+        },
+        "pricing": {
+          "audio": "0.00000135",
+          "completion": "0.00000675",
+          "discount": 0.5,
+          "image": "0.00000135",
+          "input_audio_cache": "0.000000135",
+          "input_cache_read": "0.000000135",
+          "input_cache_write": "0.000000075",
+          "internal_reasoning": "0.00000675",
+          "prompt": "0.00000135",
+          "web_search": "0.014"
+        },
+        "provider_name": "Google AI Studio",
+        "quantization": "unknown",
+        "service_tier": "priority",
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "response_format",
+          "structured_outputs",
+          "tool_choice",
+          "tools",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "google-ai-studio/priority",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1048576,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemini-3.8-flash",
+        "model_name": "Google: Gemini 3.8 Flash",
+        "name": "Google | google/gemini-3.8-flash-20260902",
+        "native_tools": {
+          "openrouter:web_search": {
+            "type": "google_search"
+          }
+        },
+        "pricing": {
+          "audio": "0.00000135",
+          "completion": "0.00000675",
+          "discount": 0.5,
+          "image": "0.00000135",
+          "input_audio_cache": "0.000000135",
+          "input_cache_read": "0.000000135",
+          "input_cache_write": "0.000000075",
+          "internal_reasoning": "0.00000675",
+          "prompt": "0.00000135",
+          "web_search": "0.014"
+        },
+        "provider_name": "Google",
+        "quantization": "unknown",
+        "service_tier": "priority",
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "seed",
+          "response_format",
+          "stop",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "google-vertex/global/priority",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "google/gemini-3.8-flash",
+    "name": "Google: Gemini 3.8 Flash"
+  }
+}

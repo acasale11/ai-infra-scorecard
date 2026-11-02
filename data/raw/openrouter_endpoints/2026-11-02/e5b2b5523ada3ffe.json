@@ -1,0 +1,172 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "instruct_type": null,
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen3"
+    },
+    "created": 1759794476,
+    "description": "Qwen3-VL-30B-A3B-Instruct is a multimodal model that unifies strong text generation with visual understanding for images and videos. Its Instruct variant optimizes instruction-following for general multimodal tasks. It excels in perception...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16384,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-vl-30b-a3b-instruct",
+        "model_name": "Qwen: Qwen3 VL 30B A3B Instruct",
+        "name": "DeepInfra | qwen/qwen3-vl-30b-a3b-instruct",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000006",
+          "discount": 0,
+          "prompt": "0.00000015"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": false,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.65108164689462,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 32768,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-vl-30b-a3b-instruct",
+        "model_name": "Qwen: Qwen3 VL 30B A3B Instruct",
+        "name": "Novita | qwen/qwen3-vl-30b-a3b-instruct",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000007",
+          "discount": 0,
+          "prompt": "0.0000002"
+        },
+        "provider_name": "Novita",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "structured_outputs",
+          "response_format",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "seed",
+          "top_k",
+          "repetition_penalty",
+          "tools",
+          "tool_choice",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "novita/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 86.8421052631579,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      },
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-vl-30b-a3b-instruct",
+        "model_name": "Qwen: Qwen3 VL 30B A3B Instruct",
+        "name": "SiliconFlow | qwen/qwen3-vl-30b-a3b-instruct",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000001",
+          "discount": 0,
+          "prompt": "0.00000029"
+        },
+        "provider_name": "SiliconFlow",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "structured_outputs",
+          "response_format",
+          "temperature",
+          "top_p",
+          "top_k",
+          "frequency_penalty",
+          "tools",
+          "tool_choice",
+          "max_tokens"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "siliconflow/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 81.77339901477832,
+        "uptime_last_30m": 0,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "qwen/qwen3-vl-30b-a3b-instruct",
+    "name": "Qwen: Qwen3 VL 30B A3B Instruct"
+  }
+}

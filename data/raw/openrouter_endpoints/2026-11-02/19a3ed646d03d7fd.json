@@ -1,0 +1,121 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1736489872,
+    "description": "[Microsoft Research](/microsoft) Phi-4 is designed to perform well in complex reasoning tasks and can operate efficiently in situations with limited memory or where quick responses are needed. At 14 billion...",
+    "endpoints": [
+      {
+        "context_length": 16384,
+        "latency_last_30m": null,
+        "max_completion_tokens": 14745,
+        "max_prompt_tokens": null,
+        "model_id": "microsoft/phi-4",
+        "model_name": "Microsoft: Phi 4",
+        "name": "DeepInfra | microsoft/phi-4",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000000112",
+          "discount": 0,
+          "prompt": "0.000000056"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": "flex",
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16/flex",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      },
+      {
+        "context_length": 16384,
+        "latency_last_30m": null,
+        "max_completion_tokens": 14745,
+        "max_prompt_tokens": 4096,
+        "model_id": "microsoft/phi-4",
+        "model_name": "Microsoft: Phi 4",
+        "name": "DeepInfra | microsoft/phi-4",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000014",
+          "discount": 0,
+          "prompt": "0.00000007"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "structured_outputs",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.84744469870328,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "microsoft/phi-4",
+    "name": "Microsoft: Phi 4"
+  }
+}

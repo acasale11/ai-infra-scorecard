@@ -1,0 +1,78 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "instruct_type": null,
+      "modality": "text+image+video->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1789056114,
+    "description": "Ling 3.0 Flash VL builds on Ling 3.0 Flash (124B total / 5.5B active MoE from InclusionAI), further strengthening its language capabilities while adding native visual perception and advanced visual...",
+    "endpoints": [
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 32768,
+        "max_prompt_tokens": null,
+        "model_id": "inclusionai/ling-3.0-flash-vl",
+        "model_name": "inclusionAI: Ling 3.0 Flash VL",
+        "name": "DeepInfra | inclusionai/ling-3.0-flash-vl-20260910",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000018",
+          "discount": 0,
+          "input_cache_read": "0.000000012",
+          "prompt": "0.00000006"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "fp16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "tools",
+          "tool_choice",
+          "structured_outputs",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/fp16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "inclusionai/ling-3.0-flash-vl",
+    "name": "inclusionAI: Ling 3.0 Flash VL"
+  }
+}

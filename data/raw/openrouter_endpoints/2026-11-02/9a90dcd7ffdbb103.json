@@ -1,0 +1,121 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "audio",
+        "image",
+        "video"
+      ],
+      "instruct_type": null,
+      "modality": "text+image+audio+video->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1776874269,
+    "description": "MiMo-V2.5 is a native omnimodal model by Xiaomi. It delivers Pro-level agentic performance at roughly half the inference cost, while surpassing MiMo-V2-Omni in multimodal perception across image and video understanding...",
+    "endpoints": [
+      {
+        "context_length": 1050000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 945000,
+        "max_prompt_tokens": null,
+        "model_id": "xiaomi/mimo-v2.5",
+        "model_name": "Xiaomi: MiMo-V2.5",
+        "name": "GMICloud | xiaomi/mimo-v2.5-20260422",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000000238",
+          "discount": 0.15,
+          "input_cache_read": "0.00000000255",
+          "prompt": "0.000000119"
+        },
+        "provider_name": "GMICloud",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": -5,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": false,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "gmicloud/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 0,
+        "uptime_last_30m": 0,
+        "uptime_last_5m": 0
+      },
+      {
+        "context_length": 1000000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "xiaomi/mimo-v2.5",
+        "model_name": "Xiaomi: MiMo-V2.5",
+        "name": "Venice | xiaomi/mimo-v2.5-20260422",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000002",
+          "discount": 0,
+          "input_cache_read": "0.00000008",
+          "prompt": "0.0000004"
+        },
+        "provider_name": "Venice",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "top_k",
+          "response_format",
+          "structured_outputs",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "venice/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.93055555555556,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "xiaomi/mimo-v2.5",
+    "name": "Xiaomi: MiMo-V2.5"
+  }
+}

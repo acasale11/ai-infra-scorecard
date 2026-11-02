@@ -1,0 +1,65 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1761252093,
+    "description": "MiniMax-M2 is a compact, high-efficiency large language model optimized for end-to-end coding and agentic workflows. With 10 billion activated parameters (230 billion total), it delivers near-frontier intelligence across general reasoning,...",
+    "endpoints": [
+      {
+        "context_length": 204800,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": null,
+        "model_id": "minimax/minimax-m2",
+        "model_name": "MiniMax: MiniMax M2",
+        "name": "Minimax | minimax/minimax-m2",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000102",
+          "discount": 0.15,
+          "prompt": "0.000000255"
+        },
+        "provider_name": "Minimax",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "tool_choice",
+          "tools"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "minimax/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 98.38709677419355,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "minimax/minimax-m2",
+    "name": "MiniMax: MiniMax M2"
+  }
+}
