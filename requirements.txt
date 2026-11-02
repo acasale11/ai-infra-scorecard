@@ -1,3 +1,15 @@
-streamlit==1.41.1
-pandas==2.2.3
-anthropic==2.4.0
+# Dashboard only. The collectors need nothing outside the standard library.
+#
+# Floors, not exact pins. Streamlit Community Cloud chooses the Python
+# version, and an exact pin on an older release can land on a Python with no
+# matching wheel, at which point pip tries to build pandas from source: a
+# half hour of compiling on a small container, usually ending in failure.
+# That is what happened on 2026-11-02 with pandas==2.2.3. Floors let the
+# resolver pick a release that has a wheel for whatever Python is running.
+#
+# Verified together on 2026-11-02 at streamlit 1.66.1, pandas 3.1.0,
+# anthropic 2.4.0: all four dashboard pages render and the question box
+# degrades correctly without a key.
+streamlit>=1.66
+pandas>=2.2
+anthropic>=2.4
