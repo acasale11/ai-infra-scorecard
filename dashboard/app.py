@@ -23,6 +23,7 @@ sys.path.insert(0, os.path.join(ROOT, "scripts"))
 os.chdir(ROOT)
 
 import brief_data as bd  # noqa: E402
+import ask  # noqa: E402
 
 st.set_page_config(page_title="AI infra scorecard", page_icon="chart",
                    layout="wide")
@@ -84,13 +85,25 @@ for col, s in zip(cols, signals):
             unsafe_allow_html=True)
         if s["changed"]:
             st.caption("changed from %s" % s["previous"])
+        # The owner's own read, kept visually separate from the computed
+        # signal above it so the two are never read as one thing.
+        if s["view"]:
+            st.markdown("%s **%s**" % (bd.VIEW_MARK[s["view"]], s["view"]))
+            if s["view_reason"]:
+                st.caption(s["view_reason"])
+            st.caption("your view, %s" % s["view_date"])
+        else:
+            st.caption("your view: not set")
 
+view_dates = {s["view_date"] for s in signals if s["view_date"]}
 st.caption(
-    "Signals describe the evidence, not the thesis. Green means the pillar "
-    "is collecting and current. Red means this project is not measuring it "
-    "yet, which is a fact about the project rather than about AI "
-    "infrastructure. A thesis-facing signal would have to be driven by "
-    "scored claims, and no claim can be scored before its horizon.")
+    "Two signals per pillar, answering different questions. The coloured "
+    "bar is data health: whether evidence is arriving, computed every run. "
+    "Underneath it is your thesis view, which only you set, monthly, in "
+    "`data/thesis_view.csv`. They can disagree, and a disagreement is "
+    "informative rather than a fault. %s"
+    % ("Views last updated %s." % max(view_dates) if view_dates
+       else "No views set yet; nothing sets them automatically."))
 
 # -------------------------------------------------------- 2. What moved
 
@@ -187,6 +200,10 @@ with b:
                    "dates go in `config/earnings_overrides.json`.")
     else:
         st.write("Nothing in the next 14 days.")
+
+st.divider()
+
+ask.render()
 
 st.divider()
 st.caption("Use the pages in the sidebar for the underlying series. "

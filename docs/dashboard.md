@@ -44,8 +44,17 @@ Google accounts you invite.
    - Branch: `main`
    - Main file path: `dashboard/app.py`
 
-5. Open **Advanced settings** and set Python version to 3.12. Leave the
-   secrets box empty; the dashboard reads no keys.
+5. Open **Advanced settings** and set Python version to 3.12. In the
+   **Secrets** box, add the key for the question box:
+
+   ```toml
+   ANTHROPIC_API_KEY = "sk-ant-..."
+   ```
+
+   This is optional. Without it every other part of the dashboard works and
+   the question box says it is not configured. The key is never stored in
+   the repository, and `.streamlit/secrets.toml` is gitignored so a local
+   copy cannot be committed by accident.
 
 6. Click **Deploy**. The first build installs `requirements.txt` and takes
    a few minutes.
@@ -93,4 +102,44 @@ infrastructure. The rules are in `config/pillar_signals.json`.
 **`requirements.txt` at the repo root exists for Streamlit Cloud**, which
 looks there by default. The collectors themselves need nothing outside the
 standard library, and that is deliberate. Only the dashboard needs
-`streamlit` and `pandas`.
+`streamlit`, `pandas` and `anthropic`.
+
+## The question box
+
+`dashboard/ask.py` sends a compact snapshot of the committed data to Claude
+and answers questions about it. Roughly 6,300 tokens of context, cached
+between questions in a session, so a first question costs a few cents and
+later ones a fraction of one.
+
+What it will not do, by instruction and by design: fill a gap from general
+knowledge instead of saying the answer is not in the files; write notes,
+theses, pitches or recommendations; or mix price bases and rate bases in a
+comparison. The writing and the judgements in this project are the owner's,
+and the box is told so.
+
+Treat it as a reading aid. Check anything you intend to use against the
+underlying files.
+
+## If the repository does not appear in Streamlit
+
+The usual cause is the GitHub authorisation, not the repository. This repo
+is private, and Streamlit's GitHub app only lists private repositories when
+it has been granted access to them. A "repository not found" or an empty
+repository list almost always means one of these:
+
+1. **Streamlit was authorised without private repository access.** Go to
+   https://github.com/settings/applications, open **Streamlit**, and check
+   the Repository access section. Either grant access to all repositories or
+   add `ai-infra-scorecard` to the selected list, then reload Streamlit.
+
+2. **Signed in to Streamlit with a different identity.** Signing in with
+   Google creates a separate account that has no GitHub connection and will
+   never list the repo. Sign out and sign back in **with GitHub**, as the
+   account that owns the repository.
+
+3. **The repository is owned by an organisation** rather than the personal
+   account. That is not the case here: it is `acasale11/ai-infra-scorecard`,
+   a personal repository, confirmed from the git remote.
+
+The repository name itself is not the problem. The remote resolves and
+accepts pushes, so the path is correct as written above.

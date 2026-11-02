@@ -33,6 +33,11 @@ MID_TIER_FLOOR = 25.0
 GREEN, AMBER, RED = "green", "amber", "red"
 DOT = {GREEN: "\U0001F7E2", AMBER: "\U0001F7E1", RED: "\U0001F534"}
 
+THESIS_VIEW = "data/thesis_view.csv"
+VIEWS = ("strengthening", "mixed", "weakening")
+VIEW_MARK = {"strengthening": "↗", "mixed": "→",
+             "weakening": "↘"}
+
 FRED_LABELS = {
     "ig_oas": "Investment grade spread",
     "bbb_oas": "BBB spread",
@@ -88,6 +93,28 @@ def _pillar_state(pillar, spec, today, stale_days):
     return GREEN, "collecting, newest data %s" % newest
 
 
+def thesis_view():
+    """{pillar: {view, reason, date}} from the owner's latest entry.
+
+    Never computed, never inferred, never defaulted to a value. A pillar
+    with no row is absent from this dict and shows as not set. The data
+    health signal answers whether evidence is arriving; this answers what
+    the owner thinks the evidence means, and only he writes it. See
+    docs/thesis_view.md.
+    """
+    latest = {}
+    for r in _rows(THESIS_VIEW):
+        pillar = (r.get("pillar") or "").strip()
+        view = (r.get("view") or "").strip().lower()
+        date = (r.get("date") or "").strip()
+        if not pillar or view not in VIEWS:
+            continue
+        if pillar not in latest or date > latest[pillar]["date"]:
+            latest[pillar] = {"view": view, "date": date,
+                              "reason": (r.get("reason") or "").strip()}
+    return latest
+
+
 def pillar_signals(today, record=False):
     """[{pillar, signal, reason, changed, previous}] plus history append."""
     cfg = _json(CONFIG_SIGNALS)
@@ -101,10 +128,13 @@ def pillar_signals(today, record=False):
         previous = {r["pillar"]: r["signal"] for r in history
                     if r["date"] == last}
 
+    views = thesis_view()
+
     out, new_rows = [], []
     for pillar, spec in cfg["pillars"].items():
         signal, reason = _pillar_state(pillar, spec, today, stale)
         prior = previous.get(pillar)
+        view = views.get(pillar)
         out.append({
             "pillar": pillar,
             "signal": signal,
@@ -112,6 +142,11 @@ def pillar_signals(today, record=False):
             "previous": prior,
             "changed": bool(prior) and prior != signal,
             "note": spec.get("note", ""),
+            # The owner's monthly read. Absent means not set, and nothing
+            # is inferred from its absence.
+            "view": view["view"] if view else None,
+            "view_reason": view["reason"] if view else "",
+            "view_date": view["date"] if view else "",
         })
         new_rows.append({"date": today.isoformat(), "pillar": pillar,
                          "signal": signal, "reason": reason})

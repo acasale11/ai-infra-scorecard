@@ -48,11 +48,33 @@ def section_standing(signals):
     for s in signals:
         out.append("%s **%s** %s" % (bd.DOT[s["signal"]], s["pillar"],
                                      s["reason"]))
+        # The owner's view sits under the data signal, never merged with it.
+        if s["view"]:
+            line = "   %s your view: **%s**" % (bd.VIEW_MARK[s["view"]],
+                                                s["view"])
+            if s["view_reason"]:
+                line += " — %s" % _trim(s["view_reason"], 110)
+            if s["view_date"]:
+                line += " (%s)" % s["view_date"]
+            out.append(line)
+        else:
+            out.append("   your view: not set")
     out.append("")
-    out.append("_Signals describe the evidence, not the thesis. Green means "
+
+    dates = {s["view_date"] for s in signals if s["view_date"]}
+    if dates:
+        out.append("_Your thesis views were last updated %s. Edit "
+                   "`data/thesis_view.csv` to change them._" % max(dates))
+    else:
+        out.append("_No thesis views set yet. They are yours to write, "
+                   "monthly, in `data/thesis_view.csv`; nothing sets them "
+                   "automatically._")
+    out.append("")
+    out.append("_The dots describe the evidence, not the thesis. Green means "
                "the pillar is collecting and current. Red means this project "
                "is not measuring it yet, which is a fact about the project "
-               "rather than about AI infrastructure._")
+               "rather than about AI infrastructure. The two signals can "
+               "disagree, and that is informative._")
     out.append("")
     return out
 

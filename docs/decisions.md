@@ -1072,6 +1072,91 @@ Cost: a module that serves two renderers is harder to change than either
 alone, and the dashboard has to run from the repo root because the module
 addresses files by relative path.
 
+### Two signals per pillar, and only one of them is computed
+
+Each pillar now carries a data health signal, green/amber/red, computed
+every run, and a thesis view, strengthening/mixed/weakening, which only the
+owner writes. Both show in the brief and on the dashboard home page, the
+view underneath the dot it belongs to.
+
+They answer different questions. Data health asks whether evidence is
+arriving. The thesis view asks what the evidence means. Collapsing them into
+one light would lose the cases that matter most: a pillar can be green and
+weakening, collecting cleanly and going against the thesis, or red and
+strengthening, with no collector here while the owner's read from elsewhere
+is that the case is getting stronger.
+
+The view is never computed, never inferred, and never defaulted. A pillar
+with no row reads "not set" and nothing is concluded from the absence.
+`data/thesis_view.csv` ships with a header and no rows, like the scorecard
+files did, because inventing a plausible view would put words in the
+owner's mouth in a file whose purpose is to record what he actually thought,
+dated, so it can be checked later.
+
+Append only. A new monthly read is new rows. The history of how a view moved
+is the valuable part: weakening in November and strengthening in February
+says something only if both rows survive. The brief shows the date each view
+was taken, so a stale view looks stale instead of current.
+
+Cost: a second signal to maintain, and it will go stale between monthly
+updates. A visibly stale view is better than an automated one that is always
+confidently current.
+
+### B009 scored unverifiable, as its criterion required
+
+B009 held that GPU rental prices rose for 17 consecutive days in October
+while infra stocks fell. Its horizon was 2026-10-31 and it is scored
+unverifiable on 2026-11-02.
+
+The criterion, written on 2026-10-30 before any outcome was known, said:
+unverifiable if no daily index covering October 2026 can be sourced, since
+the figure cannot be reconstructed after the fact. No such index was
+sourced. The `compute_pricing` pillar has no collector, which is the same
+gap showing up as a red signal in the brief.
+
+This is the criterion working rather than failing. A test written in advance
+produced an answer the project did not want, and the answer stands. The
+temptation in a case like this is to go looking for a proxy after the fact
+and score it correct or wrong on that, which is exactly what the clause
+about reconstruction was written to prevent.
+
+Cost: the first claim to reach its horizon scores as unverifiable, which
+looks like a gap in the record. It is one, and it is an honest one: the
+pillar that would have answered it was never built.
+
+### The question box answers from the data and refuses to write
+
+The dashboard has a question box, `dashboard/ask.py`, that sends a compact
+snapshot of the committed data to Claude and answers questions about it.
+
+Three constraints shaped it. It answers from the snapshot and says when
+something is not in the files rather than filling the gap from general
+knowledge, because the owner has to be able to trust that any number it
+quotes is in his data. It refuses to write notes, theses, pitches or
+recommendations, which keeps the standing rule intact: the writing and the
+judgements are his. And it is told that prices have three bases and rates
+have two, and not to mix them, because that mistake has already been made
+and corrected once in this repo.
+
+The key comes from Streamlit secrets or the environment and never from the
+repository. Without it the box renders an explanation instead of an input,
+so a fresh clone still runs.
+
+An implementation detail worth recording: the box checks for a secrets file
+before touching `st.secrets`, rather than catching the failure. Streamlit
+renders its own error into the page when secrets are missing, and that error
+names the absolute paths it searched, which on a deployed app are server
+paths. Catching it afterwards is too late, because the message has already
+been drawn.
+
+The snapshot is sent as a cached prefix, so a session of questions re-reads
+it at a tenth of the price. It runs about 6,300 tokens, which puts a first
+question at roughly two or three cents and later ones at a fraction of one.
+
+Cost: a box that can be wrong, in a project whose value is being right. It
+carries a line under every answer saying to check anything before using it,
+and it is a reading aid rather than a source.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -1139,3 +1224,7 @@ edit here.
   price moving. A threshold on a minimum over a changing set will keep
   doing that. The brief names the swap when it happens, which is a label
   rather than a fix.
+- Whether the question box's snapshot is the right slice of the data. It
+  currently carries signals, benchmark ranges, mid-tier prices, 140 issuer
+  debt rows, the whole ledger, open calls and the known limits. Questions it
+  answers badly are the signal for what to add.

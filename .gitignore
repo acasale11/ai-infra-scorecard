@@ -24,3 +24,4 @@ desktop.ini
 # step runs, so they are ignored rather than deleted.
 alerts.md
 brief.md
+.streamlit/secrets.toml

@@ -21,8 +21,13 @@ because none of the horizons have arrived.
 **The claims ledger.** All 16 claims are in `data/claims_ledger.csv` with a
 horizon date and a written test for how each one gets marked right or wrong.
 The tests were written before any outcome was known, which is the thing that
-makes the exercise honest. All 16 are still `pending`. The earliest one to
-come due is B011 on 2026-11-28.
+makes the exercise honest.
+
+One has been scored. B009 reached its horizon on 2026-10-31 and is
+`unverifiable`: it needed a daily GPU rental index covering October 2026,
+the `compute_pricing` pillar has no collector, and the criterion said the
+figure cannot be reconstructed after the fact. That is the test working, not
+failing. The next to come due is B011 on 2026-11-28.
 
 **The data layer.** CSVs are the record. `scripts/build_db.py` rebuilds a
 SQLite database from them for querying. The database is disposable and not
@@ -64,6 +69,13 @@ Monday, appends what is new, regenerates the chart and commits. It ran for
 the first time on 2026-11-02 and worked. A collector that fails does not
 stop the others; the run opens a GitHub issue listing whatever broke.
 
+**Two signals per pillar.** Data health, green/amber/red, computed every
+run: is the evidence arriving. And the thesis view,
+strengthening/mixed/weakening, which only the owner writes, monthly, in
+`data/thesis_view.csv`. It ships empty and nothing sets it automatically.
+The two can disagree, and the disagreement is the informative part. See
+[docs/thesis_view.md](docs/thesis_view.md).
+
 **The weekly brief.** Each run opens a GitHub issue titled `Weekly brief:
 <date>` and closes the previous week's, so the brief arrives by email and
 only the current week stays open. It is built to be read on a phone in
@@ -71,7 +83,11 @@ under two minutes and has three sections: where things stand, what moved,
 what needs attention. It is also committed to `notes/weekly/`.
 
 **The dashboard.** A private Streamlit app whose home page mirrors the
-brief's three sections, with pages for credit, prices and claims. Brief and
+brief's three sections, with pages for credit, prices and claims, and a
+question box that answers from the committed data. The box needs an
+Anthropic API key in Streamlit secrets; without one it says so and the rest
+of the dashboard still works. It will not write notes or give
+recommendations. Brief and
 dashboard compute every number in `scripts/brief_data.py`, so they cannot
 drift into disagreeing about the same week. Deployment steps are in
 [docs/dashboard.md](docs/dashboard.md).
