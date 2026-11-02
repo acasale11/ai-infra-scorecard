@@ -1,0 +1,32 @@
+ticker,company,cik,last_form,last_filed,median_gap_days,next_filing_estimate,basis
+AMD,Advanced Micro Devices,0000002488,10-Q,2026-08-05,91,2026-11-04,estimated from the last 6 filings
+ANET,Arista Networks,0001596532,10-Q,2026-08-05,91,2026-11-04,estimated from the last 6 filings
+ALAB,Astera Labs,0001736297,10-Q,2026-08-05,91,2026-11-04,estimated from the last 6 filings
+NBIS,Nebius Group,0001513845,6-K,2026-10-22,13,2026-11-04,estimated from the last 6 filings
+WULF,TeraWulf,0001083301,10-Q,2026-08-05,91,2026-11-04,estimated from the last 6 filings
+CEG,Constellation Energy,0001868275,10-Q,2026-08-06,92,2026-11-06,estimated from the last 6 filings
+TSM,TSMC,0001046179,6-K,2026-10-22,9,2026-11-09,estimated from the last 6 filings
+COHR,Coherent,0000820318,10-K,2026-08-14,91,2026-11-13,estimated from the last 6 filings
+LITE,Lumentum,0001633978,10-K,2026-08-17,91,2026-11-16,estimated from the last 6 filings
+CRWV,CoreWeave,0001769628,10-Q,2026-08-12,96,2026-11-16,estimated from the last 4 filings
+ARM,Arm Holdings,0001973239,6-K,2026-09-18,20,2026-11-17,estimated from the last 6 filings
+ASML,ASML Holding,0000937966,6-K,2026-10-14,35,2026-11-18,estimated from the last 6 filings
+NVDA,NVIDIA,0001045810,10-Q,2026-08-26,91,2026-11-25,estimated from the last 6 filings
+IREN,IREN Limited,0001878848,10-K,2026-08-27,91,2026-11-26,estimated from the last 6 filings
+MRVL,Marvell Technology,0001835632,10-Q,2026-08-28,92,2026-11-28,estimated from the last 6 filings
+CRDO,Credo Technology,0001807794,10-Q,2026-09-02,89,2026-11-30,estimated from the last 6 filings
+CIEN,Ciena,0000936395,10-Q,2026-09-03,91,2026-12-03,estimated from the last 6 filings
+AVGO,Broadcom,0001730168,10-Q,2026-09-10,91,2026-12-10,estimated from the last 6 filings
+ORCL,Oracle,0001341439,10-Q,2026-09-11,90,2026-12-10,estimated from the last 6 filings
+APLD,Applied Digital,0001144879,10-Q,2026-10-07,90,2027-01-05,estimated from the last 6 filings
+MU,Micron Technology,0000723125,10-K,2026-10-09,98,2027-01-15,estimated from the last 6 filings
+FIG,Figma,0001579878,10-Q,2026-08-05,84,2027-01-20,estimated from the last 5 filings
+META,Meta Platforms,0001326801,10-Q,2026-10-22,91,2027-01-21,estimated from the last 6 filings
+MSFT,Microsoft,0000789019,10-Q,2026-10-28,91,2027-01-27,estimated from the last 6 filings
+VRT,Vertiv Holdings,0001674101,10-Q,2026-10-28,91,2027-01-27,estimated from the last 6 filings
+GEV,GE Vernova,0001996810,10-Q,2026-10-28,91,2027-01-27,estimated from the last 6 filings
+AMZN,Amazon,0001018724,10-Q,2026-10-30,91,2027-01-29,estimated from the last 6 filings
+ETN,Eaton,0001551182,10-Q,2026-07-31,91,2027-01-29,estimated from the last 6 filings
+DLR,Digital Realty Trust,0001297996,10-Q,2026-10-30,91,2027-01-29,estimated from the last 6 filings
+CIFR,Cipher Mining,0001819989,10-Q,2026-11-02,90,2027-01-31,estimated from the last 6 filings
+GOOGL,Alphabet,0001652044,10-Q,2026-10-29,98,2027-02-04,estimated from the last 6 filings

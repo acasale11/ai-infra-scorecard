@@ -86,6 +86,11 @@ jobs:
           run_step "price_bases" python scripts/price_bases.py --date "$RUN_DATE"
           run_step "make_chart" python scripts/make_chart.py --date "$RUN_DATE"
 
+          # Estimated next filing dates for the coverage universe, so the
+          # brief can say who reports soon. Rewritten each run rather than
+          # appended, because it is a projection and not a measurement.
+          run_step "earnings_calendar" python scripts/earnings_calendar.py --date "$RUN_DATE"
+
           # Derived, and cheap to rebuild from the CSVs.
           run_step "build_db" python scripts/build_db.py
 
@@ -103,13 +108,12 @@ jobs:
           python scripts/check_alerts.py --date "$RUN_DATE" --out alerts.md
           if [ -f alerts.md ]; then echo "fired=true" >> "$GITHUB_OUTPUT"; fi
 
-      - name: Write the weekly summary
-        run: python scripts/weekly_summary.py --date "$RUN_DATE" --alerts alerts.md
+      - name: Write the weekly brief
+        run: |
+          python scripts/weekly_brief.py --date "$RUN_DATE" --alerts alerts.md --issue brief.md
 
       - name: Commit and push
         run: |
-          # alerts.md is scratch for this run and is not part of the record.
-          rm -f alerts.md
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -A
@@ -148,21 +152,26 @@ jobs:
             --body-file issue.md \
             --assignee "${{ github.repository_owner }}"
 
-      - name: Open an issue if a threshold was crossed
-        if: steps.alerts.outputs.fired == 'true'
+      # The brief is the email. It carries the alerts in its third
+      # section, so a separate threshold issue would arrive as a duplicate
+      # of something the owner has already read.
+      - name: Post the weekly brief as an issue
+        if: always() && hashFiles('brief.md') != ''
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          python scripts/check_alerts.py --date "$RUN_DATE" --out alerts.md
-          gh issue create \
-            --title "Weekly collection $RUN_DATE: a threshold was crossed" \
-            --body-file alerts.md \
-            --assignee "${{ github.repository_owner }}" \
-            --label "automated" || \
-          gh issue create \
-            --title "Weekly collection $RUN_DATE: a threshold was crossed" \
-            --body-file alerts.md \
-            --assignee "${{ github.repository_owner }}"
+          url=$(gh issue create             --title "Weekly brief: $RUN_DATE"             --body-file brief.md             --assignee "${{ github.repository_owner }}")
+          echo "opened $url"
+          new="${url##*/}"
+
+          # Close last week's, so the issue list holds one brief at a time
+          # and the open one is always the current week.
+          gh issue list --state open --search "Weekly brief in:title"             --json number --jq '.[].number' | while read -r n; do
+            if [ -n "$n" ] && [ "$n" != "$new" ]; then
+              gh issue close "$n"                 --comment "Superseded by the brief for $RUN_DATE."                 --reason completed
+              echo "closed #$n"
+            fi
+          done
 
       - name: Open an issue if the run itself failed
         if: failure()

@@ -938,6 +938,140 @@ stated plainly, because those are facts rather than suggestions.
 Cost: the owner has to decide what is next without a prompt, every time.
 That is the intent.
 
+## 2026-11-02
+
+### The brief arrives as a GitHub issue, and last week's is closed
+
+Each scheduled run opens an issue titled `Weekly brief: <date>` holding the
+whole brief, assigned to the repo owner so GitHub emails it, and closes the
+previous week's.
+
+Email is the point. A file committed to `notes/weekly/` is only read by
+someone who goes looking, and the brief exists to be read on a phone
+without going looking. Closing last week's keeps exactly one brief open at
+a time, so the open issue is always the current week and the issue list
+does not become a pile.
+
+The separate "a threshold was crossed" issue is gone. The brief carries the
+alerts in its third section, so that issue would have arrived as a
+duplicate of something already read. The collector-failure issue stays,
+because a run that broke is a different thing from a week that moved.
+
+Cost: the brief is in two places, an issue and a file, and they can drift
+if someone edits the issue. The file is the record.
+
+### The signal describes the evidence, not the thesis
+
+Each pillar gets green, amber or red in the brief. Green means it is
+collecting and current, amber means stale or incomplete, red means there is
+no collector yet.
+
+The tempting version of this feature is a light that says whether the
+thesis is winning. That would be a judgement, and the judgements in this
+project are the owner's to make and write; an automated rule has none. So
+the light says whether the evidence is arriving, which is a fact a rule can
+establish.
+
+It also keeps the light honest in the other direction. Two pillars are red
+today. That is a statement about this project not measuring them yet, not a
+statement about AI infrastructure, and a thesis-facing light would have
+blurred the two.
+
+If a thesis-facing signal is wanted later it has to be driven by scored
+claims in the ledger, and no claim can be scored before its horizon. The
+earliest is B011 on 2026-11-28.
+
+Cost: a reader who wants to know how the thesis is doing does not get an
+answer from the dots, which is the correct outcome and will still be
+disappointing.
+
+### Moves are ranked against their own thresholds, not by size
+
+The brief lists the three or four biggest moves of the week. Ranking them
+by raw magnitude would mean the list was always whichever series is quoted
+in the largest unit: a 15 bps move in CCC would outrank a 0.35 point move
+in the 10-year every time, regardless of which mattered.
+
+So each move is scored as a multiple of that series' own alert threshold,
+and the list is the top few by that score. It puts basis points,
+percentage points and a price ratio on one scale, which is the only way a
+single list of four can be honest.
+
+Cost: the ranking inherits whatever is wrong with the thresholds, which
+were set on 2026-10-30 with no live experience of how often they fire.
+
+### Financing changes compare filings, never facts inside one filing
+
+The first version compared each instrument's rate across the dates attached
+to its facts and reported six changes on the first run. All six were
+artefacts.
+
+A filer tags facts against many context dates inside a single filing: the
+balance sheet date, an issuance date, a redemption test date. Comparing an
+instrument across those lines up measurements that are not the same
+measurement. It reported IREN's 2032 convertible moving from 25.000% to
+0.250%, which is the 0.25% coupon sitting next to some other percentage the
+filer tagged with the same element on the issuance date.
+
+A financing change now means the same instrument carried a different rate
+at the period end of two different filings, identified by accession number.
+With one filing per issuer there is nothing to compare, so the section
+correctly reports nothing and will stay quiet until next quarter.
+
+Cost: no financing signal at all until a second filing lands for some
+issuer. An empty section that is right beats six lines that are wrong.
+
+### Open calls ship as an empty file with a required invalidation column
+
+`data/open_calls.csv` has a schema and no rows. The brief reads it, prices
+each open call against its benchmark metric and flags any call that has
+travelled 80 percent of the way to its exit level.
+
+The file ships empty for the same reason the scorecard files did: a call is
+a judgement and the judgements here are the owner's. Inventing a plausible
+one to demonstrate the feature would put words in his mouth in a file whose
+whole purpose is to record what he thought at the time.
+
+`invalidation` is a required column. A call with no invalidation is an
+opinion, and the point of writing one before the outcome is that it cannot
+be rewritten after.
+
+Cost: the feature cannot be tested against real data until he writes a
+call, so the exit-proximity maths is exercised by nothing today.
+
+### Earnings dates are estimated filing dates, and say so
+
+SEC publishes no forward calendar. `scripts/earnings_calendar.py` reads
+each issuer's past 10-Q and 10-K filing dates, takes the median gap and
+projects the next one. 31 of the 33 public coverage names get an estimate;
+the two Korean listings are not SEC filers.
+
+These are estimated next FILING dates, not announced earnings dates. A
+company reports before it files, by days to weeks, and can move without
+telling EDGAR anything. The brief labels every estimated row and
+`config/earnings_overrides.json` holds real dates when they are known.
+
+This file is rewritten each run rather than appended, which is the only
+exception to the append-only rule in the repo. It holds a projection, not a
+measurement, so there is no history in it worth preserving.
+
+Cost: an estimate that will be wrong by days, in a section that invites
+being read as a diary.
+
+### The dashboard and the brief share one module
+
+`scripts/brief_data.py` computes everything both of them say, and the
+dashboard home page mirrors the brief's three sections in the same order.
+
+A dashboard beside a report drifts. Someone changes a cutoff in one and not
+the other, and six months later the page and the email disagree about the
+same week with no way to tell which is right. The only reliable fix is to
+not compute anything twice.
+
+Cost: a module that serves two renderers is harder to change than either
+alone, and the dashboard has to run from the repo root because the module
+addresses files by relative path.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -999,3 +1133,9 @@ edit here.
 - Whether weekly is the right cadence for the OpenRouter collectors. It
   adds roughly 860 elasticity rows and 200 endpoint cache files a week,
   against 45 rows a week from FRED and nothing in most weeks from filings.
+- Whether the alert on the open versus closed price advantage is measuring
+  what it should. It fired on 2026-11-02 at -29.9%, and the cause was the
+  cheapest open model changing from one model to another rather than any
+  price moving. A threshold on a minimum over a changing set will keep
+  doing that. The brief names the swap when it happens, which is a label
+  rather than a fix.

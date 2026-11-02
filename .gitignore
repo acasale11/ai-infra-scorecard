@@ -17,3 +17,10 @@ Thumbs.db
 desktop.ini
 .vscode/
 .idea/
+
+# Scratch files the weekly workflow writes for one run. The brief itself is
+# committed under notes/weekly/; these two are the copies handed to the
+# issue and alert steps, and the issue step reads brief.md after the commit
+# step runs, so they are ignored rather than deleted.
+alerts.md
+brief.md

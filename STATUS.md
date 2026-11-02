@@ -60,12 +60,21 @@ dropped, currently 419 items. It re-reads a borrower only when that borrower
 files something new.
 
 **Weekly automation.** A GitHub Actions workflow runs every collector each
-Monday, appends what is new, regenerates the chart, writes a plain-English
-summary to `notes/weekly/`, and commits. A collector that fails does not
-stop the others; the run opens a GitHub issue listing whatever broke. A
-second issue opens if a benchmark moves more than its threshold, if a
-series stops updating, or if a collector runs cleanly and writes nothing.
-Thresholds are in `config/alert_thresholds.json`.
+Monday, appends what is new, regenerates the chart and commits. It ran for
+the first time on 2026-11-02 and worked. A collector that fails does not
+stop the others; the run opens a GitHub issue listing whatever broke.
+
+**The weekly brief.** Each run opens a GitHub issue titled `Weekly brief:
+<date>` and closes the previous week's, so the brief arrives by email and
+only the current week stays open. It is built to be read on a phone in
+under two minutes and has three sections: where things stand, what moved,
+what needs attention. It is also committed to `notes/weekly/`.
+
+**The dashboard.** A private Streamlit app whose home page mirrors the
+brief's three sections, with pages for credit, prices and claims. Brief and
+dashboard compute every number in `scripts/brief_data.py`, so they cannot
+drift into disagreeing about the same week. Deployment steps are in
+[docs/dashboard.md](docs/dashboard.md).
 
 ## What the first model-price run found
 
@@ -268,6 +277,9 @@ not been created.
 - The routing experiment in `experiments/routing` has a design brief and no
   code.
 - No monthly note has been written. No chart has been published.
+- `data/open_calls.csv` is empty. The brief and the dashboard will price
+  calls and flag ones near their exit, and neither has been exercised
+  against a real call.
 - Nothing warns if a source silently changes shape rather than failing.
   The weekly checks catch a collector that writes nothing and a series that
   stops updating; they would not catch a source that keeps returning

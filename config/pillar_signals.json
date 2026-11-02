@@ -1,0 +1,41 @@
+{
+  "_comment": "Rules for the green/amber/red signal per pillar in the weekly brief. Read the next paragraph before changing anything here.",
+  "_what_the_signal_means": "The signal describes the state of the EVIDENCE, not the state of the thesis. Green means the pillar is collecting, current and quiet. Amber means it is collecting but something is stale, partial or flagged. Red means it is not producing usable evidence at all. A green pillar is not a pillar whose data supports Baker, and a red pillar is not bad news for the thesis; red means this project is not yet measuring that pillar properly.",
+  "_why_not_a_thesis_verdict": "A traffic light that said 'the thesis is winning' would be a judgement, and the judgements in this project are the owner's to make and write. An automated rule has no judgement. It can say whether the evidence is arriving, which is a fact, so that is what it says. If a thesis-facing signal is wanted later it has to be driven by scored claims in the ledger, and no claim can be scored before its horizon.",
+  "stale_days": 10,
+  "_stale_days_note": "A pillar goes amber if its newest data point is older than this. Set against the slowest regular source, FRED's two to three day publication lag, plus room for a missed run.",
+  "pillars": {
+    "elasticity": {
+      "files": ["data/scorecard/elasticity.csv"],
+      "min_rows_last_run": 100,
+      "status": "collecting",
+      "note": "OpenRouter token prices, weekly."
+    },
+    "open_source_share": {
+      "files": ["data/scorecard/open_source_share.csv"],
+      "min_rows_last_run": 100,
+      "status": "collecting",
+      "note": "Provider competition metrics from OpenRouter endpoints, weekly."
+    },
+    "credit": {
+      "files": ["data/scorecard/credit.csv"],
+      "min_rows_last_run": 0,
+      "status": "collecting",
+      "lagging_source": true,
+      "note": "FRED benchmarks weekly, issuer filings quarterly. Rows per run are not a health measure here; staleness is. See the credit note in config/alert_thresholds.json.",
+      "incomplete_because": "No secondary bond pricing. Needs a FINRA account, which does not exist."
+    },
+    "compute_pricing": {
+      "files": ["data/scorecard/compute_pricing.csv"],
+      "min_rows_last_run": 0,
+      "status": "not_built",
+      "note": "No collector. GPU rental and resale pricing."
+    },
+    "buyer_concentration": {
+      "files": ["data/scorecard/buyer_concentration.csv"],
+      "min_rows_last_run": 0,
+      "status": "not_built",
+      "note": "No collector. Revenue and backlog tied to the frontier labs."
+    }
+  }
+}

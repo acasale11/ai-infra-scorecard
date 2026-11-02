@@ -1,0 +1,4 @@
+{
+  "_comment": "Real, announced reporting dates, which beat the estimate in data/earnings_calendar.csv. Key is the ticker, value is an ISO date. Fill these from an investor relations page when a date is actually announced. The estimates are projections from past filing cadence and will be wrong by days to weeks.",
+  "_example": "\"CRWV\": \"2026-11-12\""
+}
