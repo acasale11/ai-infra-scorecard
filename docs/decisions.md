@@ -1233,6 +1233,35 @@ fact about that run.
 Cost: a documented blemish in the committed credit history that cannot be
 removed without rewriting data.
 
+## 2026-11-04
+
+### The buyer concentration pillar was mapped and its method settled
+
+`docs/buyer_concentration_source_map.md` records where the pillar's data lives
+before any collector exists, as the credit pillar was mapped first. Four method
+decisions were made with it.
+
+The pass-through problem drove the first. A hyperscaler such as Microsoft
+contracts neocloud capacity partly to serve a lab such as OpenAI, so counting
+only buyers a filing names as labs understates lab-driven demand, the thing the
+thesis is about, while inferring that Microsoft capacity is OpenAI demand
+reports an assumption as a measurement, the DDTL mistake. The resolution is a
+pair of metrics that are never merged: a named lower bound, and a
+named-plus-disclosed-pass-through figure that adds a hyperscaler's share only
+where a filing or 8-K explicitly ties it to a lab. This is the elasticity
+pillar's three-bases logic applied to demand.
+
+The other three: frontier-lab buyers are OpenAI, Anthropic and xAI, by the
+criterion of a lab buying external compute rather than a fixed list, which
+extends the CLAUDE.md pillar line and means that line should be reconciled; the
+collector rides the existing filings pass rather than a schedule of its own,
+reusing the accession dedup; and RPO's canonical home is this pillar, with the
+credit pillar referencing backlog rather than duplicating the rows.
+
+Cost: two frontier-lab figures to carry and explain rather than one, and a
+pillar that depends on inconsistent disclosure, where a seller names a customer
+only when it chooses to or accounting forces it.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an

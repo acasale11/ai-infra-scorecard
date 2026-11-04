@@ -1,11 +1,11 @@
 # Buyer concentration pillar source map
 
-Drafted 2026-11-04. Nothing collected yet and no collector built. This records
-where the data is, what each source can and cannot give, and what is known
-structurally as opposed to read from a filing. It is a proposal for the owner
-to approve or change before any collection starts, in the same way the credit
-pillar was mapped first. See the credit source map in `methodology.md` for the
-pattern.
+Drafted 2026-11-04, decisions approved the same day. No collector built yet.
+This records where the data is, what each source can and cannot give, and what
+is known structurally as opposed to read from a filing, in the same way the
+credit pillar was mapped first. See the credit source map in `methodology.md`
+for the pattern. The four method decisions are recorded at the foot of this
+file and in the decision log.
 
 ## What the pillar is testing
 
@@ -38,24 +38,41 @@ The honest version of this pillar reports what the filing states, tags any
 proxy assumption separately, and never converts an unnamed concentration into
 a named one.
 
-## Proposed metrics
+## Metrics
 
 Standard scorecard columns. Numeric values only; the counterparty name lives
 in `entity` and `notes`, never smuggled into the metric name.
+
+General customer concentration, whoever the customer is:
 
 | metric | unit | what it is |
 | --- | --- | --- |
 | `customer_concentration_top1_pct` | pct | largest single customer as a share of period revenue |
 | `customer_concentration_top2_pct` | pct | top two customers combined, where disclosed |
 | `customers_over_10pct_count` | count | how many customers each exceeded 10% of revenue, a figure accounting rules often force out |
+
+Frontier-lab share, reported as a pair that is never merged (decision 1):
+
+| metric | unit | what it is |
+| --- | --- | --- |
+| `frontier_lab_revenue_pct_named` | pct | share of revenue from buyers a filing names as frontier labs. The honest lower bound. |
+| `frontier_lab_revenue_pct_with_passthrough` | pct | the named share plus a hyperscaler's share only where a filing or 8-K explicitly ties that capacity to a frontier lab. Never inferred. The fuller picture. |
+
+Backlog, whose home is this pillar (decision 4):
+
+| metric | unit | what it is |
+| --- | --- | --- |
 | `rpo_total_usd_mm` | usd_mm | remaining performance obligations, the contracted backlog |
 | `rpo_largest_counterparty_pct` | pct | a named counterparty's share of RPO, where the filing gives it |
 
 `entity` carries the seller and, where named, the counterparty, for example
 `CRWV:Microsoft`. Where the filing gives only an unnamed concentration,
 `entity` is the seller alone and `notes` records that the customer was not
-named. Revenue-period basis (quarter or trailing year) goes in `notes`, since
-mixing the two would be the same error the credit pillar made with rates.
+named. The named and pass-through frontier-lab figures are two rows with
+different metric names, so a reader always sees which is which and the two can
+never be added together by accident. Revenue-period basis (quarter or trailing
+year) goes in `notes`, since mixing the two would be the same error the credit
+pillar made with rates.
 
 ## Sellers in scope and what each discloses
 
@@ -93,6 +110,13 @@ hyperscalers are in scope but will mostly contribute context, not metrics.
 All free, all public, all already reachable. No new access or account is
 needed, which is the opposite of the credit pillar's TRACE gap.
 
+The collector rides the existing filings pass rather than a schedule of its
+own (decision 3). `scripts/extract_filings.py` already re-reads an issuer only
+when it files a new accession, and these facts come from the same filings as
+the debt terms, so the concentration read happens on the same event-driven,
+deduplicated trigger. Effectively quarterly per issuer, with no redundant
+runs.
+
 ## What this pillar cannot do, written down before collecting
 
 - It cannot measure OpenAI's or Anthropic's total spend or its distribution
@@ -104,13 +128,29 @@ needed, which is the opposite of the credit pillar's TRACE gap.
   requires the risk factor or an 8-K, and if neither names it the row stays
   unnamed.
 
-## Open questions for the owner
+## Decisions, approved 2026-11-04
 
-- Whether to treat Microsoft as an OpenAI proxy at all, or to report only what
-  filings name and leave the pass-through unquantified.
-- Whether xAI and Meta's internal lab count as frontier-lab buyers for this
-  pillar, or only the merchant labs OpenAI and Anthropic.
-- Whether to collect quarterly, matching filing cadence, or only after each
-  earnings season, matching the credit pillar's rhythm.
-- Whether RPO belongs in this pillar or deserves splitting out, given it is a
-  backlog measure that also speaks to the credit pillar.
+1. **The pass-through is reported as a pair, never merged.** A
+   `frontier_lab_revenue_pct_named` lower bound counts only buyers a filing
+   names as labs. A `frontier_lab_revenue_pct_with_passthrough` figure adds a
+   hyperscaler's share only where a filing or 8-K explicitly ties that capacity
+   to a lab, tagged as pass-through and never inferred. Reporting named-only
+   would understate lab-driven demand, which is the thing the thesis is about;
+   inferring a pass-through the filing does not state would repeat the DDTL
+   mistake of reporting an assumption as a measurement. Two labeled figures
+   avoid both, the same way the elasticity pillar carries three price bases.
+
+2. **Frontier-lab buyers are OpenAI, Anthropic and xAI**, each recorded by
+   name on its row. The criterion is a frontier lab buying external AI compute,
+   not a fixed name list, so a new lab that starts contracting merchant
+   capacity qualifies. Meta is included only where it appears as a named
+   external customer of a covered seller, which is rare because it mostly
+   self-builds. This extends the CLAUDE.md pillar line, which names only OpenAI
+   and Anthropic, and that line should be reconciled to match.
+
+3. **The collector rides the filings pass, not its own schedule**, as described
+   under Sources above.
+
+4. **RPO's home is this pillar.** The credit pillar references backlog as
+   coverage for debt rather than duplicating the rows, so the two cannot drift,
+   the same reason the brief and the dashboard share one module.
