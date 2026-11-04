@@ -41,7 +41,10 @@ import time
 import urllib.request
 
 CLASSES = "data/model_classification.csv"
-PRICES = "data/scorecard/elasticity.csv"
+# Raw per-model OpenRouter prices. Moved out of data/scorecard/elasticity.csv
+# on 2026-11-03 so the pillar file holds only the mid-tier aggregate. See
+# docs/decisions.md.
+PRICES = "data/elasticity_prices.csv"
 CACHE = "data/raw/openrouter_endpoints"
 DEST = "data/price_verification.csv"
 API = "https://openrouter.ai/api/v1/models/%s/endpoints"

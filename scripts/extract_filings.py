@@ -431,6 +431,23 @@ def main():
         print("\nnothing extracted, nothing written.")
         return
 
+    # One fact can be tagged against several XBRL contexts that flatten to an
+    # identical row here (same period, members, value and accession). Keep one
+    # copy: byte-identical rows carry no extra information. Rows that differ in
+    # any field are distinct facts and are all kept. Without this the instance
+    # for APLD's notes, for one, wrote each stated rate four times.
+    before = len(all_rows)
+    seen, deduped = set(), []
+    for r in all_rows:
+        key = tuple(r[f] for f in FIELDS)
+        if key in seen:
+            continue
+        seen.add(key)
+        deduped.append(r)
+    all_rows = deduped
+    if len(all_rows) != before:
+        print("deduped %d byte-identical fact rows" % (before - len(all_rows)))
+
     all_rows.sort(key=lambda r: (r["entity"], r["metric"], r["date"]))
     exists = os.path.exists(DEST) and os.path.getsize(DEST) > 0
     with open(DEST, "a", newline="", encoding="utf-8") as fh:

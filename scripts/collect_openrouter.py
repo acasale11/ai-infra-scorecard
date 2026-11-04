@@ -5,8 +5,12 @@ Writes two things on every run:
 1. The raw API response, unmodified, to data/raw/openrouter/<date>.json. This
    is the provenance record. If the parsing below turns out to be wrong, the
    original is still there to re-derive from.
-2. Appended rows on data/scorecard/elasticity.csv, two per model (input and
-   output price), tagged open or closed weights.
+2. Appended rows on data/elasticity_prices.csv, two per model (input and
+   output price), tagged open or closed weights. These raw per-model prices
+   feed the elasticity pillar's aggregate but are not the pillar series
+   themselves: the pillar file data/scorecard/elasticity.csv holds only the
+   mid-tier advantage aggregate, written by scripts/price_bases.py. See
+   docs/decisions.md, 2026-11-03.
 
 The script only ever appends. It refuses to run twice for the same date
 rather than risk writing a second set of rows for a day that already has one.
@@ -26,7 +30,7 @@ import urllib.request
 
 API_URL = "https://openrouter.ai/api/v1/models"
 RAW_DIR = "data/raw/openrouter"
-DEST = "data/scorecard/elasticity.csv"
+DEST = "data/elasticity_prices.csv"
 SOURCE_NAME = "OpenRouter models API"
 USER_AGENT = "ai-infra-scorecard research collector"
 

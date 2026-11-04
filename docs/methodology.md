@@ -56,6 +56,34 @@ Two rules that matter more than the rest:
 2. Record the date you collected the number. If a source publishes a revised
    figure later, add a new row. Do not edit the old one.
 
+### Core KPIs and validation
+
+`config/core_kpis.json` names the metrics the project commits to collecting
+reliably: the nine FRED credit benchmarks, the elasticity price advantage, the
+four provider-competition metrics, and the quarterly issuer debt facts. It says
+which numbers must arrive and stay well formed, not what they mean.
+
+`scripts/validate_data.py` enforces the integrity rules that were previously
+kept by hand. It checks that every file carries the nine-column header, that
+each row has a date, metric, value and source, that the value parses as a
+number or, when the unit is `date`, as a date, that no file holds a duplicate
+key, that no observation is dated in the future, that a metric never carries
+two units, that stated and effective rates stay separate metrics, and that the
+core KPIs are present and, on a fresh run, current. A source url is required
+unless the source begins with the word `derived`, which marks a value computed
+from other rows rather than fetched.
+
+It runs at the end of the weekly collection, where a failure opens the
+collector-failure issue, and on every push through `.github/workflows/tests.yml`
+with `--no-freshness`, because committed data can legitimately be a few days
+old. The `tests/` suite covers the validator and the collectors' pure logic.
+
+The duplicate rule follows the data. FRED rows are unique on date and metric,
+the price files on date, entity and metric. The SEC issuer facts are not: one
+instrument's rate repeats across filings, keyed by accession in the notes, so
+for those the only hard rule is that a single run did not write a byte-identical
+row twice.
+
 ### Candidate metrics by pillar
 
 These are starting points, not a fixed list. Add rows to this table as metrics
@@ -123,8 +151,18 @@ specific past date is impossible.
 `scripts/collect_openrouter.py`, feeding `elasticity`. Free, no key required.
 
 Appends two rows per model, `openrouter_price_input` and
-`openrouter_price_output`, in `usd_per_mtok`. The API quotes USD per token;
-the collector multiplies by one million and records nothing else derived.
+`openrouter_price_output`, in `usd_per_mtok`, to `data/elasticity_prices.csv`.
+The API quotes USD per token; the collector multiplies by one million and
+records nothing else derived.
+
+These raw per-model prices are not the `elasticity` pillar series. The pillar
+file `data/scorecard/elasticity.csv` holds only the pillar's headline, the open
+versus closed price advantage at the mid-tier floor, written as three aggregate
+rows a run by `scripts/price_bases.py`: `cheapest_fp8_output_open_midtier`,
+`cheapest_fp8_output_closed_midtier` and the `price_advantage_midtier_fp8`
+ratio. The split happened on 2026-11-03; before then the raw prices sat in the
+pillar file. See the decision log for the migration, which relocated every row
+without changing a value.
 
 Three groups are excluded from the rows, each counted in the run output:
 

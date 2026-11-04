@@ -52,10 +52,20 @@ RAW = "data/raw/openrouter/%s.json"
 CACHE = "data/raw/openrouter_endpoints"
 DEST = "data/price_bases.csv"
 PILLAR = "data/scorecard/open_source_share.csv"
+ELASTICITY = "data/scorecard/elasticity.csv"
 API = "https://openrouter.ai/api/v1/models/%s/endpoints"
 UA = "ai-infra-scorecard research collector"
 
 SUB_8_BIT = {"fp4", "nvfp4", "mxfp4", "int4", "int3", "fp3", "mxfp6", "int2"}
+
+# The elasticity pillar's headline is a single derived number: the open vs
+# closed price advantage at the mid-tier capability floor, on the fp8 base
+# case, output tokens. It is computed here, from the per-model fp8 prices,
+# and stored as a short aggregate series in the pillar file. The raw per-model
+# prices live in data/elasticity_prices.csv and feed this; they are not the
+# pillar series. See docs/decisions.md, 2026-11-03.
+MID_TIER_FLOOR = 25.0
+ELASTICITY_SOURCE = "derived from data/price_bases.csv"
 
 FIELDS = ["date", "model_id", "org", "weight_class", "intelligence_index",
           "tier", "provider_count", "endpoint_count",
@@ -130,6 +140,63 @@ def endpoints_of(data):
                     "inp": pi * 1e6, "out": po * 1e6,
                     "quant": (e.get("quantization") or "unknown").lower()})
     return out
+
+
+def midtier_aggregate(rows, date):
+    """Cheapest open and closed fp8 output price at the mid-tier floor.
+
+    rows: dicts carrying date, weight_class, intelligence_index and
+    cheapest_fp8_output, as produced here and as stored in price_bases.csv,
+    so one function serves both the live run and the migration.
+
+    Returns (open_price, open_model, closed_price, closed_model) or None when
+    either side is missing. The same rule is deliberately recomputed in
+    brief_data.py and check_alerts.py rather than imported, so a change to one
+    renderer cannot silently change what another reports.
+    """
+    best = {}
+    for r in rows:
+        if r.get("date") != date or not r.get("cheapest_fp8_output"):
+            continue
+        try:
+            index = float(r.get("intelligence_index") or "")
+            price = float(r["cheapest_fp8_output"])
+        except (TypeError, ValueError):
+            continue
+        if index < MID_TIER_FLOOR:
+            continue
+        cls = r.get("weight_class")
+        if cls not in ("open_weights", "closed_weights"):
+            continue
+        if cls not in best or price < best[cls][0]:
+            best[cls] = (price, r.get("model_id"))
+    open_side, closed_side = best.get("open_weights"), best.get("closed_weights")
+    if not open_side or not closed_side or not open_side[0]:
+        return None
+    return open_side[0], open_side[1], closed_side[0], closed_side[1]
+
+
+def elasticity_pillar_rows(agg, date, source=ELASTICITY_SOURCE):
+    """The three aggregate pillar rows for one date, from midtier_aggregate."""
+    open_price, open_model, closed_price, closed_model = agg
+    ratio = closed_price / open_price
+    note = ("mid-tier floor intelligence index >= %g, fp8 base case, output "
+            "tokens; cheapest open %s at %.6f vs cheapest closed %s at %.6f"
+            % (MID_TIER_FLOOR, open_model, open_price, closed_model,
+               closed_price))
+    common = {"date": date, "entity": "mid_tier", "source": source,
+              "source_url": "", "notes": note}
+    return [
+        dict(common, entity_class="open_weights",
+             metric="cheapest_fp8_output_open_midtier",
+             value="%.6f" % open_price, unit="usd_per_mtok"),
+        dict(common, entity_class="closed_weights",
+             metric="cheapest_fp8_output_closed_midtier",
+             value="%.6f" % closed_price, unit="usd_per_mtok"),
+        dict(common, entity_class="aggregate",
+             metric="price_advantage_midtier_fp8",
+             value="%.4f" % ratio, unit="x"),
+    ]
 
 
 def main():
@@ -232,6 +299,25 @@ def main():
                 w.writeheader()
             w.writerows(data_rows)
 
+    # The elasticity pillar's aggregate, derived from the fp8 prices above.
+    agg = midtier_aggregate(rows, date)
+    elasticity_rows = elasticity_pillar_rows(agg, date) if agg else []
+    if elasticity_rows:
+        exists = os.path.exists(ELASTICITY)
+        if exists:
+            with open(ELASTICITY, newline="", encoding="utf-8") as fh:
+                seen = {r["date"] for r in csv.DictReader(fh)
+                        if r.get("metric", "").startswith("cheapest_fp8_output_")
+                        or r.get("metric") == "price_advantage_midtier_fp8"}
+            if date in seen:
+                sys.exit("%s already has mid-tier rows for %s. Existing rows "
+                         "are never modified." % (ELASTICITY, date))
+        with open(ELASTICITY, "a", newline="", encoding="utf-8") as fh:
+            w = csv.DictWriter(fh, fieldnames=PILLAR_FIELDS)
+            if not exists or os.path.getsize(ELASTICITY) == 0:
+                w.writeheader()
+            w.writerows(elasticity_rows)
+
     scored = [r for r in rows if r["tier"]]
     print("\n%d models priced, %d scored, %d with no usable endpoint"
           % (len(rows), len(scored), len(failed)))
@@ -242,6 +328,11 @@ def main():
     print("scored models missing an author endpoint: %d" % len(missing_auth))
     print("\nwrote %s (%d rows)" % (DEST, len(rows)))
     print("wrote %s (+%d rows)" % (PILLAR, len(pillar_rows)))
+    if elasticity_rows:
+        print("wrote %s (+%d aggregate rows, advantage %sx)"
+              % (ELASTICITY, len(elasticity_rows), elasticity_rows[-1]["value"]))
+    else:
+        print("no mid-tier aggregate for %s (open or closed side missing)" % date)
 
     op = [r for r in rows if r["weight_class"] == "open_weights"]
     cl = [r for r in rows if r["weight_class"] == "closed_weights"]

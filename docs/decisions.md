@@ -1157,6 +1157,82 @@ Cost: a box that can be wrong, in a project whose value is being right. It
 carries a line under every answer saying to check anything before using it,
 and it is a reading aid rather than a source.
 
+## 2026-11-03
+
+### The elasticity pillar file holds the aggregate, not the raw prices
+
+The OpenRouter collector was writing about 856 rows a week into
+`data/scorecard/elasticity.csv`, two per model. That is raw collected data,
+not a pillar series, and it buried the one number the pillar exists to report:
+the open versus closed price advantage at the mid-tier floor. The raw prices
+now go to `data/elasticity_prices.csv`, and the pillar file holds only the
+mid-tier aggregate, three rows a run, written by `scripts/price_bases.py`.
+
+This relocates history, it does not rewrite it. `scripts/migrate_elasticity.py`
+copied every per-model row verbatim, with its date, value and unit untouched,
+into the new file, and the old pillar file stays in git. The aggregate rows
+for the two existing snapshot dates were derived from `data/price_bases.csv`
+for the same dates the prices were collected, and their notes record that they
+were computed at migration time. That is derivation from already-collected
+data, not backfill.
+
+`verify_prices.py` now reads the raw file, and the row-count health check in
+`config/alert_thresholds.json` follows it too, since that is where the hundreds
+of rows a run now land. The pillar file is watched by staleness instead.
+
+Cost: one more file, and the elasticity headline is now stored twice, once as
+the aggregate here and once derivable from `price_bases.csv`. The brief and
+the alert check still recompute from `price_bases.csv` rather than trust the
+stored aggregate, so the two can be compared and cannot drift silently.
+
+### Core KPIs are declared in one file
+
+`config/core_kpis.json` names the metrics the project commits to collecting
+reliably: the nine FRED credit benchmarks, the elasticity price advantage, the
+four provider-competition metrics, and the quarterly issuer debt facts. Before
+this they were implied across the alert thresholds, the pillar signals and the
+brief code, and stated nowhere. The file says which numbers must arrive and
+stay well formed. It says nothing about what they mean, which stays the
+owner's to write.
+
+Cost: another config to keep in step with the collectors. The validator reads
+it, so a KPI that is renamed in a collector but not here fails loudly rather
+than drifting.
+
+### A validator enforces the integrity rules that were kept by hand
+
+`scripts/validate_data.py` checks schema, that every row is well formed, that
+no file holds a duplicate key, that no row is dated in the future, that a
+metric never carries two units, that stated and effective rates stay separate,
+and that the core KPIs are present and current. It runs at the end of the
+weekly collection, where a failure opens the existing collector-failure issue,
+and on every push through a new `tests.yml`, with freshness switched off there
+because committed data can legitimately be a few days old. A `tests/` suite
+covers the validator and the collectors' pure logic.
+
+The duplicate rule fits the data. The FRED series are unique on date and
+metric, the price files on date, entity and metric. The SEC issuer facts are
+not: one instrument's rate repeats across filings, keyed by accession. For
+those the only hard rule is that a single run did not write a byte-identical
+row twice.
+
+Cost: more code to maintain than the hand checks it replaces, and a validator
+that must itself be trusted. The tests exist for that reason.
+
+### The filings extractor was over-emitting identical rows
+
+Checking the above surfaced 100 byte-identical rows in `credit.csv`: the XBRL
+instance tags one fact against several contexts that flatten to the same
+output row, and the extractor wrote each. It now drops byte-identical rows
+within a run before appending, which loses nothing, because an exact copy
+carries no information a distinct filing or value would. The 100 historical
+duplicates are left in place, as the append-only rule requires; auditing a
+collection date from before this fix will still report them, which is a true
+fact about that run.
+
+Cost: a documented blemish in the committed credit history that cannot be
+removed without rewriting data.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -1184,9 +1260,9 @@ edit here.
   size, or replaced with the full distribution.
 - B015 watch item: whether the gap between the highest open-weight
   intelligence index and the frontier floor closes, holds or widens.
-- Whether `elasticity.csv` should keep taking 860 rows a month, or whether
-  per-model prices belong in their own file with only aggregates on the
-  pillar series.
+- RESOLVED 2026-11-03: per-model prices moved to `data/elasticity_prices.csv`
+  and the pillar file now holds only the mid-tier aggregate. See the dated
+  entry above.
 - Whether credit collection needs a schedule rather than running when
   convenient, given the ICE BofA three-year window rolls and lost
   observations cannot be re-fetched.

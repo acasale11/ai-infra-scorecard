@@ -26,6 +26,7 @@ TABLES = {
     "model_classification": "data/model_classification.csv",
     "price_verification": "data/price_verification.csv",
     "price_bases": "data/price_bases.csv",
+    "elasticity_prices": "data/elasticity_prices.csv",
     "credit_unmapped": "data/credit_unmapped.csv",
 }
 DEFAULT_DB = "data/research.db"

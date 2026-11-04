@@ -21,9 +21,10 @@
     "threshold": 25
   },
   "expected_rows": {
-    "_comment": "Minimum rows a collector should add on a run that is supposed to collect. Zero rows from a collector that ran without error is the failure mode that would otherwise go unnoticed for weeks.",
+    "_comment": "Minimum rows a collector should add on a run that is supposed to collect. Zero rows from a collector that ran without error is the failure mode that would otherwise go unnoticed for weeks. An entry may be a bare number, in which case the file checked is data/scorecard/<key>.csv, or an object with an explicit path and min, for collectors that write outside the scorecard directory.",
     "_credit_note": "`credit` was here at 20 and fired a false positive on the first automated run, 2026-11-02. FRED had published nothing new since 2026-10-29, so appending zero rows was correct behaviour rather than a failure. A publisher with a lag cannot be monitored by counting rows per run; it is monitored by staleness, which is what `staleness_days` above already does and which correctly stayed quiet. Removed rather than retuned, because any row count would be wrong in some week.",
     "_filings_note": "The filings extractor is deliberately absent for the same reason: it adds nothing in most weeks by design, because filings are quarterly.",
-    "elasticity": 100
+    "_elasticity_note": "The OpenRouter collector now writes raw per-model prices to data/elasticity_prices.csv rather than to the pillar file, so the row-count check follows the raw file. The pillar file data/scorecard/elasticity.csv gains only three aggregate rows a run, far below any useful floor, and is covered by the staleness check instead. See docs/decisions.md, 2026-11-03.",
+    "elasticity_prices": {"path": "data/elasticity_prices.csv", "min": 100}
   }
 }

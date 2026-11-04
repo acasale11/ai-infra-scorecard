@@ -1,0 +1,35 @@
+name: Tests
+
+# Runs the unit tests and a data-integrity check on every push and pull
+# request. The weekly workflow validates freshly collected data with freshness
+# enforced; this runs on code changes, so it checks integrity and core KPI
+# presence but not staleness, which would otherwise fail whenever the committed
+# data happened to be a few days old.
+
+on:
+  push:
+  pull_request:
+
+permissions:
+  contents: read
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install the test runner
+        run: pip install -r requirements-dev.txt
+
+      - name: Run the unit tests
+        run: pytest -q
+
+      - name: Check data integrity
+        run: python scripts/validate_data.py --no-freshness

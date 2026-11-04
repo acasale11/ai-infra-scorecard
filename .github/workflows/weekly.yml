@@ -94,6 +94,13 @@ jobs:
           # Derived, and cheap to rebuild from the CSVs.
           run_step "build_db" python scripts/build_db.py
 
+          # Integrity gate. Checks the record is well formed, append-only and
+          # free of future dates, and that the core KPIs are present and
+          # current. A failure flows through the same per-collector failure
+          # issue below, so a broken invariant is loud and attributed rather
+          # than committed quietly.
+          run_step "validate_data" python scripts/validate_data.py --date "$RUN_DATE"
+
           if [ -n "$failures" ]; then
             {
               echo "failures<<EOF"

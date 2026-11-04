@@ -163,17 +163,23 @@ def main():
                     "against a threshold of %s%%."
                     % (change, gap_prev, gap_now, max(prior_dates), limit))
 
-    for pillar, minimum in cfg["expected_rows"].items():
-        if pillar.startswith("_"):
+    for key, spec in cfg["expected_rows"].items():
+        if key.startswith("_"):
             continue
-        path = "data/scorecard/%s.csv" % pillar
+        # An entry is either a bare minimum (file is the pillar CSV) or an
+        # object naming an explicit path, for collectors writing outside
+        # data/scorecard/.
+        if isinstance(spec, dict):
+            path, minimum = spec["path"], spec["min"]
+        else:
+            path, minimum = "data/scorecard/%s.csv" % key, spec
         n = rows_added(path, args.date)
         if n < minimum:
             alerts.append(
                 "- **%s** gained %d rows this run, below the %d expected. "
                 "A collector that runs without error and writes nothing is "
                 "the failure this check exists for."
-                % (pillar, n, minimum))
+                % (key, n, minimum))
 
     body = ""
     if alerts:

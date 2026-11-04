@@ -1,0 +1,39 @@
+{
+  "_comment": "The core KPIs the reliability layer guarantees. scripts/validate_data.py reads this file and fails the run if a weekly KPI is missing or stale, or if any scorecard invariant is broken. This file says WHICH numbers must arrive and stay well formed. It says nothing about what any of them mean: that is the owner's to write. A KPI listed here is one the project commits to collecting reliably, not one whose movement supports or weakens the thesis.",
+  "_cadence": "weekly KPIs must have an observation newer than staleness_days. quarterly KPIs are checked for presence only, because filings arrive a few times a year and a quarter with no new filing is correct behaviour, not a gap. This mirrors the credit note in config/alert_thresholds.json: a lagging source is monitored by staleness, never by rows per run.",
+  "_derived_sources": "A KPI whose source starts with the word derived has no source_url, because it is computed from other rows in the repo rather than fetched. The validator allows an empty source_url only in that case.",
+  "pillars": {
+    "credit": {
+      "weekly": [
+        {"metric": "ig_oas", "unit": "bps", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "bbb_oas", "unit": "bps", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "hy_oas", "unit": "bps", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "hy_bb_oas", "unit": "bps", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "hy_b_oas", "unit": "bps", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "hy_ccc_oas", "unit": "bps", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "ig_effective_yield", "unit": "pct", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "hy_effective_yield", "unit": "pct", "source_file": "data/scorecard/credit.csv", "staleness_days": 10},
+        {"metric": "ust_10y", "unit": "pct", "source_file": "data/scorecard/credit.csv", "staleness_days": 10}
+      ],
+      "quarterly": [
+        {"metric": "instrument_rate_stated", "unit": "pct", "source_file": "data/scorecard/credit.csv"},
+        {"metric": "instrument_rate_effective", "unit": "pct", "source_file": "data/scorecard/credit.csv"},
+        {"metric": "instrument_carrying_amount", "unit": "usd_mm", "source_file": "data/scorecard/credit.csv"},
+        {"metric": "ppe_useful_life_years", "unit": "years", "source_file": "data/scorecard/credit.csv"}
+      ]
+    },
+    "elasticity": {
+      "weekly": [
+        {"metric": "price_advantage_midtier_fp8", "unit": "x", "source_file": "data/scorecard/elasticity.csv", "staleness_days": 10}
+      ]
+    },
+    "open_source_share": {
+      "weekly": [
+        {"metric": "provider_competition_count", "unit": "count", "source_file": "data/scorecard/open_source_share.csv", "staleness_days": 10},
+        {"metric": "provider_price_spread_ratio", "unit": "ratio", "source_file": "data/scorecard/open_source_share.csv", "staleness_days": 10},
+        {"metric": "provider_price_min", "unit": "usd_per_mtok", "source_file": "data/scorecard/open_source_share.csv", "staleness_days": 10},
+        {"metric": "provider_price_max", "unit": "usd_per_mtok", "source_file": "data/scorecard/open_source_share.csv", "staleness_days": 10}
+      ]
+    }
+  }
+}

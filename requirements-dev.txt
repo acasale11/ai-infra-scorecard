@@ -1,0 +1,6 @@
+# Development only: running the test suite. The collectors and the validator
+# need nothing outside the standard library; this is just the test runner.
+#
+# Floors, not exact pins, for the same reason as requirements.txt: let the
+# resolver pick a wheel that matches whatever Python is running.
+pytest>=8.0

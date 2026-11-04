@@ -7,9 +7,9 @@
   "pillars": {
     "elasticity": {
       "files": ["data/scorecard/elasticity.csv"],
-      "min_rows_last_run": 100,
+      "min_rows_last_run": 1,
       "status": "collecting",
-      "note": "OpenRouter token prices, weekly."
+      "note": "OpenRouter token prices, weekly. The pillar file holds the mid-tier price advantage aggregate; raw per-model prices are in data/elasticity_prices.csv. Freshness, not row count, measures health here. See docs/decisions.md, 2026-11-03."
     },
     "open_source_share": {
       "files": ["data/scorecard/open_source_share.csv"],
