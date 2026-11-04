@@ -559,6 +559,20 @@ of 430 priced models; the author basis excludes six open-weight models whose
 makers do not serve them, a one-sided exclusion; and the blend ratio is an
 assumption rather than a measurement.
 
+## Buyer concentration pillar source map
+
+Drafted 2026-11-04 and kept in its own file,
+[buyer_concentration_source_map.md](buyer_concentration_source_map.md),
+because it is a proposal awaiting the owner's approval rather than settled
+method. In short: the pillar reads customer concentration and RPO from the
+sellers' SEC filings, since the frontier-lab buyers are private and never
+disclose their own spend. It is mostly a neocloud pillar, led by CoreWeave and
+Applied Digital, with Oracle's RPO as the one usable hyperscaler series. All
+sources are free and already reachable, so unlike credit it has no access gap.
+The open question the owner has to settle first is whether to treat a
+hyperscaler buying on a lab's behalf, such as Microsoft for OpenAI, as a
+frontier-lab buyer or to report only what filings name.
+
 ## Credit pillar source map
 
 Mapped 2026-10-30. Nothing collected yet and no collector built. This section
