@@ -1,0 +1,46 @@
+{
+  "_id": "69d72d8ce78f7c4dde47d03c",
+  "author": "SakanaAI",
+  "config": {},
+  "createdAt": "2026-04-09T04:39:40.000Z",
+  "disabled": false,
+  "downloads": 343,
+  "gated": false,
+  "id": "SakanaAI/kame",
+  "lastModified": "2026-04-27T06:47:39.000Z",
+  "likes": 44,
+  "modelId": "SakanaAI/kame",
+  "private": false,
+  "safetensors": {
+    "parameters": {
+      "F32": 7818805248
+    },
+    "total": 7818805248
+  },
+  "sha": "6a1991083df83377c03b55e149e55210b4b30dd0",
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "config.json"
+    },
+    {
+      "rfilename": "model.safetensors"
+    },
+    {
+      "rfilename": "moshi_lm_kwargs.json"
+    }
+  ],
+  "spaces": [],
+  "tags": [
+    "safetensors",
+    "arxiv:2510.02327",
+    "arxiv:2410.00037",
+    "region:us"
+  ],
+  "usedStorage": 31275273448
+}

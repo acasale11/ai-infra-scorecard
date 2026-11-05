@@ -24,11 +24,15 @@ counts for anything. If the namespace is unknown, wrong, or empty, the model
 falls to step 5 and stays unclassified with the reason recorded. Nothing is
 classified from memory.
 
-Tiers come from benchmarks.artificial_analysis.intelligence_index using the
-frozen absolute bands in config/weight_classes.json. Price is never an input,
+Tiers come from the Artificial Analysis intelligence index, collected directly
+by scripts/collect_aa_index.py and joined by scripts/aa_match.py, using the
+frozen absolute bands in config/weight_classes.json. The bands are unchanged
+from when they were frozen on 2026-10-30; only the score source moved, from the
+thin slice OpenRouter embedded to the full AA v5 index. Price is never an input,
 which matters because the output of all this is a price comparison.
 
-Usage:
+Run scripts/collect_aa_index.py for the same date first, or every model lands
+unscored. Usage:
     python scripts/classify_weights.py
     python scripts/classify_weights.py --date 2026-10-30 --offline
 """
@@ -46,10 +50,13 @@ import urllib.error
 import urllib.parse
 import urllib.request
 
+import aa_match
+
 CONFIG = "config/weight_classes.json"
 RAW_DIR = "data/raw/openrouter"
 HF_CACHE_DIR = "data/raw/huggingface"
 DEST = "data/model_classification.csv"
+AA_INDEX = "data/aa_intelligence_index.csv"
 HF_API = "https://huggingface.co/api/models"
 USER_AGENT = "ai-infra-scorecard research collector"
 
@@ -221,6 +228,17 @@ def main():
     with open(raw_path, encoding="utf-8") as fh:
         models = json.load(fh)["data"]
 
+    # Capability scores from Artificial Analysis, joined by name. Missing for the
+    # date means collect_aa_index did not run, and silently unscoring every model
+    # is worse than stopping.
+    aa_rows = aa_match.load_aa_rows(AA_INDEX, args.date)
+    if not aa_rows:
+        sys.exit("no Artificial Analysis index for %s in %s. Run "
+                 "collect_aa_index.py first." % (args.date, AA_INDEX))
+    aa_lookup = aa_match.build_lookup(aa_rows)
+    aa_override = aa_match.load_override()
+    index_version = aa_rows[0].get("index_version", "")
+
     cache_dir = os.path.join(HF_CACHE_DIR, args.date)
     namespaces = {}
 
@@ -282,9 +300,13 @@ def main():
                     evidence = ("namespace %s returned no repo with weight "
                                 "files, so a miss proves nothing" % ns.ns)
 
-        aa = (m.get("benchmarks") or {}).get("artificial_analysis") or {}
-        idx = aa.get("intelligence_index")
-        tier, tier_basis = tier_for(idx, bands)
+        idx, match_evidence = aa_match.match_model(mid, aa_lookup, aa_override)
+        tier, band_reason = tier_for(idx, bands)
+        if idx is None:
+            tier_basis = match_evidence
+        else:
+            tier_basis = "%s; %s; AA index v%s" % (
+                match_evidence, band_reason, index_version)
 
         counts[cls] += 1
         rows.append({

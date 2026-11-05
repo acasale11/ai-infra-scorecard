@@ -1,0 +1,111 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen3"
+    },
+    "created": 1753972379,
+    "description": "Qwen3-Coder-30B-A3B-Instruct is a 30.5B parameter Mixture-of-Experts (MoE) model with 128 experts (8 active per forward pass), designed for advanced code generation, repository-scale understanding, and agentic tool use. Built on the...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-coder-30b-a3b-instruct",
+        "model_name": "Qwen: Qwen3 Coder 30B A3B Instruct",
+        "name": "SiliconFlow | qwen/qwen3-coder-30b-a3b-instruct",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000028",
+          "discount": 0,
+          "prompt": "0.00000007"
+        },
+        "provider_name": "SiliconFlow",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "structured_outputs",
+          "response_format",
+          "temperature",
+          "top_p",
+          "top_k",
+          "frequency_penalty",
+          "tools",
+          "tool_choice",
+          "max_tokens"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "siliconflow/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 98.64649681528662,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-coder-30b-a3b-instruct",
+        "model_name": "Qwen: Qwen3 Coder 30B A3B Instruct",
+        "name": "Amazon Bedrock | qwen/qwen3-coder-30b-a3b-instruct",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000006",
+          "discount": 0,
+          "prompt": "0.00000015"
+        },
+        "provider_name": "Amazon Bedrock",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "top_k",
+          "stop",
+          "tool_choice",
+          "tools"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "amazon-bedrock/us-west-2",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "qwen/qwen3-coder-30b-a3b-instruct",
+    "name": "Qwen: Qwen3 Coder 30B A3B Instruct"
+  }
+}

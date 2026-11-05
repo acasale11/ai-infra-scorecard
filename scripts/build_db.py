@@ -27,6 +27,7 @@ TABLES = {
     "price_verification": "data/price_verification.csv",
     "price_bases": "data/price_bases.csv",
     "elasticity_prices": "data/elasticity_prices.csv",
+    "aa_intelligence_index": "data/aa_intelligence_index.csv",
     "credit_unmapped": "data/credit_unmapped.csv",
 }
 DEFAULT_DB = "data/research.db"

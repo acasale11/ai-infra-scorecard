@@ -67,7 +67,9 @@
       }
     ],
     "frozen_on": "2026-10-30",
-    "source": "Artificial Analysis intelligence index, as carried in the OpenRouter models API payload"
+    "rebased_on": "2026-11-04",
+    "source": "Artificial Analysis intelligence index v5, from the AA data API, joined by scripts/aa_match.py. Where AA scores several reasoning configurations for one model, the highest is used.",
+    "_rebase_note": "The band boundaries are unchanged from when they were frozen on 2026-10-30. Only the score source moved, from the thin slice OpenRouter embedded in its payload to the full AA v5 index collected directly. See docs/decisions.md, 2026-11-04."
   },
   "blend": {
     "_comment": "Input-to-output token ratio for the blended price. blended = (R * input_price + output_price) / (R + 1), a price per million tokens of mixed traffic at R input tokens per output token. There is no public token mix for the OpenRouter catalogue, so R is an assumption, not a measurement. The base of 5:1 is a mid estimate for chat and agentic traffic, where prompts and retrieved context outweigh generated text. The sensitivity ratios bracket it: 1:1 for generation-heavy work such as translation or drafting, 20:1 for retrieval and long-context agentic work. Every published figure must name the ratio it used.",

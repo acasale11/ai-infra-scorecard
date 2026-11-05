@@ -1,0 +1,129 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1768833913,
+    "description": "As a 30B-class SOTA model, GLM-4.7-Flash offers a new option that balances performance and efficiency. It is further optimized for agentic coding use cases, strengthening coding capabilities, long-horizon task planning,...",
+    "endpoints": [
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 117964,
+        "max_prompt_tokens": null,
+        "model_id": "z-ai/glm-4.7-flash",
+        "model_name": "Z.ai: GLM 4.7 Flash",
+        "name": "Cloudflare | z-ai/glm-4.7-flash-20260119",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000004",
+          "discount": 0,
+          "prompt": "0.0000000605"
+        },
+        "provider_name": "Cloudflare",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "top_k",
+          "seed",
+          "repetition_penalty",
+          "frequency_penalty",
+          "presence_penalty",
+          "tools",
+          "tool_choice",
+          "structured_outputs",
+          "response_format",
+          "min_p",
+          "stop",
+          "logit_bias",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "cloudflare",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.86111111111111,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 200000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 128000,
+        "max_prompt_tokens": null,
+        "model_id": "z-ai/glm-4.7-flash",
+        "model_name": "Z.ai: GLM 4.7 Flash",
+        "name": "Novita | z-ai/glm-4.7-flash-20260119",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000004",
+          "discount": 0,
+          "input_cache_read": "0.00000001",
+          "prompt": "0.00000007"
+        },
+        "provider_name": "Novita",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": -5,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "seed",
+          "top_k",
+          "repetition_penalty",
+          "tools",
+          "tool_choice",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": false,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "novita/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 1.875,
+        "uptime_last_30m": 3.3333333333333335,
+        "uptime_last_5m": 0
+      }
+    ],
+    "id": "z-ai/glm-4.7-flash",
+    "name": "Z.ai: GLM 4.7 Flash"
+  }
+}

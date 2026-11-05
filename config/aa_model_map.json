@@ -1,0 +1,9 @@
+{
+  "_comment": "Manual matches from OpenRouter model ids to Artificial Analysis models, for names that do not line up by normalization alone. The key is an OpenRouter model id or its family (the part after the slash, without a :suffix). The value is the AA slug or model name to score it from; the matcher then uses that base model's highest-scoring reasoning variant. See scripts/aa_match.py. Keys starting with an underscore are comments and ignored. Seeded so that every model scored under the old OpenRouter-embedded basis keeps a score under Artificial Analysis, with no coverage regression.",
+  "_format": "\"openrouter-id-or-family\": \"aa-slug-or-name\"",
+  "_note_snapshots": "These four were scored under the old basis and differ from the AA name only by a date or snapshot suffix. mistral-small-2603 to Mistral Small 4 is the least certain of the four and is recorded here so it can be checked. upstage/solar-pro4 is deliberately absent: Artificial Analysis does not score it in the free catalogue, so it drops under the single-source basis, recorded in the decision log.",
+  "mistral-large-4-0": "Mistral Large 4",
+  "qwen3.8-max-0902": "Qwen3.8 Max",
+  "muse-glimmer-30b": "Muse Glimmer",
+  "mistral-small-2603": "Mistral Small 4"
+}

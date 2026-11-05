@@ -1,0 +1,70 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "instruct_type": null,
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen3"
+    },
+    "created": 1788890061,
+    "description": "Nex-N2.5 is an agentic model built to turn goals into working, verified outcomes. Its core strength is agentic coding within a visual feedback loop: it can explore codebases, implement multi-file...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 235929,
+        "max_prompt_tokens": null,
+        "model_id": "nex-agi/nex-n2.5-mini",
+        "model_name": "Nex AGI: Nex-N2.5-Mini",
+        "name": "Nex AGI | nex-agi/nex-n2.5-mini-20260908",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000001",
+          "discount": 0,
+          "input_cache_read": "0.0000000025",
+          "prompt": "0.000000025"
+        },
+        "provider_name": "Nex AGI",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_k",
+          "top_p",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "nex-agi/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.36440677966102,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "nex-agi/nex-n2.5-mini",
+    "name": "Nex AGI: Nex-N2.5-Mini"
+  }
+}

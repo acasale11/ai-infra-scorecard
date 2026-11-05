@@ -1262,6 +1262,51 @@ Cost: two frontier-lab figures to carry and explain rather than one, and a
 pillar that depends on inconsistent disclosure, where a seller names a customer
 only when it chooses to or accounting forces it.
 
+### The capability index was re-based to Artificial Analysis v5 directly
+
+The tiers used to read whatever intelligence index Artificial Analysis carried
+inside the OpenRouter payload, which covered 54 of 430 priced models and had no
+version label, so it could neither be cited nor checked. With a free AA data API
+key the index now comes straight from the source: `collect_aa_index.py` pulls
+the full free catalogue, `aa_match.py` joins it to OpenRouter ids, and
+`classify_weights.py` scores from that.
+
+Three sub-decisions. The tier boundaries stay exactly where they were frozen on
+2026-10-30, so this is a better source under the same lines, not a re-cut. Where
+AA scores several reasoning configurations for one model, the highest is used
+and recorded, because the tiers answer whether a model can reach a tier at all.
+Matching is conservative in the weight-classifier's spirit: an unambiguous
+normalized match or an explicit `config/aa_model_map.json` entry, else unscored
+with a reason, never a guess.
+
+The map is seeded so no model scored under the old basis lost its score, with
+one recorded exception: `upstage/solar-pro4`, which Artificial Analysis does not
+score in the free catalogue, so it drops rather than being matched to something
+it is not. On the 2026-11-04 run the scored count rose from 54 to 71, and the
+tiered share of priced models from 35 to 47.
+
+Cost: an API key the weekly run now needs, a name-matching layer that is the
+main failure surface and is mitigated by recording the matched slug and variant
+on every row, and a documented basis break, since historical rows keep the old
+OpenRouter-embedded scores and are not rewritten.
+
+### An open-weight model crossed the frontier line, and it was not the re-base
+
+The same 2026-11-04 run flipped `moonshotai/kimi-k3.1-pro` from closed to open
+weights: on 2026-11-02 OpenRouter gave it no Hugging Face id and the Moonshot
+namespace held no weights repo for it, and on 2026-11-04 OpenRouter returned the
+id `moonshotai/Kimi-K3.1-Pro`. At an index near 46 it sits above the frontier
+floor of 45, which would reverse the standing finding that no open-weight model
+reaches the frontier tier.
+
+This is recorded carefully because it is easy to misattribute. The re-base did
+not cause it: Kimi scored about 46 under both the old and new bases, a move of
+half a point. What changed is the weight classification, on a real signal from
+OpenRouter, not the capability score. Before this is treated as established it
+needs the obvious check the step-one rule skips: that the Hugging Face repo
+actually hosts open weights rather than a gated or inference-only listing. It is
+flagged for that check, and it bears directly on the B015 watch item.
+
 ## Open questions
 
 Carried forward until resolved. Resolving one is a new dated entry, not an
@@ -1282,13 +1327,17 @@ edit here.
   be mapped in `config/weight_classes.json`, and whether the 17 hosted
   variants of open bases deserve a class of their own rather than sitting in
   unclassified.
-- Whether a second capability source is needed, given only 54 of 430 priced
-  models carry an Artificial Analysis index, and given at least one index
-  value (`moonshotai/kimi-k3`) looks stale.
+- RESOLVED 2026-11-04: the capability index is now collected from the
+  Artificial Analysis data API directly rather than the slice OpenRouter
+  embeds, raising scored priced models from 35 to 47 and giving a versioned,
+  citable source. See the dated entry above.
 - Whether tier medians should be reported at all below some minimum sample
   size, or replaced with the full distribution.
 - B015 watch item: whether the gap between the highest open-weight
-  intelligence index and the frontier floor closes, holds or widens.
+  intelligence index and the frontier floor closes, holds or widens. UPDATE
+  2026-11-04: it may have crossed. `moonshotai/kimi-k3.1-pro` flipped to open
+  weights at an index near 46, above the 45 floor. Pending the check that its
+  Hugging Face repo actually hosts open weights. See the dated entry above.
 - RESOLVED 2026-11-03: per-model prices moved to `data/elasticity_prices.csv`
   and the pillar file now holds only the mid-tier aggregate. See the dated
   entry above.

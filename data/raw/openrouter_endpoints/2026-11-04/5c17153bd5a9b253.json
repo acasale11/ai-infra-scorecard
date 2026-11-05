@@ -1,0 +1,73 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1741636566,
+    "description": "Skyfall 36B v2 is an enhanced iteration of Mistral Small 2501, specifically fine-tuned for improved creativity, nuanced writing, role-playing, and coherent storytelling.",
+    "endpoints": [
+      {
+        "context_length": 32768,
+        "latency_last_30m": null,
+        "max_completion_tokens": 29491,
+        "max_prompt_tokens": null,
+        "model_id": "thedrummer/skyfall-36b-v2",
+        "model_name": "TheDrummer: Skyfall 36B V2",
+        "name": "Parasail | thedrummer/skyfall-36b-v2",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000008",
+          "discount": 0,
+          "input_cache_read": "0.00000025",
+          "prompt": "0.00000055"
+        },
+        "provider_name": "Parasail",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "top_k",
+          "logit_bias",
+          "response_format",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "parasail/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.75062344139651,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "thedrummer/skyfall-36b-v2",
+    "name": "TheDrummer: Skyfall 36B V2"
+  }
+}

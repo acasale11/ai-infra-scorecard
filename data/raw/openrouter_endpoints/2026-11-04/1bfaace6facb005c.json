@@ -1,0 +1,68 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": "gemma",
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Gemini"
+    },
+    "created": 1720828800,
+    "description": "Gemma 2 27B by Google is an open model built from the same research and technology used to create the [Gemini models](/models?q=gemini). Gemma models are well-suited for a variety of...",
+    "endpoints": [
+      {
+        "context_length": 8192,
+        "latency_last_30m": null,
+        "max_completion_tokens": 2048,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemma-2-27b-it",
+        "model_name": "Google: Gemma 2 27B",
+        "name": "NextBit | google/gemma-2-27b-it",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000065",
+          "discount": 0,
+          "prompt": "0.00000065"
+        },
+        "provider_name": "NextBit",
+        "quantization": "int4",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "response_format",
+          "structured_outputs",
+          "repetition_penalty",
+          "seed"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "nextbit/int4",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.85326485693324,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "google/gemma-2-27b-it",
+    "name": "Google: Gemma 2 27B"
+  }
+}

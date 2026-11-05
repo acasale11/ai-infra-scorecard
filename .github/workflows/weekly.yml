@@ -41,6 +41,10 @@ jobs:
       SEC_USER_AGENT: ${{ secrets.SEC_USER_AGENT }}
       OPENROUTER_API_KEY: ${{ secrets.OPENROUTER_API_KEY }}
       FRED_API_KEY: ${{ secrets.FRED_API_KEY }}
+      # Capability scores. Unlike the others this one is required: without the
+      # key, classify_weights leaves every model unscored. Add it as a repo
+      # secret named ARTIFICIAL_ANALYSIS_API_KEY.
+      ARTIFICIAL_ANALYSIS_API_KEY: ${{ secrets.ARTIFICIAL_ANALYSIS_API_KEY }}
 
     steps:
       - uses: actions/checkout@v4
@@ -81,6 +85,8 @@ jobs:
           # so a failure early will cascade. The cascade is reported rather
           # than hidden, which is the point of collecting every exit code.
           run_step "collect_openrouter" python scripts/collect_openrouter.py --date "$RUN_DATE"
+          # Capability scores from Artificial Analysis, needed before classify.
+          run_step "collect_aa_index" python scripts/collect_aa_index.py --date "$RUN_DATE"
           run_step "classify_weights" python scripts/classify_weights.py --date "$RUN_DATE"
           run_step "verify_prices" python scripts/verify_prices.py --date "$RUN_DATE"
           run_step "price_bases" python scripts/price_bases.py --date "$RUN_DATE"

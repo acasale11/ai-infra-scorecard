@@ -244,9 +244,21 @@ every open model against the median of every closed model mixes a tier
 effect into what looks like a weights effect, because the two populations sit
 at different points on the capability range.
 
-Tiers come from `benchmarks.artificial_analysis.intelligence_index`, carried
-in the OpenRouter payload. Price is never an input, which matters because the
-output of the exercise is a price comparison.
+Tiers come from the Artificial Analysis intelligence index v5, collected
+directly from the AA data API by `scripts/collect_aa_index.py` and joined to
+OpenRouter model ids by `scripts/aa_match.py`. Until 2026-11-04 the score was
+the thinner slice AA carried inside the OpenRouter payload, which covered about
+an eighth of the catalogue and was unversioned; re-basing to AA directly raised
+the scored count and gave one citable, versioned source. Price is never an
+input, which matters because the output of the exercise is a price comparison.
+
+AA scores each reasoning configuration separately, for example GPT-6 Sol at Low
+and High. A model is attached to its highest-scoring variant, recorded on the
+row, since the question the tiers serve is whether a model can reach a tier at
+all. Matching is conservative: an unambiguous normalized match or an explicit
+entry in `config/aa_model_map.json`, else the model stays unscored with a
+reason, never guessed. The map is seeded so no model scored under the old basis
+lost its score, with one deliberate exception recorded in the decision log.
 
 | tier | index |
 | --- | --- |
@@ -260,11 +272,14 @@ on 2026-10-30 at the two widest gaps in that day's distribution, nothing
 scored between 40.0 and 44.9, and they are frozen in
 `config/weight_classes.json`. Re-tuning bands after seeing a result is how a
 comparison gets talked into saying what you wanted, so the bands do not get
-revisited to accommodate a finding.
+revisited to accommodate a finding. The 2026-11-04 re-base to AA v5 kept these
+boundaries unchanged; only the score source moved.
 
-Only 54 of 430 priced models carry an index. The tier comparison is therefore
-a comparison of the scored subset, not of the catalogue, and the chart says
-so. Base SKUs only: `:batch` and `:free` are the same model at a discounted
+The index covered 54 of 430 priced models under the old OpenRouter-embedded
+basis. The direct AA v5 source raised that: on the 2026-11-04 run, 71 models
+carry an index and 47 of the priced models are tiered. The tier comparison is
+still a comparison of the scored subset, not of the catalogue, and the chart
+says so. Base SKUs only: `:batch` and `:free` are the same model at a discounted
 or promotional price and would double count. Unclassified models are excluded
 from both sides rather than folded into either.
 
