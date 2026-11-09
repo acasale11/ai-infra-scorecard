@@ -1,0 +1,222 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "instruct_type": "gemma",
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Gemini"
+    },
+    "created": 1741902625,
+    "description": "Gemma 3 introduces multimodality, supporting vision-language input and text outputs. It handles context windows up to 128k tokens, understands over 140 languages, and offers improved math, reasoning, and chat capabilities,...",
+    "endpoints": [
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 117964,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemma-3-12b-it",
+        "model_name": "Google: Gemma 3 12B",
+        "name": "DeepInfra | google/gemma-3-12b-it",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000012",
+          "discount": 0,
+          "prompt": "0.00000004"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": "flex",
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16/flex",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 0,
+        "uptime_last_30m": 0,
+        "uptime_last_5m": null
+      },
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16384,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemma-3-12b-it",
+        "model_name": "Google: Gemma 3 12B",
+        "name": "DeepInfra | google/gemma-3-12b-it",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000015",
+          "discount": 0,
+          "prompt": "0.00000005"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "structured_outputs",
+          "tools",
+          "tool_choice",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": false,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 73.52941176470588,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      },
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 117964,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemma-3-12b-it",
+        "model_name": "Google: Gemma 3 12B",
+        "name": "NextBit | google/gemma-3-12b-it",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000015",
+          "discount": 0,
+          "input_cache_read": "0.00000005",
+          "prompt": "0.000000075"
+        },
+        "provider_name": "NextBit",
+        "quantization": "int4",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "response_format",
+          "structured_outputs",
+          "repetition_penalty",
+          "seed"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "nextbit/int4",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 117964,
+        "max_prompt_tokens": null,
+        "model_id": "google/gemma-3-12b-it",
+        "model_name": "Google: Gemma 3 12B",
+        "name": "DeepInfra | google/gemma-3-12b-it",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000000225",
+          "discount": 0,
+          "prompt": "0.000000075"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "bf16",
+        "service_tier": "priority",
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "logit_bias",
+          "response_format",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/bf16/priority",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 31.041666666666668,
+        "uptime_last_30m": 93.33333333333333,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "google/gemma-3-12b-it",
+    "name": "Google: Gemma 3 12B"
+  }
+}

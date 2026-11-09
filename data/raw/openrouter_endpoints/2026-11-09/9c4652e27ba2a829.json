@@ -1,0 +1,70 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Cohere"
+    },
+    "created": 1724976000,
+    "description": "command-r-08-2024 is an update of the [Command R](/models/cohere/command-r) with improved performance for multilingual retrieval-augmented generation (RAG) and tool use. More broadly, it is better at math, code and reasoning and...",
+    "endpoints": [
+      {
+        "context_length": 128000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 4000,
+        "max_prompt_tokens": null,
+        "model_id": "cohere/command-r-08-2024",
+        "model_name": "Cohere: Command R (08-2024)",
+        "name": "Cohere | cohere/command-r-08-2024",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000006",
+          "discount": 0,
+          "prompt": "0.00000015"
+        },
+        "provider_name": "Cohere",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "top_k",
+          "seed",
+          "structured_outputs",
+          "response_format",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "cohere",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.68944099378882,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "cohere/command-r-08-2024",
+    "name": "Cohere: Command R (08-2024)"
+  }
+}

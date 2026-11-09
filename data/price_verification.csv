@@ -116,3 +116,55 @@ date,model_id,org,weight_class,headline_input,headline_output,headline_provider,
 2026-11-04,xiaomi/mimo-v2.6-pro,xiaomi,open_weights,0.435000,0.870000,GMICloud (gmicloud/bf16),Xiaomi (xiaomi/fp8),0.435000,0.870000,fp8,1.00,5,0,ok,
 2026-11-04,z-ai/glm-5.3,z-ai,open_weights,0.069900,1.400000,Baidu (baidu/fp8),Z.AI (z-ai/fp8),1.400000,4.400000,fp8,3.14,49,0,headline_below_first_party,"headline is Baidu at 0.070 in / 1.400 out; author standard tier is 1.400 / 4.400 (input 20.0x, output 3.1x more)"
 2026-11-04,z-ai/glm-5.3-flash,z-ai,open_weights,0.150000,0.500000,OpenInference (open-inference/fp4),Z.AI (z-ai/fp8),0.150000,0.500000,fp8,1.00,40,0,ok,
+2026-11-09,anthropic/claude-fable-5.1,anthropic,closed_weights,10.000000,50.000000,Azure (azure),Anthropic (anthropic),10.000000,50.000000,unknown,1.00,4,0,ok,
+2026-11-09,anthropic/claude-fable-5.2,anthropic,closed_weights,8.000000,40.000000,Google (google-vertex/global),Anthropic (anthropic),8.000000,40.000000,unknown,1.00,5,0,ok,
+2026-11-09,anthropic/claude-haiku-5.5,anthropic,closed_weights,0.100000,0.500000,Google (google-vertex/global),Anthropic (anthropic),0.100000,0.500000,unknown,1.00,10,0,ok,
+2026-11-09,anthropic/claude-opus-5,anthropic,closed_weights,5.000000,25.000000,Claude Platform on AWS (claude-on-aws),Anthropic (anthropic),5.000000,25.000000,unknown,1.00,11,0,ok,
+2026-11-09,anthropic/claude-opus-5.5,anthropic,closed_weights,4.000000,20.000000,Amazon Bedrock (amazon-bedrock),Anthropic (anthropic),4.000000,20.000000,unknown,1.00,11,0,ok,
+2026-11-09,anthropic/claude-sonnet-5.5,anthropic,closed_weights,2.000000,10.000000,Google (google-vertex/global),Anthropic (anthropic),2.000000,10.000000,unknown,1.00,10,0,ok,
+2026-11-09,cohere/command-a,cohere,open_weights,2.500000,10.000000,Cohere (cohere),Cohere (cohere),2.500000,10.000000,unknown,1.00,1,0,ok,
+2026-11-09,cohere/command-a-plus,cohere,open_weights,0.300000,1.500000,Cohere (cohere),Cohere (cohere),0.300000,1.500000,unknown,1.00,1,0,ok,
+2026-11-09,deepseek/deepseek-v4-pro,deepseek,open_weights,0.888966,1.777932,Relace (relace/fp4),,,,,,15,0,no_first_party_endpoint,no standard-tier endpoint operated by deepseek; cheapest overall is Relace
+2026-11-09,deepseek/deepseek-v4-pro-0813,deepseek,open_weights,0.111000,4.440000,Sail Research (sail-research/us),DeepSeek (deepseek),0.660000,1.980000,unknown,0.45,26,0,headline_below_first_party,"headline is Sail Research at 0.111 in / 4.440 out; author standard tier is 0.660 / 1.980 (input 5.9x, output 0.4x more)"
+2026-11-09,deepseek/deepseek-v4.1-flash-1017,deepseek,open_weights,0.006000,0.500000,Sail Research (sail-research/fp4/us),DeepSeek (deepseek),0.150000,0.600000,unknown,1.20,42,0,headline_below_first_party,"headline is Sail Research at 0.006 in / 0.500 out; author standard tier is 0.150 / 0.600 (input 25.0x, output 1.2x more)"
+2026-11-09,google/gemini-3.1-flash-lite,google,closed_weights,0.250000,1.500000,Google (google-vertex/global/flex),Google AI Studio (google-ai-studio),0.250000,1.500000,unknown,1.00,8,0,ok,
+2026-11-09,google/gemini-3.1-flash-lite-preview,google,closed_weights,0.250000,1.500000,Google AI Studio (google-ai-studio/flex),Google AI Studio (google-ai-studio),0.250000,1.500000,unknown,1.00,3,0,ok,
+2026-11-09,google/gemini-3.5-flash-lite,google,closed_weights,0.300000,2.500000,Google (google-vertex/global/flex),Google AI Studio (google-ai-studio),0.300000,2.500000,unknown,1.00,8,0,ok,
+2026-11-09,google/gemini-3.8-flash,google,closed_weights,0.825000,4.125000,Google AI Studio (google-ai-studio/flex),Google AI Studio (google-ai-studio),0.750000,3.750000,unknown,0.91,7,0,ok,
+2026-11-09,google/gemini-4-argon,google,closed_weights,2.000000,10.000000,Google AI Studio (google-ai-studio/flex),Google (google-vertex/global),2.000000,10.000000,unknown,1.00,6,0,ok,
+2026-11-09,ibm-granite/granite-4.2-8b,ibm-granite,open_weights,0.060000,0.250000,CoreWeave (coreweave/bf16),,,,,,2,0,no_first_party_endpoint,no standard-tier endpoint operated by ibm-granite; cheapest overall is CoreWeave
+2026-11-09,meta/muse-ember,meta,closed_weights,0.100000,0.500000,Meta (meta),Meta (meta),0.100000,0.500000,unknown,1.00,1,0,ok,
+2026-11-09,meta/muse-glimmer-30b,meta,open_weights,0.300000,1.200000,DeepInfra (deepinfra/bf16),,,,,,1,0,no_first_party_endpoint,no standard-tier endpoint operated by meta; cheapest overall is DeepInfra
+2026-11-09,meta/muse-spark-1.3,meta,closed_weights,1.250000,4.250000,Meta (meta),Meta (meta),1.250000,4.250000,unknown,1.00,1,0,ok,
+2026-11-09,meta/muse-spark-open,meta,open_weights,1.250000,4.250000,Fireworks (fireworks/us),,,,,,6,0,no_first_party_endpoint,no standard-tier endpoint operated by meta; cheapest overall is Fireworks
+2026-11-09,meta/muse-wonder,meta,closed_weights,4.000000,20.000000,Meta (meta),Meta (meta),4.000000,20.000000,unknown,1.00,1,0,ok,
+2026-11-09,minimax/minimax-m3,minimax,open_weights,0.300000,1.200000,DeepInfra (deepinfra/fp8/flex),Minimax (minimax),0.300000,1.200000,unknown,1.00,13,0,ok,
+2026-11-09,minimax/minimax-m3.1-flash,minimax,open_weights,0.075000,0.300000,SambaNova (sambanova),Minimax (minimax),0.075000,0.300000,unknown,1.00,13,0,ok,
+2026-11-09,mistralai/mistral-large-4-0,mistralai,open_weights,0.700000,2.100000,Mistral (mistral/zdr),Mistral (mistral/zdr),0.700000,2.100000,unknown,1.00,3,0,ok,
+2026-11-09,mistralai/mistral-medium-3-5,mistralai,closed_weights,1.500000,7.500000,Mistral (mistral/zdr),Mistral (mistral/zdr),1.500000,7.500000,unknown,1.00,2,0,ok,
+2026-11-09,mistralai/mistral-small-2603,mistralai,open_weights,0.150000,0.600000,Mistral (mistral/zdr),Mistral (mistral/zdr),0.150000,0.600000,unknown,1.00,4,0,ok,
+2026-11-09,moonshotai/kimi-k3,moonshotai,open_weights,0.192000,16.000000,InferenceNet (inference-net/us),Moonshot AI (moonshotai),3.000000,15.000000,unknown,0.94,30,0,headline_below_first_party,"headline is InferenceNet at 0.192 in / 16.000 out; author standard tier is 3.000 / 15.000 (input 15.6x, output 0.9x more)"
+2026-11-09,moonshotai/kimi-k3.1-pro,moonshotai,open_weights,2.000000,10.000000,Moonshot AI (moonshotai/mxfp4),Moonshot AI (moonshotai/mxfp4),2.000000,10.000000,mxfp4,1.00,2,0,ok,
+2026-11-09,nvidia/nemotron-3-ultra-550b-a55b,nvidia,open_weights,0.600000,2.400000,DeepInfra (deepinfra/fp4/flex),,,,,,5,0,no_first_party_endpoint,no standard-tier endpoint operated by nvidia; cheapest overall is DeepInfra
+2026-11-09,nvidia/nemotron-3.5-lightning,nvidia,open_weights,0.070000,0.200000,Darkbloom (darkbloom/int4),,,,,,4,0,no_first_party_endpoint,no standard-tier endpoint operated by nvidia; cheapest overall is Darkbloom
+2026-11-09,nvidia/nemotron-3.5-super-vl,nvidia,open_weights,0.150000,0.470000,Darkbloom (darkbloom/nvfp4),,,,,,9,0,no_first_party_endpoint,no standard-tier endpoint operated by nvidia; cheapest overall is Darkbloom
+2026-11-09,openai/gpt-5.6-luna,openai,closed_weights,0.200000,1.200000,OpenAI (openai/flex),OpenAI (openai),0.200000,1.200000,unknown,1.00,8,0,ok,
+2026-11-09,openai/gpt-5.6-terra,openai,closed_weights,2.000000,12.000000,OpenAI (openai/flex),OpenAI (openai),2.000000,12.000000,unknown,1.00,7,0,ok,
+2026-11-09,openai/gpt-6-astra,openai,closed_weights,10.000000,50.000000,OpenAI (openai/flex),OpenAI (openai),10.000000,50.000000,unknown,1.00,8,0,ok,
+2026-11-09,openai/gpt-6-luna,openai,closed_weights,0.100000,0.500000,OpenAI (openai/flex),OpenAI (openai),0.100000,0.500000,unknown,1.00,7,0,ok,
+2026-11-09,openai/gpt-6-sol,openai,closed_weights,2.000000,10.000000,OpenAI (openai/flex),OpenAI (openai),2.000000,10.000000,unknown,1.00,8,0,ok,
+2026-11-09,openai/gpt-6.1-sol,openai,closed_weights,2.000000,10.000000,OpenAI (openai/flex),OpenAI (openai),2.000000,10.000000,unknown,1.00,9,0,ok,
+2026-11-09,openai/gpt-6.1-terra,openai,closed_weights,1.000000,5.000000,OpenAI (openai/flex),OpenAI (openai),1.000000,5.000000,unknown,1.00,4,0,ok,
+2026-11-09,openai/gpt-oss-120b,openai,open_weights,0.150000,0.600000,Near AI (near-ai/fp4),,,,,,26,0,no_first_party_endpoint,no standard-tier endpoint operated by openai; cheapest overall is Near AI
+2026-11-09,qwen/qwen3.8-27b,qwen,open_weights,0.150000,1.875000,Chutes (chutes/fp8),Alibaba (alibaba),0.425000,2.550000,unknown,1.36,21,0,headline_below_first_party,"headline is Chutes at 0.150 in / 1.875 out; author standard tier is 0.425 / 2.550 (input 2.8x, output 1.4x more)"
+2026-11-09,qwen/qwen3.8-max-0902,qwen,closed_weights,2.000000,6.000000,Alibaba (alibaba/us-east-1),Alibaba (alibaba/us-east-1),2.000000,6.000000,unknown,1.00,2,0,ok,
+2026-11-09,stepfun/step-5-preview,stepfun,open_weights,1.000000,2.700000,GMICloud (gmicloud/fp8),StepFun (stepfun/fp8),1.000000,2.700000,fp8,1.00,3,0,ok,
+2026-11-09,tencent/hy4,tencent,open_weights,0.417000,1.250500,Tencent (tencent/fp4),Tencent (tencent/fp4),0.417000,1.250500,fp4,1.00,1,0,ok,
+2026-11-09,thinkingmachines/inkling,thinkingmachines,open_weights,1.000000,4.050000,Together (together),,,,,,1,0,no_first_party_endpoint,no standard-tier endpoint operated by thinkingmachines; cheapest overall is Together
+2026-11-09,thinkingmachines/inkling-small,thinkingmachines,open_weights,0.450000,1.200000,DeepInfra (deepinfra/fp8),,,,,,1,0,no_first_party_endpoint,no standard-tier endpoint operated by thinkingmachines; cheapest overall is DeepInfra
+2026-11-09,x-ai/grok-4.6,x-ai,closed_weights,2.000000,6.000000,xAI (xai/zdr),xAI (xai/zdr),2.000000,6.000000,unknown,1.00,6,0,ok,
+2026-11-09,x-ai/grok-4.7,x-ai,closed_weights,2.000000,6.000000,xAI (xai/zdr),xAI (xai/zdr),2.000000,6.000000,unknown,1.00,5,0,ok,
+2026-11-09,xiaomi/mimo-v2.6-flash,xiaomi,open_weights,0.140000,0.280000,Relace (relace/mxfp4),Xiaomi (xiaomi/fp8),0.140000,0.280000,fp8,1.00,10,0,ok,
+2026-11-09,xiaomi/mimo-v2.6-pro,xiaomi,open_weights,0.435000,0.870000,GMICloud (gmicloud/bf16),Xiaomi (xiaomi/fp8),0.435000,0.870000,fp8,1.00,5,0,ok,
+2026-11-09,z-ai/glm-5.3,z-ai,open_weights,0.069900,1.400000,Baidu (baidu/fp8),Z.AI (z-ai/fp8),1.400000,4.400000,fp8,3.14,49,0,headline_below_first_party,"headline is Baidu at 0.070 in / 1.400 out; author standard tier is 1.400 / 4.400 (input 20.0x, output 3.1x more)"
+2026-11-09,z-ai/glm-5.3-flash,z-ai,open_weights,0.150000,0.500000,OpenInference (open-inference/fp4),Z.AI (z-ai/fp8),0.150000,0.500000,fp8,1.00,40,0,ok,

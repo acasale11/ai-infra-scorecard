@@ -1,0 +1,179 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": "qwen3",
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen3"
+    },
+    "created": 1745875945,
+    "description": "Qwen3-32B is a dense 32.8B parameter causal language model from the Qwen3 series, optimized for both complex reasoning and efficient dialogue. It supports seamless switching between a \"thinking\" mode for...",
+    "endpoints": [
+      {
+        "context_length": 40960,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16384,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-32b",
+        "model_name": "Qwen: Qwen3 32B",
+        "name": "DeepInfra | qwen/qwen3-32b-04-28",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000028",
+          "discount": 0,
+          "prompt": "0.00000008"
+        },
+        "provider_name": "DeepInfra",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "top_k",
+          "seed",
+          "min_p",
+          "tools",
+          "tool_choice",
+          "structured_outputs",
+          "logit_bias",
+          "response_format"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "deepinfra/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.93055555555556,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 20000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 16400,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-32b",
+        "model_name": "Qwen: Qwen3 32B",
+        "name": "Tenstorrent | qwen/qwen3-32b-04-28",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000004",
+          "discount": 0,
+          "input_cache_read": "0.00000009",
+          "prompt": "0.00000014"
+        },
+        "provider_name": "Tenstorrent",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "temperature",
+          "repetition_penalty",
+          "top_p",
+          "stop",
+          "top_k",
+          "seed",
+          "min_p",
+          "max_tokens",
+          "top_a",
+          "frequency_penalty",
+          "logit_bias",
+          "presence_penalty",
+          "logprobs",
+          "top_logprobs",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "tenstorrent/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 92.78846153846155,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 117964,
+        "max_prompt_tokens": null,
+        "model_id": "qwen/qwen3-32b",
+        "model_name": "Qwen: Qwen3 32B",
+        "name": "SiliconFlow | qwen/qwen3-32b-04-28",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000057",
+          "discount": 0,
+          "prompt": "0.00000014"
+        },
+        "provider_name": "SiliconFlow",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "structured_outputs",
+          "response_format",
+          "temperature",
+          "top_p",
+          "top_k",
+          "frequency_penalty",
+          "tools",
+          "tool_choice",
+          "max_tokens"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "siliconflow/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 92.62865090403338,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "qwen/qwen3-32b",
+    "name": "Qwen: Qwen3 32B"
+  }
+}

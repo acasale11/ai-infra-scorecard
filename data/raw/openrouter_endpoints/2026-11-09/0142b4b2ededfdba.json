@@ -1,0 +1,73 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1758931878,
+    "description": "Uncensored and creative writing model based on Mistral Small 3.2 24B with good recall, prompt adherence, and intelligence.",
+    "endpoints": [
+      {
+        "context_length": 131072,
+        "latency_last_30m": null,
+        "max_completion_tokens": 117964,
+        "max_prompt_tokens": null,
+        "model_id": "thedrummer/cydonia-24b-v4.1",
+        "model_name": "TheDrummer: Cydonia 24B V4.1",
+        "name": "Parasail | thedrummer/cydonia-24b-v4.1",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000005",
+          "discount": 0,
+          "input_cache_read": "0.00000015",
+          "prompt": "0.0000003"
+        },
+        "provider_name": "Parasail",
+        "quantization": "bf16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "top_k",
+          "logit_bias",
+          "response_format",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "parasail/bf16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.71771347918137,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "thedrummer/cydonia-24b-v4.1",
+    "name": "TheDrummer: Cydonia 24B V4.1"
+  }
+}

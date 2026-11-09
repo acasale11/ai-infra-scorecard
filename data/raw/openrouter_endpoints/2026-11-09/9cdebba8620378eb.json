@@ -1,0 +1,134 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "instruct_type": null,
+      "modality": "text+image+video->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen"
+    },
+    "created": 1788469704,
+    "description": "Qwen3.8 Max 0902 is an updated snapshot of Qwen3.8 Max from Alibaba's Qwen team. It is a 2.4-trillion-parameter mixture-of-experts model that accepts text, image, and video input and returns text,...",
+    "endpoints": [
+      {
+        "context_length": 1000000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": 983616,
+        "model_id": "qwen/qwen3.8-max-0902",
+        "model_name": "Qwen: Qwen3.8 Max (0902)",
+        "name": "Alibaba | qwen/qwen3.8-max-20260902",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000006",
+          "discount": 0,
+          "input_cache_read": "0.00000025",
+          "prompt": "0.000002"
+        },
+        "provider_name": "Alibaba",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "presence_penalty",
+          "response_format",
+          "tools",
+          "tool_choice",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs",
+          "top_k",
+          "frequency_penalty",
+          "stop",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "alibaba/us-east-1",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.79166666666667,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1000000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": 983616,
+        "model_id": "qwen/qwen3.8-max-0902",
+        "model_name": "Qwen: Qwen3.8 Max (0902)",
+        "name": "Alibaba | qwen/qwen3.8-max-20260902",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000006",
+          "discount": 0,
+          "input_cache_read": "0.00000025",
+          "input_cache_write": "0.0000025",
+          "prompt": "0.000002"
+        },
+        "provider_name": "Alibaba",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "presence_penalty",
+          "response_format",
+          "tools",
+          "tool_choice",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs",
+          "top_k",
+          "frequency_penalty",
+          "stop",
+          "reasoning_effort"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "alibaba",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.86111111111111,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "qwen/qwen3.8-max-0902",
+    "name": "Qwen: Qwen3.8 Max (0902)"
+  }
+}

@@ -1,0 +1,77 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "instruct_type": null,
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen"
+    },
+    "created": 1792130995,
+    "description": "Ternary Bonsai 2 9B is PrismML\u2019s compact, open-weight language model for conversational AI, reasoning, and tool use. Built on Qwen3.5, it uses ternary weights packed into 2 bits for efficient...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "prism-ml/ternary-bonsai-2-9b",
+        "model_name": "PrismML: Ternary Bonsai 2 9B",
+        "name": "Darkbloom | prism-ml/ternary-bonsai-2-9b-20261015",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000013",
+          "discount": 0,
+          "input_cache_read": "0.00000004",
+          "prompt": "0.00000008"
+        },
+        "provider_name": "Darkbloom",
+        "quantization": "int4",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "temperature",
+          "top_p",
+          "top_k",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "stop",
+          "seed",
+          "max_tokens",
+          "tools",
+          "tool_choice",
+          "response_format",
+          "structured_outputs",
+          "logprobs",
+          "top_logprobs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "darkbloom/int4",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.59514170040485,
+        "uptime_last_30m": null,
+        "uptime_last_5m": null
+      }
+    ],
+    "id": "prism-ml/ternary-bonsai-2-9b",
+    "name": "PrismML: Ternary Bonsai 2 9B"
+  }
+}

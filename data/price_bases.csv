@@ -541,3 +541,189 @@ date,model_id,org,weight_class,intelligence_index,tier,provider_count,endpoint_c
 2026-11-04,z-ai/glm-5.2,z-ai,open_weights,,,24,28,0.436000,1.400000,Morph,fp8,0.436000,1.400000,Morph,fp8,1.400000,4.400000,Z.AI,1.400000,8.000000,5.714
 2026-11-04,z-ai/glm-5.3,z-ai,open_weights,31.7,mid,36,42,0.280000,0.880000,Baidu,fp8,0.280000,0.880000,Baidu,fp8,1.400000,4.400000,Z.AI,0.880000,6.600000,7.500
 2026-11-04,z-ai/glm-5.3-flash,z-ai,open_weights,27.8,mid,36,41,0.028500,0.092300,Relace,fp4,0.061000,0.248000,Morph,fp8,0.150000,0.500000,Z.AI,0.092300,0.750000,8.126
+2026-11-09,anthracite-org/magnum-v4-72b,anthracite-org,open_weights,,,1,1,2.500000,5.000000,Mancer 2,fp8,2.500000,5.000000,Mancer 2,fp8,,,,5.000000,5.000000,1.000
+2026-11-09,anthropic/claude-fable-5.1,anthropic,closed_weights,50.0,frontier,4,4,10.000000,50.000000,Azure,unknown,10.000000,50.000000,Azure,unknown,10.000000,50.000000,Anthropic,50.000000,50.000000,1.000
+2026-11-09,anthropic/claude-fable-5.2,anthropic,closed_weights,64.6,frontier,4,4,8.000000,40.000000,Google,unknown,8.000000,40.000000,Google,unknown,8.000000,40.000000,Anthropic,40.000000,40.000000,1.000
+2026-11-09,anthropic/claude-haiku-5.5,anthropic,closed_weights,36.5,mid,5,10,0.100000,0.500000,Google,unknown,0.100000,0.500000,Google,unknown,0.100000,0.500000,Anthropic,0.500000,0.550000,1.100
+2026-11-09,anthropic/claude-opus-5,anthropic,closed_weights,44.2,mid,5,10,5.000000,25.000000,Claude Platform on AWS,unknown,5.000000,25.000000,Claude Platform on AWS,unknown,5.000000,25.000000,Anthropic,25.000000,27.500000,1.100
+2026-11-09,anthropic/claude-opus-5.5,anthropic,closed_weights,59.1,frontier,5,10,4.000000,20.000000,Amazon Bedrock,unknown,4.000000,20.000000,Amazon Bedrock,unknown,4.000000,20.000000,Anthropic,20.000000,22.000000,1.100
+2026-11-09,anthropic/claude-sonnet-5.5,anthropic,closed_weights,54.5,frontier,5,10,2.000000,10.000000,Google,unknown,2.000000,10.000000,Google,unknown,2.000000,10.000000,Anthropic,10.000000,11.000000,1.100
+2026-11-09,bytedance/ui-tars-1.5-7b,bytedance,open_weights,,,1,1,0.100000,0.200000,Parasail,bf16,0.100000,0.200000,Parasail,bf16,,,,0.200000,0.200000,1.000
+2026-11-09,cognitivecomputations/dolphin-mistral-24b-venice-edition,cognitivecomputations,open_weights,,,1,1,0.200000,0.900000,Venice,fp16,0.200000,0.900000,Venice,fp16,,,,0.900000,0.900000,1.000
+2026-11-09,cohere/command-a,cohere,open_weights,6.2,entry,1,1,2.500000,10.000000,Cohere,unknown,2.500000,10.000000,Cohere,unknown,2.500000,10.000000,Cohere,10.000000,10.000000,1.000
+2026-11-09,cohere/command-a-plus,cohere,open_weights,6.2,entry,1,1,0.300000,1.500000,Cohere,fp8,0.300000,1.500000,Cohere,fp8,0.300000,1.500000,Cohere,1.500000,1.500000,1.000
+2026-11-09,cohere/command-r-08-2024,cohere,open_weights,,,1,1,0.150000,0.600000,Cohere,unknown,0.150000,0.600000,Cohere,unknown,0.150000,0.600000,Cohere,0.600000,0.600000,1.000
+2026-11-09,cohere/command-r-plus-08-2024,cohere,open_weights,,,1,1,2.500000,10.000000,Cohere,unknown,2.500000,10.000000,Cohere,unknown,2.500000,10.000000,Cohere,10.000000,10.000000,1.000
+2026-11-09,cohere/command-r7b-12-2024,cohere,open_weights,,,1,1,0.037500,0.150000,Cohere,unknown,0.037500,0.150000,Cohere,unknown,0.037500,0.150000,Cohere,0.150000,0.150000,1.000
+2026-11-09,deepseek/deepseek-chat,deepseek,open_weights,,,2,2,0.320000,0.890000,DeepInfra,fp4,0.257400,1.028700,StreamLake,unknown,,,,0.890000,1.028700,1.156
+2026-11-09,deepseek/deepseek-chat-v3-0324,deepseek,open_weights,,,2,2,0.250000,1.000000,SiliconFlow,fp8,0.250000,1.000000,SiliconFlow,fp8,,,,1.000000,1.140000,1.140
+2026-11-09,deepseek/deepseek-chat-v3.1,deepseek,open_weights,,,4,4,0.250000,0.950000,DeepInfra,fp4,0.270000,1.000000,SiliconFlow,fp8,,,,0.950000,1.500000,1.579
+2026-11-09,deepseek/deepseek-r1-0528,deepseek,open_weights,,,3,3,0.500000,2.150000,DeepInfra,fp4,0.500000,2.180000,SiliconFlow,fp8,,,,2.150000,2.286000,1.063
+2026-11-09,deepseek/deepseek-v3.1-terminus,deepseek,open_weights,,,1,1,0.270000,1.000000,SiliconFlow,fp8,0.270000,1.000000,SiliconFlow,fp8,,,,1.000000,1.000000,1.000
+2026-11-09,deepseek/deepseek-v3.2,deepseek,open_weights,,,7,7,0.208800,0.309600,GMICloud,fp8,0.208800,0.309600,GMICloud,fp8,,,,0.309600,1.000000,3.230
+2026-11-09,deepseek/deepseek-v3.2-exp,deepseek,open_weights,,,1,1,0.270000,0.410000,SiliconFlow,fp8,0.270000,0.410000,SiliconFlow,fp8,,,,0.410000,0.410000,1.000
+2026-11-09,deepseek/deepseek-v4-flash,deepseek,open_weights,,,14,14,0.049980,0.099960,Baidu,fp8,0.049980,0.099960,Baidu,fp8,,,,0.099960,0.560000,5.602
+2026-11-09,deepseek/deepseek-v4-flash-0731,deepseek,open_weights,,,24,28,0.070000,0.140000,Relace,fp4,0.060000,0.180000,DeepInfra,fp8,,,,0.140000,1.320000,9.429
+2026-11-09,deepseek/deepseek-v4-flash-vision-exp,deepseek,open_weights,,,2,2,0.215600,0.646800,DeepInfra,fp8,0.215600,0.646800,DeepInfra,fp8,,,,0.646800,1.320000,2.041
+2026-11-09,deepseek/deepseek-v4-pro,deepseek,open_weights,23.1,entry,12,13,0.900000,1.500000,Relace,fp4,1.000000,1.500000,SiliconFlow,fp8,,,,1.500000,3.830000,2.553
+2026-11-09,deepseek/deepseek-v4-pro-0813,deepseek,open_weights,23.1,entry,21,24,0.580800,1.742400,Alibaba,unknown,0.580800,1.742400,Alibaba,unknown,0.660000,1.980000,DeepSeek,1.742400,8.000000,4.591
+2026-11-09,deepseek/deepseek-v4.1-flash,deepseek,open_weights,,,29,34,0.022000,0.400000,Morph,fp8,0.022000,0.400000,Morph,fp8,,,,0.400000,1.800000,4.500
+2026-11-09,deepseek/deepseek-v4.1-flash-1017,deepseek,open_weights,32.6,mid,40,45,0.101000,0.150000,Sail Research,fp4,0.098000,0.294000,DeepInfra,fp8,0.150000,0.600000,DeepSeek,0.150000,1.800000,12.000
+2026-11-09,google/gemini-3.1-flash-lite,google,closed_weights,6.2,entry,2,4,0.250000,1.500000,Google AI Studio,unknown,0.250000,1.500000,Google AI Studio,unknown,0.250000,1.500000,Google AI Studio,1.500000,1.650000,1.100
+2026-11-09,google/gemini-3.1-flash-lite-preview,google,closed_weights,6.2,entry,1,1,0.250000,1.500000,Google AI Studio,unknown,0.250000,1.500000,Google AI Studio,unknown,0.250000,1.500000,Google AI Studio,1.500000,1.500000,1.000
+2026-11-09,google/gemini-3.5-flash-lite,google,closed_weights,11.7,entry,2,4,0.300000,2.500000,Google AI Studio,unknown,0.300000,2.500000,Google AI Studio,unknown,0.300000,2.500000,Google AI Studio,2.500000,2.750000,1.100
+2026-11-09,google/gemini-3.8-flash,google,closed_weights,30.8,mid,2,3,0.750000,3.750000,Google AI Studio,unknown,0.750000,3.750000,Google AI Studio,unknown,0.750000,3.750000,Google AI Studio,3.750000,4.125000,1.100
+2026-11-09,google/gemini-4-argon,google,closed_weights,50.4,frontier,2,3,2.000000,10.000000,Google,unknown,2.000000,10.000000,Google,unknown,2.000000,10.000000,Google,10.000000,11.000000,1.100
+2026-11-09,google/gemma-2-27b-it,google,open_weights,,,1,1,0.650000,0.650000,NextBit,int4,,,,,,,,0.650000,0.650000,1.000
+2026-11-09,google/gemma-3-12b-it,google,open_weights,,,2,2,0.050000,0.150000,DeepInfra,bf16,0.050000,0.150000,DeepInfra,bf16,,,,0.150000,0.150000,1.000
+2026-11-09,google/gemma-3-27b-it,google,open_weights,,,4,4,0.080000,0.160000,DeepInfra,fp8,0.080000,0.160000,DeepInfra,fp8,,,,0.160000,0.450000,2.812
+2026-11-09,google/gemma-3-4b-it,google,open_weights,,,2,2,0.040000,0.050000,Parasail,bf16,0.040000,0.050000,Parasail,bf16,,,,0.050000,0.100000,2.000
+2026-11-09,google/gemma-4-26b-a4b-it,google,open_weights,,,15,15,0.026000,0.079000,PrimeIntellect,bf16,0.026000,0.079000,PrimeIntellect,bf16,0.150000,0.600000,Google,0.079000,0.600000,7.595
+2026-11-09,google/gemma-4-31b-it,google,open_weights,,,16,16,0.340000,0.100000,Modal,unknown,0.340000,0.100000,Modal,unknown,,,,0.100000,1.150000,11.500
+2026-11-09,gryphe/mythomax-l2-13b,gryphe,open_weights,,,2,2,0.080000,0.110000,Parasail,fp16,0.080000,0.110000,Parasail,fp16,,,,0.110000,0.600000,5.455
+2026-11-09,ibm-granite/granite-4.2-8b,ibm-granite,open_weights,5.1,entry,2,2,0.060000,0.150000,CoreWeave,bf16,0.060000,0.150000,CoreWeave,bf16,,,,0.150000,0.250000,1.667
+2026-11-09,inclusionai/ling-3.0-flash,inclusionai,open_weights,,,2,2,0.021000,0.063000,Novita,unknown,0.021000,0.063000,Novita,unknown,,,,0.063000,0.180000,2.857
+2026-11-09,inclusionai/ling-3.0-flash-vl,inclusionai,open_weights,,,1,1,0.060000,0.180000,DeepInfra,fp16,0.060000,0.180000,DeepInfra,fp16,,,,0.180000,0.180000,1.000
+2026-11-09,inclusionai/ling-3.0-tiny,inclusionai,open_weights,,,1,1,0.015000,0.045000,Ant Digital,fp8,0.015000,0.045000,Ant Digital,fp8,,,,0.045000,0.045000,1.000
+2026-11-09,inclusionai/ling-3.1-flash,inclusionai,open_weights,,,2,2,0.045000,0.135000,Novita,unknown,0.045000,0.135000,Novita,unknown,,,,0.135000,0.225000,1.667
+2026-11-09,inference-net/schematron-v2-small,inference-net,open_weights,,,1,2,0.050000,0.230000,InferenceNet,bf16,0.050000,0.230000,InferenceNet,bf16,0.050000,0.230000,InferenceNet,0.230000,0.230000,1.000
+2026-11-09,inference-net/schematron-v2-turbo,inference-net,open_weights,,,1,2,0.030000,0.150000,InferenceNet,bf16,0.030000,0.150000,InferenceNet,bf16,0.030000,0.150000,InferenceNet,0.150000,0.150000,1.000
+2026-11-09,liquid/lfm-2.5-2.6b,liquid,open_weights,,,1,1,0.350000,0.500000,Liquid,fp8,0.350000,0.500000,Liquid,fp8,0.350000,0.500000,Liquid,0.500000,0.500000,1.000
+2026-11-09,liquid/lfm-2.5-24b-a2b,liquid,open_weights,,,1,1,0.050000,0.700000,Liquid,fp8,0.050000,0.700000,Liquid,fp8,0.050000,0.700000,Liquid,0.700000,0.700000,1.000
+2026-11-09,liquid/lfm-3-1.7b,liquid,open_weights,,,1,1,0.080000,0.200000,Liquid,fp8,0.080000,0.200000,Liquid,fp8,0.080000,0.200000,Liquid,0.200000,0.200000,1.000
+2026-11-09,meituan/longcat-2.0,meituan,open_weights,,,1,1,0.300000,1.200000,AtlasCloud,fp8,0.300000,1.200000,AtlasCloud,fp8,,,,1.200000,1.200000,1.000
+2026-11-09,meta-llama/llama-3.1-70b-instruct,meta-llama,open_weights,,,1,1,0.720000,0.720000,Amazon Bedrock,unknown,0.720000,0.720000,Amazon Bedrock,unknown,,,,0.720000,0.720000,1.000
+2026-11-09,meta-llama/llama-3.1-8b-instruct,meta-llama,open_weights,,,4,4,0.020000,0.040000,DeepInfra,fp8,0.020000,0.040000,DeepInfra,fp8,,,,0.040000,0.287000,7.175
+2026-11-09,meta-llama/llama-3.2-1b-instruct,meta-llama,open_weights,,,1,1,0.027000,0.201000,Cloudflare,unknown,0.027000,0.201000,Cloudflare,unknown,,,,0.201000,0.201000,1.000
+2026-11-09,meta-llama/llama-3.2-3b-instruct,meta-llama,open_weights,,,2,2,0.050000,0.330000,Parasail,bf16,0.050000,0.330000,Parasail,bf16,,,,0.330000,0.335000,1.015
+2026-11-09,meta-llama/llama-3.3-70b-instruct,meta-llama,open_weights,,,8,9,0.100000,0.320000,DeepInfra,fp8,0.100000,0.320000,DeepInfra,fp8,,,,0.320000,2.253000,7.041
+2026-11-09,meta-llama/llama-4-maverick,meta-llama,open_weights,,,3,3,0.187500,0.652500,DigitalOcean,unknown,0.187500,0.652500,DigitalOcean,unknown,,,,0.652500,1.150000,1.762
+2026-11-09,meta-llama/llama-4-scout,meta-llama,open_weights,,,2,2,0.100000,0.300000,DeepInfra,fp8,0.100000,0.300000,DeepInfra,fp8,,,,0.300000,0.700000,2.333
+2026-11-09,meta-llama/llama-guard-4-12b,meta-llama,open_weights,,,1,1,0.180000,0.180000,DeepInfra,bf16,0.180000,0.180000,DeepInfra,bf16,,,,0.180000,0.180000,1.000
+2026-11-09,meta/muse-ember,meta,closed_weights,36.0,mid,1,1,0.100000,0.500000,Meta,unknown,0.100000,0.500000,Meta,unknown,0.100000,0.500000,Meta,0.500000,0.500000,1.000
+2026-11-09,meta/muse-glimmer-30b,meta,open_weights,6.3,entry,1,1,0.300000,1.200000,DeepInfra,bf16,0.300000,1.200000,DeepInfra,bf16,,,,1.200000,1.200000,1.000
+2026-11-09,meta/muse-spark-1.3,meta,closed_weights,36.6,mid,1,1,1.250000,4.250000,Meta,unknown,1.250000,4.250000,Meta,unknown,1.250000,4.250000,Meta,4.250000,4.250000,1.000
+2026-11-09,meta/muse-spark-open,meta,open_weights,24.9,entry,5,5,1.250000,4.250000,Makora,fp4,1.250000,4.250000,Modal,unknown,,,,4.250000,4.250000,1.000
+2026-11-09,meta/muse-wonder,meta,closed_weights,43.6,mid,1,1,4.000000,20.000000,Meta,unknown,4.000000,20.000000,Meta,unknown,4.000000,20.000000,Meta,20.000000,20.000000,1.000
+2026-11-09,microsoft/phi-4,microsoft,open_weights,,,1,1,0.070000,0.140000,DeepInfra,bf16,0.070000,0.140000,DeepInfra,bf16,,,,0.140000,0.140000,1.000
+2026-11-09,minimax/minimax-m2.5,minimax,open_weights,,,5,5,0.270000,0.950000,Venice,unknown,0.270000,0.950000,Venice,unknown,,,,0.950000,1.200000,1.263
+2026-11-09,minimax/minimax-m2.7,minimax,open_weights,,,2,2,0.210000,0.840000,GMICloud,fp8,0.210000,0.840000,GMICloud,fp8,,,,0.840000,1.800000,2.143
+2026-11-09,minimax/minimax-m3,minimax,open_weights,18.9,entry,9,9,0.230000,0.960000,CoreWeave,fp4,0.240000,0.960000,GMICloud,fp8,0.300000,1.200000,Minimax,0.960000,1.300000,1.354
+2026-11-09,minimax/minimax-m3.1-flash,minimax,open_weights,29.1,mid,12,13,0.075000,0.300000,Minimax,unknown,0.075000,0.300000,Minimax,unknown,0.075000,0.300000,Minimax,0.300000,0.600000,2.000
+2026-11-09,mistralai/devstral-2512,mistralai,open_weights,,,1,1,0.400000,2.000000,Mistral,unknown,0.400000,2.000000,Mistral,unknown,0.400000,2.000000,Mistral,2.000000,2.000000,1.000
+2026-11-09,mistralai/ministral-14b-2512,mistralai,open_weights,,,1,2,0.200000,0.200000,Mistral,unknown,0.200000,0.200000,Mistral,unknown,0.200000,0.200000,Mistral,0.200000,0.220000,1.100
+2026-11-09,mistralai/ministral-3b-2512,mistralai,open_weights,,,1,2,0.100000,0.100000,Mistral,unknown,0.100000,0.100000,Mistral,unknown,0.100000,0.100000,Mistral,0.100000,0.110000,1.100
+2026-11-09,mistralai/ministral-8b-2512,mistralai,open_weights,,,1,2,0.150000,0.150000,Mistral,unknown,0.150000,0.150000,Mistral,unknown,0.150000,0.150000,Mistral,0.150000,0.165000,1.100
+2026-11-09,mistralai/mistral-large,mistralai,open_weights,,,1,2,2.000000,6.000000,Mistral,unknown,2.000000,6.000000,Mistral,unknown,2.000000,6.000000,Mistral,6.000000,6.600000,1.100
+2026-11-09,mistralai/mistral-large-2407,mistralai,open_weights,,,1,3,2.000000,6.000000,Mistral,unknown,2.000000,6.000000,Mistral,unknown,2.000000,6.000000,Mistral,6.000000,6.600000,1.100
+2026-11-09,mistralai/mistral-large-2512,mistralai,open_weights,,,1,2,0.500000,1.500000,Mistral,unknown,0.500000,1.500000,Mistral,unknown,0.500000,1.500000,Mistral,1.500000,1.650000,1.100
+2026-11-09,mistralai/mistral-large-4-0,mistralai,open_weights,26.1,mid,1,2,0.700000,2.100000,Mistral,unknown,0.700000,2.100000,Mistral,unknown,0.700000,2.100000,Mistral,2.100000,2.310000,1.100
+2026-11-09,mistralai/mistral-medium-3-5,mistralai,closed_weights,4.6,entry,1,2,1.500000,7.500000,Mistral,unknown,1.500000,7.500000,Mistral,unknown,1.500000,7.500000,Mistral,7.500000,8.250000,1.100
+2026-11-09,mistralai/mistral-nemo,mistralai,open_weights,,,5,5,0.016560,0.021600,Io Net,fp16,0.016560,0.021600,Io Net,fp16,0.150000,0.150000,Mistral,0.021600,0.150000,6.944
+2026-11-09,mistralai/mistral-small-24b-instruct-2501,mistralai,open_weights,,,1,1,0.050000,0.080000,DeepInfra,fp8,0.050000,0.080000,DeepInfra,fp8,,,,0.080000,0.080000,1.000
+2026-11-09,mistralai/mistral-small-2603,mistralai,open_weights,4.3,entry,1,3,0.150000,0.600000,Mistral,unknown,0.150000,0.600000,Mistral,unknown,0.150000,0.600000,Mistral,0.600000,0.660000,1.100
+2026-11-09,mistralai/mistral-small-3.1-24b-instruct,mistralai,open_weights,,,1,1,0.351000,0.555000,Cloudflare,unknown,0.351000,0.555000,Cloudflare,unknown,,,,0.555000,0.555000,1.000
+2026-11-09,mistralai/mistral-small-3.2-24b-instruct,mistralai,open_weights,,,4,4,0.075000,0.200000,DeepInfra,fp8,0.075000,0.200000,DeepInfra,fp8,0.100000,0.300000,Mistral,0.200000,0.300000,1.500
+2026-11-09,mistralai/mixtral-8x22b-instruct,mistralai,open_weights,,,1,2,2.000000,6.000000,Mistral,unknown,2.000000,6.000000,Mistral,unknown,2.000000,6.000000,Mistral,6.000000,6.600000,1.100
+2026-11-09,mistralai/voxtral-small-24b-2507,mistralai,open_weights,,,1,2,0.100000,0.300000,Mistral,unknown,0.100000,0.300000,Mistral,unknown,0.100000,0.300000,Mistral,0.300000,0.330000,1.100
+2026-11-09,moondream/moondream3-preview,moondream,open_weights,,,1,1,0.300000,2.500000,PrimeIntellect,fp8,0.300000,2.500000,PrimeIntellect,fp8,,,,2.500000,2.500000,1.000
+2026-11-09,moondream/moondream3.1-9b-a2b,moondream,open_weights,,,1,1,0.300000,2.500000,PrimeIntellect,fp8,0.300000,2.500000,PrimeIntellect,fp8,,,,2.500000,2.500000,1.000
+2026-11-09,moonshotai/kimi-k2,moonshotai,open_weights,,,1,1,0.570000,2.300000,Novita,fp8,0.570000,2.300000,Novita,fp8,,,,2.300000,2.300000,1.000
+2026-11-09,moonshotai/kimi-k2-0905,moonshotai,open_weights,,,1,1,0.600000,2.500000,Novita,fp8,0.600000,2.500000,Novita,fp8,,,,2.500000,2.500000,1.000
+2026-11-09,moonshotai/kimi-k2-thinking,moonshotai,open_weights,,,1,1,0.600000,2.500000,Novita,bf16,0.600000,2.500000,Novita,bf16,,,,2.500000,2.500000,1.000
+2026-11-09,moonshotai/kimi-k2.5,moonshotai,open_weights,,,5,5,0.490000,2.500000,AtlasCloud,int4,0.570000,2.850000,Novita,unknown,,,,2.500000,3.325000,1.330
+2026-11-09,moonshotai/kimi-k2.6,moonshotai,open_weights,,,16,16,0.389500,1.640000,Baidu,fp4,0.570000,2.400000,DigitalOcean,unknown,0.950000,4.000000,Moonshot AI,1.640000,4.600000,2.805
+2026-11-09,moonshotai/kimi-k2.7-code,moonshotai,open_weights,,,10,10,0.600000,3.000000,CoreWeave,int4,0.712500,3.000000,StreamLake,unknown,0.950000,4.000000,Moonshot AI,3.000000,4.000000,1.333
+2026-11-09,moonshotai/kimi-k3,moonshotai,open_weights,17.4,entry,20,24,1.850000,9.500000,Chutes,mxfp4,1.000000,11.250000,ParetoAlpha,unknown,3.000000,15.000000,Moonshot AI,9.500000,22.500000,2.368
+2026-11-09,moonshotai/kimi-k3.1-pro,moonshotai,open_weights,46.5,frontier,17,21,1.800000,8.200000,Phala,unknown,1.800000,8.200000,Phala,unknown,2.000000,10.000000,Moonshot AI,8.200000,12.000000,1.463
+2026-11-09,nex-agi/nex-n2.5-mini,nex-agi,open_weights,,,1,1,0.025000,0.100000,Nex AGI,bf16,0.025000,0.100000,Nex AGI,bf16,0.025000,0.100000,Nex AGI,0.100000,0.100000,1.000
+2026-11-09,nex-agi/nex-n2.5-pro,nex-agi,open_weights,,,1,1,0.075000,0.250000,Nex AGI,fp8,0.075000,0.250000,Nex AGI,fp8,0.075000,0.250000,Nex AGI,0.250000,0.250000,1.000
+2026-11-09,nousresearch/hermes-4-405b,nousresearch,open_weights,,,1,1,1.000000,3.000000,Nebius,fp8,1.000000,3.000000,Nebius,fp8,,,,3.000000,3.000000,1.000
+2026-11-09,nvidia/nemotron-3-nano-30b-a3b,nvidia,open_weights,,,1,1,0.060000,0.240000,Nebius,fp8,0.060000,0.240000,Nebius,fp8,,,,0.240000,0.240000,1.000
+2026-11-09,nvidia/nemotron-3-super-120b-a12b,nvidia,open_weights,,,3,3,0.075000,0.400000,DeepInfra,bf16,0.075000,0.400000,DeepInfra,bf16,,,,0.400000,2.400000,6.000
+2026-11-09,nvidia/nemotron-3-ultra-550b-a55b,nvidia,open_weights,11.8,entry,3,4,0.500000,2.200000,DeepInfra,fp4,0.625000,3.125000,Venice,fp8,,,,2.200000,3.125000,1.420
+2026-11-09,nvidia/nemotron-3.5-content-safety,nvidia,open_weights,,,1,1,0.200000,0.200000,DeepInfra,bf16,0.200000,0.200000,DeepInfra,bf16,,,,0.200000,0.200000,1.000
+2026-11-09,nvidia/nemotron-3.5-lightning,nvidia,open_weights,5.5,entry,5,5,0.025000,0.120000,Darkbloom,int4,0.046900,0.134000,Io Net,unknown,,,,0.120000,0.200000,1.667
+2026-11-09,nvidia/nemotron-3.5-super-vl,nvidia,open_weights,13.6,entry,10,10,0.090000,0.300000,Io Net,nvfp4,0.100000,0.400000,Crusoe,bf16,,,,0.300000,0.900000,3.000
+2026-11-09,openai/gpt-5.6-luna,openai,closed_weights,23.8,entry,3,6,0.200000,1.200000,Amazon Bedrock,unknown,0.200000,1.200000,Amazon Bedrock,unknown,0.200000,1.200000,OpenAI,1.200000,1.320000,1.100
+2026-11-09,openai/gpt-5.6-terra,openai,closed_weights,32.3,mid,3,5,2.000000,12.000000,Azure,unknown,2.000000,12.000000,Azure,unknown,2.000000,12.000000,OpenAI,12.000000,13.200000,1.100
+2026-11-09,openai/gpt-6-astra,openai,closed_weights,56.9,frontier,3,5,10.000000,50.000000,Amazon Bedrock,unknown,10.000000,50.000000,Amazon Bedrock,unknown,10.000000,50.000000,OpenAI,50.000000,55.000000,1.100
+2026-11-09,openai/gpt-6-luna,openai,closed_weights,27.9,mid,3,6,0.100000,0.500000,Amazon Bedrock,unknown,0.100000,0.500000,Amazon Bedrock,unknown,0.100000,0.500000,OpenAI,0.500000,0.550000,1.100
+2026-11-09,openai/gpt-6-sol,openai,closed_weights,44.2,mid,3,6,2.000000,10.000000,Amazon Bedrock,unknown,2.000000,10.000000,Amazon Bedrock,unknown,2.000000,10.000000,OpenAI,10.000000,11.000000,1.100
+2026-11-09,openai/gpt-6.1-sol,openai,closed_weights,54.6,frontier,3,6,2.000000,10.000000,Amazon Bedrock,unknown,2.000000,10.000000,Amazon Bedrock,unknown,2.000000,10.000000,OpenAI,10.000000,11.000000,1.100
+2026-11-09,openai/gpt-6.1-terra,openai,closed_weights,51.3,frontier,3,5,1.000000,5.000000,Azure,unknown,1.000000,5.000000,Azure,unknown,1.000000,5.000000,OpenAI,5.000000,6.000000,1.200
+2026-11-09,openai/gpt-oss-120b,openai,open_weights,3.8,entry,22,25,0.036000,0.078000,PrimeIntellect,fp4,0.037000,0.170000,DeepInfra,bf16,,,,0.078000,0.950000,12.179
+2026-11-09,openai/gpt-oss-20b,openai,open_weights,,,10,11,0.021000,0.032000,PrimeIntellect,fp4,0.018000,0.090000,Darkbloom,fp8,,,,0.032000,0.300000,9.375
+2026-11-09,openai/gpt-oss-safeguard-20b,openai,open_weights,,,1,1,0.075000,0.300000,Groq,unknown,0.075000,0.300000,Groq,unknown,,,,0.300000,0.300000,1.000
+2026-11-09,prism-ml/ternary-bonsai-2-27b,prism-ml,open_weights,,,1,1,0.075000,0.500000,Darkbloom,int4,,,,,,,,0.500000,0.500000,1.000
+2026-11-09,prism-ml/ternary-bonsai-2-9b,prism-ml,open_weights,,,1,1,0.080000,0.130000,Darkbloom,int4,,,,,,,,0.130000,0.130000,1.000
+2026-11-09,qwen/qwen-2.5-72b-instruct,qwen,open_weights,,,1,1,0.360000,0.400000,DeepInfra,fp8,0.360000,0.400000,DeepInfra,fp8,,,,0.400000,0.400000,1.000
+2026-11-09,qwen/qwen-2.5-7b-instruct,qwen,open_weights,,,1,1,0.100000,0.200000,Phala,unknown,0.100000,0.200000,Phala,unknown,,,,0.200000,0.200000,1.000
+2026-11-09,qwen/qwen-2.5-coder-32b-instruct,qwen,open_weights,,,1,1,0.660000,1.000000,Cloudflare,unknown,0.660000,1.000000,Cloudflare,unknown,,,,1.000000,1.000000,1.000
+2026-11-09,qwen/qwen2.5-vl-72b-instruct,qwen,open_weights,,,1,1,0.800000,1.000000,Parasail,fp8,0.800000,1.000000,Parasail,fp8,,,,1.000000,1.000000,1.000
+2026-11-09,qwen/qwen3-14b,qwen,open_weights,,,2,2,0.100000,0.220000,NextBit,int4,0.120000,0.240000,DeepInfra,fp8,,,,0.220000,0.240000,1.091
+2026-11-09,qwen/qwen3-235b-a22b-2507,qwen,open_weights,,,4,4,0.087500,0.350000,GMICloud,fp8,0.087500,0.350000,GMICloud,fp8,,,,0.350000,0.800000,2.286
+2026-11-09,qwen/qwen3-235b-a22b-thinking-2507,qwen,open_weights,,,1,1,0.450000,3.500000,Venice,fp8,0.450000,3.500000,Venice,fp8,,,,3.500000,3.500000,1.000
+2026-11-09,qwen/qwen3-30b-a3b,qwen,open_weights,,,1,1,0.120000,0.500000,DeepInfra,fp8,0.120000,0.500000,DeepInfra,fp8,,,,0.500000,0.500000,1.000
+2026-11-09,qwen/qwen3-30b-a3b-instruct-2507,qwen,open_weights,,,3,3,0.090000,0.300000,DekaLLM,unknown,0.090000,0.300000,DekaLLM,unknown,,,,0.300000,0.300000,1.000
+2026-11-09,qwen/qwen3-32b,qwen,open_weights,,,3,3,0.080000,0.280000,DeepInfra,fp8,0.080000,0.280000,DeepInfra,fp8,,,,0.280000,0.570000,2.036
+2026-11-09,qwen/qwen3-coder,qwen,open_weights,,,2,2,0.300000,1.000000,DeepInfra,fp4,0.350000,1.500000,Venice,fp8,,,,1.000000,1.500000,1.500
+2026-11-09,qwen/qwen3-coder-30b-a3b-instruct,qwen,open_weights,,,2,2,0.070000,0.280000,SiliconFlow,fp8,0.070000,0.280000,SiliconFlow,fp8,,,,0.280000,0.600000,2.143
+2026-11-09,qwen/qwen3-coder-next,qwen,open_weights,,,1,1,0.120000,0.800000,Parasail,bf16,0.120000,0.800000,Parasail,bf16,,,,0.800000,0.800000,1.000
+2026-11-09,qwen/qwen3-next-80b-a3b-instruct,qwen,open_weights,,,2,2,0.090000,1.100000,DeepInfra,fp8,0.090000,1.100000,DeepInfra,fp8,,,,1.100000,1.100000,1.000
+2026-11-09,qwen/qwen3-vl-235b-a22b-instruct,qwen,open_weights,,,3,3,0.200000,0.880000,DeepInfra,fp8,0.200000,0.880000,DeepInfra,fp8,,,,0.880000,1.900000,2.159
+2026-11-09,qwen/qwen3-vl-30b-a3b-instruct,qwen,open_weights,,,3,3,0.150000,0.600000,DeepInfra,fp8,0.150000,0.600000,DeepInfra,fp8,,,,0.600000,1.000000,1.667
+2026-11-09,qwen/qwen3-vl-30b-a3b-thinking,qwen,open_weights,,,1,1,0.290000,1.000000,SiliconFlow,fp8,0.290000,1.000000,SiliconFlow,fp8,,,,1.000000,1.000000,1.000
+2026-11-09,qwen/qwen3-vl-8b-instruct,qwen,open_weights,,,1,1,0.250000,0.750000,Parasail,bf16,0.250000,0.750000,Parasail,bf16,,,,0.750000,0.750000,1.000
+2026-11-09,qwen/qwen3.5-122b-a10b,qwen,open_weights,,,4,4,0.260000,2.080000,SiliconFlow,fp8,0.260000,2.080000,SiliconFlow,fp8,0.260000,2.080000,Alibaba,2.080000,3.200000,1.538
+2026-11-09,qwen/qwen3.5-27b,qwen,open_weights,,,7,7,0.195000,1.560000,Alibaba,unknown,0.195000,1.560000,Alibaba,unknown,0.195000,1.560000,Alibaba,1.560000,2.600000,1.667
+2026-11-09,qwen/qwen3.5-35b-a3b,qwen,open_weights,,,7,7,0.065000,0.750000,Darkbloom,fp4,0.140000,1.000000,DeepInfra,fp8,0.162500,1.300000,Alibaba,0.750000,1.800000,2.400
+2026-11-09,qwen/qwen3.5-397b-a17b,qwen,open_weights,,,10,10,0.390000,2.340000,Alibaba,unknown,0.390000,2.340000,Alibaba,unknown,0.390000,2.340000,Alibaba,2.340000,4.500000,1.923
+2026-11-09,qwen/qwen3.5-9b,qwen,open_weights,,,6,6,0.035000,0.052000,PrimeIntellect,bf16,0.035000,0.052000,PrimeIntellect,bf16,,,,0.052000,0.250000,4.808
+2026-11-09,qwen/qwen3.6-27b,qwen,open_weights,,,7,7,0.250000,2.000000,Chutes,fp8,0.250000,2.000000,Chutes,fp8,0.450000,2.700000,Alibaba,2.000000,3.250000,1.625
+2026-11-09,qwen/qwen3.6-35b-a3b,qwen,open_weights,,,11,11,0.011000,0.101000,PrimeIntellect,fp8,0.011000,0.101000,PrimeIntellect,fp8,,,,0.101000,1.800000,17.822
+2026-11-09,qwen/qwen3.8-2.4t-a95b,qwen,open_weights,,,4,4,2.000000,6.000000,Novita,unknown,2.000000,6.000000,Novita,unknown,2.000000,6.000000,Alibaba,6.000000,6.000000,1.000
+2026-11-09,qwen/qwen3.8-27b,qwen,open_weights,20.1,entry,24,24,0.047000,0.331000,PrimeIntellect,fp8,0.047000,0.331000,PrimeIntellect,fp8,0.425000,2.550000,Alibaba,0.331000,3.200000,9.668
+2026-11-09,qwen/qwen3.8-flash,qwen,open_weights,,,1,2,0.150000,0.470000,Alibaba,unknown,0.150000,0.470000,Alibaba,unknown,0.150000,0.470000,Alibaba,0.470000,0.470000,1.000
+2026-11-09,qwen/qwen3.8-max-0902,qwen,closed_weights,33.7,mid,1,2,2.000000,6.000000,Alibaba,unknown,2.000000,6.000000,Alibaba,unknown,2.000000,6.000000,Alibaba,6.000000,6.000000,1.000
+2026-11-09,reflection/beam-1.0-501b-a23b,reflection,open_weights,,,5,5,0.250000,1.000000,Nebius,fp4,0.400000,1.200000,DigitalOcean,unknown,,,,1.000000,1.200000,1.200
+2026-11-09,rekaai/reka-edge,rekaai,open_weights,,,1,1,0.100000,0.100000,Reka,unknown,0.100000,0.100000,Reka,unknown,,,,0.100000,0.100000,1.000
+2026-11-09,rekaai/reka-flash-3,rekaai,open_weights,,,1,1,0.100000,0.200000,Reka,unknown,0.100000,0.200000,Reka,unknown,,,,0.200000,0.200000,1.000
+2026-11-09,ricursiveai/ripple-65b-preview,ricursiveai,open_weights,,,3,3,0.100000,0.300000,PrimeIntellect,bf16,0.100000,0.300000,PrimeIntellect,bf16,,,,0.300000,0.600000,2.000
+2026-11-09,sao10k/l3-lunaris-8b,sao10k,open_weights,,,2,2,0.040000,0.050000,Parasail,bf16,0.040000,0.050000,Parasail,bf16,,,,0.050000,0.050000,1.000
+2026-11-09,sao10k/l3.1-euryale-70b,sao10k,open_weights,,,1,1,0.850000,0.850000,DeepInfra,fp8,0.850000,0.850000,DeepInfra,fp8,,,,0.850000,0.850000,1.000
+2026-11-09,stepfun/step-3.5-flash,stepfun,open_weights,,,1,1,0.100000,0.300000,SiliconFlow,fp8,0.100000,0.300000,SiliconFlow,fp8,,,,0.300000,0.300000,1.000
+2026-11-09,stepfun/step-3.7-flash,stepfun,open_weights,,,2,2,0.200000,1.150000,Novita,fp8,0.200000,1.150000,Novita,fp8,0.200000,1.150000,StepFun,1.150000,1.150000,1.000
+2026-11-09,stepfun/step-5-preview,stepfun,open_weights,28.5,mid,2,2,1.000000,2.700000,Featherless,fp4,1.000000,2.700000,StepFun,fp8,1.000000,2.700000,StepFun,2.700000,2.700000,1.000
+2026-11-09,tencent/hunyuan-a13b-instruct,tencent,open_weights,,,1,1,0.140000,0.570000,SiliconFlow,fp8,0.140000,0.570000,SiliconFlow,fp8,,,,0.570000,0.570000,1.000
+2026-11-09,tencent/hy-mt2-1.8b,tencent,open_weights,,,1,1,0.044000,0.177000,Tencent,fp8,0.044000,0.177000,Tencent,fp8,0.044000,0.177000,Tencent,0.177000,0.177000,1.000
+2026-11-09,tencent/hy-mt2-30b-a3b,tencent,open_weights,,,1,1,0.074000,0.295000,Tencent,fp8,0.074000,0.295000,Tencent,fp8,0.074000,0.295000,Tencent,0.295000,0.295000,1.000
+2026-11-09,tencent/hy-mt2-7b,tencent,open_weights,,,1,1,0.074000,0.295000,Tencent,fp8,0.074000,0.295000,Tencent,fp8,0.074000,0.295000,Tencent,0.295000,0.295000,1.000
+2026-11-09,tencent/hy3,tencent,open_weights,,,5,5,0.082500,0.330000,Tencent,fp8,0.082500,0.330000,Tencent,fp8,0.082500,0.330000,Tencent,0.330000,0.800000,2.424
+2026-11-09,tencent/hy3-preview,tencent,open_weights,,,1,1,0.180000,0.600000,GMICloud,bf16,0.180000,0.600000,GMICloud,bf16,,,,0.600000,0.600000,1.000
+2026-11-09,tencent/hy4,tencent,open_weights,34.6,mid,1,1,0.417000,1.250500,Tencent,fp4,,,,,0.417000,1.250500,Tencent,1.250500,1.250500,1.000
+2026-11-09,tencent/hy4-preview,tencent,open_weights,,,6,6,0.750600,2.250900,Tencent,fp8,0.750600,2.250900,Tencent,fp8,0.750600,2.250900,Tencent,2.250900,2.501000,1.111
+2026-11-09,thedrummer/cydonia-24b-v4.1,thedrummer,open_weights,,,1,1,0.300000,0.500000,Parasail,bf16,0.300000,0.500000,Parasail,bf16,,,,0.500000,0.500000,1.000
+2026-11-09,thedrummer/skyfall-36b-v2,thedrummer,open_weights,,,1,1,0.550000,0.800000,Parasail,fp8,0.550000,0.800000,Parasail,fp8,,,,0.800000,0.800000,1.000
+2026-11-09,thedrummer/unslopnemo-12b,thedrummer,open_weights,,,1,1,0.400000,0.400000,Parasail,bf16,0.400000,0.400000,Parasail,bf16,,,,0.400000,0.400000,1.000
+2026-11-09,thinkingmachines/inkling,thinkingmachines,open_weights,12.5,entry,1,1,1.000000,4.050000,Together,unknown,1.000000,4.050000,Together,unknown,,,,4.050000,4.050000,1.000
+2026-11-09,thinkingmachines/inkling-small,thinkingmachines,open_weights,12.9,entry,1,1,0.450000,1.200000,DeepInfra,fp8,0.450000,1.200000,DeepInfra,fp8,,,,1.200000,1.200000,1.000
+2026-11-09,undi95/remm-slerp-l2-13b,undi95,open_weights,,,1,1,0.350000,0.650000,Mancer 2,fp8,0.350000,0.650000,Mancer 2,fp8,,,,0.650000,0.650000,1.000
+2026-11-09,x-ai/grok-4.6,x-ai,closed_weights,31.0,mid,2,4,2.000000,6.000000,xAI,unknown,2.000000,6.000000,xAI,unknown,2.000000,6.000000,xAI,6.000000,6.600000,1.100
+2026-11-09,x-ai/grok-4.7,x-ai,closed_weights,35.5,mid,2,4,2.000000,6.000000,Amazon Bedrock,unknown,2.000000,6.000000,Amazon Bedrock,unknown,2.000000,6.000000,xAI,6.000000,6.600000,1.100
+2026-11-09,xiaomi/mimo-v2.5,xiaomi,open_weights,,,1,1,0.400000,2.000000,Venice,fp8,0.400000,2.000000,Venice,fp8,,,,2.000000,2.000000,1.000
+2026-11-09,xiaomi/mimo-v2.5-pro,xiaomi,open_weights,,,2,2,0.435000,0.870000,AtlasCloud,fp8,0.435000,0.870000,AtlasCloud,fp8,,,,0.870000,1.800000,2.069
+2026-11-09,xiaomi/mimo-v2.6-flash,xiaomi,open_weights,26.7,mid,8,8,0.112000,0.224000,GMICloud,bf16,0.112000,0.224000,GMICloud,bf16,0.140000,0.280000,Xiaomi,0.224000,0.350000,1.562
+2026-11-09,xiaomi/mimo-v2.6-pro,xiaomi,open_weights,29.9,mid,5,5,0.326250,0.652500,GMICloud,bf16,0.326250,0.652500,GMICloud,bf16,0.435000,0.870000,Xiaomi,0.652500,8.000000,12.261
+2026-11-09,z-ai/glm-4.5,z-ai,open_weights,,,1,1,0.600000,2.200000,Z.AI,fp8,0.600000,2.200000,Z.AI,fp8,0.600000,2.200000,Z.AI,2.200000,2.200000,1.000
+2026-11-09,z-ai/glm-4.5-air,z-ai,open_weights,,,3,3,0.130000,0.850000,Novita,bf16,0.130000,0.850000,Novita,bf16,0.200000,1.100000,Z.AI,0.850000,1.100000,1.294
+2026-11-09,z-ai/glm-4.5v,z-ai,open_weights,,,2,2,0.600000,1.800000,Novita,fp8,0.600000,1.800000,Novita,fp8,0.600000,1.800000,Z.AI,1.800000,1.800000,1.000
+2026-11-09,z-ai/glm-4.6,z-ai,open_weights,,,4,4,0.430000,1.750000,Venice,fp4,0.550000,2.200000,Novita,bf16,0.600000,2.200000,Z.AI,1.750000,2.200000,1.257
+2026-11-09,z-ai/glm-4.6v,z-ai,open_weights,,,2,2,0.300000,0.900000,Novita,bf16,0.300000,0.900000,Novita,bf16,0.300000,0.900000,Z.AI,0.900000,0.900000,1.000
+2026-11-09,z-ai/glm-4.7,z-ai,open_weights,,,5,5,0.400000,1.750000,DeepInfra,fp4,0.600000,2.200000,Novita,fp8,0.600000,2.200000,Z.AI,1.750000,2.500000,1.429
+2026-11-09,z-ai/glm-4.7-flash,z-ai,open_weights,,,2,2,0.060500,0.400000,Cloudflare,unknown,0.060500,0.400000,Cloudflare,unknown,,,,0.400000,0.400000,1.000
+2026-11-09,z-ai/glm-5,z-ai,open_weights,,,8,8,0.600000,1.920000,StreamLake,fp8,0.600000,1.920000,StreamLake,fp8,1.000000,3.200000,Z.AI,1.920000,3.200000,1.667
+2026-11-09,z-ai/glm-5.1,z-ai,open_weights,,,12,12,0.900000,2.900000,Chutes,fp8,0.900000,2.900000,Chutes,fp8,1.400000,4.400000,Z.AI,2.900000,4.404400,1.519
+2026-11-09,z-ai/glm-5.2,z-ai,open_weights,,,24,28,0.562500,1.800000,DeepInfra,fp4,0.613060,1.926760,StreamLake,fp8,1.400000,4.400000,Z.AI,1.800000,8.000000,4.444
+2026-11-09,z-ai/glm-5.3,z-ai,open_weights,31.7,mid,36,42,0.069900,1.400000,Wafer,fp4,0.558600,1.755600,Baidu,fp8,1.400000,4.400000,Z.AI,1.400000,5.280000,3.771
+2026-11-09,z-ai/glm-5.3-flash,z-ai,open_weights,27.8,mid,36,40,0.033500,0.083000,Relace,fp4,0.060000,0.122000,Morph,fp8,0.150000,0.500000,Z.AI,0.083000,0.625000,7.530

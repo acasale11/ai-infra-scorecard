@@ -1283,3 +1283,440 @@ date,model_id,org,weight_class,weight_basis,weight_evidence,intelligence_index,t
 2026-11-04,z-ai/glm-5.3-prime,z-ai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/zai-org/GLM-5.3, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'glm-5.3-prime'
 2026-11-04,z-ai/glm-5.3:batch,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.3,31.7,mid,AA glm-5-3 (variant Max); intelligence_index 31.7 >= 25.0; AA index v5
 2026-11-04,z-ai/glm-5v-turbo,z-ai,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/zai-org (154 repos), no weights repo for 'glm-5v-turbo'",,,no AA match for 'glm-5v-turbo'
+2026-11-09,aion-labs/aion-2.0,aion-labs,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'aion-labs',,,no AA match for 'aion-2.0'
+2026-11-09,aion-labs/aion-3.0,aion-labs,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'aion-labs',,,no AA match for 'aion-3.0'
+2026-11-09,aion-labs/aion-3.0-mini,aion-labs,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'aion-labs',,,no AA match for 'aion-3.0-mini'
+2026-11-09,aion-labs/aion-3.5,aion-labs,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'aion-labs',,,no AA match for 'aion-3.5'
+2026-11-09,aion-labs/aion-3.5-mini,aion-labs,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'aion-labs',,,no AA match for 'aion-3.5-mini'
+2026-11-09,aion-labs/aion-rp-llama-3.1-8b,aion-labs,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'aion-labs',,,no AA match for 'aion-rp-llama-3.1-8b'
+2026-11-09,amazon/nova-2-lite-v1,amazon,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'nova-2-lite-v1'
+2026-11-09,amazon/nova-lite-v1,amazon,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'nova-lite-v1'
+2026-11-09,amazon/nova-micro-v1,amazon,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'nova-micro-v1'
+2026-11-09,amazon/nova-premier-v1,amazon,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'nova-premier-v1'
+2026-11-09,amazon/nova-pro-v1,amazon,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'nova-pro-v1'
+2026-11-09,anthracite-org/magnum-v4-72b,anthracite-org,open_weights,openrouter_hugging_face_id,anthracite-org/magnum-v4-72b,,,no AA match for 'magnum-v4-72b'
+2026-11-09,anthropic/claude-fable-5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-fable-5'
+2026-11-09,anthropic/claude-fable-5.1,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,50.0,frontier,"AA claude-fable-5-1-xhigh (variant Xhigh, Default Fallback); intelligence_index 50.0 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-fable-5.1:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,50.0,frontier,"AA claude-fable-5-1-xhigh (variant Xhigh, Default Fallback); intelligence_index 50.0 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-fable-5.2,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,64.6,frontier,"AA claude-fable-5-2 (variant Max, Default Fallback); intelligence_index 64.6 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-fable-5.2:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,64.6,frontier,"AA claude-fable-5-2 (variant Max, Default Fallback); intelligence_index 64.6 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-fable-5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-fable-5'
+2026-11-09,anthropic/claude-haiku-4.5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-haiku-4.5'
+2026-11-09,anthropic/claude-haiku-4.5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-haiku-4.5'
+2026-11-09,anthropic/claude-haiku-5.5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,36.5,mid,AA claude-haiku-5-5 (variant Max); intelligence_index 36.5 >= 25.0; AA index v5
+2026-11-09,anthropic/claude-haiku-5.5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,36.5,mid,AA claude-haiku-5-5 (variant Max); intelligence_index 36.5 >= 25.0; AA index v5
+2026-11-09,anthropic/claude-opus-4.1,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.1'
+2026-11-09,anthropic/claude-opus-4.1:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.1'
+2026-11-09,anthropic/claude-opus-4.5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.5'
+2026-11-09,anthropic/claude-opus-4.5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.5'
+2026-11-09,anthropic/claude-opus-4.6,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.6'
+2026-11-09,anthropic/claude-opus-4.6:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.6'
+2026-11-09,anthropic/claude-opus-4.7,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.7'
+2026-11-09,anthropic/claude-opus-4.7:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.7'
+2026-11-09,anthropic/claude-opus-4.8,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.8'
+2026-11-09,anthropic/claude-opus-4.8:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-opus-4.8'
+2026-11-09,anthropic/claude-opus-5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,44.2,mid,AA claude-opus-5 (variant Max); intelligence_index 44.2 >= 25.0; AA index v5
+2026-11-09,anthropic/claude-opus-5.5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,59.1,frontier,"AA claude-opus-5-5 (variant Max, Default Fallback); intelligence_index 59.1 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-opus-5.5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,59.1,frontier,"AA claude-opus-5-5 (variant Max, Default Fallback); intelligence_index 59.1 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-opus-5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,44.2,mid,AA claude-opus-5 (variant Max); intelligence_index 44.2 >= 25.0; AA index v5
+2026-11-09,anthropic/claude-sonnet-4.5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-sonnet-4.5'
+2026-11-09,anthropic/claude-sonnet-4.5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-sonnet-4.5'
+2026-11-09,anthropic/claude-sonnet-4.6,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-sonnet-4.6'
+2026-11-09,anthropic/claude-sonnet-4.6:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-sonnet-4.6'
+2026-11-09,anthropic/claude-sonnet-5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-sonnet-5'
+2026-11-09,anthropic/claude-sonnet-5.5,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,54.5,frontier,"AA claude-sonnet-5-5 (variant Max, Default Fallback); intelligence_index 54.5 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-sonnet-5.5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,54.5,frontier,"AA claude-sonnet-5-5 (variant Max, Default Fallback); intelligence_index 54.5 >= 45.0; AA index v5"
+2026-11-09,anthropic/claude-sonnet-5:batch,anthropic,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'claude-sonnet-5'
+2026-11-09,bytedance-seed/seed-1.6,bytedance-seed,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/ByteDance-Seed/Seed-Coder-8B-Base, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'seed-1.6'
+2026-11-09,bytedance-seed/seed-1.6-flash,bytedance-seed,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/ByteDance-Seed (63 repos), no weights repo for 'seed-1.6-flash'",,,no AA match for 'seed-1.6-flash'
+2026-11-09,bytedance-seed/seed-2-1-turbo,bytedance-seed,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/ByteDance-Seed (63 repos), no weights repo for 'seed-2-1-turbo'",,,no AA match for 'seed-2-1-turbo'
+2026-11-09,bytedance-seed/seed-2.0-code,bytedance-seed,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/ByteDance-Seed (63 repos), no weights repo for 'seed-2.0-code'",,,no AA match for 'seed-2.0-code'
+2026-11-09,bytedance-seed/seed-2.0-lite,bytedance-seed,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/ByteDance-Seed (63 repos), no weights repo for 'seed-2.0-lite'",,,no AA match for 'seed-2.0-lite'
+2026-11-09,bytedance-seed/seed-2.0-mini,bytedance-seed,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/ByteDance-Seed (63 repos), no weights repo for 'seed-2.0-mini'",,,no AA match for 'seed-2.0-mini'
+2026-11-09,bytedance/ui-tars-1.5-7b,bytedance,open_weights,openrouter_hugging_face_id,ByteDance-Seed/UI-TARS-1.5-7B,,,no AA match for 'ui-tars-1.5-7b'
+2026-11-09,cognitivecomputations/dolphin-mistral-24b-venice-edition,cognitivecomputations,open_weights,openrouter_hugging_face_id,cognitivecomputations/Dolphin-Mistral-24B-Venice-Edition,,,no AA match for 'dolphin-mistral-24b-venice-edition'
+2026-11-09,cohere/command-a,cohere,open_weights,openrouter_hugging_face_id,CohereForAI/c4ai-command-a-03-2025,6.2,entry,AA command-a-plus (variant base); intelligence_index 6.2 >= 0.0; AA index v5
+2026-11-09,cohere/command-a-plus,cohere,open_weights,hf_weights_repo_found,https://huggingface.co/CohereLabs/command-a-plus-05-2026-bf16,6.2,entry,AA command-a-plus (variant base); intelligence_index 6.2 >= 0.0; AA index v5
+2026-11-09,cohere/command-r-08-2024,cohere,open_weights,hf_weights_repo_found,https://huggingface.co/CohereLabs/c4ai-command-r-08-2024,,,no AA match for 'command-r-08-2024'
+2026-11-09,cohere/command-r-plus-08-2024,cohere,open_weights,hf_weights_repo_found,https://huggingface.co/CohereLabs/c4ai-command-r-plus-08-2024,,,no AA match for 'command-r-plus-08-2024'
+2026-11-09,cohere/command-r7b-12-2024,cohere,open_weights,hf_weights_repo_found,https://huggingface.co/CohereLabs/c4ai-command-r7b-12-2024,,,no AA match for 'command-r7b-12-2024'
+2026-11-09,cohere/north-mini-code:free,cohere,open_weights,openrouter_hugging_face_id,CohereLabs/North-Mini-Code-1.0,3.4,entry,AA north-mini-code (variant base); intelligence_index 3.4 >= 0.0; AA index v5
+2026-11-09,deepseek/deepseek-chat,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V3,,,no AA match for 'deepseek-chat'
+2026-11-09,deepseek/deepseek-chat-v3-0324,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V3-0324,,,no AA match for 'deepseek-chat-v3-0324'
+2026-11-09,deepseek/deepseek-chat-v3.1,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V3.1,,,no AA match for 'deepseek-chat-v3.1'
+2026-11-09,deepseek/deepseek-r1-0528,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-R1-0528,,,no AA match for 'deepseek-r1-0528'
+2026-11-09,deepseek/deepseek-v3.1-terminus,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V3.1-Terminus,,,no AA match for 'deepseek-v3.1-terminus'
+2026-11-09,deepseek/deepseek-v3.2,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V3.2,,,no AA match for 'deepseek-v3.2'
+2026-11-09,deepseek/deepseek-v3.2-exp,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V3.2-Exp,,,no AA match for 'deepseek-v3.2-exp'
+2026-11-09,deepseek/deepseek-v4-flash,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4-Flash,,,no AA match for 'deepseek-v4-flash'
+2026-11-09,deepseek/deepseek-v4-flash-0731,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4-Flash-0731,,,no AA match for 'deepseek-v4-flash-0731'
+2026-11-09,deepseek/deepseek-v4-flash-0731:batch,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4-Flash-0731,,,no AA match for 'deepseek-v4-flash-0731'
+2026-11-09,deepseek/deepseek-v4-flash-vision-exp,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4-Flash-Vision-Exp,,,no AA match for 'deepseek-v4-flash-vision-exp'
+2026-11-09,deepseek/deepseek-v4-pro,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4-Pro,23.1,entry,AA deepseek-v4-pro (variant Max); intelligence_index 23.1 >= 0.0; AA index v5
+2026-11-09,deepseek/deepseek-v4-pro-0813,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4-Pro-0813,23.1,entry,AA deepseek-v4-pro (variant Max); intelligence_index 23.1 >= 0.0; AA index v5
+2026-11-09,deepseek/deepseek-v4.1-flash,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4.1-Flash,,,no AA match for 'deepseek-v4.1-flash'
+2026-11-09,deepseek/deepseek-v4.1-flash-1017,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4.1-Flash-1017,32.6,mid,AA deepseek-v4-1-flash-1017 (variant Max); intelligence_index 32.6 >= 25.0; AA index v5
+2026-11-09,deepseek/deepseek-v4.1-flash-1017:batch,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4.1-Flash-1017,32.6,mid,AA deepseek-v4-1-flash-1017 (variant Max); intelligence_index 32.6 >= 25.0; AA index v5
+2026-11-09,deepseek/deepseek-v4.1-flash:batch,deepseek,open_weights,openrouter_hugging_face_id,deepseek-ai/DeepSeek-V4.1-Flash,,,no AA match for 'deepseek-v4.1-flash'
+2026-11-09,dots-studio/dots-3-note-preview:free,dots-studio,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'dots-studio',,,no AA match for 'dots-3-note-preview'
+2026-11-09,elorian/glimpse,elorian,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'elorian',,,no AA match for 'glimpse'
+2026-11-09,fireworks/ember-1,fireworks,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'fireworks',,,no AA match for 'ember-1'
+2026-11-09,google/gemini-2.5-flash,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-2.5-flash'
+2026-11-09,google/gemini-2.5-flash-image,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-2.5-flash-image'
+2026-11-09,google/gemini-2.5-flash-lite,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-2.5-flash-lite'
+2026-11-09,google/gemini-2.5-pro,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-2.5-pro'
+2026-11-09,google/gemini-2.5-pro-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-2.5-pro-preview'
+2026-11-09,google/gemini-3-flash-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3-flash-preview'
+2026-11-09,google/gemini-3-flash-preview:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3-flash-preview'
+2026-11-09,google/gemini-3-pro-image,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3-pro-image'
+2026-11-09,google/gemini-3-pro-image-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3-pro-image-preview'
+2026-11-09,google/gemini-3.1-flash-image,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.1-flash-image'
+2026-11-09,google/gemini-3.1-flash-image-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.1-flash-image-preview'
+2026-11-09,google/gemini-3.1-flash-lite,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,6.2,entry,AA gemini-3-1-flash-lite-preview (variant base); intelligence_index 6.2 >= 0.0; AA index v5
+2026-11-09,google/gemini-3.1-flash-lite-image,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.1-flash-lite-image'
+2026-11-09,google/gemini-3.1-flash-lite-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,6.2,entry,AA gemini-3-1-flash-lite-preview (variant base); intelligence_index 6.2 >= 0.0; AA index v5
+2026-11-09,google/gemini-3.1-flash-lite:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,6.2,entry,AA gemini-3-1-flash-lite-preview (variant base); intelligence_index 6.2 >= 0.0; AA index v5
+2026-11-09,google/gemini-3.1-pro-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.1-pro-preview'
+2026-11-09,google/gemini-3.1-pro-preview-customtools,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.1-pro-preview-customtools'
+2026-11-09,google/gemini-3.1-pro-preview:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.1-pro-preview'
+2026-11-09,google/gemini-3.5-flash,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.5-flash'
+2026-11-09,google/gemini-3.5-flash-lite,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,11.7,entry,AA gemini-3-5-flash-lite (variant base); intelligence_index 11.7 >= 0.0; AA index v5
+2026-11-09,google/gemini-3.5-flash-lite:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,11.7,entry,AA gemini-3-5-flash-lite (variant base); intelligence_index 11.7 >= 0.0; AA index v5
+2026-11-09,google/gemini-3.5-flash:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.5-flash'
+2026-11-09,google/gemini-3.6-flash,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.6-flash'
+2026-11-09,google/gemini-3.6-flash:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.6-flash'
+2026-11-09,google/gemini-3.7-flash,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.7-flash'
+2026-11-09,google/gemini-3.7-flash:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-3.7-flash'
+2026-11-09,google/gemini-3.8-flash,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,30.8,mid,AA gemini-3-8-flash (variant High); intelligence_index 30.8 >= 25.0; AA index v5
+2026-11-09,google/gemini-3.8-flash:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,30.8,mid,AA gemini-3-8-flash (variant High); intelligence_index 30.8 >= 25.0; AA index v5
+2026-11-09,google/gemini-4-argon,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,50.4,frontier,AA gemini-4-argon (variant High); intelligence_index 50.4 >= 45.0; AA index v5
+2026-11-09,google/gemini-4-argon:batch,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,50.4,frontier,AA gemini-4-argon (variant High); intelligence_index 50.4 >= 45.0; AA index v5
+2026-11-09,google/gemini-nano-banana-2.1,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-nano-banana-2.1'
+2026-11-09,google/gemini-omni-1.1-flash,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-omni-1.1-flash'
+2026-11-09,google/gemini-omni-1.2-flash,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gemini-omni-1.2-flash'
+2026-11-09,google/gemma-2-27b-it,google,open_weights,openrouter_hugging_face_id,google/gemma-2-27b-it,,,no AA match for 'gemma-2-27b-it'
+2026-11-09,google/gemma-3-12b-it,google,open_weights,openrouter_hugging_face_id,google/gemma-3-12b-it,,,no AA match for 'gemma-3-12b-it'
+2026-11-09,google/gemma-3-27b-it,google,open_weights,openrouter_hugging_face_id,google/gemma-3-27b-it,,,no AA match for 'gemma-3-27b-it'
+2026-11-09,google/gemma-3-4b-it,google,open_weights,openrouter_hugging_face_id,google/gemma-3-4b-it,,,no AA match for 'gemma-3-4b-it'
+2026-11-09,google/gemma-4-26b-a4b-it,google,open_weights,openrouter_hugging_face_id,google/gemma-4-26B-A4B-it,,,no AA match for 'gemma-4-26b-a4b-it'
+2026-11-09,google/gemma-4-26b-a4b-it:free,google,open_weights,openrouter_hugging_face_id,google/gemma-4-26B-A4B-it,,,no AA match for 'gemma-4-26b-a4b-it'
+2026-11-09,google/gemma-4-31b-it,google,open_weights,openrouter_hugging_face_id,google/gemma-4-31B-it,,,no AA match for 'gemma-4-31b-it'
+2026-11-09,google/gemma-4-31b-it:free,google,open_weights,openrouter_hugging_face_id,google/gemma-4-31B-it,,,no AA match for 'gemma-4-31b-it'
+2026-11-09,google/lyria-3-clip-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'lyria-3-clip-preview'
+2026-11-09,google/lyria-3-pro-preview,google,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'lyria-3-pro-preview'
+2026-11-09,gryphe/mythomax-l2-13b,gryphe,open_weights,openrouter_hugging_face_id,Gryphe/MythoMax-L2-13b,,,no AA match for 'mythomax-l2-13b'
+2026-11-09,ibm-granite/granite-4.2-8b,ibm-granite,open_weights,openrouter_hugging_face_id,ibm-granite/granite-4.2-8b,5.1,entry,AA granite-4-2-8b (variant base); intelligence_index 5.1 >= 0.0; AA index v5
+2026-11-09,inclusionai/ling-3.0-flash,inclusionai,open_weights,openrouter_hugging_face_id,inclusionAI/Ling-3.0-flash,,,no AA match for 'ling-3.0-flash'
+2026-11-09,inclusionai/ling-3.0-flash-vl,inclusionai,open_weights,openrouter_hugging_face_id,inclusionAI/Ling-3.0-flash-VL,,,no AA match for 'ling-3.0-flash-vl'
+2026-11-09,inclusionai/ling-3.0-tiny,inclusionai,open_weights,openrouter_hugging_face_id,inclusionAI/Ling-3.0-tiny,,,no AA match for 'ling-3.0-tiny'
+2026-11-09,inclusionai/ling-3.1-flash,inclusionai,open_weights,hf_weights_repo_found,https://huggingface.co/inclusionAI/Ling-3.1-flash,,,no AA match for 'ling-3.1-flash'
+2026-11-09,inference-net/schematron-v2-small,inference-net,open_weights,openrouter_hugging_face_id,inference-net/schematron-v2-llama-3.2-3b,,,no AA match for 'schematron-v2-small'
+2026-11-09,inference-net/schematron-v2-turbo,inference-net,open_weights,openrouter_hugging_face_id,inference-net/schematron-v2-granite-4.0-h-micro,,,no AA match for 'schematron-v2-turbo'
+2026-11-09,liquid/lfm-2.5-2.6b,liquid,open_weights,openrouter_hugging_face_id,LiquidAI/LFM2.5-2.6B,,,no AA match for 'lfm-2.5-2.6b'
+2026-11-09,liquid/lfm-2.5-2.6b:free,liquid,open_weights,openrouter_hugging_face_id,LiquidAI/LFM2.5-2.6B,,,no AA match for 'lfm-2.5-2.6b'
+2026-11-09,liquid/lfm-2.5-24b-a2b,liquid,open_weights,openrouter_hugging_face_id,LiquidAI/LFM2.5-24B-A2B,,,no AA match for 'lfm-2.5-24b-a2b'
+2026-11-09,liquid/lfm-3-1.7b,liquid,open_weights,openrouter_hugging_face_id,LiquidAI/LFM3-1.7B,,,no AA match for 'lfm-3-1.7b'
+2026-11-09,liquid/lfm-3-1.7b:free,liquid,open_weights,openrouter_hugging_face_id,LiquidAI/LFM3-1.7B,,,no AA match for 'lfm-3-1.7b'
+2026-11-09,mancer/weaver,mancer,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'mancer',,,no AA match for 'weaver'
+2026-11-09,meituan/longcat-2.0,meituan,open_weights,openrouter_hugging_face_id,meituan-longcat/LongCat-2.0,,,no AA match for 'longcat-2.0'
+2026-11-09,meta-llama/llama-3.1-70b-instruct,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Meta-Llama-3.1-70B-Instruct,,,no AA match for 'llama-3.1-70b-instruct'
+2026-11-09,meta-llama/llama-3.1-8b-instruct,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Meta-Llama-3.1-8B-Instruct,,,no AA match for 'llama-3.1-8b-instruct'
+2026-11-09,meta-llama/llama-3.2-1b-instruct,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Llama-3.2-1B-Instruct,,,no AA match for 'llama-3.2-1b-instruct'
+2026-11-09,meta-llama/llama-3.2-3b-instruct,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Llama-3.2-3B-Instruct,,,no AA match for 'llama-3.2-3b-instruct'
+2026-11-09,meta-llama/llama-3.3-70b-instruct,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Llama-3.3-70B-Instruct,,,no AA match for 'llama-3.3-70b-instruct'
+2026-11-09,meta-llama/llama-4-maverick,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Llama-4-Maverick-17B-128E-Instruct,,,no AA match for 'llama-4-maverick'
+2026-11-09,meta-llama/llama-4-scout,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Llama-4-Scout-17B-16E-Instruct,,,no AA match for 'llama-4-scout'
+2026-11-09,meta-llama/llama-guard-4-12b,meta-llama,open_weights,openrouter_hugging_face_id,meta-llama/Llama-Guard-4-12B,,,no AA match for 'llama-guard-4-12b'
+2026-11-09,meta/muse-ember,meta,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/meta-llama (70 repos), no weights repo for 'muse-ember'",36.0,mid,AA muse-ember (variant Max); intelligence_index 36.0 >= 25.0; AA index v5
+2026-11-09,meta/muse-glimmer-30b,meta,open_weights,openrouter_hugging_face_id,meta-models/Muse-Glimmer-30B,6.3,entry,override Muse Glimmer to AA muse-glimmer (High); intelligence_index 6.3 >= 0.0; AA index v5
+2026-11-09,meta/muse-glimmer-30b:batch,meta,open_weights,openrouter_hugging_face_id,meta-models/Muse-Glimmer-30B,6.3,entry,override Muse Glimmer to AA muse-glimmer (High); intelligence_index 6.3 >= 0.0; AA index v5
+2026-11-09,meta/muse-spark-1.1,meta,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/meta-llama (70 repos), no weights repo for 'muse-spark-1.1'",,,no AA match for 'muse-spark-1.1'
+2026-11-09,meta/muse-spark-1.2,meta,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/meta-llama (70 repos), no weights repo for 'muse-spark-1.2'",,,no AA match for 'muse-spark-1.2'
+2026-11-09,meta/muse-spark-1.2-contributor,meta,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/meta-llama (70 repos), no weights repo for 'muse-spark-1.2-contributor'",,,no AA match for 'muse-spark-1.2-contributor'
+2026-11-09,meta/muse-spark-1.3,meta,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/meta-llama (70 repos), no weights repo for 'muse-spark-1.3'",36.6,mid,AA muse-spark-1-3 (variant Max); intelligence_index 36.6 >= 25.0; AA index v5
+2026-11-09,meta/muse-spark-1.3-contributor,meta,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/meta-llama (70 repos), no weights repo for 'muse-spark-1.3-contributor'",,,no AA match for 'muse-spark-1.3-contributor'
+2026-11-09,meta/muse-spark-open,meta,open_weights,openrouter_hugging_face_id,meta-models/Muse-Spark-Open-816B-A42B,24.9,entry,AA muse-spark-open (variant Xhigh); intelligence_index 24.9 >= 0.0; AA index v5
+2026-11-09,meta/muse-wonder,meta,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/meta-llama (70 repos), no weights repo for 'muse-wonder'",43.6,mid,AA muse-wonder (variant Max); intelligence_index 43.6 >= 25.0; AA index v5
+2026-11-09,microsoft/phi-4,microsoft,open_weights,openrouter_hugging_face_id,microsoft/phi-4,,,no AA match for 'phi-4'
+2026-11-09,minimax/minimax-m2.5,minimax,open_weights,openrouter_hugging_face_id,MiniMaxAI/MiniMax-M2.5,,,no AA match for 'minimax-m2.5'
+2026-11-09,minimax/minimax-m2.7,minimax,open_weights,openrouter_hugging_face_id,MiniMaxAI/MiniMax-M2.7,,,no AA match for 'minimax-m2.7'
+2026-11-09,minimax/minimax-m3,minimax,open_weights,openrouter_hugging_face_id,MiniMaxAI/Minimax-M3,18.9,entry,AA minimax-m3 (variant base); intelligence_index 18.9 >= 0.0; AA index v5
+2026-11-09,minimax/minimax-m3.1-flash,minimax,open_weights,openrouter_hugging_face_id,MiniMaxAI/MiniMax-M3.1-Flash,29.1,mid,AA minimax-m3-1-flash (variant base); intelligence_index 29.1 >= 25.0; AA index v5
+2026-11-09,minimax/minimax-m3:batch,minimax,open_weights,openrouter_hugging_face_id,MiniMaxAI/Minimax-M3,18.9,entry,AA minimax-m3 (variant base); intelligence_index 18.9 >= 0.0; AA index v5
+2026-11-09,mistralai/codestral-2508,mistralai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/mistralai/Codestral-22B-v0.1, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'codestral-2508'
+2026-11-09,mistralai/devstral-2512,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Devstral-2-123B-Instruct-2512,,,no AA match for 'devstral-2512'
+2026-11-09,mistralai/ministral-14b-2512,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Ministral-3-14B-Instruct-2512,,,no AA match for 'ministral-14b-2512'
+2026-11-09,mistralai/ministral-3b-2512,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Ministral-3-3B-Instruct-2512,,,no AA match for 'ministral-3b-2512'
+2026-11-09,mistralai/ministral-8b-2512,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Ministral-3-8B-Instruct-2512,,,no AA match for 'ministral-8b-2512'
+2026-11-09,mistralai/mistral-large,mistralai,open_weights,hf_weights_repo_found,https://huggingface.co/mistralai/Mistral-Large-Instruct-2407,,,no AA match for 'mistral-large'
+2026-11-09,mistralai/mistral-large-2407,mistralai,open_weights,hf_weights_repo_found,https://huggingface.co/mistralai/Mistral-Large-Instruct-2407,,,no AA match for 'mistral-large-2407'
+2026-11-09,mistralai/mistral-large-2512,mistralai,open_weights,hf_weights_repo_found,https://huggingface.co/mistralai/Mistral-Large-3-675B-Base-2512,,,no AA match for 'mistral-large-2512'
+2026-11-09,mistralai/mistral-large-4-0,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Mistral-Large-4-1T-A52B,26.1,mid,override Mistral Large 4 to AA mistral-large-4 (High); intelligence_index 26.1 >= 25.0; AA index v5
+2026-11-09,mistralai/mistral-medium-3,mistralai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/mistralai/Mistral-Medium-3.5-128B, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'mistral-medium-3'
+2026-11-09,mistralai/mistral-medium-3-5,mistralai,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/mistralai (83 repos), no weights repo for 'mistral-medium-3-5'",4.6,entry,AA mistral-medium-3-5 (variant base); intelligence_index 4.6 >= 0.0; AA index v5
+2026-11-09,mistralai/mistral-medium-3-5:batch,mistralai,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/mistralai (83 repos), no weights repo for 'mistral-medium-3-5'",4.6,entry,AA mistral-medium-3-5 (variant base); intelligence_index 4.6 >= 0.0; AA index v5
+2026-11-09,mistralai/mistral-medium-3.1,mistralai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/mistralai/Mistral-Medium-3.5-128B, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'mistral-medium-3.1'
+2026-11-09,mistralai/mistral-nemo,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Mistral-Nemo-Instruct-2407,,,no AA match for 'mistral-nemo'
+2026-11-09,mistralai/mistral-saba,mistralai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/mistralai/Mistral-7B-v0.1, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'mistral-saba'
+2026-11-09,mistralai/mistral-small-24b-instruct-2501,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Mistral-Small-24B-Instruct-2501,,,no AA match for 'mistral-small-24b-instruct-2501'
+2026-11-09,mistralai/mistral-small-2603,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Mistral-Small-4-119B-2603,4.3,entry,override Mistral Small 4 to AA mistral-small-4 (Reasoning); intelligence_index 4.3 >= 0.0; AA index v5
+2026-11-09,mistralai/mistral-small-3.1-24b-instruct,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Mistral-Small-3.1-24B-Instruct-2503,,,no AA match for 'mistral-small-3.1-24b-instruct'
+2026-11-09,mistralai/mistral-small-3.2-24b-instruct,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Mistral-Small-3.2-24B-Instruct-2506,,,no AA match for 'mistral-small-3.2-24b-instruct'
+2026-11-09,mistralai/mixtral-8x22b-instruct,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Mixtral-8x22B-Instruct-v0.1,,,no AA match for 'mixtral-8x22b-instruct'
+2026-11-09,mistralai/voxtral-small-24b-2507,mistralai,open_weights,openrouter_hugging_face_id,mistralai/Voxtral-Small-24B-2507,,,no AA match for 'voxtral-small-24b-2507'
+2026-11-09,moondream/moondream3-preview,moondream,open_weights,openrouter_hugging_face_id,moondream/moondream3-preview,,,no AA match for 'moondream3-preview'
+2026-11-09,moondream/moondream3.1-9b-a2b,moondream,open_weights,openrouter_hugging_face_id,moondream/moondream3.1-9B-A2B,,,no AA match for 'moondream3.1-9b-a2b'
+2026-11-09,moonshotai/kimi-k2,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K2-Instruct,,,no AA match for 'kimi-k2'
+2026-11-09,moonshotai/kimi-k2-0905,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K2-Instruct-0905,,,no AA match for 'kimi-k2-0905'
+2026-11-09,moonshotai/kimi-k2-thinking,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K2-Thinking,,,no AA match for 'kimi-k2-thinking'
+2026-11-09,moonshotai/kimi-k2.5,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K2.5,,,no AA match for 'kimi-k2.5'
+2026-11-09,moonshotai/kimi-k2.6,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K2.6,,,no AA match for 'kimi-k2.6'
+2026-11-09,moonshotai/kimi-k2.7-code,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K2.7-Code,,,no AA match for 'kimi-k2.7-code'
+2026-11-09,moonshotai/kimi-k3,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K3,17.4,entry,AA kimi-k3-low (variant Low); intelligence_index 17.4 >= 0.0; AA index v5
+2026-11-09,moonshotai/kimi-k3.1-pro,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K3.1-Pro,46.5,frontier,AA kimi-k3-1-pro (variant base); intelligence_index 46.5 >= 45.0; AA index v5
+2026-11-09,moonshotai/kimi-k3:batch,moonshotai,open_weights,openrouter_hugging_face_id,moonshotai/Kimi-K3,17.4,entry,AA kimi-k3-low (variant Low); intelligence_index 17.4 >= 0.0; AA index v5
+2026-11-09,morph/morph-v3-fast,morph,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'morph',,,no AA match for 'morph-v3-fast'
+2026-11-09,morph/morph-v3-fast:batch,morph,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'morph',,,no AA match for 'morph-v3-fast'
+2026-11-09,morph/morph-v3-large,morph,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'morph',,,no AA match for 'morph-v3-large'
+2026-11-09,morph/morph-v3-large:batch,morph,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'morph',,,no AA match for 'morph-v3-large'
+2026-11-09,nex-agi/nex-n2.5-mini,nex-agi,open_weights,openrouter_hugging_face_id,nex-agi/Nex-N2.5-mini,,,no AA match for 'nex-n2.5-mini'
+2026-11-09,nex-agi/nex-n2.5-pro,nex-agi,open_weights,openrouter_hugging_face_id,nex-agi/Nex-N2.5-Pro,,,no AA match for 'nex-n2.5-pro'
+2026-11-09,nousresearch/hermes-4-405b,nousresearch,open_weights,openrouter_hugging_face_id,NousResearch/Hermes-4-405B,,,no AA match for 'hermes-4-405b'
+2026-11-09,nvidia/nemotron-3-nano-30b-a3b,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3-Nano-30B-A3B-BF16,,,no AA match for 'nemotron-3-nano-30b-a3b'
+2026-11-09,nvidia/nemotron-3-nano-omni-30b-a3b-reasoning:free,nvidia,open_weights,openrouter_hugging_face_id,nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16,,,no AA match for 'nemotron-3-nano-omni-30b-a3b-reasoning'
+2026-11-09,nvidia/nemotron-3-super-120b-a12b,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3-Super-120B-A12B-FP8,,,no AA match for 'nemotron-3-super-120b-a12b'
+2026-11-09,nvidia/nemotron-3-ultra-550b-a55b,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16,11.8,entry,AA nvidia-nemotron-3-ultra-550b-a55b (variant Reasoning); intelligence_index 11.8 >= 0.0; AA index v5
+2026-11-09,nvidia/nemotron-3-ultra-550b-a55b:free,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3-Ultra-550B-A55B-BF16,11.8,entry,AA nvidia-nemotron-3-ultra-550b-a55b (variant Reasoning); intelligence_index 11.8 >= 0.0; AA index v5
+2026-11-09,nvidia/nemotron-3.5-content-safety,nvidia,open_weights,openrouter_hugging_face_id,nvidia/Nemotron-3.5-Content-Safety,,,no AA match for 'nemotron-3.5-content-safety'
+2026-11-09,nvidia/nemotron-3.5-lightning,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16,5.5,entry,AA nemotron-3-5-lightning (variant base); intelligence_index 5.5 >= 0.0; AA index v5
+2026-11-09,nvidia/nemotron-3.5-lightning:free,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16,5.5,entry,AA nemotron-3-5-lightning (variant base); intelligence_index 5.5 >= 0.0; AA index v5
+2026-11-09,nvidia/nemotron-3.5-super-vl,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3.5-Super-VL,13.6,entry,AA nemotron-3-5-super-vl (variant base); intelligence_index 13.6 >= 0.0; AA index v5
+2026-11-09,nvidia/nemotron-3.5-super-vl:free,nvidia,open_weights,openrouter_hugging_face_id,nvidia/NVIDIA-Nemotron-3.5-Super-VL,13.6,entry,AA nemotron-3-5-super-vl (variant base); intelligence_index 13.6 >= 0.0; AA index v5
+2026-11-09,openai/gpt-3.5-turbo-0613,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-3.5-turbo-0613'
+2026-11-09,openai/gpt-3.5-turbo-16k,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-3.5-turbo-16k'
+2026-11-09,openai/gpt-4,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4'
+2026-11-09,openai/gpt-4-turbo:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4-turbo'
+2026-11-09,openai/gpt-4.1,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4.1'
+2026-11-09,openai/gpt-4.1-mini,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4.1-mini'
+2026-11-09,openai/gpt-4.1-mini:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4.1-mini'
+2026-11-09,openai/gpt-4.1-nano,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4.1-nano'
+2026-11-09,openai/gpt-4.1-nano:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4.1-nano'
+2026-11-09,openai/gpt-4.1:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4.1'
+2026-11-09,openai/gpt-4o,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o'
+2026-11-09,openai/gpt-4o-2024-05-13,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o-2024-05-13'
+2026-11-09,openai/gpt-4o-2024-08-06,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o-2024-08-06'
+2026-11-09,openai/gpt-4o-2024-11-20,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o-2024-11-20'
+2026-11-09,openai/gpt-4o-mini,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o-mini'
+2026-11-09,openai/gpt-4o-mini-2024-07-18,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o-mini-2024-07-18'
+2026-11-09,openai/gpt-4o-mini:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o-mini'
+2026-11-09,openai/gpt-4o:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-4o'
+2026-11-09,openai/gpt-5,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5'
+2026-11-09,openai/gpt-5-image,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-image'
+2026-11-09,openai/gpt-5-image-mini,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-image-mini'
+2026-11-09,openai/gpt-5-mini,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-mini'
+2026-11-09,openai/gpt-5-mini:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-mini'
+2026-11-09,openai/gpt-5-nano,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-nano'
+2026-11-09,openai/gpt-5-nano:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-nano'
+2026-11-09,openai/gpt-5-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-pro'
+2026-11-09,openai/gpt-5-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5-pro'
+2026-11-09,openai/gpt-5.1,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.1'
+2026-11-09,openai/gpt-5.1-codex,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.1-codex'
+2026-11-09,openai/gpt-5.1-codex-max,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.1-codex-max'
+2026-11-09,openai/gpt-5.1-codex-mini,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.1-codex-mini'
+2026-11-09,openai/gpt-5.1:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.1'
+2026-11-09,openai/gpt-5.2,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.2'
+2026-11-09,openai/gpt-5.2-chat,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.2-chat'
+2026-11-09,openai/gpt-5.2-codex,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.2-codex'
+2026-11-09,openai/gpt-5.2-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.2-pro'
+2026-11-09,openai/gpt-5.2-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.2-pro'
+2026-11-09,openai/gpt-5.2:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.2'
+2026-11-09,openai/gpt-5.3-codex,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.3-codex'
+2026-11-09,openai/gpt-5.4,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4'
+2026-11-09,openai/gpt-5.4-image-2,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4-image-2'
+2026-11-09,openai/gpt-5.4-mini,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4-mini'
+2026-11-09,openai/gpt-5.4-mini:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4-mini'
+2026-11-09,openai/gpt-5.4-nano,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4-nano'
+2026-11-09,openai/gpt-5.4-nano:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4-nano'
+2026-11-09,openai/gpt-5.4-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4-pro'
+2026-11-09,openai/gpt-5.4-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4-pro'
+2026-11-09,openai/gpt-5.4:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.4'
+2026-11-09,openai/gpt-5.5,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.5'
+2026-11-09,openai/gpt-5.5-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.5-pro'
+2026-11-09,openai/gpt-5.5-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.5-pro'
+2026-11-09,openai/gpt-5.5:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.5'
+2026-11-09,openai/gpt-5.6-luna,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,23.8,entry,AA gpt-5-6-luna (variant Max); intelligence_index 23.8 >= 0.0; AA index v5
+2026-11-09,openai/gpt-5.6-luna-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-luna-pro'
+2026-11-09,openai/gpt-5.6-luna-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-luna-pro'
+2026-11-09,openai/gpt-5.6-luna:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,23.8,entry,AA gpt-5-6-luna (variant Max); intelligence_index 23.8 >= 0.0; AA index v5
+2026-11-09,openai/gpt-5.6-sol,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-sol'
+2026-11-09,openai/gpt-5.6-sol-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-sol-pro'
+2026-11-09,openai/gpt-5.6-sol-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-sol-pro'
+2026-11-09,openai/gpt-5.6-sol:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-sol'
+2026-11-09,openai/gpt-5.6-terra,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,32.3,mid,AA gpt-5-6-terra (variant Max); intelligence_index 32.3 >= 25.0; AA index v5
+2026-11-09,openai/gpt-5.6-terra-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-terra-pro'
+2026-11-09,openai/gpt-5.6-terra-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5.6-terra-pro'
+2026-11-09,openai/gpt-5.6-terra:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,32.3,mid,AA gpt-5-6-terra (variant Max); intelligence_index 32.3 >= 25.0; AA index v5
+2026-11-09,openai/gpt-5:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-5'
+2026-11-09,openai/gpt-6-astra,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,56.9,frontier,AA gpt-6-astra (variant Max); intelligence_index 56.9 >= 45.0; AA index v5
+2026-11-09,openai/gpt-6-astra-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6-astra-pro'
+2026-11-09,openai/gpt-6-astra-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6-astra-pro'
+2026-11-09,openai/gpt-6-astra:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,56.9,frontier,AA gpt-6-astra (variant Max); intelligence_index 56.9 >= 45.0; AA index v5
+2026-11-09,openai/gpt-6-luna,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,27.9,mid,AA gpt-6-luna (variant Max); intelligence_index 27.9 >= 25.0; AA index v5
+2026-11-09,openai/gpt-6-luna-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6-luna-pro'
+2026-11-09,openai/gpt-6-luna-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6-luna-pro'
+2026-11-09,openai/gpt-6-luna:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,27.9,mid,AA gpt-6-luna (variant Max); intelligence_index 27.9 >= 25.0; AA index v5
+2026-11-09,openai/gpt-6-sol,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,44.2,mid,AA gpt-6-sol (variant Max); intelligence_index 44.2 >= 25.0; AA index v5
+2026-11-09,openai/gpt-6-sol-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6-sol-pro'
+2026-11-09,openai/gpt-6-sol-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6-sol-pro'
+2026-11-09,openai/gpt-6-sol:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,44.2,mid,AA gpt-6-sol (variant Max); intelligence_index 44.2 >= 25.0; AA index v5
+2026-11-09,openai/gpt-6.1-sol,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,54.6,frontier,AA gpt-6-1-sol (variant Max); intelligence_index 54.6 >= 45.0; AA index v5
+2026-11-09,openai/gpt-6.1-sol-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6.1-sol-pro'
+2026-11-09,openai/gpt-6.1-sol-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6.1-sol-pro'
+2026-11-09,openai/gpt-6.1-sol:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,54.6,frontier,AA gpt-6-1-sol (variant Max); intelligence_index 54.6 >= 45.0; AA index v5
+2026-11-09,openai/gpt-6.1-terra,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,51.3,frontier,AA gpt-6-1-terra (variant Max); intelligence_index 51.3 >= 45.0; AA index v5
+2026-11-09,openai/gpt-6.1-terra-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6.1-terra-pro'
+2026-11-09,openai/gpt-6.1-terra-pro:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-6.1-terra-pro'
+2026-11-09,openai/gpt-6.1-terra:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,51.3,frontier,AA gpt-6-1-terra (variant Max); intelligence_index 51.3 >= 45.0; AA index v5
+2026-11-09,openai/gpt-audio,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-audio'
+2026-11-09,openai/gpt-audio-mini,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-audio-mini'
+2026-11-09,openai/gpt-chat-latest,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'gpt-chat-latest'
+2026-11-09,openai/gpt-oss-120b,openai,open_weights,openrouter_hugging_face_id,openai/gpt-oss-120b,3.8,entry,AA gpt-oss-120b (variant High); intelligence_index 3.8 >= 0.0; AA index v5
+2026-11-09,openai/gpt-oss-120b:batch,openai,open_weights,openrouter_hugging_face_id,openai/gpt-oss-120b,3.8,entry,AA gpt-oss-120b (variant High); intelligence_index 3.8 >= 0.0; AA index v5
+2026-11-09,openai/gpt-oss-20b,openai,open_weights,openrouter_hugging_face_id,openai/gpt-oss-20b,,,no AA match for 'gpt-oss-20b'
+2026-11-09,openai/gpt-oss-20b:batch,openai,open_weights,openrouter_hugging_face_id,openai/gpt-oss-20b,,,no AA match for 'gpt-oss-20b'
+2026-11-09,openai/gpt-oss-safeguard-20b,openai,open_weights,openrouter_hugging_face_id,openai/gpt-oss-safeguard-20b,,,no AA match for 'gpt-oss-safeguard-20b'
+2026-11-09,openai/o3,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'o3'
+2026-11-09,openai/o3-mini:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'o3-mini'
+2026-11-09,openai/o3-pro,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'o3-pro'
+2026-11-09,openai/o3:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'o3'
+2026-11-09,openai/o4-mini:batch,openai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'o4-mini'
+2026-11-09,openrouter/free,openrouter,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'openrouter',,,no AA match for 'free'
+2026-11-09,particle-ai/particle-1,particle-ai,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'particle-ai',,,no AA match for 'particle-1'
+2026-11-09,perceptron/perceptron-mk1,perceptron,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'perceptron',,,no AA match for 'perceptron-mk1'
+2026-11-09,perceptron/perceptron-mk1.5,perceptron,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'perceptron',,,no AA match for 'perceptron-mk1.5'
+2026-11-09,perplexity/sonar,perplexity,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'sonar'
+2026-11-09,perplexity/sonar-deep-research,perplexity,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'sonar-deep-research'
+2026-11-09,perplexity/sonar-pro,perplexity,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'sonar-pro'
+2026-11-09,perplexity/sonar-pro-search,perplexity,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'sonar-pro-search'
+2026-11-09,perplexity/sonar-reasoning-pro,perplexity,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'sonar-reasoning-pro'
+2026-11-09,prism-ml/ternary-bonsai-2-27b,prism-ml,open_weights,openrouter_hugging_face_id,prism-ml/Ternary-Bonsai-2-27B-gguf,,,no AA match for 'ternary-bonsai-2-27b'
+2026-11-09,prism-ml/ternary-bonsai-2-9b,prism-ml,open_weights,openrouter_hugging_face_id,prism-ml/Ternary-Bonsai-2-9B-gguf,,,no AA match for 'ternary-bonsai-2-9b'
+2026-11-09,qwen/qwen-2.5-72b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen2.5-72B-Instruct,,,no AA match for 'qwen-2.5-72b-instruct'
+2026-11-09,qwen/qwen-2.5-7b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen2.5-7B-Instruct,,,no AA match for 'qwen-2.5-7b-instruct'
+2026-11-09,qwen/qwen-2.5-coder-32b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen2.5-Coder-32B-Instruct,,,no AA match for 'qwen-2.5-coder-32b-instruct'
+2026-11-09,qwen/qwen-plus,qwen,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/Qwen/Qwen-14B, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'qwen-plus'
+2026-11-09,qwen/qwen2.5-vl-72b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen2.5-VL-72B-Instruct,,,no AA match for 'qwen2.5-vl-72b-instruct'
+2026-11-09,qwen/qwen3-14b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-14B,,,no AA match for 'qwen3-14b'
+2026-11-09,qwen/qwen3-235b-a22b-2507,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-235B-A22B-Instruct-2507,,,no AA match for 'qwen3-235b-a22b-2507'
+2026-11-09,qwen/qwen3-235b-a22b-thinking-2507,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-235B-A22B-Thinking-2507,,,no AA match for 'qwen3-235b-a22b-thinking-2507'
+2026-11-09,qwen/qwen3-30b-a3b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-30B-A3B,,,no AA match for 'qwen3-30b-a3b'
+2026-11-09,qwen/qwen3-30b-a3b-instruct-2507,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-30B-A3B-Instruct-2507,,,no AA match for 'qwen3-30b-a3b-instruct-2507'
+2026-11-09,qwen/qwen3-32b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-32B,,,no AA match for 'qwen3-32b'
+2026-11-09,qwen/qwen3-coder,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-Coder-480B-A35B-Instruct,,,no AA match for 'qwen3-coder'
+2026-11-09,qwen/qwen3-coder-30b-a3b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-Coder-30B-A3B-Instruct,,,no AA match for 'qwen3-coder-30b-a3b-instruct'
+2026-11-09,qwen/qwen3-coder-flash,qwen,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/Qwen/Qwen3-Coder-Next, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'qwen3-coder-flash'
+2026-11-09,qwen/qwen3-coder-next,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-Coder-Next,,,no AA match for 'qwen3-coder-next'
+2026-11-09,qwen/qwen3-next-80b-a3b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-Next-80B-A3B-Instruct,,,no AA match for 'qwen3-next-80b-a3b-instruct'
+2026-11-09,qwen/qwen3-vl-235b-a22b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-VL-235B-A22B-Instruct,,,no AA match for 'qwen3-vl-235b-a22b-instruct'
+2026-11-09,qwen/qwen3-vl-30b-a3b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-VL-30B-A3B-Instruct,,,no AA match for 'qwen3-vl-30b-a3b-instruct'
+2026-11-09,qwen/qwen3-vl-30b-a3b-thinking,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-VL-30B-A3B-Thinking,,,no AA match for 'qwen3-vl-30b-a3b-thinking'
+2026-11-09,qwen/qwen3-vl-8b-instruct,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3-VL-8B-Instruct,,,no AA match for 'qwen3-vl-8b-instruct'
+2026-11-09,qwen/qwen3.5-122b-a10b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.5-122B-A10B,,,no AA match for 'qwen3.5-122b-a10b'
+2026-11-09,qwen/qwen3.5-27b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.5-27B,,,no AA match for 'qwen3.5-27b'
+2026-11-09,qwen/qwen3.5-35b-a3b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.5-35B-A3B,,,no AA match for 'qwen3.5-35b-a3b'
+2026-11-09,qwen/qwen3.5-397b-a17b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.5-397B-A17B,,,no AA match for 'qwen3.5-397b-a17b'
+2026-11-09,qwen/qwen3.5-9b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.5-9B,,,no AA match for 'qwen3.5-9b'
+2026-11-09,qwen/qwen3.5-flash-02-23,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.5-flash-02-23'",,,no AA match for 'qwen3.5-flash-02-23'
+2026-11-09,qwen/qwen3.5-plus-02-15,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.5-plus-02-15'",,,no AA match for 'qwen3.5-plus-02-15'
+2026-11-09,qwen/qwen3.5-plus-20260420,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.5-plus-20260420'",,,no AA match for 'qwen3.5-plus-20260420'
+2026-11-09,qwen/qwen3.6-27b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.6-27B,,,no AA match for 'qwen3.6-27b'
+2026-11-09,qwen/qwen3.6-35b-a3b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.6-35B-A3B,,,no AA match for 'qwen3.6-35b-a3b'
+2026-11-09,qwen/qwen3.6-flash,qwen,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/Qwen/Qwen3.6-27B, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'qwen3.6-flash'
+2026-11-09,qwen/qwen3.6-plus,qwen,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/Qwen/Qwen3.6-27B, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'qwen3.6-plus'
+2026-11-09,qwen/qwen3.7-flash,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.7-flash'",,,no AA match for 'qwen3.7-flash'
+2026-11-09,qwen/qwen3.7-max,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.7-max'",,,no AA match for 'qwen3.7-max'
+2026-11-09,qwen/qwen3.7-plus,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.7-plus'",,,no AA match for 'qwen3.7-plus'
+2026-11-09,qwen/qwen3.7-plus:batch,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.7-plus'",,,no AA match for 'qwen3.7-plus'
+2026-11-09,qwen/qwen3.8-2.4t-a95b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.8-2.4T-A95B,,,no AA match for 'qwen3.8-2.4t-a95b'
+2026-11-09,qwen/qwen3.8-27b,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.8-27B,20.1,entry,AA qwen3-8-27b (variant Xhigh); intelligence_index 20.1 >= 0.0; AA index v5
+2026-11-09,qwen/qwen3.8-27b:batch,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.8-27B,20.1,entry,AA qwen3-8-27b (variant Xhigh); intelligence_index 20.1 >= 0.0; AA index v5
+2026-11-09,qwen/qwen3.8-flash,qwen,open_weights,openrouter_hugging_face_id,Qwen/Qwen3.8-Flash-Next,,,no AA match for 'qwen3.8-flash'
+2026-11-09,qwen/qwen3.8-max-0902,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.8-max-0902'",33.7,mid,override Qwen3.8 Max to AA qwen3-8-max (0902); intelligence_index 33.7 >= 25.0; AA index v5
+2026-11-09,qwen/qwen3.8-max-0902:batch,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.8-max-0902'",33.7,mid,override Qwen3.8 Max to AA qwen3-8-max (0902); intelligence_index 33.7 >= 25.0; AA index v5
+2026-11-09,qwen/qwen3.8-max-prime,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.8-max-prime'",,,no AA match for 'qwen3.8-max-prime'
+2026-11-09,qwen/qwen3.8-omni-flash,qwen,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/Qwen (469 repos), no weights repo for 'qwen3.8-omni-flash'",,,no AA match for 'qwen3.8-omni-flash'
+2026-11-09,recursive/flint-v1.0:free,recursive,open_weights,openrouter_hugging_face_id,RecursiveSI/flint,,,no AA match for 'flint-v1.0'
+2026-11-09,reflection/beam-1.0-501b-a23b,reflection,open_weights,openrouter_hugging_face_id,reflection/Beam-1.0-501B-A23B,,,no AA match for 'beam-1.0-501b-a23b'
+2026-11-09,rekaai/reka-edge,rekaai,open_weights,openrouter_hugging_face_id,RekaAI/reka-edge-2603,,,no AA match for 'reka-edge'
+2026-11-09,rekaai/reka-flash-3,rekaai,open_weights,openrouter_hugging_face_id,RekaAI/reka-flash-3,,,no AA match for 'reka-flash-3'
+2026-11-09,relace/relace-apply-3,relace,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'relace',,,no AA match for 'relace-apply-3'
+2026-11-09,relace/relace-search,relace,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'relace',,,no AA match for 'relace-search'
+2026-11-09,ricursiveai/ripple-65b-preview,ricursiveai,open_weights,openrouter_hugging_face_id,ricursiveAI/Ripple-65B-Preview,,,no AA match for 'ripple-65b-preview'
+2026-11-09,sakana/fugu-max,sakana,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/SakanaAI (49 repos), no weights repo for 'fugu-max'",,,no AA match for 'fugu-max'
+2026-11-09,sakana/fugu-ultra,sakana,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/SakanaAI (49 repos), no weights repo for 'fugu-ultra'",,,no AA match for 'fugu-ultra'
+2026-11-09,sakana/fugu-ultra-v2,sakana,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/SakanaAI (49 repos), no weights repo for 'fugu-ultra-v2'",,,no AA match for 'fugu-ultra-v2'
+2026-11-09,sakana/sakana-namazu,sakana,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/SakanaAI (49 repos), no weights repo for 'sakana-namazu'",,,no AA match for 'sakana-namazu'
+2026-11-09,sao10k/l3-lunaris-8b,sao10k,open_weights,openrouter_hugging_face_id,Sao10K/L3-8B-Lunaris-v1,,,no AA match for 'l3-lunaris-8b'
+2026-11-09,sao10k/l3.1-euryale-70b,sao10k,open_weights,openrouter_hugging_face_id,Sao10K/L3.1-70B-Euryale-v2.2,,,no AA match for 'l3.1-euryale-70b'
+2026-11-09,scaledown/extract,scaledown,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'scaledown',,,no AA match for 'extract'
+2026-11-09,scaledown/summarize,scaledown,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'scaledown',,,no AA match for 'summarize'
+2026-11-09,stealth/crouton-alpha,stealth,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'stealth',,,no AA match for 'crouton-alpha'
+2026-11-09,stepfun/step-3.5-flash,stepfun,open_weights,openrouter_hugging_face_id,stepfun-ai/Step-3.5-Flash,,,no AA match for 'step-3.5-flash'
+2026-11-09,stepfun/step-3.7-flash,stepfun,open_weights,openrouter_hugging_face_id,stepfun-ai/Step-3.7-Flash,,,no AA match for 'step-3.7-flash'
+2026-11-09,stepfun/step-5-preview,stepfun,open_weights,openrouter_hugging_face_id,stepfun-ai/Step-5-Preview,28.5,mid,AA step-5 (variant base); intelligence_index 28.5 >= 25.0; AA index v5
+2026-11-09,tencent/hunyuan-a13b-instruct,tencent,open_weights,openrouter_hugging_face_id,tencent/Hunyuan-A13B-Instruct,,,no AA match for 'hunyuan-a13b-instruct'
+2026-11-09,tencent/hy-mt2-1.8b,tencent,open_weights,openrouter_hugging_face_id,tencent/Hy-MT2-1.8B,,,no AA match for 'hy-mt2-1.8b'
+2026-11-09,tencent/hy-mt2-30b-a3b,tencent,open_weights,openrouter_hugging_face_id,tencent/Hy-MT2-30B-A3B,,,no AA match for 'hy-mt2-30b-a3b'
+2026-11-09,tencent/hy-mt2-7b,tencent,open_weights,openrouter_hugging_face_id,tencent/Hy-MT2-7B,,,no AA match for 'hy-mt2-7b'
+2026-11-09,tencent/hy3,tencent,open_weights,openrouter_hugging_face_id,tencent/Hy3,,,no AA match for 'hy3'
+2026-11-09,tencent/hy3-preview,tencent,open_weights,openrouter_hugging_face_id,tencent/Hy3-preview,,,no AA match for 'hy3-preview'
+2026-11-09,tencent/hy4,tencent,open_weights,openrouter_hugging_face_id,tencent/Hy4,34.6,mid,AA tencent-hy4 (variant base); intelligence_index 34.6 >= 25.0; AA index v5
+2026-11-09,tencent/hy4-preview,tencent,open_weights,openrouter_hugging_face_id,tencent/Hy4-preview,,,no AA match for 'hy4-preview'
+2026-11-09,thedrummer/cydonia-24b-v4.1,thedrummer,open_weights,openrouter_hugging_face_id,thedrummer/cydonia-24b-v4.1,,,no AA match for 'cydonia-24b-v4.1'
+2026-11-09,thedrummer/skyfall-36b-v2,thedrummer,open_weights,openrouter_hugging_face_id,TheDrummer/Skyfall-36B-v2,,,no AA match for 'skyfall-36b-v2'
+2026-11-09,thedrummer/unslopnemo-12b,thedrummer,open_weights,openrouter_hugging_face_id,TheDrummer/UnslopNemo-12B-v4.1,,,no AA match for 'unslopnemo-12b'
+2026-11-09,thinkingmachines/inkling,thinkingmachines,open_weights,openrouter_hugging_face_id,thinkingmachines/Inkling,12.5,entry,AA inkling (variant Xhigh); intelligence_index 12.5 >= 0.0; AA index v5
+2026-11-09,thinkingmachines/inkling-small,thinkingmachines,open_weights,openrouter_hugging_face_id,thinkingmachines/Inkling-Small,12.9,entry,AA inkling-small (variant base); intelligence_index 12.9 >= 0.0; AA index v5
+2026-11-09,thinkingmachines/inkling-small:batch,thinkingmachines,open_weights,openrouter_hugging_face_id,thinkingmachines/Inkling-Small,12.9,entry,AA inkling-small (variant base); intelligence_index 12.9 >= 0.0; AA index v5
+2026-11-09,unbiased/pareto-26.10,unbiased,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'unbiased',,,no AA match for 'pareto-26.10'
+2026-11-09,unbiased/pareto-26.9,unbiased,unclassified,no_known_hf_namespace,no Hugging Face namespace mapped for org 'unbiased',,,no AA match for 'pareto-26.9'
+2026-11-09,undi95/remm-slerp-l2-13b,undi95,open_weights,openrouter_hugging_face_id,Undi95/ReMM-SLERP-L2-13B,,,no AA match for 'remm-slerp-l2-13b'
+2026-11-09,upstage/solar-mini4,upstage,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/upstage/SOLAR-10.7B-v1.0, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'solar-mini4'
+2026-11-09,upstage/solar-pro4,upstage,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/upstage/SOLAR-10.7B-v1.0, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'solar-pro4'
+2026-11-09,writer/palmyra-x5,writer,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/Writer/Palmyra-Creative, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'palmyra-x5'
+2026-11-09,x-ai/grok-4.20,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'grok-4.20'
+2026-11-09,x-ai/grok-4.20-multi-agent,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'grok-4.20-multi-agent'
+2026-11-09,x-ai/grok-4.3,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'grok-4.3'
+2026-11-09,x-ai/grok-4.3:batch,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'grok-4.3'
+2026-11-09,x-ai/grok-4.5,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'grok-4.5'
+2026-11-09,x-ai/grok-4.6,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,31.0,mid,AA grok-4-6-xhigh (variant Xhigh); intelligence_index 31.0 >= 25.0; AA index v5
+2026-11-09,x-ai/grok-4.6:batch,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,31.0,mid,AA grok-4-6-xhigh (variant Xhigh); intelligence_index 31.0 >= 25.0; AA index v5
+2026-11-09,x-ai/grok-4.7,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,35.5,mid,AA grok-4-7 (variant Xhigh); intelligence_index 35.5 >= 25.0; AA index v5
+2026-11-09,x-ai/grok-4.7:batch,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,35.5,mid,AA grok-4-7 (variant Xhigh); intelligence_index 35.5 >= 25.0; AA index v5
+2026-11-09,x-ai/grok-build-0.1,x-ai,closed_weights,org_on_closed_weight_list,config/weight_classes.json closed_weight_orgs,,,no AA match for 'grok-build-0.1'
+2026-11-09,xiaomi/mimo-v2.5,xiaomi,open_weights,openrouter_hugging_face_id,XiaomiMiMo/MiMo-V2.5,,,no AA match for 'mimo-v2.5'
+2026-11-09,xiaomi/mimo-v2.5-pro,xiaomi,open_weights,openrouter_hugging_face_id,XiaomiMiMo/MiMo-V2.5-Pro,,,no AA match for 'mimo-v2.5-pro'
+2026-11-09,xiaomi/mimo-v2.6-flash,xiaomi,open_weights,openrouter_hugging_face_id,XiaomiMiMo/MiMo-V2.6-Flash-RL,26.7,mid,AA mimo-v2-6-flash (variant base); intelligence_index 26.7 >= 25.0; AA index v5
+2026-11-09,xiaomi/mimo-v2.6-pro,xiaomi,open_weights,openrouter_hugging_face_id,XiaomiMiMo/MiMo-V2.6-Pro-RL,29.9,mid,AA mimo-v2-6-pro (variant base); intelligence_index 29.9 >= 25.0; AA index v5
+2026-11-09,xiaomi/mimo-v2.6-pro-ultraspeed,xiaomi,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Pro-MOPD, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'mimo-v2.6-pro-ultraspeed'
+2026-11-09,xingchen-agi/xing4.0-29b-a4b:free,xingchen-agi,open_weights,openrouter_hugging_face_id,XingChen-AGI/Xing4.0-29B-A4B,,,no AA match for 'xing4.0-29b-a4b'
+2026-11-09,z-ai/glm-4.5,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-4.5,,,no AA match for 'glm-4.5'
+2026-11-09,z-ai/glm-4.5-air,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-4.5-Air,,,no AA match for 'glm-4.5-air'
+2026-11-09,z-ai/glm-4.5v,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-4.5V,,,no AA match for 'glm-4.5v'
+2026-11-09,z-ai/glm-4.6,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-4.6,,,no AA match for 'glm-4.6'
+2026-11-09,z-ai/glm-4.6v,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-4.6V,,,no AA match for 'glm-4.6v'
+2026-11-09,z-ai/glm-4.7,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-4.7,,,no AA match for 'glm-4.7'
+2026-11-09,z-ai/glm-4.7-flash,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-4.7-Flash,,,no AA match for 'glm-4.7-flash'
+2026-11-09,z-ai/glm-5,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5,,,no AA match for 'glm-5'
+2026-11-09,z-ai/glm-5-turbo,z-ai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/zai-org/GLM-5, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'glm-5-turbo'
+2026-11-09,z-ai/glm-5.1,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.1,,,no AA match for 'glm-5.1'
+2026-11-09,z-ai/glm-5.2,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.2,,,no AA match for 'glm-5.2'
+2026-11-09,z-ai/glm-5.2:batch,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.2,,,no AA match for 'glm-5.2'
+2026-11-09,z-ai/glm-5.3,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.3,31.7,mid,AA glm-5-3 (variant Max); intelligence_index 31.7 >= 25.0; AA index v5
+2026-11-09,z-ai/glm-5.3-flash,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.3-Flash,27.8,mid,AA glm-5-3-flash (variant base); intelligence_index 27.8 >= 25.0; AA index v5
+2026-11-09,z-ai/glm-5.3-flash:batch,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.3-Flash,27.8,mid,AA glm-5-3-flash (variant base); intelligence_index 27.8 >= 25.0; AA index v5
+2026-11-09,z-ai/glm-5.3-flashx,z-ai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/zai-org/GLM-5.3, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'glm-5.3-flashx'
+2026-11-09,z-ai/glm-5.3-flashx-legal,z-ai,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/zai-org (154 repos), no weights repo for 'glm-5.3-flashx-legal'",,,no AA match for 'glm-5.3-flashx-legal'
+2026-11-09,z-ai/glm-5.3-prime,z-ai,unclassified,hosted_variant_of_open_base,"base weights at https://huggingface.co/zai-org/GLM-5.3, but this SKU is not separately released; the served variant may differ from the published weights",,,no AA match for 'glm-5.3-prime'
+2026-11-09,z-ai/glm-5.3:batch,z-ai,open_weights,openrouter_hugging_face_id,zai-org/GLM-5.3,31.7,mid,AA glm-5-3 (variant Max); intelligence_index 31.7 >= 25.0; AA index v5
+2026-11-09,z-ai/glm-5v-turbo,z-ai,closed_weights,hf_namespace_publishes_but_no_repo,"searched https://huggingface.co/zai-org (154 repos), no weights repo for 'glm-5v-turbo'",,,no AA match for 'glm-5v-turbo'

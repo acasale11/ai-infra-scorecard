@@ -1,0 +1,125 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": "alpaca",
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Llama2"
+    },
+    "created": 1688256000,
+    "description": "One of the highest performing and most popular fine-tunes of Llama 2 13B, with rich descriptions and roleplay. #merge",
+    "endpoints": [
+      {
+        "context_length": 4096,
+        "latency_last_30m": null,
+        "max_completion_tokens": 3686,
+        "max_prompt_tokens": null,
+        "model_id": "gryphe/mythomax-l2-13b",
+        "model_name": "MythoMax 13B",
+        "name": "Parasail | gryphe/mythomax-l2-13b",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000011",
+          "discount": 0,
+          "prompt": "0.00000008"
+        },
+        "provider_name": "Parasail",
+        "quantization": "fp16",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "seed",
+          "stop",
+          "top_k",
+          "logit_bias",
+          "logprobs",
+          "top_logprobs",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "parasail/fp16",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 8192,
+        "latency_last_30m": null,
+        "max_completion_tokens": 7372,
+        "max_prompt_tokens": null,
+        "model_id": "gryphe/mythomax-l2-13b",
+        "model_name": "MythoMax 13B",
+        "name": "Mancer 2 | gryphe/mythomax-l2-13b",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000006",
+          "discount": 0,
+          "input_cache_read": "0.00000035",
+          "prompt": "0.00000035"
+        },
+        "provider_name": "Mancer 2",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "repetition_penalty",
+          "logit_bias",
+          "top_k",
+          "min_p",
+          "seed",
+          "top_a",
+          "response_format",
+          "logprobs",
+          "top_logprobs",
+          "structured_outputs"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "mancer/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "gryphe/mythomax-l2-13b",
+    "name": "MythoMax 13B"
+  }
+}

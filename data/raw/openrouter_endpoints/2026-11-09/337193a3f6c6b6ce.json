@@ -1,0 +1,67 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1769728337,
+    "description": "Step 3.5 Flash is StepFun's most capable open-source foundation model. Built on a sparse Mixture of Experts (MoE) architecture, it selectively activates only 11B of its 196B parameters per token....",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 65536,
+        "max_prompt_tokens": null,
+        "model_id": "stepfun/step-3.5-flash",
+        "model_name": "StepFun: Step 3.5 Flash",
+        "name": "SiliconFlow | stepfun/step-3.5-flash",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000003",
+          "discount": 0,
+          "prompt": "0.0000001"
+        },
+        "provider_name": "SiliconFlow",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "temperature",
+          "top_p",
+          "top_k",
+          "frequency_penalty",
+          "tools",
+          "tool_choice",
+          "max_tokens"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": false,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "siliconflow/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.2248062015504,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "stepfun/step-3.5-flash",
+    "name": "StepFun: Step 3.5 Flash"
+  }
+}

@@ -1,0 +1,132 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image",
+        "video"
+      ],
+      "instruct_type": null,
+      "modality": "text+image+video->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Qwen"
+    },
+    "created": 1787773060,
+    "description": "Qwen3.8 Flash is a multimodal reasoning model from Alibaba. It is suited for coding assistance, agentic workflows, visual understanding, document and codebase analysis, desktop interaction, chart analysis, and long-video analysis.",
+    "endpoints": [
+      {
+        "context_length": 1000000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": 983616,
+        "model_id": "qwen/qwen3.8-flash",
+        "model_name": "Qwen: Qwen3.8 Flash",
+        "name": "Alibaba | qwen/qwen3.8-flash-20260826",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000047",
+          "discount": 0,
+          "input_cache_read": "0.000000016",
+          "prompt": "0.00000015"
+        },
+        "provider_name": "Alibaba",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "presence_penalty",
+          "response_format",
+          "tools",
+          "structured_outputs",
+          "top_k",
+          "frequency_penalty",
+          "stop",
+          "logprobs",
+          "top_logprobs",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "alibaba/us-east-1",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 1000000,
+        "latency_last_30m": null,
+        "max_completion_tokens": 131072,
+        "max_prompt_tokens": 983616,
+        "model_id": "qwen/qwen3.8-flash",
+        "model_name": "Qwen: Qwen3.8 Flash",
+        "name": "Alibaba | qwen/qwen3.8-flash-20260826",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000047",
+          "discount": 0,
+          "input_cache_read": "0.000000016",
+          "input_cache_write": "0.0000002",
+          "prompt": "0.00000015"
+        },
+        "provider_name": "Alibaba",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "seed",
+          "presence_penalty",
+          "response_format",
+          "tools",
+          "structured_outputs",
+          "top_k",
+          "frequency_penalty",
+          "stop",
+          "logprobs",
+          "top_logprobs",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": false,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": false,
+          "none": true,
+          "required": false
+        },
+        "supports_voice_cloning": false,
+        "tag": "alibaba",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "qwen/qwen3.8-flash",
+    "name": "Qwen: Qwen3.8 Flash"
+  }
+}

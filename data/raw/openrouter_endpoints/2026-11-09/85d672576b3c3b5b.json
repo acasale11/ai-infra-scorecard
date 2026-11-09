@@ -1,0 +1,120 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text",
+        "image"
+      ],
+      "instruct_type": null,
+      "modality": "text+image->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Mistral"
+    },
+    "created": 1764681735,
+    "description": "The largest model in the Ministral 3 family, Ministral 3 14B offers frontier capabilities and performance comparable to its larger Mistral Small 3.2 24B counterpart. A powerful and efficient language...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 209715,
+        "max_prompt_tokens": null,
+        "model_id": "mistralai/ministral-14b-2512",
+        "model_name": "Mistral: Ministral 3 14B 2512",
+        "name": "Mistral | mistralai/ministral-14b-2512",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.0000002",
+          "discount": 0,
+          "input_cache_read": "0.00000002",
+          "prompt": "0.0000002"
+        },
+        "provider_name": "Mistral",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "seed",
+          "response_format",
+          "structured_outputs",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "mistral/zdr",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      },
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 209715,
+        "max_prompt_tokens": null,
+        "model_id": "mistralai/ministral-14b-2512",
+        "model_name": "Mistral: Ministral 3 14B 2512",
+        "name": "Mistral | mistralai/ministral-14b-2512",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.00000022",
+          "discount": 0,
+          "input_cache_read": "0.000000022",
+          "prompt": "0.00000022"
+        },
+        "provider_name": "Mistral",
+        "quantization": "unknown",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "max_tokens",
+          "temperature",
+          "top_p",
+          "stop",
+          "frequency_penalty",
+          "presence_penalty",
+          "seed",
+          "response_format",
+          "structured_outputs",
+          "tools",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "mistral/eu",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 99.92795389048992,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "mistralai/ministral-14b-2512",
+    "name": "Mistral: Ministral 3 14B 2512"
+  }
+}

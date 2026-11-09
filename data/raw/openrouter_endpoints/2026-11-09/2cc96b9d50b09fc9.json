@@ -1,0 +1,74 @@
+{
+  "data": {
+    "architecture": {
+      "input_modalities": [
+        "text"
+      ],
+      "instruct_type": null,
+      "modality": "text->text",
+      "output_modalities": [
+        "text"
+      ],
+      "tokenizer": "Other"
+    },
+    "created": 1786034890,
+    "description": "Ling 3.0 Tiny is a mixture-of-experts model from InclusionAI, with 1.3B active parameters out of 7.9B total. It is designed for responsive agents, instruction following, and multi-turn conversations, with switchable...",
+    "endpoints": [
+      {
+        "context_length": 262144,
+        "latency_last_30m": null,
+        "max_completion_tokens": 250000,
+        "max_prompt_tokens": null,
+        "model_id": "inclusionai/ling-3.0-tiny",
+        "model_name": "inclusionAI: Ling 3.0 Tiny",
+        "name": "Ant Digital | inclusionai/ling-3.0-tiny-20260806",
+        "native_tools": {},
+        "pricing": {
+          "completion": "0.000000045",
+          "discount": 0,
+          "input_cache_read": "0.000000003",
+          "prompt": "0.000000015"
+        },
+        "provider_name": "Ant Digital",
+        "quantization": "fp8",
+        "service_tier": null,
+        "status": 0,
+        "supported_parameters": [
+          "reasoning",
+          "include_reasoning",
+          "temperature",
+          "top_p",
+          "max_tokens",
+          "stop",
+          "seed",
+          "frequency_penalty",
+          "presence_penalty",
+          "response_format",
+          "tools",
+          "logprobs",
+          "top_logprobs",
+          "structured_outputs",
+          "tool_choice"
+        ],
+        "supports_diarization": false,
+        "supports_image_reference": false,
+        "supports_implicit_caching": true,
+        "supports_multiple_audio_references": false,
+        "supports_tool_choice": {
+          "auto": true,
+          "function": true,
+          "none": true,
+          "required": true
+        },
+        "supports_voice_cloning": false,
+        "tag": "antdigital/fp8",
+        "throughput_last_30m": null,
+        "uptime_last_1d": 100,
+        "uptime_last_30m": 100,
+        "uptime_last_5m": 100
+      }
+    ],
+    "id": "inclusionai/ling-3.0-tiny",
+    "name": "inclusionAI: Ling 3.0 Tiny"
+  }
+}
