@@ -4,3 +4,8 @@ date,pillar,signal,reason
 2026-11-02,credit,amber,"No secondary bond pricing. Needs a FINRA account, which does not exist."
 2026-11-02,compute_pricing,red,no collector yet
 2026-11-02,buyer_concentration,red,no collector yet
+2026-11-09,elasticity,green,"collecting, newest data 2026-11-04"
+2026-11-09,open_source_share,green,"collecting, newest data 2026-11-04"
+2026-11-09,credit,amber,"No secondary bond pricing. Needs a FINRA account, which does not exist."
+2026-11-09,compute_pricing,red,no collector yet
+2026-11-09,buyer_concentration,red,no collector yet
