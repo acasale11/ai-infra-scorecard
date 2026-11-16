@@ -1,0 +1,112 @@
+{
+  "_id": "66bd43b3d7a9770138199829",
+  "author": "SakanaAI",
+  "cardData": {
+    "base_model": [
+      "OpenGVLab/InternVL2-2B"
+    ],
+    "datasets": [
+      "TIGER-Lab/Mantis-Instruct"
+    ],
+    "language": [
+      "en"
+    ],
+    "library_name": "transformers",
+    "license": "mit",
+    "pipeline_tag": "visual-question-answering"
+  },
+  "config": {
+    "architectures": [
+      "InternVLChatModel"
+    ],
+    "auto_map": {
+      "AutoConfig": "OpenGVLab/InternVL2-2B--configuration_internvl_chat.InternVLChatConfig",
+      "AutoModel": "OpenGVLab/InternVL2-2B--modeling_internvl_chat.InternVLChatModel",
+      "AutoModelForCausalLM": "OpenGVLab/InternVL2-2B--modeling_internvl_chat.InternVLChatModel"
+    },
+    "model_type": "internvl_chat",
+    "tokenizer_config": {
+      "bos_token": "<s>",
+      "chat_template": "{{ bos_token }}{% for message in messages %}{{'<|im_start|>' + message['role'] + '\n' + message['content'] + '<|im_end|>' + '\n'}}{% endfor %}{% if add_generation_prompt %}{{ '<|im_start|>assistant\n' }}{% endif %}",
+      "eos_token": "</s>",
+      "pad_token": "</s>",
+      "unk_token": "<unk>"
+    }
+  },
+  "createdAt": "2024-08-14T23:54:27.000Z",
+  "disabled": false,
+  "downloads": 78,
+  "gated": false,
+  "id": "SakanaAI/TAID-VLM-2B",
+  "lastModified": "2025-01-30T12:17:32.000Z",
+  "library_name": "transformers",
+  "likes": 6,
+  "model-index": null,
+  "modelId": "SakanaAI/TAID-VLM-2B",
+  "pipeline_tag": "visual-question-answering",
+  "private": false,
+  "safetensors": {
+    "parameters": {
+      "BF16": 2205754368
+    },
+    "total": 2205754368
+  },
+  "sha": "d52a4cf1fdffb997fa1ea73c01be3b9fdcd849b4",
+  "siblings": [
+    {
+      "rfilename": ".gitattributes"
+    },
+    {
+      "rfilename": "LICENSE"
+    },
+    {
+      "rfilename": "README.md"
+    },
+    {
+      "rfilename": "added_tokens.json"
+    },
+    {
+      "rfilename": "config.json"
+    },
+    {
+      "rfilename": "generation_config.json"
+    },
+    {
+      "rfilename": "model.safetensors"
+    },
+    {
+      "rfilename": "special_tokens_map.json"
+    },
+    {
+      "rfilename": "tokenization_internlm2.py"
+    },
+    {
+      "rfilename": "tokenizer.model"
+    },
+    {
+      "rfilename": "tokenizer_config.json"
+    }
+  ],
+  "spaces": [],
+  "tags": [
+    "transformers",
+    "safetensors",
+    "internvl_chat",
+    "feature-extraction",
+    "visual-question-answering",
+    "custom_code",
+    "en",
+    "dataset:TIGER-Lab/Mantis-Instruct",
+    "arxiv:2501.16937",
+    "base_model:OpenGVLab/InternVL2-2B",
+    "base_model:finetune:OpenGVLab/InternVL2-2B",
+    "license:mit",
+    "region:us"
+  ],
+  "transformersInfo": {
+    "auto_model": "AutoModel",
+    "custom_class": "OpenGVLab/InternVL2-2B--modeling_internvl_chat.InternVLChatModel",
+    "pipeline_tag": "feature-extraction"
+  },
+  "usedStorage": 4413048794
+}

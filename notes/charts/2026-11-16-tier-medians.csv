@@ -1,0 +1,7 @@
+tier,weight_class,n,median_input,median_output
+frontier,open_weights,1,1.9,9.5
+frontier,closed_weights,10,2.0,10.0
+mid,open_weights,10,0.206,0.4762
+mid,closed_weights,13,2.0,6.0
+entry,open_weights,17,0.3,1.5
+entry,closed_weights,4,0.25,1.5
